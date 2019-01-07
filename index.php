@@ -1,6 +1,6 @@
 <?php
 
-echo 'test2123';
+echo 'tests';
 
 
 ?>

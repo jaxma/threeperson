@@ -82,7 +82,7 @@ $(function(){
                     </td>
                     <td valign="top">
                         <input name="verify" type="text" id="verify" maxlength="8" style="width: 93px;" class="text"/>
-						<img src="__ROOT__/Base/verify_code/w/50/h/25.html" title="看不清？单击此处刷新" onclick="this.src+='?rand='+Math.random();"  style="cursor: pointer; vertical-align: middle;margin-top:-5px;" align="absmiddle"/>
+						<img src="__ROOT__/system.php/Base/verify_code/w-50-h-25.html" title="看不清？单击此处刷新" onclick="this.src+='?rand='+Math.random();"  style="cursor: pointer; vertical-align: middle;margin-top:-5px;" align="absmiddle"/>
                         <span id="rfvCode" style="color:Red;visibility:hidden;">(*不能为空)</span>
 						<input type="hidden" name="ajax" value="1">
                     </td>

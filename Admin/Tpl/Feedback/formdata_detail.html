@@ -1,0 +1,167 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+</script>
+
+<link href="__PUBLIC__/Admin/Css/formdata.css" rel="stylesheet" />
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current">
+				<a href="javascript:">表单详细内容</a>
+			</li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<eq name='type' value='1'><!--公开日报名-->
+				<div class="apply_2">
+					<form id="myForm">
+					<div style="background:none; height:auto;" class="kcDiv yahei">
+					<dl style="padding-top:0">
+					<dd style="float:left; padding-left:41px; width:300px;">
+					<h2>您的基本信息</h2>
+					<ul>
+					<li><label>姓  名：</label><input type="text" value="{$detail.value1}" class="input_1"></li>
+					<li>性别：{$detail.value2}</li>
+					<li><label>您的联系方式：</label><input type="text" value="{$detail.value3}" class="input_1"></li>
+					<li><label>您的常用邮箱：</label><input type="text" value="{$detail.value4}" class="input_1"></li>
+					<li><label>您与孩子的关系：</label><input type="text" value="{$detail.value5}" class="input_1"></li>
+					</ul>
+					</dd>
+
+
+					<dd style="float:right">
+					<h2>孩子的基本信息</h2>
+					<ul>
+					<li><label>名字：</label><input type="text" value="{$detail.value6}" class="input_1"></li>
+					<li>性别：{$detail.value7}</li>
+					<li><label>出生日期：</label><input type="text" value="{$detail.value8}" class="input_1"></li>
+					</ul>
+					</dd>
+
+					<dd style="width:100%; padding-bottom:31px;">
+					<ul style="padding-left:41px;">
+					<li style="width:100%;padding-top:30px;"><label style="width:267px;">您是从哪里知道本次活动资讯的？</label><input type="text" value="{$detail.value9}" style="width:272px;" class="input_1"></li>
+					<li style="width:100%; padding-top:15px;"><label style="width:267px;">您在本次公开日中最想了解学校哪些信息？</label><input type="text" value="{$detail.value10}" style="width:272px;" class="input_1"></li>
+					</ul>
+					</dd>
+
+					</dl>
+					</div>
+					</form></div>
+			</eq><!-- 公开日报名end -->
+
+
+			<eq name='type' value='2'><!--报读狮子公学-->
+				<div id="kcDiv" class="kcDiv yahei">
+				<dl>
+				<dd style='float:left;'>
+				<h2>基本信息</h2>
+				<ul>
+				<li>预约课程：{$detail.value9}</li>
+				<li><label>姓  名：</label><input type="text" value="{$detail.value1}" class="input_1"></li>
+				<li>性别：{$detail.value2}</li>
+				<li><label>您的联系方式：</label><input type="text" value="{$detail.value3}" class="input_1"></li>
+				<li><label>您的常用邮箱：</label><input type="text" value="{$detail.value4}" class="input_1"></li>
+				<li><label>您与孩子的关系：</label><input type="text" value="{$detail.value5}" class="input_1"></li>
+				</ul>
+				<h2>孩子的基本信息</h2>
+				<ul>
+				<li><label>姓  名：</label><input type="text" value="{$detail.value6}" class="input_1"></li>
+				<li>性别：{$detail.value7}
+				<li><label>出生日期：</label><input type="text" value="{$detail.value8}" class="input_1"></li>
+
+				</ul>
+				</dd>
+				</dl>
+				</div>
+			</eq><!-- 报读狮子公学end -->
+
+
+			<eq name='type' value='3'><!--活动合作-->
+				<div class="hzxq_3 yahei">
+				<form id="myForm" action="">
+					<dl>
+					<dt>
+					<ul>
+					<li style="padding-bottom:25px;"><b>贵公司基本信息</b></li>
+					<li style="padding-bottom:25px;"><b>您的信息</b></li>
+					<li><label>公 司 全 名：</label><input type="text" value="{$detail.value1}"></li>
+					<li><label>您的职务：</label><input type="text" value="{$detail.value2}"></li>
+					<li><label>公司联系电话：</label><input type="text" value="{$detail.value3}"></li>
+					<li><label>您的联系电话：</label><input type="text" value="{$detail.value4}"></li>
+					<li><label>公司常用邮箱：</label><input type="text" value="{$detail.value5}"></li>
+					<li><label>您的常用邮箱：</label><input type="text" value="{$detail.value6}"></li>
+					<li><label>公 司 地 址：</label><input type="text" value="{$detail.value7}"></li>
+
+					</ul>
+					<div class="clear"></div>
+					</dt>
+					<dd>
+					<h2>您的合作需求</h2>
+					<textarea>{$detail.value8}</textarea><br><br>
+					</dd>
+					</dl>
+				</form>
+				</div>
+			</eq><!-- 活动合作end -->
+
+
+			<eq name='type' value='5'><!--活动报名-->
+				<div class="apply_2">
+					<div style="background:none; height:auto;" class="kcDiv yahei">
+					<form id="myForm">
+					<dl style="padding-top:0">
+
+					<dd style="float:left; padding-left:41px; width:300px;">
+					<h2>您的基本信息</h2>
+					<ul>
+					<li><label>姓  名：</label><input type="text" value="{$detail.value1}" class="input_1"></li>
+					<li>性别：{$detail.value2}</li>
+					<li><label>您的联系方式：</label><input type="text" value="{$detail.value3}" class="input_1"></li>
+					<li><label>您的常用邮箱：</label><input type="text" value="{$detail.value4}" class="input_1"></li>
+					<li><label>您与孩子的关系：</label><input type="text" value="{$detail.value5}" class="input_1"></li>
+					</ul>
+					</dd>
+
+
+					<dd style="float:right">
+					<h2>孩子的基本信息</h2>
+					<ul>
+					<li><label>名字：</label><input type="text" value="{$detail.value6}" class="input_1"></li>
+					<li>性别：{$detail.value7}</li>
+					<li><label>出生年月：</label><input type="text" value="{$detail.value8}" class="input_1"></li>
+					</ul>
+					</dd>
+
+					<dd style="width:100%; padding-bottom:31px;">
+					<ul style="padding-left:41px;">
+					<li style="width:100%;padding-top:30px;"><label style="width:267px;">您是从哪里知道本次活动资讯的？</label><input type="text" value="{$detail.value9}" style="width:272px;" class="input_1"></li>
+					<li style="width:100%; padding-top:30px;"><label style="width:267px;">您在本次公开日中最想了解学校哪些信息？</label><input type="text" value="{$detail.value10}" style="width:272px;" class="input_1"></li>
+					</ul>
+					</dd>
+
+					</dl>
+
+					<input type="hidden" value="5" name="type">
+					</form>
+					</div>
+					</div>
+			</eq><!-- 活动报名end -->
+
+
+			<div style='text-align:center;'><input type="button" value='确定' onclick="history.back();"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

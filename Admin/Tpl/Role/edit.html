@@ -1,0 +1,119 @@
+<include file="Index:pageHeader" />
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">修改角色</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Role/update')}" id="submitForm" name="submitForm">
+				<table width="100%">
+				  <tr>
+					<td class="label">角色名</td>
+					<td>
+					  <input type="text" name="user_name" maxlength="20" value="{$user.role_name}" size="34"/></td>
+				  </tr>
+				  <tr>
+					<td class="label">角色描述</td>
+					<td>
+						<textarea name="role_describe" cols="31" rows="6">{$user.role_describe}</textarea>
+					</td>
+				  </tr>
+				  </table>
+				<table cellspacing='1' id="list-table" style="margin-top:10px;">
+				<volist name="articlecat_role" id="priv">
+				 <tr>
+				  <td width="18%" valign="top" class="first-cell">
+					<input name="action_code[]" type="checkbox" <if condition="in_array('cat_'.$priv['cat_id'],$action_list)">checked</if> value="cat_{$priv.cat_id}" id="cat_{$priv.cat_id}" onclick="check(this);" class="checkbox">
+					<label for="cat_{$priv.cat_id}">{$priv.cat_name}</label>
+				  </td>
+				  <td>
+					<volist name="priv.chid" id="list" key="priv_list">
+					<div style="width:200px;float:left;">
+					<input type="checkbox" <if condition="in_array('cat_'.$list['cat_id'],$action_list)">checked</if> name="action_code[]" value="cat_{$list.cat_id}" id="cat_{$list.cat_id}" class="checkbox" />
+					<label for="cat_{$list.cat_id}">{$list.cat_name}</label>
+					</div>
+					</volist>
+				</td></tr>
+				</volist>
+				
+				
+				 <tr>
+				 <td width="18%" valign="top" class="first-cell">
+				  	<input name="action_code[]" <if condition="in_array('Helps',$action_list)">checked</if> type="checkbox" value="Helps" id="Helps" onclick="check(this);" class="checkbox">
+					<label for="Helps">帮忙中心</label>
+
+				  </td>
+				  <td align="left" class="first-cell">
+				  <volist name="articlecat_role2" id="priv">
+					<input name="action_code[]" type="checkbox" <if condition="in_array('cat_'.$priv['cat_id'],$action_list)">checked</if> value="cat_{$priv.cat_id}" id="cat_{$priv.cat_id}" onclick="check(this);" class="checkbox">
+					<label for="cat_{$priv.cat_id}">{$priv.cat_name}</label>
+					</div>
+					</volist>
+					</volist>
+				 </td>
+				</tr>
+				<tr>
+				  <td align="left" colspan='2' class="first-cell">
+				  	<input name="action_code[]" <if condition="in_array('Columns',$action_list)">checked</if>  type="checkbox" value="Columns" id="Columns" class="checkbox">
+					<label for="Columns">栏目分类</label>
+				  	<input name="action_code[]" <if condition="in_array('Forms',$action_list)">checked</if>  type="checkbox" value="Forms" id="Forms" class="checkbox">
+					<label for="Forms">表单管理</label>
+				  	<input name="action_code[]" <if condition="in_array('Attr',$action_list)">checked</if> type="checkbox" value="Attr" id="Attr" class="checkbox">
+					<label for="Attr">属性管理</label>
+				  	<input name="action_code[]" <if condition="in_array('Message',$action_list)">checked</if> type="checkbox" value="Message" id="Message" class="checkbox">
+					<label for="Message">信息管理</label>
+				  	<!-- <input name="action_code[]" <if condition="in_array('Images',$action_list)">checked</if> type="checkbox" value="Images" id="Images" class="checkbox">
+				  						<label for="Images">图片管理</label> -->
+				  	<input name="action_code[]" <if condition="in_array('Member',$action_list)">checked</if> type="checkbox" value="Member" id="Member" class="checkbox">
+					<label for="Member">会员管理</label>
+				  	<input name="action_code[]" <if condition="in_array('Systems',$action_list)">checked</if> type="checkbox" value="Systems" id="Systems" class="checkbox">
+					<label for="Systems">系统设置</label>
+				  	<input name="action_code[]" <if condition="in_array('Privilege',$action_list)">checked</if> type="checkbox" value="Privilege" id="Privilege" class="checkbox">
+					<label for="Privilege">权限管理</label>
+				 </td>
+				</tr>
+				  <tr>
+					<td align="center" colspan="2" >
+					  <input type="checkbox" name="checkall" value="checkbox" onclick="checkAll(this.form, this);" class="checkbox" />全选
+					  &nbsp;&nbsp;&nbsp;&nbsp;
+					  <input type="submit"   name="Submit"   value="保存" class="button" />&nbsp;&nbsp;&nbsp;
+					  <input type="reset" value="重置" class="button" />
+					  <input type="hidden"   name="id"    value="{$user_id}" />
+					  <input type="hidden"   name="act"   value="{$form_act}" />
+					</td>
+				  </tr>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+<script language="javascript">
+function checkAll(frm, checkbox)
+{
+  for (i = 0; i < frm.elements.length; i++)
+  {
+    if (frm.elements[i].name == 'action_code[]' || frm.elements[i].name == 'chkGroup')
+    {
+      frm.elements[i].checked = checkbox.checked;
+    }
+  }
+}
+
+function check(obj)
+{
+  var _this = $(obj);
+  var target = _this.parent('td').next('td').find('input');
+  var checked = _this.is(':checked');
+  if(checked){
+  	_this.attr('checked', 'checked');
+  	target.attr('checked', 'checked');
+  }else{
+  	_this.removeAttr('checked');
+  	target.removeAttr('checked');
+  }
+}
+</script>
+</body>
+</html>

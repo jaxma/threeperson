@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$site_title|strip_tags=###}</title>
+<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+<meta name='description' content="{$site_description|strip_tags=###}"/>
+<meta name='author' content="cyx科技:http://www.cyx.com"/>
+<meta name="viewport" content="width=1920,initial-scale=1">
+
+<link type="text/css" rel="stylesheet" href="__CSS__/style.css"/>
+
+<script type="text/javascript" src="__JS__/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__JS__/JQ_common.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__JS__/myScript.js"></script>
+</head>
+
+<body>
+<div id="header">
+    <div class="header">
+        <dl class="h_top">
+        <dt><a href="/"><img class="logo" src="__ROOT__/{$logo.original_img}" alt='logo'></a></dt>
+        <dd>
+            <div class="h_box">
+                <empty name='userInfo.user_id'>
+                <a href="{:U('User/login')}">Login</a>
+                <else/>
+                {$userInfo.user_name},<a href="{:U('User/logout')}" style='color:red;'>Login Out</a>
+                </empty>
+                |<a href="/">CHINESE</a>|<a href="/E">ENGLISH</a>
+            </div>
+        </dd>
+        </dl>
+        <ul class="nav">
+        <li <eq name='nid' value='1'>class='hover'</eq>><a href="/">Home</a></li>
+        <li <eq name='nid' value='2'>class='hover'</eq>><a href="{:U('Info/pService',array('cat_id'=>6))}">Product Serv</a>
+            <div class="sub">
+            <foreach name='all_cats.1.sub_cat' item='item'>
+                <a href="{:U('Info/pService',array('cat_id'=>$item['cat_id']))}" title='{$item.cat_name}'>{$item.cat_name|mySubstr=###,7}</a>
+            </foreach>
+            </div>
+        </li>
+        <li <eq name='nid' value='3'>class='hover'</eq>><a href="{:U('Info/news',array('cat_id'=>11))}">News</a>
+            <div class="sub">
+            <foreach name='all_cats.2.sub_cat' item='item'>
+                <a href="{:U('Info/news',array('cat_id'=>$item['cat_id']))}" title='{$item.cat_name}'>{$item.cat_name|mySubstr=###,7}</a>
+            </foreach>
+            </div>
+        </li>
+        <li <eq name='nid' value='4'>class='hover'</eq>><a href="{:U('Info/cService',array('cat_id'=>19))}">Customer Serv</a>
+            <div class="sub">
+            <foreach name='all_cats.3.sub_cat' item='item'>
+                <a href="{:U('Info/cService',array('cat_id'=>$item['cat_id']))}" title='{$item.cat_name}'>{$item.cat_name|mySubstr=###,7}</a>
+            </foreach>
+            </div>
+        </li>
+        <li <eq name='nid' value='5'>class='hover'</eq>><a href="{:U('Info/fboIndex')}">FBO</a>
+            <div class="sub">
+            <foreach name='all_cats.4.sub_cat' item='item'>
+                <a href="{:U('Info/fbo',array('cat_id'=>$item['cat_id']))}" title='{$item.cat_name}'>{$item.cat_name|mySubstr=###,7}</a>
+            </foreach>
+            </div>
+        </li>
+        <li <eq name='nid' value='6'>class='hover'</eq>><a href="{:U('Info/about',array('cat_id'=>14))}">About</a>
+            <div class="sub">
+            <foreach name='all_cats.5.sub_cat' item='item'>
+                <a href="{:U('Info/about',array('cat_id'=>$item['cat_id']))}" title='{$item.cat_name}'>{$item.cat_name|mySubstr=###,7}</a>
+            </foreach>
+            </div>
+        </li>
+        <li>
+            <form action="{:U('Common/search')}" class="search">
+                <input class="submit" type="submit" value="">
+                <input class="text" name='keyword' type="text" placeholder="Keyword Search">              
+            </form>
+        </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,189 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delMusic(id) {
+	$.dialog.confirm('你确定要删除这个音乐吗？', function(){
+		window.location.href="{:U('Music/del')}/music_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+$(function(){
+	$('#first_word').change(function(){	
+		
+		var id=$(this).val();
+		$.ajax({
+			url:"{:U('Music/getSinger')}",
+			type:'get',
+			data:'singer_id='+id,
+			success:function(msg){
+				$('#singer').html(msg);
+			}
+	   });
+	});
+})
+</script>
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">音乐列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--音乐列表-->
+            <div class="body User">
+                <div class="item">
+                    <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="新建音乐" class="submitNoBg" onclick="window.location.href='{:U('Music/add')}'"/></i></a>
+                    <div class="searchBar">
+						<form action="{:U('Music/index')}">
+							<select name="first_word" id="first_word">
+								<option value="0" <if condition="$filter['first_word'] eq '0'">selected=""</if>>请选择...</option>
+								<option value="A" <if condition="$filter['first_word'] eq 'A'">selected=""</if>>A</option>
+								<option value="B" <if condition="$filter['first_word'] eq 'B'">selected=""</if>>B</option>
+								<option value="C" <if condition="$filter['first_word'] eq 'C'">selected=""</if>>C</option>
+								<option value="D" <if condition="$filter['first_word'] eq 'D'">selected=""</if>>D</option>
+								<option value="E" <if condition="$filter['first_word'] eq 'E'">selected=""</if>>E</option>
+								<option value="F" <if condition="$filter['first_word'] eq 'F'">selected=""</if>>F</option>
+								<option value="G" <if condition="$filter['first_word'] eq 'G'">selected=""</if>>G</option>
+								<option value="H" <if condition="$filter['first_word'] eq 'H'">selected=""</if>>H</option>
+								<option value="I" <if condition="$filter['first_word'] eq 'I'">selected=""</if>>I</option>
+								<option value="J" <if condition="$filter['first_word'] eq 'J'">selected=""</if>>J</option>
+								<option value="K" <if condition="$filter['first_word'] eq 'K'">selected=""</if>>K</option>
+								<option value="L" <if condition="$filter['first_word'] eq 'L'">selected=""</if>>L</option>
+								<option value="M" <if condition="$filter['first_word'] eq 'M'">selected=""</if>>M</option>
+								<option value="N" <if condition="$filter['first_word'] eq 'N'">selected=""</if>>N</option>
+								<option value="O" <if condition="$filter['first_word'] eq 'O'">selected=""</if>>O</option>
+								<option value="P" <if condition="$filter['first_word'] eq 'P'">selected=""</if>>P</option>
+								<option value="Q" <if condition="$filter['first_word'] eq 'Q'">selected=""</if>>Q</option>
+								<option value="R" <if condition="$filter['first_word'] eq 'R'">selected=""</if>>R</option>
+								<option value="S" <if condition="$filter['first_word'] eq 'S'">selected=""</if>>S</option>
+								<option value="T" <if condition="$filter['first_word'] eq 'T'">selected=""</if>>T</option>
+								<option value="U" <if condition="$filter['first_word'] eq 'U'">selected=""</if>>U</option>
+								<option value="V" <if condition="$filter['first_word'] eq 'V'">selected=""</if>>V</option>
+								<option value="W" <if condition="$filter['first_word'] eq 'W'">selected=""</if>>W</option>
+								<option value="X" <if condition="$filter['first_word'] eq 'X'">selected=""</if>>X</option>
+								<option value="Y" <if condition="$filter['first_word'] eq 'Y'">selected=""</if>>Y</option>
+								<option value="Z" <if condition="$filter['first_word'] eq 'Z'">selected=""</if>>Z</option>
+							</select>
+							<select name="singer_id" id="singer">
+								<option value="0">请选择...</option>
+								{$singer_list}
+							</select>
+							歌曲类型：
+							<select name="cat_id" class="dot_Item">
+								<option value="0">全部类型</option>
+								<volist name="musicattr_list" id="vo">
+									<option value="{$vo.attr_id}" <if condition="$filter['cat_id'] eq $vo['attr_id']">selected=""</if>>{$vo.attr_name}</option>
+								</volist>
+							</select>
+							排序方式：
+							<select name="sort_by" class="dot_Item">
+								<option value="">请选择排序方式</option>
+								<option value="m.music_id" <if condition="$filter.sort_by eq 'm.music_id'">selected=""</if>>音乐编号</option>
+								<option value="m.title" <if condition="$filter.sort_by eq 'm.title'">selected=""</if>>音乐标题</option>
+								<option value="m.sort_order" <if condition="$filter.sort_by eq 'm.sort_order'">selected=""</if>>排序</option>
+								<option value="m.is_open" <if condition="$filter.sort_by eq 'm.is_open'">selected=""</if>>是否显示</option>
+								<option value="m.add_time" <if condition="$filter.sort_by eq 'm.add_time'">selected=""</if>>添加时间</option>
+							</select>
+							排序：
+							<select name="sort_order" class="dot_Item">
+								<option value="">请选择排序</option>
+								<option value="DESC" <if condition="$filter.sort_order eq 'DESC'">selected=""</if>>倒序</option>
+								<option value="ASC" <if condition="$filter.sort_order eq 'ASC'">selected=""</if>>顺序</option>
+							</select>
+							音乐标题 ：
+							<input type="text" class="txt" name="keyword" value="{$filter.keyword}"/>&nbsp;&nbsp;<input type="submit" class="submit btn_search" value="搜索" />
+						</form>
+                    </div>
+                </div>
+				
+				<form method="POST" action="{:U('Music/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" />编号</th>
+								<th>音乐标题</th>
+								<th>音乐类型</th>
+								<th>所属歌手</th>
+								<th>排序</th>
+								<th>是否显示</th>
+								<th>添加日期</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+							<tr>
+								<td><input type="checkbox" name="checkboxes[]" class="checkBox_list" value="{$vo.music_id}" />{$vo.music_id}</td>
+								<td>{$vo.title}</td>
+								<td>{$vo.attr_name}</td>
+								<td>{$vo.singer_name}</td>
+								<td>{$vo.sort_order}</td>
+								<td><if condition="$vo['is_open']==1"><img src="__PUBLIC__/Admin/Img/yes.gif"/><else/><img src="__PUBLIC__/Admin/Img/no.gif"/></if></td>
+								<td>{$vo.add_time|date='Y-m-d H:i:s',###}</td>
+								<td>
+									<span>
+										<a title="编辑" href="{:U('Music/edit',array('id'=>$vo['music_id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+										<a title="移除" onclick="delMusic('{$vo.music_id}')" href="javascript:;"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+									</span>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+					<div class="batchChange">
+						<div class="f_l">
+							<select onchange="changeAction()" id="selAction" name="type">
+							<option value="">请选择...</option>
+							<option value="button_remove">批量删除</option>
+							<option value="button_hide">批量隐藏</option>
+							<option value="button_show">批量显示</option>
+							</select>
+							<select name="target_cat" style="display:none">
+								<option value="0">请选择...</option>
+								{$cat_select}
+							</select>
+							<input type="submit" class="button" name="btnSubmit" id="btnSubmit" value=" 确定 "/>
+						</div>
+						<div class="f_r">
+							<div class="pagination">{$page}</div>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+	/**
+	   * @param: bool ext 其他条件：用于转移分类
+	   */
+	  function confirmSubmit(frm, ext){
+		  if (frm.elements['type'].value == 'button_remove'){
+			  return confirm('您确定要删除音乐吗');
+		  }else if (frm.elements['type'].value == 'not_on_sale'){
+			  return confirm('您确定要隐藏音乐吗');
+		  }else if (frm.elements['type'].value == 'move_to'){
+			  ext = (ext == undefined) ? true : ext;
+			  return ext && frm.elements['target_cat'].value != 0;
+		  }else if (frm.elements['type'].value == ''){
+			  return false;
+		  }else{
+			  return true;
+		  }
+	  }
+	  function changeAction(){
+		  var frm = document.forms['listForm'];
+		  // 切换分类列表的显示
+		  frm.elements['target_cat'].style.display = frm.elements['type'].value == 'move_to' ? '' : 'none';
+		  if (!document.getElementById('btnSubmit').disabled &&
+			  confirmSubmit(frm, false)){
+			  frm.submit();
+		  }
+	  }
+	</script>
+</body>
+</html>

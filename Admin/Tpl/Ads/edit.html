@@ -1,0 +1,100 @@
+<include file="Index:pageHeader" />
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		allowFileManager : false,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'absolute'
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">广告图属性</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Ads/update')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">外部链接：</td>
+							<td style="text-align:left;"><input type="text" name="link" value="{$info['link']}" size="35" /></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">广告图预览：</td>
+							<td style="text-align:left;"><img src="__ROOT__/{$info['original_img']}" style='max-width:500px; max-height:200px;'/></td>
+						</tr>
+						
+						<tr>
+							<td style="text-align:right;">广告图图片：</td>
+							<td style="text-align:left;"><input type="file" name="ads_img" size="35" /><em>*</em></td>
+						</tr>
+						
+						<!-- <tr>
+							<td style="text-align:right;">广告图标题：</td>
+							<td style="text-align:left;"><input type="text" name="title" size="100" value="{$info['title']}"/></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">文章简述：</td>
+							<td style="text-align:left;"><textarea style="width:500px;height:300px;" name="description" id="content" >{$info['description']}</textarea></td>
+						</tr> -->
+
+
+						<tr>
+							<td style="text-align:right;">广告图简述：</td>
+							<td style="text-align:left;">
+								<eq name='Think.get.cat_id' value='1'>
+								<textarea cols="30" rows="5" name="description">{$info['description']}</textarea>
+								<else/>
+								<input type="text" name="description" size="60" value="{$info['description']}"/>
+								</eq>
+							</td>
+						</tr>
+						
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="{$info['sort_order']}" name="sort_order" size="5"  /><em>*</em> </td>
+						</tr>
+						
+						<!-- <tr>
+							<td style="text-align:right;">是否开启：</td>
+							<td style="text-align:left;"><input type="radio" name="is_open" value="1" <if condition="$info['is_open'] eq 1"> checked="true" </if>/>是 <input type="radio" name="is_open" value="0" <if condition="$info['is_open'] eq 0"> checked="true" </if>/>否</td>
+						</tr> -->
+
+						<tr>
+							<td style="text-align:right;">图片尺寸：</td>
+							<td style="text-align:left;"><input type="text" name="img_size" value='{$info.img_size}' style='color:red;' /></td>
+						</tr>
+						
+						<tr>
+							<td>&nbsp;</td>
+							<td style="text-align:left;">
+								<input type="hidden" name="ads_id" value="{$info.ads_id}"/>
+								<input type="hidden" name="cat_id" value="{$info.cat_id}"/>
+								<input type="submit" value="提交"/>
+							</td>
+						</tr>
+						<tr><tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

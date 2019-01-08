@@ -1,0 +1,39 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg">
+    <include file='Public:inner_banner'/>
+    <div class="main" style="margin:-30px auto 0; background:#FFF;">
+    	<!--左边区域-->
+        <include file='Public:left'/>
+        <div class="l w570">
+        	<div class="blank1"></div>
+        	<div class="wz">{$ur_here} <a href="javascript:history.back();" style='float:right;'>Back</a></div>
+            <div class="m_con1">
+                {$article.content}
+                
+                <eq name='id' value='48'>
+                    <br><br>
+                    <!--投诉和建议-->
+                    <include file='Info:message'/>
+                </eq>
+            </div>
+
+            <eq name='action' value='news'>
+            <div style='position:absolute; bottom:30px;'>
+                
+                PREV：<notempty name='prev_article'><a href="{:U('Info/newsDetail', array('id'=>$prev_article['article_id']))}">{$prev_article.title}</a><else/>NO DATA....</notempty>
+                <div class='blank'></div>
+                NEXT：<notempty name='next_article'><a href="{:U('Info/newsDetail', array('id'=>$next_article['article_id']))}">{$next_article.title}</a><else/>NO DATA....</notempty>
+            </div>
+            </eq>
+        </div>
+
+        <!--右边区域-->
+        <include file='Public:right'/>
+        <div class="clear"></div>
+        <div style="height:95px;"></div>	   	
+    </div>
+</div>
+
+
+<include file='Public:pageFooter'/>

@@ -1,0 +1,145 @@
+<include file="Index:pageHeader"/>
+	
+	<script type="text/javascript">
+	//选择分类
+	function selectCat(_this){
+		var parent_id = $(_this).attr('data-cat');
+		$.get('__URL__/getSubcat',{'parent_id':parent_id},function(res){
+			$('#sub_list').html(res);
+
+			$('#show input').each(function(){
+				$("#sub_list input[value='"+ $(this).val() +"']").eq(0).attr('checked','checked');
+			});
+
+			$('#sub_list li').click(function(){
+				var target = $(this).children('input').eq(0);
+				var tmp = $("#show input[value='"+ target.val() +"']");
+				if(target.is(':checked')){
+					target.removeAttr('checked');
+					tmp.parent('li').remove();
+				}else{
+					if(tmp.val() > 0){
+						alert('已添加，请不能重复添加！');
+						return false;
+					}
+					target.attr('checked','checked');
+					$("#show").append("<li>"+target.parent('li').html()+"</li>");
+					$("#show li:last-child").children('input').eq(0).remove();
+					$('#show li').click(function(){
+						$("#sub_list input[value='"+ $(this).children('input').val() +"']").eq(0).removeAttr('checked');
+						$(this).remove();
+					});
+				}
+			});
+		},'html');
+	};
+
+	function preView(form_id){
+		if(form_id==0){
+			$('#preView').html('');
+			$('#form_id').val('');
+		}
+
+		$.get('__URL__/getForm',{'id':form_id},function(res){
+			$('#preView').html(res.form_content);
+			$('#form_id').val(res.id);
+			$('#show').html(res.cats);
+
+			$("#sub_list input").removeAttr('checked');
+			$('#show input').each(function(){
+				$("#sub_list input[value='"+ $(this).val() +"']").eq(0).attr('checked','checked');
+			});
+
+			$('#show li').click(function(){
+				$("#sub_list input[value='"+ $(this).children('input').val() +"']").eq(0).removeAttr('checked');
+				$(this).remove();
+			});
+
+			KindEditor.create("#preView .content");//加载kindeditor
+		},'json');
+	}
+
+	function check(){
+		if($('#form_id').val() < 1){
+			alert('请选择表单！');return false;
+		}
+		if($('#show li').length < 1){
+			alert('请选择分类！');return false;
+		}
+		return true;
+	}
+	</script>
+
+    <style type="text/css">
+	body{font-family: '微软雅黑'; font-size: 12px;}
+	.cat_list li{list-style: none; display: block; float:left; background-color: #50E080; color:black; margin:10px 20px; text-align: center; padding: 3px 8px; border-radius: 5px; border: solid 1px #666; cursor: pointer;}
+	.cat_list li.hover{background-color: orange; color:black;}
+	label{cursor: pointer;}
+	.bold{font-weight: bold;}
+	.red{color:#FF1616;}
+	fieldset legend{font-size: 16px;}
+    </style>
+
+	<div style='color:red; font-size:14px;'>
+		<h3></h3>
+		<fieldset>
+			<legend>温馨提示！</legend>
+			<h4>第一步：选择表单，在“表单预览”窗口中可以预览到选择的表单的样式；</h4>
+			<h4>第二步：在“分类列表”窗口里选择要使用当前表单的分类，同时也可以通过 <font size='+1'>点击</font> 已选择的分类来取消选择；</h4>
+			<h4>第三步：确认提交。</h4>
+			<h4>PS：分配好表单后，还可以重新编辑表单，而已不用重新分配！</h4>
+		</fieldset>
+	</div>
+    
+	
+	<fieldset>
+		<legend>分类列表</legend>
+		<div>
+			<ul class="cat_list">
+				<foreach name='cat_list' item='item'>
+					<li>
+						<input type="hidden" value='{$item.cat_id}'>
+						<span onclick="selectCat(this);" data-cat="{$item.cat_id}" class="<eq name='item.is_recommend' value='1'>bold</eq> <eq name='item.is_red' value='1'>red</eq>">{$item.cat_name}</span>
+					</li>
+				</foreach>
+			</ul>
+			
+			<script type="text/javascript">
+			$('.cat_list span').eq(0).click();
+			</script>
+			<div style='clear:both;'></div><hr/>
+
+			<ul class='cat_list' id="sub_list"></li>
+		</div>
+	</fieldset>
+
+	<form action="__URL__/setForm" method='post'>
+		<fieldset>
+			<legend>表单及其分类</legend>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<select onchange="preView(this.value);">
+				<option value="0">--请选择--</option>
+				<foreach name='form_list' item='item'>
+					<option value="{$item.id}">{$item.form_name}</option>
+				</foreach>
+			</select>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<input type="hidden" name='form_id' id='form_id'/>
+			<input type="submit" value='确定' onclick="return check();"/>
+
+			<ul class="cat_list" id='show'></ul>
+		</fieldset>
+	</form>
+
+	<fieldset>
+		<legend>表单预览</legend>
+		<table border='0' cellspacing='0' cellpadding='10' id='preView'>
+
+		</table>
+	</fieldset>
+</body>
+</html>

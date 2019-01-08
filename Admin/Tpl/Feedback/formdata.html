@@ -1,0 +1,248 @@
+<include file="Index:pageHeader" />
+
+<script type="text/javascript">
+function selectAll(_this){
+	if(_this.checked){
+		$('.ids').attr('checked','checked');
+	}else{
+		$('.ids').removeAttr('checked');
+	}
+}
+</script>
+
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current">
+                	<a href="javascript:">
+	                	<switch name='type'>
+	                		<case value='1'>公开日报名</case>
+	                		<case value='2'>报读狮子报名</case>
+	                		<case value='3'>活动合作报名</case>
+	                	</switch>
+                	</a>
+                </li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            
+            <div class="body User">
+				<form method="POST" action="{:U('Feedback/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+
+						<eq name='type' value='1'><!--公开日报名-->
+							<thead>
+								<tr>
+									<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+									<th>姓名</th>
+									<th>添加时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="vo">
+								<tr>
+									<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+									<td>{$vo.value1}</td>
+									<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+									<td>
+										<span>
+											<a title="查看详细" href="__URL__/formdata_detail/id/{$vo.id}">查看详细</a> | 
+											<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_formdata/id/{$vo.id}">删除</a>
+										</span>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+						</eq><!-- 公开日报名end -->
+
+
+						<eq name='type' value='2'><!--报读狮子公学-->
+							<thead>
+							<tr>
+								<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+								<th>预选的课程</th>
+								<th>姓名</th>
+								<th>孩子的姓名</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="vo">
+								<tr>
+									<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+									<td>{$vo.value9}</td>
+									<td>{$vo.value1}</td>
+									<td>{$vo.value6}</td>
+									<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+									<td>
+										<span>
+											<a title="查看详细" href="__URL__/formdata_detail/id/{$vo.id}">查看详细</a> | 
+											<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_formdata/id/{$vo.id}">删除</a>
+										</span>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+						</eq><!-- 报读狮子公学end -->
+
+
+						<eq name='type' value='3'><!--活动合作-->
+							<thead>
+							<tr>
+								<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+								<th>公司全名</th>
+								<th>职务</th>
+								<th>常用邮箱</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="vo">
+								<tr>
+									<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+									<td>{$vo.value1}</td>
+									<td>{$vo.value2}</td>
+									<td>{$vo.value6}</td>
+									<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+									<td>
+										<span>
+											<a title="查看详细" href="__URL__/formdata_detail/id/{$vo.id}">查看详细</a> | 
+											<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_formdata/id/{$vo.id}">删除</a>
+										</span>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+						</eq><!-- 活动合作end -->
+
+
+						<eq name='type' value='4'><!--留言反馈-->
+							<thead>
+							<tr>
+								<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+								<th>姓名</th>
+								<th>电话</th>
+								<th>地址</th>
+								<th>邮箱</th>
+								<th>内容（点击查看详细）</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="vo">
+								<tr>
+									<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+									<td>{$vo.value2}</td>
+									<td>{$vo.value3}</td>
+									<td><empty name='vo.value9'>无<else/>{$vo.value9}</empty></td>
+									<td>{$vo.value4}</td>
+									<td><a href="javascript:;" onclick="alert('{$vo.value1}');" style='color:blue;'>{$vo.value1|mb_substr=###,0,30,'UTF-8'}</a></td>
+									<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+									<td>
+										<span>
+											<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_formdata/id/{$vo.id}">删除</a>
+										</span>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+						</eq><!-- 留言反馈end -->
+
+
+						<eq name='type' value='5'><!--活动报名-->
+							<thead>
+							<tr>
+								<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+								<th>姓名</th>
+								<th>性别</th>
+								<th>联系方式</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="vo">
+								<tr>
+									<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+									<td>{$vo.value1}</td>
+									<td>{$vo.value2}</td>
+									<td>{$vo.value3}</td>
+									<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+									<td>
+										<span>
+											<a title="查看详细" href="__URL__/formdata_detail/id/{$vo.id}">查看详细</a> | 
+											<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_formdata/id/{$vo.id}">删除</a>
+										</span>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+						</eq><!-- 活动报名end -->
+
+
+						<eq name='type' value='6'><!--职位申请-->
+							<thead>
+							<tr>
+								<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+								<th>求职意向</th>
+								<th>姓名</th>
+								<th>Email</th>
+								<th>手机号码</th>
+								<th>简历(点击查看)</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+								<foreach name="list" item="vo">
+								<tr>
+									<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+									<td>{$vo.value1}</td>
+									<td>{$vo.value2}</td>
+									<td>{$vo.value3}</td>
+									<td>{$vo.value4}</td>
+									<td>
+										<empty name='vo.value10'>无
+										<else/>
+										<a href="__ROOT__/{$vo.value9}" target='_blank' style='text-decoration:underline; color:blue;'>{$vo.value10}</a>
+										</empty>
+									</td>
+									<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+									<td>
+										<span> 
+											<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_formdata/id/{$vo.id}">删除</a>
+										</span>
+									</td>
+								</tr>
+								</foreach>
+							</tbody>
+						</eq><!-- 职位申请end -->
+
+
+						<tfoot>
+							<tr>
+								<td colspan='20' align='left'>
+									<select name='batch_type'>
+										<option value="">请选择...</option>
+										<option value="batch_del_formdata">批量删除</option>
+									</select>
+									&nbsp;
+									<input type='submit' value='确定'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

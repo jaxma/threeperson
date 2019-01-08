@@ -1,0 +1,45 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function manageColumn(id){
+	$.ajax({
+		url:"{:U('Articlecat/add')}",
+		type:'get',
+		data:'cat_id='+id,
+		async:false,
+		timeout:15000,
+		beforeSend:function(XMLHttpRequest){
+			$("#loading").html("<img src='__PUBLIC__/Admin/Img/loading.gif' />");
+		}, 
+		complete:function(XMLHttpRequest,textStatus){
+			$("#loading").empty();
+		}, 
+		success:function(msg){
+			$('.ContainerMain_Box').html(msg);
+		}
+   });
+}	
+function articlecatInfo(id){
+	$.ajax({
+		url:"{:U('Article/index')}",
+		type:'get',
+		data:'cat_id='+id,
+		async:false,
+		timeout:15000,
+		beforeSend:function(XMLHttpRequest){
+			$("#loading").html("<img src='__PUBLIC__/Admin/Img/loading.gif' />");
+		}, 
+		complete:function(XMLHttpRequest,textStatus){
+			$("#loading").empty();
+		}, 
+		success:function(msg){
+			$('.ContainerMain_Box').html(msg);
+		}
+   });
+}
+</script>
+	<div id="loading"></div>
+    <include file="Articlecat:leftMenu" />
+    <div class="ContainerMain_Box mainAutoHeight border_radius">
+    	<iframe src="" frameborder="0"  width="100%" height="100%" frameborder="0" scrolling="yes" name="container"></iframe>
+    </div>
+<include file="Index:pageFooter" />

@@ -1,0 +1,15 @@
+<div class="page">
+    {$page->show()}
+    <span>共{$totalPage}页</span>
+    <span>到第</span>
+    <input type="text" class="text" value="1" id='page'>
+    <span>页</span>
+    <input type="button" class="submit" value="" onclick="goPage();">
+</div>
+
+<script type="text/javascript">
+function goPage(){
+	var page = $('#page').val();
+	js_aup('p',page);
+}
+</script>

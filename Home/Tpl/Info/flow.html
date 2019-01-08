@@ -1,0 +1,35 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg">
+    <include file='Public:inner_banner'/>
+    <div class="main" style="margin:-30px auto 0; background:#FFF;">
+    	
+        <!--左边区域-->
+        <include file='Public:left'/>
+
+        <div class="l w570">
+        	<div class="blank1"></div>
+        	<div class="wz">{$ur_here}</div>
+            <div class="blank4"></div>
+           {$result.content}
+            <script>
+            $(function(){ 
+                $(".m_wrap9 li").hover(function(){
+                    $(".m_wrap9 li").removeClass("hover");  
+                    $(this).addClass("hover");      
+                });
+            });
+            </script>
+        </div>
+        
+
+        <!--右边区域-->
+        <include file='Public:right'/>
+
+        <div class="clear"></div>
+        <div style="height:95px;"></div>	   	
+    </div>
+</div>
+
+
+<include file='Public:pageFooter'/>

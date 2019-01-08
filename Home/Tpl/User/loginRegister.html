@@ -1,0 +1,83 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg1">
+    <div class="main">
+    	<div class="blank2"></div>
+        <div class="blank2"></div>
+   		<ul class="m_wrap4">
+        	<li style="background:url(__IMG__/gdyt_pic54.jpg) right center no-repeat;">
+            <div class="blank2"></div>
+        	<div class="blank2"></div>
+            <form action="" id='logForm'>
+            <table cellpadding="0" cellspacing="0" class="table1">
+              <tr>
+                <td><span class="c1">Login</span></td>
+              </tr>
+              <tr>
+                <td><input type="text" name='email' class="text" placeholder="Emial"></td>
+              </tr>
+              <tr>
+                <td><input type="password" name='password' class="text" placeholder="Password"></td>
+              </tr>
+              <tr>
+                <td><a href="{:U('User/get_password')}">Forget Password?</a><input type="checkbox" name='remember' value='yes' class="checkbox">Within ten days of free landing.</td>
+              </tr>
+              <tr>
+                <td align='center'>
+					<input type='hidden' name='back_url' value='{$back_url}'/>
+	                <input type="button" class="submit" value="" onclick="mySubmit('logForm', '{:U('User/do_login')}', 'lfResult');">
+					<br/><br/><font color='red' id='lfResult'></font>
+                </td>
+              </tr>
+            </table>
+            </form>
+            </li>
+            <li>
+            <div class="blank2"></div>
+        	<div class="blank2"></div>
+            <form action="" id='regForm'>
+            <table cellpadding="0" cellspacing="0" class="table2">
+              <tr>
+                <td colspan="2"><span class="c1">Registration</span></td>
+              </tr>
+              <tr>
+                <td><span class="c2">Company：</span></td>
+                <td><input type="text" name='company' class="text" placeholder="Entering Firm name"></td>
+              </tr>
+              <tr>
+                <td><span class="c2">UserName：</span></td>
+                <td><input type="text" name='user_name' class="text" placeholder="Entering UserName"></td>
+              </tr>
+              <tr>
+                <td><span class="c2">Mobile：</span></td>
+                <td><input type="text" name='phone' class="text" placeholder="Enter a valid contact telephone number."></td>
+              </tr>
+              <tr>
+                <td><span class="c2">E-mail：</span></td>
+                <td><input type="text" name='email' class="text" placeholder="Enter a valid email address."></td>
+              </tr>
+              <tr>
+                <td><span class="c2">Password：</span></td>
+                <td><input type="password" name='password' class="text" placeholder="Enter the password."></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input type="checkbox" name='agree' value='yes' class="checkbox"><span class="c3">I have read and agree with,<a href="{:U('Info/detail',array('id'=>57))}" target='_blank'>"User agreement"</a></span></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td align='center'>
+				<input type='hidden' name='back_url' value='{$back_url}'/>
+                <input type="button" class="submit" value="" onclick="mySubmit('regForm', '{:U('User/do_reg')}', 'rfResult');">
+				<br/><br/><font color='red' id='rfResult'></font>
+                </td>
+              </tr>
+            </table>
+            </form>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+
+<include file='Public:pageFooter'/>

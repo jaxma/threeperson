@@ -1,0 +1,112 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">在线加盟信息</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+				<form action="" id='myForm'>
+				  <table width="619" height="429" border="1" cellpadding="0" cellspacing="0">
+				    <tr>
+				      <td height="21" colspan="4"><h4>一、申请人资源</h4></td>
+				    </tr>
+				    <tr>
+				      <td width="84" height="21">姓名：</td>
+				      <td width="179">{$detail.value1}</td>
+				      <td width="96">性别：</td>
+				      <td width="250">{$detail.value2}</td>
+				    </tr>
+				    <tr>
+				      <td height="21">年龄：</td>
+				      <td>{$detail.value3}</td>
+				      <td>籍贯：</td>
+				      <td>{$detail.value4}</td>
+				    </tr>
+				    <tr>
+				      <td height="21">公司名称：</td>
+				      <td height="21" colspan="3">{$detail.value5}</td>
+				    </tr>
+				    <tr>
+				      <td height="21">电话：</td>
+				      <td>{$detail.value6}</td>
+				      <td>传真：</td>
+				      <td>{$detail.value7}</td>
+				    </tr>
+				    <tr>
+				      <td height="21">手机：</td>
+				      <td height="21" colspan="3">{$detail.value8}</td>
+				    </tr>
+				    <tr>
+				      <td height="21">&nbsp;</td>
+				      <td>&nbsp;</td>
+				      <td>&nbsp;</td>
+				      <td>&nbsp;</td>
+				    </tr>
+				    <tr>
+				      <td height="21" colspan="4"><h4>二、申请区域及经营计划</h4></td>
+				    </tr>
+				    <tr>
+				      <td height="21" colspan="4">申请人加盟区域：<font color='red'>{$detail.value9}</font>省 <font color='red'>{$detail.value10}</font>市 <font color='red'>{$detail.value11}</font>区、县</td>
+				    </tr>
+				    <notempty name='detail.value12'>
+				    <tr>
+				      <td height="21" colspan="4">或其他你愿意选择的经营区域：<font color='red'>{$detail.value12}</font>省 <font color='red'>{$detail.value13}</font>市 <font color='red'>{$detail.value14}</font>区、县</td>
+				    </tr>
+				    </notempty>
+				    <tr>
+				      <td height="21">&nbsp;</td>
+				      <td>&nbsp;</td>
+				      <td>&nbsp;</td>
+				      <td>&nbsp;</td>
+				    </tr>
+				    <tr>
+				      <td height="21" colspan="4"><h4>三、经营经验</h4></td>
+				    </tr>
+				    <tr>
+				      <td height="21" colspan="4">你曾经经营过的品牌：</td>
+				    </tr>
+				    <tr>
+				      <td height="21" colspan="4">经营方式：{$detail.value15}
+				    </tr>
+				    <tr>
+				      <td>目前正在经营的品牌：</td>
+				      <td height="21" colspan="3">{$detail.value16}</td>
+				    </tr>
+				    <tr>
+				      <td>经营业绩最好的品牌：</td>
+				      <td height="21" colspan="3">{$detail.value17}</td>
+				    </tr>
+				    <tr>
+				      <td height="21">销售对象：</td>
+				      <td>{$detail.value18}</td>
+				      <td>今年营业额：</td>
+				      <td>{$detail.value19}万元</td>
+				    </tr>
+				    <tr>
+				    	<td colspan='4'>&nbsp;</td>
+				    </tr>
+				    <tr>
+				      <td colspan="4" align='center'>
+				      <input type="button" name="button" id="button" value="确定" />
+				      </td>
+				    </tr>
+				  </table>
+				</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

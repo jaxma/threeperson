@@ -1,0 +1,65 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delArticle(id) {
+	$.dialog.confirm('你确定要删除这个文章吗？', function(){
+		window.location.href="{:U('Article/del')}/article_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+</script>
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">表单列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+            <!--文章列表-->
+            <div class="body User">
+                <div class="item">
+                    <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="新建表单" class="submitNoBg" onclick="window.location.href='{:U('Form/add')}'"/></i></a>
+                    <div class="searchBar">
+						<form action="{:U('Form/index')}">
+							
+						</form>
+                    </div>
+                </div>
+				
+				<form method="POST" action="{:U('Article/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" />编号</th>
+								<th>表单名称</th>
+								<th>使用此表单的分类</th>
+								<th>添加日期</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+							<tr>
+								<td>{$vo.id}</td>
+								<td>{$vo.form_name}</td>
+								<td>{$vo.cats}</td>
+								<td>{$vo.add_time}</td>
+								<td>
+									<span>
+										<a title="查看" href="{:U('Form/edit',array('id'=>$vo['id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+										<a title="移除" href="{:U('Form/delete',array('id'=>$vo['id']))}" onclick="return confirm('删除不可恢复，你确定要删除吗？');"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+									</span>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

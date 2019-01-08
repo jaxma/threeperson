@@ -1,0 +1,93 @@
+<include file='Public:pageHeader'/>
+
+<div id="main">
+	<div id="slideBox" class="slideBox">
+        <div class="bd">
+            <ul>
+                <foreach name='banner_list' item='item'>
+                <li><a href="{$item.link}" target='_blank' style="background:url(__ROOT__/{$item.original_img}) top center no-repeat; height:524px;"></a></li>
+                </foreach>
+            </ul>
+        </div>
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
+    <script type="text/javascript">
+    $(".slideBox").slide({mainCell:".bd ul",autoPlay:true});
+    </script>
+    <div class="main">
+    	<ul class="m_wrap">
+        <foreach name='fbo_projects' item='item'>
+        <li <eq name='key' value='2'>style="margin-right:0;"</eq>>
+        	<div class="box">
+            	<div class="img">
+                    <a href="{$item.link}">
+                    <img src="__ROOT__/{$item.original_img}" width='113' height='103' alt='{$item.description}'>
+                    </a>
+                </div>
+                <div class="con">
+                	<p title='{$item.description}'>{$item.description}</p>
+                    <a href="{$item.link}">MORE</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </li>
+        </foreach>
+        </ul>
+        <div class="blank2"></div>
+        <div class="blank2"></div>
+        <div class="l w285">
+        	<dl class="m_wrap1">
+            <dt><span class="cn">News Center</span><span class="en">NEWS</span></dt>
+            <dd>
+            	<div class="list">
+                    <foreach name='rec_articles' item='item'>
+                	<a href="{:U('Info/newsDetail',array('id'=>$item['article_id']))}" title='{$item.title}'>{$item.title|mySubstr=###,16}</a>
+                    </foreach>
+                </div>
+            </dd>
+            </dl>
+        </div>
+        <div class="l w303">
+        	<dl class="m_wrap1">
+            <dt><span class="cn">Product Service</span><span class="en">SERVICES</span></dt>
+            <dd>
+            	<div id="slideBox" class="slideBox1">
+                    <div class="hd">
+                        <ul><foreach name='rec_services' item='item'><li>0</li></foreach></ul>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            <foreach name='rec_services' item='item'>
+                            <li><a href="{:U('Info/pService',array('cat_id'=>$item['cat_id']))}" title='{$item.cat_name}'><img src="__ROOT__/{$item.cat_img}" width='276' height='112' alt='{$item.cat_name}'/></a></li>
+                            </foreach>
+                        </ul>
+                    </div>
+                    <a class="prev" href="javascript:void(0)"></a>
+                    <a class="next" href="javascript:void(0)"></a>
+                </div>
+                <script type="text/javascript">
+                $(".slideBox1").slide({mainCell:".bd ul",autoPlay:true,effect:"leftLoop"});
+                </script>
+            </dd>
+            </dl>
+        </div>
+        <div class="r w350">
+        	<dl class="m_wrap1">
+            <dt><span class="cn" style="text-indent:0;">Customer Service</span><span class="en">NEWS</span></dt>
+            <dd>
+            	<ul class="box">
+                <li class="hover"><a href="{:U('User/login')}"><span class="ico1"></span><p>UserCenter</p></a></li>
+                <li><a href="{:U('Info/cService',array('cat_id'=>19))}"><span class="ico2"></span><p>Online Survey</p></a></li>
+                <li style="padding-right:0;"><a href="{:U('Info/cService',array('cat_id'=>20))}"><span class="ico3"></span><p>Complaint</p></a></li>
+                </ul>
+            </dd>
+            </dl>
+        </div>
+        <div class="clear"></div>
+        <div class="blank2"></div>
+        <div class="blank2"></div>
+    </div>
+</div>
+
+<include file='Public:pageFooter'/>

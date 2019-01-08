@@ -1,0 +1,4 @@
+<foreach name='list' item='item'>
+<php>$randcolor = 'rgb('. rand(55,200) . ',' . rand(55,200) . ',' . rand(55,200) . ')';</php>
+<span class='tag' style="background-color:{$randcolor};">{$item.tag_name}<input type='hidden' name='tag[]' value='{$item.id}'/></span>
+</foreach>

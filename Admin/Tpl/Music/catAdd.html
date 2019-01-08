@@ -1,0 +1,54 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">音乐分类</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Music/catInsert')}" id="submitForm" name="submitForm">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">音乐分类名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="cat_name" value=""  /><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">上级分类：</td>
+							<td style="text-align:left;">
+								<select name="parent_id">
+									<option value="0">顶级分类</option>
+									{$cat_select}
+								</select>
+							<em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="50" name="sort_order"  /><em>*</em> </td>
+						</tr>
+						<tr>
+							<td style="text-align:center;" colspan="2">
+								<input type="submit" value="提交"/>
+							</td>
+						</tr>
+						<tr><tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

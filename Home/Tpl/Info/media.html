@@ -1,0 +1,43 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg">
+    <include file='Public:inner_banner'/>
+    <div class="main" style="margin:-30px auto 0; background:#FFF;">
+
+    	<include file='Public:left'/>
+
+        <div class="l w570">
+        	<div class="blank1"></div>
+        	<div class="wz">{$ur_here}</div>
+
+            <foreach name='article_list' item='item'>
+            <div class="m_list2">
+            	<div class="img">
+                <a href="{:U('Info/mediaDetail',array('id'=>$item['article_id']))}">
+                <img src="__ROOT__/{$item.original_img}" width='195' height='170' alt='{$item.title}'>
+                </a>
+                <div class="addtime"><span class="c1">{$item.add_time|date='Y',###}</span><span class="c2">{$item.add_time|date='m-d',###}</span></div></div>
+                <div class="con">
+	                <a href="{:U('Info/mediaDetail',array('id'=>$item['article_id']))}">
+	                	<p class="p1" title='{$item.title}'>{$item.title|mySubstr=###,18}</p>
+	                </a>
+                    <p class="p2">{$item.short|strip_tags|mySubstr=###,78}</p>
+                    <a href="{:U('Info/mediaDetail',array('id'=>$item['article_id']))}">Detail</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            </foreach>
+
+            <div class="blank4"></div>
+            <div class="blank4"></div>
+            <include file='Public:pager'/>
+        </div>
+        
+        <include file='Public:right'/>
+
+        <div class="clear"></div>
+        <div style="height:95px;"></div>	   	
+    </div>
+</div>
+
+<include file='Public:pageFooter'/>

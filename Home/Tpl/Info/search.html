@@ -1,0 +1,38 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg">
+    <include file='Public:inner_banner'/>
+    <div class="main" style="margin:-30px auto 0; background:#FFF;">
+    	
+      <div class="l w203">
+        <div class="m_wrap3">
+            <div class="tit"><p class="p1">Article Search</p><p class="p2">Articles Search</p></div>
+            <ul class="list">
+                <li><a href="javascript:;">Search Results</a></li>
+            </ul>
+        </div>
+    </div>
+
+        <div class="l w570">
+        	<div class="blank1"></div>
+        	<div class="wz">{$ur_here}</div>
+            <div class="blank2"></div>
+            <div class="m_list1">
+                <foreach name='article_list' item='item'>
+            	<a href="{:U('Info/newsDetail',array('id'=>$item['article_id']))}" target='_blank' title='{$item.title}'><span>{$item.add_time|date='Y-m-d',###}</span>{$item.title|mySubstr=###,36}</a>
+                </foreach>
+            </div>
+            <div class="blank4"></div>
+            <div class="blank4"></div>
+            <include file='Public:pager'/>
+        </div>
+        
+        <!--右边区域-->
+        <include file='Public:right'/>
+
+        <div class="clear"></div>
+        <div style="height:95px;"></div>	   	
+    </div>
+</div>
+
+<include file='Public:pageFooter'/>

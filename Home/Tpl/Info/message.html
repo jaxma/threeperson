@@ -1,0 +1,30 @@
+<style type="text/css">#cmForm input,#cmForm textarea{border: solid 1px #E7E7E7; line-height: 24px; text-indent: 4px;}</style>
+<form id='cmForm'>
+    <table cellpadding="4" cellspacing="10">
+        <tr>
+            <td>Names<font color='red'>*</font></td>
+            <td><input type="text" name='name' value="" size="30" /></td>
+        </tr>
+        <tr>
+            <td>Email<font color='red'>*</font></td>
+            <td><input type="text" name='email' value="" size="30" /></td>
+        </tr>
+        <tr>
+            <td>Mobile<font color='red'>*</font></td>
+            <td><input type="text" name='phone' value="" size="30" /></td>
+        </tr>
+        <tr>
+            <td>Message<font color='red'>*</font></td>
+            <td><textarea name='content' style="width: 450px; height: 187px;"></textarea></a>
+        </tr>
+        <tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td align='left'>  
+                <input type="button" value="Send" onclick="mySubmit('cmForm','{:U('Info/addMessage')}','cmresult')" style='padding:2px 10px; margin-right:5px;'/>
+                <input type='reset' value='Reset' style='padding:2px 10px;'/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<font color='red' size='-1' id='cmresult'></font>
+            </td>
+        </tr>
+    </table>
+</form>

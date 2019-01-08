@@ -1,0 +1,45 @@
+<select name="year" id='year' onchange="getDays();">
+	<?php for($i=$Year; $i>=1970; $i--){ ?>
+	<option value="{$i}" <eq name='i' value='1992'>selected</eq>>{$i}</option>
+	</for>
+	<?php } ?>
+</select>
+
+<select name="month" id='month' onchange="getDays();">
+	<?php for($i=12; $i>=1; $i--){ ?>
+	<option value="{$i}">{$i}</option>
+	</for>
+	<?php } ?>
+</select>
+
+<select name="day" id='day'>
+	<?php for($i=31; $i>=1; $i--){ ?>
+	<option value="{$i}">{$i}</option>
+	</for>
+	<?php } ?>
+</select>
+
+<script type="text/javascript">
+var year = parseInt('[year]');
+var month= parseInt('[month]');
+var day  = parseInt('[day]');
+
+if(year)  $('#year').get(0).value = year;
+if(month) $('#month').get(0).value = month;
+if(day)   $('#day').get(0).value = day;
+
+function getDays(){
+	year  = $('#year').val();
+	month = $('#month').val();
+	time  = year + '-' + month + '-1';
+
+	var url = web + 'Control-daysOfmonth.html';
+	$.get(url, {'time':time}, function(res){
+		var htmlstr = '';
+		for(var i=res; i>=1; i--){
+			htmlstr += "<option value='"+ i +"'>"+ i +"</option>";
+		}
+		$('#day').html(htmlstr);
+	});
+}
+</script>

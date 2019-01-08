@@ -1,0 +1,4 @@
+    import("ORG.Util.Pinyin");
+    $py = new PinYin();
+    echo $py->getAllPY("输出汉字所有拼音"); //shuchuhanzisuoyoupinyin
+    echo $py->getFirstPY("输出汉字首拼音"); //schzspy

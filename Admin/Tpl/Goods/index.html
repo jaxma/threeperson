@@ -1,0 +1,154 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delGoods(id) {
+	$.dialog.confirm('你确定要删除这个课程吗？', function(){
+		window.location.href="{:U('Goods/del')}/goods_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+</script>
+<style type="text/css">
+.clcl{color:#0097E6;}
+.clcl:hover{color:#ff0000;}
+</style>
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">课程列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--课程列表-->
+            <div class="body User">
+                <div class="item">
+                    <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="添加课程" class="submitNoBg" onclick="window.location.href='{:U('Goods/add',array('cat_id'=>$_GET['cat_id']))}'"/></i></a>
+                    <div class="searchBar">
+						<form action="{:U('Goods/index')}">
+							<!-- 所属分组：
+							<select name="group_id" class="dot_Item">
+								<option value="">全部分组</option>
+								<volist name="group_id" id="vo">
+								<option value="{$vo.group_id}" <if condition="$vo['group_id'] eq $filter['group_id']">selected=""</if>>{$vo.group_id}</option>
+								</volist>
+
+							</select> -->
+							所属分类：
+							<select name="cat_id" class="dot_Item">
+								<option value="0">全部分类</option>
+								{$cat_select}
+							</select>
+							排序方式：
+							<select name="sort_by" class="dot_Item">
+								<option value="">请选择排序方式</option>
+								<!-- <option value="a.type" <if condition="$filter.sort_by eq 'a.type'">selected=""</if>>推荐课程</option>
+								<option value="a.goods_id" <if condition="$filter.sort_by eq 'a.goods_id'">selected=""</if>>课程编号</option> -->
+								<option value="a.title" <if condition="$filter.sort_by eq 'a.title'">selected=""</if>>课程标题</option>
+								<option value="ac.cat_name" <if condition="$filter.sort_by eq 'ac.cat_name'">selected=""</if>>课程分类</option>
+								<option value="a.sort_order" <if condition="$filter.sort_by eq 'a.sort_order'">selected=""</if>>排序号</option>
+								<option value="a.is_open" <if condition="$filter.sort_by eq 'a.is_open'">selected=""</if>>是否显示</option>
+							</select>
+							排序：
+							<select name="sort_order" class="dot_Item">
+								<option value="">请选择排序</option>
+								<option value="DESC" <if condition="$filter.sort_order eq 'DESC'">selected=""</if>>倒序</option>
+								<option value="ASC" <if condition="$filter.sort_order eq 'ASC'">selected=""</if>>顺序</option>
+							</select>
+							课程名称 ：
+							<input type="text" class="txt" name="keyword" value="{$filter.keyword}"/>&nbsp;&nbsp;<input type="submit" class="submit btn_search" value="搜索" />
+						</form>
+                    </div>
+                </div>
+				
+				<form method="POST" action="{:U('Goods/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" />编号</th>
+								<th>课程名称</th>
+								<th>课程分类</th>
+								<th>排序</th>
+								<th>是否显示</th>
+								<!-- <th>首页推荐</th> -->
+								<th>添加日期</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+							<tr>
+								<td><input type="checkbox" name="checkboxes[]" class="checkBox_list" value="{$vo.goods_id}" />{$vo.goods_id}</td>
+								<td>{$vo.title}</td>
+								<td>{$vo.cat_name}</td>
+								<td>{$vo.sort_order}</td>
+								<td><if condition="$vo['is_open']==1"><img src="__PUBLIC__/Admin/Img/yes.gif"/><else/><img src="__PUBLIC__/Admin/Img/no.gif"/></if></td>
+								<!-- <td><if condition="$vo['is_recommend']==1"><img src="__PUBLIC__/Admin/Img/yes.gif"/><else/><img src="__PUBLIC__/Admin/Img/no.gif"/></if></td> -->
+								<td>{$vo.add_time|date='Y-m-d H:i:s',###}</td>
+								<td>
+									<span>
+										<!-- <a title="添加相册" href="{:U('Goods/addGoodsimg',array('id'=>$vo['goods_id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_album.jpg"></a>&nbsp; --><a title="编辑" href="{:U('Goods/edit',array('id'=>$vo['goods_id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+										<a title="移除" onclick="delGoods('{$vo.goods_id}')" href="javascript:;"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+									</span>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+					<div class="batchChange">
+						<div class="f_l">
+							<select onchange="changeAction()" id="selAction" name="type">
+							<option value="">请选择...</option>
+							<option value="button_remove">批量删除</option>
+							<option value="button_hide">批量隐藏</option>
+							<option value="button_show">批量显示</option>
+							<option value="move_to">转移到分类</option>
+							</select>
+							<select name="target_cat" style="display:none">
+								<option value="0">请选择...</option>
+								{$cat_select}
+							</select>
+							<input type="submit" class="button" name="btnSubmit" id="btnSubmit" value=" 确定 "/>
+						</div>
+						<div class="f_r">
+							<div class="pagination">{$page}</div>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+	/**
+	   * @param: bool ext 其他条件：用于转移分类
+	   */
+	  function confirmSubmit(frm, ext){
+		  if (frm.elements['type'].value == 'button_remove'){
+			  return confirm('您确定要删除课程吗');
+		  }else if (frm.elements['type'].value == 'not_on_sale'){
+			  return confirm('您确定要隐藏课程吗');
+		  }else if (frm.elements['type'].value == 'move_to'){
+			  ext = (ext == undefined) ? true : ext;
+			  return ext && frm.elements['target_cat'].value != 0;
+		  }else if (frm.elements['type'].value == ''){
+			  return false;
+		  }else{
+			  return true;
+		  }
+	  }
+	  function changeAction(){
+		  var frm = document.forms['listForm'];
+		  // 切换分类列表的显示
+		  frm.elements['target_cat'].style.display = frm.elements['type'].value == 'move_to' ? '' : 'none';
+		  if (!document.getElementById('btnSubmit').disabled &&
+			  confirmSubmit(frm, false)){
+			  frm.submit();
+		  }
+	  }
+	</script>
+</body>
+</html>

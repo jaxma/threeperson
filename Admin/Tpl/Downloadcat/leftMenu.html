@@ -1,0 +1,30 @@
+<div class="filetree treeview mainAutoHeight border_radius">
+        <ul id="browser" class="autoHeight_scroll browser">
+            <li><span class="folder">当前站点</span>
+                <ul>
+					{$html}
+					<!-- <volist name="articlecat" id="vo">
+						<li class="closed"><a href="javascript:void(0);" onclick="articlecatInfo({$vo.id})"><span class="folder">{$vo.name}</span></a>
+							<ul>
+								<volist name="vo['cat_id']" id="vo2">
+									<li><a href="javascript:void(0);" onclick="articlecatInfo({$vo2.id})"><span class="file">{$vo2.name}</span></a>
+										<ul>
+											<volist name="vo2['cat_id']" id="vo3">
+												<li><a href="javascript:void(0);" onclick="articlecatInfo({$vo3.id})"><span class="file">{$vo3.name}</span></a>
+													<ul>
+														<volist name="vo3['cat_id']" id="vo4">
+															<li><a href="javascript:void(0);" onclick="articlecatInfo({$vo4.id})"><span class="file">{$vo4.name}</span></a></li>
+														</volist>
+													</ul>
+												</li>
+											</volist>
+										</ul>
+									</li>
+								</volist>
+							</ul>
+						</li>
+					</volist> -->
+                </ul>
+            </li>
+        </ul>
+    </div>

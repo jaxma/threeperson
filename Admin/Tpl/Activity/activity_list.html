@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>内容管理=>活动相册</title>
+  <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+</head>
+
+
+<script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+<script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+<script type="text/javascript">
+$(function(){
+  autoHeight(jQuery('.autoHeight'));
+  jQuery(".column_Box").each(function () {
+    var t = jQuery(this);
+    if (t.length < 1) return;
+    Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+  });
+});
+</script>
+
+<body>
+<div class="column_Box mainAutoHeight">
+  <div class="tab">
+    <ul>
+      <li class="current"><a href="javascript:">{$cat_info.cat_name}列表</a></li>
+    </ul>
+  </div>
+
+  <div class="wrapBox mainAutoHeight">
+  
+
+
+      <div class="body">
+      <div class="item">
+      <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="添加{$cat_info.cat_name}" class="submitNoBg" onclick="window.location.href='{:U('Activity/add',array('cat_id'=>$_GET['cat_id']))}'"/></i></a>
+      <div class="searchBar">
+            <form action="{:U('Activity/index')}" style='float:right;' method='post'>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type='text' name='keyword' placeholder='请输入标题' class='txt' style='width:200px;'/>
+              <input type='submit' value='搜索' class='button'>
+            </form>
+
+            <form action="{:U('Activity/index')}" style='float:right;' method='post'>
+              <input type='submit' class='button' name='asc' value='顺序排'/>
+              <input type='submit' class='button' name='dec' value='逆序排'/>
+              <input type='submit' class='button' name='add_time' value='发布时间排'/>
+            </form>
+      </div>
+      </div>
+          <table>
+            <tr>
+              <th>序号</th>
+              <th>标题名称</th>
+              <th>添加时间</th>
+              <th>操作</th>
+            </tr>
+
+            <foreach name='activity_list' item='item'>
+            <tr align='center'>
+              <td>{$item.sort_order}</td>
+              <td>{$item.title}</td>
+              <td>{$item.add_time|date="Y-m-d H:i:s",###}</td>
+              <td><a href="{:U('Activity/edit',array('id'=>$item['activity_id'],'cat_id'=>$_GET['cat_id']))}">查看/编辑</a>&nbsp;|&nbsp;<a href="{:U('Activity/del',array('id'=>$item['activity_id']))}">删除</a></td>
+            </tr>
+          </foreach>
+          </table>
+      </div>
+  </div>
+</div>
+</body>
+</html>

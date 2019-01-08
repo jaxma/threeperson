@@ -1,0 +1,60 @@
+<include file="Index:pageHeader" />
+
+
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">在线调查列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--招聘列表-->
+            <div class="body User">
+
+				
+				<form method="POST" action="{:U('Feedback/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th style="width:70px;">编号</th>
+								<th>上传文件名称</th>
+								<th>姓名</th>
+								<th>电子邮箱</th>
+								<th>上传时间</th>
+								<th>查看详情</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+							<tr>
+								<td>{$vo.id}</td>
+								<td>{$vo.file_name}</td>
+								<td>{$vo.user_name}</td>
+								<th>{$vo.email}</th>
+								<th>{$vo.add_time|date='Y-m-d H:i',###}</th>
+								<td>
+									<span>
+										<a title="查看详情" href="__ROOT__/{$vo.file_url}" target='_blank'><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+										<a title="移除" onclick="return confirm('您确定要删除此记录吗？');" href="{:U('Survey/del',array('id'=>$vo['id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+									</span>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+					<div class="batchChange">
+						<div class="f_r">
+							<div class="pagination">{$page}</div>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

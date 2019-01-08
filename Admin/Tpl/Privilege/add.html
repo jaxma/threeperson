@@ -1,0 +1,56 @@
+<include file="Index:pageHeader" />
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">管理员信息</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Privilege/insert')}" id="submitForm" name="submitForm">
+				<table width="100%">
+				  <tbody><tr>
+					<td class="label">用户名</td>
+					<td>
+					  <input type="text" size="34" value="{$user.user_name}" maxlength="20" name="user_name"><span class="require-field">*</span></td>
+				  </tr>
+				  <tr>
+					<td class="label">Email地址</td>
+					<td>
+					  <input type="text" size="34" value="{$user.email}" name="email"><span class="require-field">*</span></td>
+				  </tr>
+				  <tr>
+					<td class="label">新密码</td>
+					<td>
+					  <input type="password" size="34" maxlength="32" name="new_password"><span class="require-field">*</span></td>
+				  </tr>
+				  <tr>
+					<td class="label">确认密码</td>
+					<td>
+					  <input type="password" size="34" value="" name="pwd_confirm"><span class="require-field">*</span></td>
+				  </tr>
+				  <tr>
+				   <td class="label">角色选择</td>
+				  					<td>
+				  					  <select name="select_role">
+				  						<option value="">请选择...</option>
+				  							<volist id="vo" name="select_role">
+				  							<option value="{$vo.role_id}"<if condition="$vo.role_id==$user.role_id">selected</if>>{$vo.role_name} </option>
+				  							</volist>
+				  					    </select>
+				  					</td>
+				  </tr>
+				  <tr>
+					<td align="center" colspan="2">
+					  <input type="submit" class="button" value=" 确定 ">&nbsp;&nbsp;&nbsp;
+					  <input type="reset" class="button" value=" 重置 ">
+					  <input type="hidden" value="update" name="act"></td>
+				  </tr>
+				</tbody></table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delMusic(id) {
+	$.dialog.confirm('你确定要删除这个歌手吗？', function(){
+		window.location.href="{:U('Music/singerDel')}/cat_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+</script>
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">歌手列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--歌手列表-->
+            <div class="body User">
+                <div class="item">
+                    <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="新建歌手" class="submitNoBg" onclick="window.location.href='{:U('Music/singerAdd')}'"/></i></a>
+                </div>
+				
+				<form method="POST" action="{:U('Music/singerBatch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th>歌手名称</th>
+								<th width="23%">排序</th>
+								<th width="23%">操作</th>
+							</tr>
+						</thead>
+						<tbody style="text-align: left;">
+							<volist name="singer_list" id="vo">
+							<tr class="msgBox">
+								<td>┝ {$vo.name}</td>
+								<td align="center">{$vo.sort_order}</td>
+								<td align="center">
+									<a href="{:U('Music/singerEdit',array('cat_id'=>$vo['id']))}">编辑</a>&nbsp;|&nbsp;
+									<a href="javascript:;" onclick="delMusic('{$vo.id}')">删除</a>
+								</td>
+							</tr>
+								<volist name="vo['cat_id']" id="vo2">
+								<tr class="msgBox">
+									<td style="padding-left:40px;">┝ {$vo2.name}</td>
+									<td align="center">{$vo2.sort_order}</td>
+									<td align="center">
+										<a href="{:U('Music/singerEdit',array('cat_id'=>$vo2['id']))}">编辑</a>&nbsp;|&nbsp;
+										<a href="javascript:;" onclick="delMusic('{$vo2.id}')">删除</a>
+									</td>
+								</tr>
+								</volist>
+							</volist>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

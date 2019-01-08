@@ -1,0 +1,112 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		allowFileManager : true,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'absolute'
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">歌手</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Music/singerInsert')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">歌手名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="singer_name" value=""  /><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">所属类型：</td>
+							<td style="text-align:left;">
+								<select name="singer_type">
+									<option value="0">顶级分类</option>
+									{$cat_select}
+								</select>
+							<em>*</em></td>
+						</tr>
+						
+						<tr>
+							<td style="text-align:right;">首字母：</td>
+							<td style="text-align:left;">
+								<select name="first_word">
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="E">E</option>
+									<option value="F">F</option>
+									<option value="G">G</option>
+									<option value="H">H</option>
+									<option value="I">I</option>
+									<option value="J">J</option>
+									<option value="K">K</option>
+									<option value="L">L</option>
+									<option value="M">M</option>
+									<option value="N">N</option>
+									<option value="O">O</option>
+									<option value="P">P</option>
+									<option value="Q">Q</option>
+									<option value="R">R</option>
+									<option value="S">S</option>
+									<option value="T">T</option>
+									<option value="U">U</option>
+									<option value="V">V</option>
+									<option value="W">W</option>
+									<option value="X">X</option>
+									<option value="Y">Y</option>
+									<option value="Z">Z</option>
+								</select>
+								<em>*</em>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">热门歌手：</td>
+							<td style="text-align:left;">
+								<input type="radio" name="is_hot" value="1"/>是
+								<input type="radio" name="is_hot" value="0" checked=""/>否
+							<em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="50" name="sort_order"  /><em>*</em> </td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">歌手图片：</td>
+							<td style="text-align:left;"><input type="file" name="singer_img" size="35" /><br/><font color="#ff0000"> 注：图片最佳大小为114px*114px</font> </td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">详细介绍：</td>
+							<td style="text-align:left;"><textarea style="width:880px;height:400px;" name="content" id="content" ></textarea></td>
+						</tr>
+						<tr>
+							<td style="text-align:center;" colspan="2">
+								<input type="submit" value="提交"/>
+							</td>
+						</tr>
+						<tr><tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

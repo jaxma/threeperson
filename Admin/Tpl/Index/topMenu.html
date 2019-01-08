@@ -1,0 +1,42 @@
+<div class="Header">
+	<a class="logo" href="javascript:" onclick="document.location.reload();"></a>
+	<div class="MenuDiv current_click">
+		<ul class="c">
+			<if condition="admin_priv2('Columns')">
+			<li><a href="{:U('Articlecat/index')}" target="main" class="show_a">栏目分类</a></li>
+			</if>
+
+			<if condition="admin_priv2('Message')">
+			<li><a href="{:U('Articlecat/index2')}" target="main" class="show_d">文章管理</a></li>
+			</if>
+
+			<li><a href="{:U('Goods/index',array('cat_id'=>1))}" target="main" class="show_c">案例管理</a></li>
+
+			<if condition="admin_priv2('Images')">
+			<li><a href="{:U('Ads/index',array('cat_id'=>2))}" target="main" class="show_e">图片管理</a></li>
+			</if>
+
+
+			<li><a href="{:U('Feedback/index')}" target="main" class="show_h">留言管理</a></li>
+
+			<li><a href="{:U('Survey/index')}" target="main" class="show_i">在线调查</a></li>
+
+			<li><a href="{:U('User/index')}" target="main" class="show_j">会员管理</a></li>
+
+			<if condition="admin_priv2('Systems')">
+			<li><a href="{:U('Webinfo/index')}" target="main" class="show_y">系统设置</a></li>
+			</if>
+
+			<li><a href="{:U('Privilege/index')}" target="main" class="show_z">管理员设置</a></li>
+		</ul>
+	</div>
+	<div class="itemBar">
+		<ul>
+			<li><a href="{:U('Privilege/edit',array('id'=>$_SESSION['admin_id']))}" class="name" target="main">{$Think.session.admin_name} </a>，您好！</li>
+			<li><a href="/" target="_blank" class="about">网站首页</a></li>
+			<li><a href="http://www.cyx.com/" target="_blank" class="about">关于cyx科技</a></li>
+			<li><a href="{:U('Index/clearCache')}">清除缓存</a></li>
+			<li><a href="{:U('Public/loginOut')}" class="out">退出</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>产品管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+    <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/Js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+	
+	<link rel="stylesheet" href="__PUBLIC__/Admin/colorpicker/css/jquery.bigcolorpicker.css" type="text/css" />
+	<script type="text/javascript" src="__PUBLIC__/Admin/Js/imglist.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/colorpicker/js/jquery.bigcolorpicker.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+	
+	// 筛选出分类属性
+	$('#cat_id').change(function(){
+		var id=$(this).val();
+		$.ajax({
+			url:"{:U('Goods/cat_attr')}",
+			type:'post',
+			data:'cat_id='+id,
+			async:false,
+			timeout:15000,
+			beforeSend:function(XMLHttpRequest){
+				$("#loading").html("<img src='__PUBLIC__/Admin/Img/loading.gif' />");
+			}, 
+			complete:function(XMLHttpRequest,textStatus){
+				$("#loading").empty();
+			}, 
+			success:function(msg){
+				$('#cat_attr').html(msg);
+			}
+	   });
+	});
+	
+	
+	$(".f1").bigColorpicker(function(el,color){
+		$(el).val(color);
+	});
+	
+});
+
+/**
+   * 新增一个图片
+   */
+function addImg(obj)
+{
+  var src  = obj.parentNode.parentNode;
+  var idx  = rowindex(src);
+  var tbl  = document.getElementById('img-table');
+  var row  = tbl.insertRow(idx + 1);
+  var cell = row.insertCell(-1);
+  cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+  $(".f1").bigColorpicker(function(el,color){
+		$(el).val(color);
+	});
+}
+
+/**
+* 删除图片上传
+*/
+function removeImg(obj)
+{
+  var row = rowindex(obj.parentNode.parentNode);
+  var tbl = document.getElementById('img-table');
+
+  tbl.deleteRow(row);
+  $(".f1").bigColorpicker();
+}
+
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		allowFileManager : true,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'relative'
+	});
+});
+
+
+function get_tags(cat_id){
+	$.ajax({ 
+		url: "{:U('Goods/get_tags')}", 
+		data:"cat_id="+cat_id,
+		type:'post',
+		dataType:'text',
+		context: document.body, 
+		success: function(res){
+			$("#cat_id").parent().parent().next().remove();
+			$("#cat_id").parent().parent().after(res);
+		}});
+}
+
+
+function to_ajax(){
+	var cat_id = $("#cat_id").val();
+	get_tags(cat_id);
+}
+</script>
+
+
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">上传资料</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Download/insert')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">标题：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title" value=""  size="50"/><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">资料分类：</td>
+							<td style="text-align:left;">
+								<select name="cat_name" id="cat_name">
+								  {$cat_select}
+								</select>
+							<em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="50" name="sort_order"  /><em>*</em> </td>
+						</tr>
+						
+						<tr>
+							<td style="text-align:right;">上传文件：</td>
+							<td style="text-align:left;"><input type="file" name="upfile" size="35" id="upfile" /></td>
+						</tr>
+						<tr style="display:none">
+							<td style="text-align:right;">文件简述：</td>
+							<td style="text-align:left;"><textarea style="width:400px;height:100px;" name="short" ></textarea></td>
+						</tr>
+						<tr>
+							<td style="text-align:center;">&nbsp;</td>
+							<td align="left"><input type="submit" value="提交"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

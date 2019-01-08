@@ -1,0 +1,80 @@
+<include file="Index:pageHeader" />
+
+<script type="text/javascript">
+function selectAll(_this){
+	if(_this.checked){
+		$('.ids').attr('checked','checked');
+	}else{
+		$('.ids').removeAttr('checked');
+	}
+}
+</script>
+
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">报名列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--招聘列表-->
+            <div class="body User">
+
+				
+				<form method="POST" action="{:U('Feedback/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th style="width:70px;"><input type='checkbox' onclick='selectAll(this);'>编号</th>
+								<th>姓名</th>
+								<th>推荐人或机构</th>
+								<th>电话</th>
+								<th>微信昵称</th>
+								<th>企业名称</th>
+								<th>添加时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+							<tr>
+								<td><input type='checkbox' name='ids[]' value='{$vo.id}' class='ids'>{$vo.id}</td>
+								<td>{$vo.name}</td>
+								<td><empty name='vo.referee'>无<else/>{$vo.referee}</empty></td>
+								<td>{$vo.phone}</td>
+								<td>{$vo.weixin}</td>
+								<td>{$vo.company_name}</td>
+								<td>{$vo.add_time|date='Y-m-d H:i',###}</td>
+								<td>
+									<span>
+										<a title="查看详情" href="__URL__/baoming_detail/id/{$vo.id}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+										<a title="删除" onclick="return confirm('你确定要删除这条记录吗？');" href="__URL__/del_baoming/id/{$vo.id}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+									</span>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan='20' align='left'>
+									<select name='batch_type'>
+										<option value="">请选择...</option>
+										<option value="batch_del_baoming">批量删除</option>
+									</select>
+									&nbsp;
+									<input type='submit' value='确定'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            						<input type='button' value='全部记录导出为CSV' onclick="location.href='__URL__/exactB/type/4';"/>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg">
+    <include file='Public:inner_banner'/>
+    <div class="main" style="margin:-30px auto 0; background:#FFF;">
+
+    	<include file='Public:left'/>
+
+        <div class="l w765">
+        	<div class="blank1"></div>
+        	<div class="wz">{$ur_here}</div>
+            <div class="blank2"></div>
+            <ul class="m_wrap7">
+
+            <foreach name='article_list' item='item'>
+            <li><a href="{:U('Info/download',array('type'=>'survey',id=>$item['article_id']))}"><span>download</span>{$item.title}</a></li>
+            </foreach>
+
+            <li class="last">
+                <form name='SurveyForm' action="{:U('Info/uploadSurvey')}" method='post' enctype='multipart/form-data'>
+                	<div class="uplaod"><a href="javascript:;" onclick="$('#up_btn').click();"><img src="__IMG__/gdyt_pic71.jpg"></a></div>
+                    <div style='display:none;'><input type='file' name='file' id='up_btn' onchange="SurveyForm.submit();" /></div>
+                	<p class="txt">Please download the data upload data to fill in, fill in the information. <br>
+Your support is my greatest motivation!</p>
+                    <div class="clear"></div>
+                </form>
+            </li>
+            </ul>
+            <br>
+            <include file='Public:pager'/>
+        </div>
+        <div class="clear"></div>
+        <div style="height:95px;"></div>	   	
+    </div>
+</div>
+
+<include file='Public:pageFooter'/>

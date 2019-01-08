@@ -1,0 +1,29 @@
+<include file='Public:pageHeader'/>
+
+<div id="main">
+    <include file='Public:inner_banner'/>
+    <div class="main">
+    	<div class="blank2"></div>
+        <div class="blank2"></div> 
+
+        <include file='Public:left_nav'/>
+
+        <div class="r w687">
+            <div class="r_tit"><a href="#"><img src="__IMG__/zhgw_pic26.jpg"></a><span>Company News</span></div>
+            <div class="r_list">
+                <foreach name='article_list' item='item'>
+                <a href="{:U('Info/detail', array('id'=>$item['article_id']))}"><span>{$item.add_time|date='Y-m-d',###}</span>{$item.title|mySubstr=###,46}<i></i></a>
+                </foreach>
+            </div>
+            <div class="blank4"></div>
+
+            <include file='Public:pager'/>
+            
+        </div>
+        <div class="clear"></div>
+        <div class="blank4"></div>
+    </div>
+</div>
+
+
+<include file='Public:pageFooter'/>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>内容管理=>活动相册</title>
+  <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+</head>
+
+
+<script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+<script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+<script type="text/javascript">
+$(function(){
+  autoHeight(jQuery('.autoHeight'));
+  jQuery(".column_Box").each(function () {
+    var t = jQuery(this);
+    if (t.length < 1) return;
+    Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+  });
+});
+</script>
+
+<body>
+<div class="column_Box mainAutoHeight">
+  <div class="tab">
+    <ul>
+      <li class="current"><a href="javascript:">活动相册列表</a></li>
+    </ul>
+  </div>
+
+  <div class="wrapBox mainAutoHeight">
+  
+
+
+      <div class="body">
+      <div class="item">
+      <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="添加产品" class="submitNoBg" onclick="window.location.href='{:U('Goods/add')}'"/></i></a>
+      <form action='' method='post'></form>
+      </div>
+
+          <table>
+            <tr>
+              <th>活动名称</th>
+              <th>添加时间</th>
+              <th>操作</th>
+            </tr>
+            <tr align='center'>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+          </table>
+      </div>
+  </div>
+</div>
+</body>
+</html>

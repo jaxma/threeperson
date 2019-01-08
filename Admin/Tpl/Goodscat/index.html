@@ -1,0 +1,75 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function manageColumn(id){
+	$.ajax({
+		url:"{:U('Goodscat/add')}",
+		type:'get',
+		data:'cat_id='+id,
+		async:false,
+		timeout:15000,
+		beforeSend:function(XMLHttpRequest){
+			$("#loading").html("<img src='__PUBLIC__/Admin/Img/loading.gif' />");
+		}, 
+		complete:function(XMLHttpRequest,textStatus){
+			$("#loading").empty();
+		}, 
+		success:function(msg){
+			$('.ContainerMain_Box').html(msg);
+		}
+   });
+}	
+function goodscatInfo(id){
+	$.ajax({
+		url:"{:U('Goodscat/edit')}",
+		type:'get',
+		data:'cat_id='+id,
+		async:false,
+		timeout:15000,
+		beforeSend:function(XMLHttpRequest){
+			$("#loading").html("<img src='__PUBLIC__/Admin/Img/loading.gif' />");
+		}, 
+		complete:function(XMLHttpRequest,textStatus){
+			$("#loading").empty();
+		}, 
+		success:function(msg){
+			$('.ContainerMain_Box').html(msg);
+		}
+   });
+}
+function delGoodscat(id) {
+	$.dialog.confirm('你确定要删除这个记录吗？', function(){
+		window.location.href="{:U('Goodscat/del')}/cat_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+$(function(){
+	<if condition="$action eq 'add'">
+		manageColumn({$parent_id});
+	</if>
+	<if condition="$action eq 'edit'">
+		goodscatInfo({$cat_id});
+	</if>
+})
+</script>
+	<div id="loading"></div>
+    <include file="Goodscat:leftMenu" />
+    <div class="ContainerMain_Box mainAutoHeight border_radius">
+        <div class="column_Box mainAutoHeight">
+			<div class="tab">
+				<ul>
+					<li class="current"><a href="javascript:">分类属性</a></li>
+				</ul>
+			</div>
+			<div class="wrapBox mainAutoHeight">
+				<!--栏目属性-->
+				<div class="body">
+					<div class="item">
+						<a href="javascript:void(0);" class="dot_Item" onclick="manageColumn(0)"><span class="Icon_item icon_xingjian2"></span><i>新建分类</i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+<include file="Index:pageFooter" />

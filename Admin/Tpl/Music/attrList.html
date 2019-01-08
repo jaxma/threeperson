@@ -1,0 +1,57 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delMusic(id) {
+	$.dialog.confirm('你确定要删除这个音乐属性吗？', function(){
+		window.location.href="{:U('Music/attrDel')}/attr_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+</script>
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">音乐属性列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--音乐属性列表-->
+            <div class="body User">
+                <div class="item">
+                    <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="新建音乐属性" class="submitNoBg" onclick="window.location.href='{:U('Music/attrAdd')}'"/></i></a>
+                </div>
+				
+				<form method="POST" action="{:U('Music/attrBatch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th>属性名称</th>
+								<th width="23%">排序</th>
+								<th width="23%">操作</th>
+							</tr>
+						</thead>
+						<tbody style="text-align: left;">
+							<volist name="musicattr_list" id="vo">
+							<tr class="msgBox">
+								<td>┝ {$vo.attr_name}</td>
+								<td align="center">{$vo.sort_order}</td>
+								<td align="center">
+									<a href="{:U('Music/attrEdit',array('attr_id'=>$vo['attr_id']))}">编辑</a>&nbsp;|&nbsp;
+									<a href="javascript:;" onclick="delMusic('{$vo.attr_id}')">删除</a>
+								</td>
+							</tr>
+							</volist>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name='author' value='TUJIA'>
+	<title>表单管理</title>
+	<script type="text/javascript" src="__PUBLIC__/Home/script/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/script/kindeditor/kindeditor.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/Js/colpick.css">
+    <script src="__PUBLIC__/Admin/Js/colpick.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/script/myScript.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+
+	<style type="text/css">
+	body{font-family: '微软雅黑';}
+	li{list-style: none;}
+	input{font-size: 14px; }
+	table,fieldset{width:90%; margin:0 auto; text-align: center;}
+	label{display: inline-block; border:solid 1px #ccc; border-radius: 6px; padding: 8px 10px; margin-bottom: 5px; cursor: pointer;}
+	.clear{clear: both; height: 0;}
+	.name,.editable{border:dotted 2px #CCC; border-radius: 4px;}
+	.editable{display:inline-block; min-width: 40px; height: 22px;}
+	.center{text-align: center;}
+	.required{color:red;}
+	.green{color:green; border:solid 1px green; box-shadow: 0 0 3px 1px #CCC;}
+	.hr{line-height: 50px; border-bottom: dotted 1px #ccc;}
+	.color-box {
+		display: inline-block;
+		width:30px;
+		height:30px;
+		line-height: 30px;
+		margin:5px;
+		border: 1px solid #CCC;
+		background-color: black;
+		margin-bottom: -9px;
+		color:white;
+		text-align: center;
+	}
+
+	#short_tab,#short_con{display:block; width: 808px; height:28px; padding-left:0;}
+	#short_tab li{float:left; display:block; height:28px; line-height:28px; text-align: center; width:200px; border: solid 1px #CCC; cursor: pointer;}
+	#short_tab li.hover{background-color: green; color:white;}
+
+	#short_con{height:176px;}
+	#short_con li{display: block; width:766px; height:176px; border:solid 1px #CCC; padding:20px 0 0 40px; display: none;}
+	</style>
+
+	<script type="text/javascript">
+	var	form_data = {};//表单项的名字
+	var TT = [];
+
+	TT['oText'] 	= "<input type='text'/>";
+	TT['oTextArea'] = "<textarea></textarea>";
+	TT['oRadio'] 	= "<input type='radio'/>&nbsp;<span class='editable'></span>&nbsp;&nbsp;";
+	TT['oCheckBox'] = "<input type='checkbox'/>&nbsp;<span class='editable'></span>&nbsp;&nbsp;";
+	TT['oSelect'] 	= "<textarea class='select' cols='30' rows='5'></textarea>";
+	TT['oContent'] 	= "<textarea class='content'></textarea>";
+	TT['oHr'] 		= "<hr class='hr'/>";
+	TT['oPhone'] 	= "<input type='text' data-role='phone'/>";
+	TT['oEmail'] 	= "<input type='text' data-role='email'/>";
+	TT['oTimer'] 	= "<input type='text' data-role='timer'/>";
+	TT['oTel'] 		= "<input type='text' data-role='tel'/>";
+	TT['oPosition'] = "<div data-role='position'>这个位置将显示地区选择控件</div>";
+	TT['oAlbum'] 	= "<div data-role='album'>这个位置将显示图片相册控件</div>";
+	TT['oImg'] 		= "<input type='file' name='pic'/>";
+
+	//创建表单项
+	function createItem(){
+		var itemType = $('.itemType:checked').attr('id');
+		if(!itemType){
+			alert('请选择要添加的表单项!'); return false;
+		}
+		var item = TT[itemType];
+		if(itemType == 'oRadio' || itemType == 'oCheckBox'){
+			var num = $('#'+itemType).next('input').val();
+			if(num<1) num = 1;
+			var temp = '';
+			if(itemType == 'oRadio') temp = "<span class='radio_group'>";//单选按钮组
+			if(itemType == 'oCheckBox') temp = "<span class='checkbox_group'>";//复选按钮组
+			for(var i=0; i<num; i++){
+				temp += item;
+			}
+			temp += "</span>";
+			item = temp;
+		}
+		/*判断并决定表单项的类型和个数*/
+
+		/*添加创建表单项*/
+		var Trid = $('#createForm tr').length;
+
+		var oTr = '';
+
+		if(itemType == 'oHr'){
+			oTr = "<tr align='center'><td><input type='text' size='2' class='sort center' value='10'></td><td>分割线<input type='hidden' class='name' value='分割线'/></td><td>"+ item +"</td><td><label onclick='if(confirm(\"删除不可恢复，你确定要删除吗？\")){$(this).parent(\"td\").parent(\"tr\").remove();}'>删除此行</label></td></tr>";
+		}else if((itemType == 'oText') || (itemType == 'oTel') || (itemType == 'oPhone') || (itemType == 'oEmail')){
+			oTr = "<tr align='center'><td><input type='text' size='2' class='sort center' value='10'></td><td><input type='text' size='10' class='name' placeholder='请输入名称'></td><td>"+ item +"</td><td><div class='color-box' title='字体大小及颜色' contentEditable='true'>14</div>&nbsp; <label for='rd"+ Trid +"'><input type='checkbox' id='rd"+ Trid +"' class='required'>&nbsp;必填</label>&nbsp;&nbsp;<label onclick='if(confirm(\"删除不可恢复，你确定要删除吗？\")){$(this).parent(\"td\").parent(\"tr\").remove();}'>删除此行</label></td></tr>";
+		}else{
+			oTr = "<tr align='center'><td><input type='text' size='2' class='sort center' value='10'></td><td><input type='text' size='10' class='name' placeholder='请输入名称'></td><td>"+ item +"</td><td><label for='rd"+ Trid +"'><input type='checkbox' id='rd"+ Trid +"' class='required'>&nbsp;必填</label>&nbsp;&nbsp;<label onclick='if(confirm(\"删除不可恢复，你确定要删除吗？\")){$(this).parent(\"td\").parent(\"tr\").remove();}'>删除此行</label></td></tr>";
+		}
+
+		$('#createForm').append(oTr);
+
+		$('.color-box').colpick({
+			colorScheme:'dark',
+			layout:'rgbhex',
+			color:'black',
+			onSubmit:function(hsb,hex,rgb,el) {
+				$(el).css('background-color', '#'+hex);
+				$(el).colpickHide();
+				$(el).parent('td').prev('td').children('input').css({
+					'color':'#'+hex,
+					'font-size':parseInt($(el).html())
+				});
+			}
+		});
+
+		editable($('.editable'));//让元素可以编辑
+	}
+
+
+	//预览
+	function preView(){
+		var row,sort,name,ele,required;
+		var item_list = [];
+		$('#createForm tr:gt(0)').each(function(){
+			row = $(this);
+			sort = row.find('.sort').val();
+			name = row.find('.name').val();
+			required = row.find('.required').is(':checked');
+			if(required){
+				row.find('td').find('input').attr('data-required', 'true');
+				row.find('td').find('textarea').attr('data-required', 'true');
+			}else{
+				row.find('td').find('input').removeAttr('data-required');
+				row.find('td').find('textarea').removeAttr('data-required');
+			}
+
+			//设置表单项名字
+			try{
+				row.find('td').eq(2).children('input').attr('data-name', name);
+				row.find('td').eq(2).children('textarea').attr('data-name', name);
+				row.find('td').eq(2).children('div').attr('data-name', name);
+				row.find('td').eq(2).children('span').attr('data-name', name);
+			}catch(e){}
+
+			if(row.find('.select').length > 0){
+				var options = row.find('.select').val().split("\n");
+				ele = "<select data-name='"+ name +"'>";
+				for(var i=0,len=options.length; i<len; i++){
+					ele += "<option value='"+ options[i] +"'>"+ options[i] +"</option>";
+				}
+				ele += "</select>";
+			}else{
+				ele  = row.find('td').eq(2).html();
+			}
+
+			item_list.push({'name':name,'ele':ele,'required':required,'sort':parseInt(sort)});
+		});
+
+		item_list.bubbleSort('sort','asc');//排序
+
+		var preView = $('#preView');
+		preView.html('');
+		var oTr = '';
+		for(var i=0,len=item_list.length; i<len; i++){
+			if(item_list[i].name == '分割线'){
+				oTr = "<tr><td align='left' colspan='2'><hr/></td></tr>";
+			}else{
+				if(item_list[i].required){
+					oTr = "<tr><td align='right' width='120'><em class='required'>* </em>"+ item_list[i].name +"：</td><td align='left'>"+ item_list[i].ele +"</td></tr>";
+				}else{
+					oTr = "<tr><td align='right' width='120'>"+ item_list[i].name +"：</td><td align='left'>"+ item_list[i].ele +"</td></tr>";
+				}
+			}
+			
+			
+			preView.append(oTr);
+		}
+
+		setName();//设置名字
+
+		KindEditor.create("#preView .content");//加载kindeditor
+	}
+
+
+	//为表单项设置名字
+	function setName(){
+		form_data = {};//清空表单项名字
+		//普通文本框
+		$("#preView input[type='text']").each(function(_index){
+			if(($(this).attr('name') != 'title') && ($(this).attr('name') != 'price')){
+				var _name = 'input'+_index;
+				$(this).attr('name', _name);
+				form_data[_name] = $(this).attr('data-name');
+			}
+		});
+
+		//单选按钮
+		$("#preView .radio_group").each(function(_index){
+			var _name = 'radio'+_index;
+			$(this).find('input').attr('name', _name);
+			form_data[_name] = $(this).attr('data-name');
+		});
+
+		//多选按钮
+		$("#preView .checkbox_group").each(function(_index){
+			var _name = 'checkbox'+_index+'[]';
+			$(this).find('input').attr('name', _name);
+			form_data[_name] = $(this).attr('data-name');
+		});
+
+		//文本域
+		$("#preView textarea").each(function(_index){
+			var _name = 'textarea'+_index;
+			$(this).attr('name', _name);
+			form_data[_name] = $(this).attr('data-name');
+		});
+
+		//下拉选择列表
+		$("#preView select").each(function(_index){
+			var _name = 'select'+_index;
+			$(this).attr('name', _name);
+			form_data[_name] = $(this).attr('data-name');
+		});
+
+		//kindeditor文本域
+		$("#createForm .content").each(function(_index){
+			var _name =  'content'+_index;
+			$(this).attr('name', _name);
+			form_data[_name] = $(this).attr('data-name');
+		});
+	}
+
+
+	//保存表单
+	function saveForm(){
+		var form_name = $('#form_name').val();
+		if(!form_name){
+			alert('请输入表单名！');
+			return false;
+		}
+
+		$('#preView .ke-container').each(function(_index){
+			var _name = 'content'+_index;
+			$(this).next('textarea').attr('name', _name);
+			$(this).next('textarea').show();
+			$(this).remove();
+		});
+		var html = $('#preView').html();
+
+
+		$('#title_tr td').eq(2).remove();
+		var title_tr = "<tr>"+ $('#title_tr').html() +"</tr>";
+		var short_tr = "<tr><td width='120' align='right'><em class='required'>* </em>简介：</td><td align='left'>"+ $('#short_con li:visible').html() +"</td></tr>";
+		var price_tr = '';
+		if($('#price_tr')){
+			$('#price_tr td').eq(2).remove();
+			price_tr = "<tr>"+ $('#price_tr').html() +"</tr>";
+		}
+
+		var html = title_tr + short_tr + price_tr + html;
+
+		form_data['form_content'] 	= html;
+		form_data['form_name'] 		= form_name;
+
+		$.post('__URL__/insert',form_data,function(res){
+			if(res){
+				window.location.href = res;
+			}else{
+				alert('系统出错，请重新创建表单！');
+			}
+		},'html');
+	}
+
+
+	$(function(){
+		$('.color-box').colpick({
+			colorScheme:'dark',
+			layout:'rgbhex',
+			color:'black',
+			onSubmit:function(hsb,hex,rgb,el) {
+				$(el).css('background-color', '#'+hex);
+				$(el).colpickHide();
+				$(el).parent('td').prev('td').children('input').css({
+					'color':'#'+hex,
+					'font-size':parseInt($(el).html())
+				});
+			}
+		});
+		
+		editable($('.editable'));//让元素可以编辑
+
+		//简介选项卡
+		$('#short_tab li').each(function(_index){
+			$(this).click(function(){
+				$(this).addClass('hover').siblings().removeClass('hover');
+				$('#short_con li').eq(_index).show().siblings().hide();
+			});
+		});
+	});
+	</script>
+</head>
+
+<body>
+	<fieldset>
+		<legend>创建表单</legend>
+		<div style="width:836px; margin:0 auto; text-align:left; color:red;">
+			<h5>1、选择你需要的表单项，然后按“添加到表单”按钮来添加;</h5>
+			<h5>2、可以拖动文本域的右下角来，放大、缩小文本域;</h5>
+			<h5>3、添加单选框、复选框后，可以直接点击它们后面的虚线框来输入选框的名称;</h5>
+			<h5>4、“详细说明选项卡”，为前台显示的正文内容，如“房源概况，房屋照片，小区信息”;</h5>
+			<h5>5、“标题” 、 “简介” 、“价格” 为默认表单项，一些不需要“价格”这一项的表单可以直接“删除价格”;</h5>
+			<h5>6、黑色小方块是用来改变文本框的字体大小和字体颜色的;</h5>
+			<h4>7、电话、手机、邮箱等这里显示的都是普通文本框，但是在前台页面显示的时候，会加上相应的输入限制;</h4>
+			<h4>8、添加下拉选择列表里，出现的是一个文本域，请在文本域里添加选择列表的值，一行一个值。</h4>
+			<h3>9、一旦正式使用表单，请不要轻易修改表单，以免影响用户已经发表的信息！</h3>
+		</div>
+		<label for="oText"><input type="radio" id='oText' name='itemType' class='itemType' checked>&nbsp;文本框</label>
+		<label for="oTextArea"><input type="radio" id='oTextArea' name='itemType' class='itemType'>&nbsp;文本域</label>
+		<label for="oRadio"><input type="radio" id='oRadio' name='itemType' class='itemType'>&nbsp;单选框,个数<input type='text' size='2' value='1' class='center'/></label>
+		<label for="oCheckBox"><input type="radio" id='oCheckBox' name='itemType' class='itemType'>&nbsp;多选框,个数<input type='text' size='2' value='1' class='center'/></label>
+		<label for="oSelect"><input type="radio" id='oSelect' name='itemType' class='itemType'>&nbsp;下列选择列表</label>
+		<label for="oContent"><input type="radio" id='oContent' name='itemType' class='itemType'>&nbsp;详细说明选项卡</label>
+		<label for="oHr"><input type="radio" id='oHr' name='itemType' class='itemType'>&nbsp;分割线</label>
+		<label for="oTel"><input type="radio" id='oTel' name='itemType' class='itemType'>&nbsp;电话</label>
+		<label for="oPhone"><input type="radio" id='oPhone' name='itemType' class='itemType'>&nbsp;手机</label>
+		<label for="oEmail"><input type="radio" id='oEmail' name='itemType' class='itemType'>&nbsp;邮箱</label>
+		<label for="oTimer"><input type="radio" id='oTimer' name='itemType' class='itemType'>&nbsp;时间控件</label>
+		<label for="oPosition"><input type="radio" id='oPosition' name='itemType' class='itemType'>&nbsp;位置控件</label>
+		<label for="oAlbum"><input type="radio" id='oAlbum' name='itemType' class='itemType'>&nbsp;相册控件</label>
+		<label for="oImg"><input type="radio" id='oImg' name='itemType' class='itemType'>&nbsp;上传图片</label>
+		<label onclick="createItem();" class='green'>添加到表单</label>
+	</fieldset>
+
+	<br><br>
+
+	<table border='1' cellspacing='0' cellpadding='10' id='createForm'>
+		<tr algin='center'>
+			<th>排序</th>
+			<th>名称</th>
+			<th>标签预览</th>
+			<th>操作</th>
+		</tr>
+	</table>
+
+	<br>
+
+	<div style="text-align:center;"><label onclick='preView();' class='green'>确认并预览</label></div>
+
+	<br><br>
+
+	<fieldset>
+		<legend>表单预览</legend>
+		<h4>表单的名称：<input type="text" size='36' id='form_name'></h4>
+		<table border='0' cellspacing='0' cellpadding='10' id='fix'>
+			<tr align='center' id='title_tr'>
+				<td width='120' align='right'><em class="required">* </em>标题：</td>
+				<td align='left'><input type='text' name='title' data-required='true'/></td>
+				<td align='left'><div class='color-box' title='字体大小及颜色' contentEditable='true'>14</div></td>
+			</tr>
+			<tr>
+				<td width='120' align='right'><em class="required">* </em>简介：</td>
+				<td align='left' colspan='2'>
+					<ul id='short_tab'>
+						<li class='hover'>样式一</li>
+						<li>样式二</li>
+						<li>样式三</li>
+						<li>样式四</li>
+					</ul>
+					<ul id='short_con'>
+						<li style="display:block;">
+							<div data-role='short'>
+								<div style='margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:400px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:400px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div class='clear'></div>
+							</div>
+						</li>
+						<li>
+							<div data-role='short'>
+								<div style='margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:400px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:400px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:400px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div class='clear'></div>
+							</div>
+						</li>
+						<li>
+							<div data-role='short'>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div class='clear'></div>
+							</div>
+						</li>
+						<li>
+							<div data-role='short'>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div style='width: 40%; float:left; margin:8px 15px 0 0;'><b class="editable"></b>：
+									<div style='width:153px; line-height:20px; height:20px; border:solid 1px #CCC; display:inline-block;' contentEditable='true'></div>
+								</div>
+								<div class='clear'></div>
+								<div  style='margin:8px 15px 0 0; height:36px; border:solid 1px #CCC;' contentEditable='true'></div>
+							</div>
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr id='price_tr'>
+				<td width='120' align='right'><em class="required">* </em>价格：</td>
+				<td align='left'><input type='text' name='price' data-required='true'></td>
+				<td align='left'>
+					<div class='color-box' title='字体大小及颜色' contentEditable='true'>14</div>
+					<label onclick="if(confirm('删除不可恢复，你确定要删除吗？')){$(this).parent('td').parent('tr').remove();}">删除价格</label>
+				</td>
+			</tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='10' id='preView'>
+			
+		</table>
+	</fieldset>
+
+
+	<br>
+
+	<div style="text-align:center;"><label onclick='saveForm();' class='green'>保存表单</label></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<include file='Public:pageHeader'/>
+
+<div id="main" class="m_bg">
+    <include file='Public:inner_banner'/>
+    <div class="main" style="margin:-30px auto 0; background:#FFF;">
+    	<div class="w955">
+        	<div class="blank1"></div>
+        	<div class="wz">{$ur_here}</div>
+            <div class="m_wrap2">
+            	<div class="con"><p class="p1">{$article_cat.25.cat_name}</p>
+                <p class="p2">{$article_cat.25.content|strip_tags|mySubstr=###,150}</p>
+                <a href="{:U('Info/fbo',array('cat_id'=>25))}">Detail</a></div>
+                <div class="img">
+                <a href="{:U('Info/fbo',array('cat_id'=>25))}">
+                <img src="__ROOT__/{$article_cat.25.cat_img}" width='334' height='218'>
+                </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="blank1"></div>
+            <div class="blank2"></div>
+            <div class="m_list">
+            	<div class="tit">{$article_cat.26.cat_name}</div>
+            	<div class="img">
+                <a href="{:U('Info/fbo',array('cat_id'=>26))}">
+                <img src="__ROOT__/{$article_cat.26.cat_img}" width="271" height='133'>
+                </a>
+                </div>
+                <div class="con">
+                	{$article_cat.26.content|strip_tags|mySubstr=###,62}
+                </div>
+                <a href="{:U('Info/fbo',array('cat_id'=>26))}">Detail</a>
+            </div>
+            <div class="m_list">
+            	<div class="tit"><!-- {$article_cat.27.cat_name} --></div>
+            	<div class="img">
+                   <!--  <a href="{:U('Info/fbo',array('cat_id'=>27))}">
+                   <img src="__ROOT__/{$article_cat.27.cat_img}" width="271" height='133'>
+                   </a> -->
+                </div>
+                <div class="con">
+                   <!--  {$article_cat.27.content|strip_tags|mySubstr=###,62} -->
+                </div>
+               <!--  <a href="{:U('Info/fbo',array('cat_id'=>27))}">Detail</a> -->
+            </div>
+            <div class="m_list" style="padding-right:0;">
+            	<div class="tit">{$article_cat.28.cat_name}</div>
+            	<div class="img">
+                    <a href="{:U('Info/fbo',array('cat_id'=>28))}">
+                    <img src="__ROOT__/{$article_cat.28.cat_img}" width="271" height='133'>
+                    </a>
+                </div>
+                <div class="con">
+                    {$article_cat.28.content|strip_tags|mySubstr=###,62}
+                </div>
+                <a href="{:U('Info/fbo',array('cat_id'=>28))}">Detail</a>
+            </div>
+            <div class="clear"></div>
+            <div style="height:155px;"></div>
+        </div>   	
+    </div>
+</div>
+
+<include file='Public:pageFooter'/>

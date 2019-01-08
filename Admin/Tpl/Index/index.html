@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cyx科技网站后台管理系統</title>
+    <link href="__PUBLIC__/Admin/css/Style.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/js/JavaScript.js"></script>
+    <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery(".current_click").each(function () {
+                var list = jQuery(this).find("ul.c li");
+                var liList = jQuery(".Container_Left ul");
+                list.each(function () {
+                    var o = jQuery(this);
+                    o.click(function () {
+                        list.removeClass('current');
+                        o.addClass('current');
+                    });
+                    //显示相对应的左侧栏目
+                    o.children("a").click(function () {
+                        var a = jQuery(this);
+                        var className = a.attr("class");
+                        if (className == undefined) return;
+                        var newlist = liList.find("." + className);
+                        liList.children("li").hide();
+                        newlist.show().eq(0).click();
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <include file="Index:topMenu" />
+    <div class="minlineheight"></div>
+    <div class="Container">
+        <include file="Index:leftMenu" />
+        <div class="ContainerMain autoHeight">
+            <iframe src="{:U('Index/main')}" width="100%" height="100%" id="main" frameborder="0" scrolling="yes" name="main"></iframe>
+        </div>
+    </div>
+    <include file="Index:footer" />
+</body>
+</html>

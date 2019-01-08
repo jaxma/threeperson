@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>产品管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+    <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/Js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+	
+	<link rel="stylesheet" href="__PUBLIC__/Admin/colorpicker/css/jquery.bigcolorpicker.css" type="text/css" />
+	<script type="text/javascript" src="__PUBLIC__/Admin/Js/imglist.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/colorpicker/js/jquery.bigcolorpicker.js"></script>
+	<style type="text/css">textarea{font-size: 12px; line-height: 20px;}</style>
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+	
+	// 筛选出分类属性
+	$('#cat_id').change(function(){
+		var id=$(this).val();
+		$.ajax({
+			url:"{:U('Goods/cat_attr')}",
+			type:'post',
+			data:'cat_id='+id,
+			async:false,
+			timeout:15000,
+			beforeSend:function(XMLHttpRequest){
+				$("#loading").html("<img src='__PUBLIC__/Admin/Img/loading.gif' />");
+			}, 
+			complete:function(XMLHttpRequest,textStatus){
+				$("#loading").empty();
+			}, 
+			success:function(msg){
+				$('#cat_attr').html(msg);
+			}
+	   });
+	});
+	
+	
+	$(".f1").bigColorpicker(function(el,color){
+		$(el).val(color);
+	});
+	
+});
+
+KindEditor.ready(function(K) {
+	K.create('.content', {
+		allowFileManager : false,
+		pasteType : 2,
+		newlineTag : 'p'
+	});
+});
+
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('.s_content', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		items : [
+			'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+	});
+});
+</script>
+
+
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">产品属性</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Goods/insert')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">产品名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title" value=""  size="50"/><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">产品分类：</td>
+							<td style="text-align:left;">
+								<select name="cat_id" id="cat_id">
+									<option value="0">请选择...</option>
+									{$cat_select}
+								</select><em>*</em>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="50" name="sort_order"  /></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">是否显示：</td>
+							<td style="text-align:left;">
+						      <input type="radio" name="is_open" value="1" checked="checked"/>是&nbsp;&nbsp;
+						      <input type="radio" name="is_open" value="0"/>否
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">首页推荐：</td>
+							<td style="text-align:left;">
+						      <input type="radio" name="is_recommend" value="1" />是&nbsp;&nbsp;
+						      <input type="radio" name="is_recommend" value="0" checked/>否
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">产品图片(详细页的)：</td>
+							<td style="text-align:left;">
+						      <input type='file' name='goods_img'/>&nbsp;&nbsp;&nbsp;<font color='red'>428px * 349px</font>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;产品简介</td>
+							<td style="text-align:left;"><textarea style="width:580px;height:120px;" name="short"></textarea></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;详细介绍</td>
+							<td style="text-align:left;"><textarea style="width:880px;height:400px;" name="content" class="content" ></textarea></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">扩展内容(产品介绍)<br/><font color='red'>标题为必填，标题为空则不保存内容</font></td>
+							<td style="text-align:left;" id='ex_goods_content_td'>
+								<div id='ex_goods_content_div' style='display:none;'>
+									<table>
+										<tr>
+											<td width='260'>
+												图片：<input type='file' name='ex_img_url[]'/><br/>
+												标题：<input type='text' name='ex_title[]'/><br/>
+												排序：<input type='text' name='ex_sort_order[]' size='10' value='50'>
+											</td>
+											<td width='520'>
+												<textarea name='ex_content[]' cols='60' rows='3'></textarea>
+											</td>
+											<td valign='middle'>&nbsp;&nbsp;&nbsp;
+												<input type='button' value='添加一个' onclick="add_one();">
+												<input type='button' value='取消' onclick="remove_one(this);">
+											</td>
+										</tr>
+									</table>
+								</div>
+						
+								<script type="text/javascript">
+								function add_one(){
+									var html = $('#ex_goods_content_div').html();
+									$('#ex_goods_content_td').append("<div>"+ html +"</div>");
+								}
+
+								add_one();
+						
+								function remove_one(_this){
+									var target = $(_this).parent('td').parent('tr');
+									if(target.parent('tbody')) target = target.parent('tbody');
+									target.parent('table').parent('div').remove();
+								}
+								</script>
+							</td>
+						</tr>
+						<!-- <tr>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;产品参数</td>
+							<td style="text-align:left;"><textarea style="width:880px;height:200px;" name="content1" class="s_content" ></textarea></td>
+						</tr> -->
+						<!-- <tr>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;相关下载</td>
+							<td style="text-align:left;">
+								<div>
+									<input type='file' name='related_downloads[]'/>
+									<input type='button' value='添加一个' onclick="add_one(this);">
+									<input type='button' value='取消' onclick="remove_one(this);">
+								</div>
+						
+								<script type="text/javascript">
+								function add_one(_this){
+									var html = $(_this).parent('div').html();
+									$(_this).parent('div').after("<div>"+ html +"</div>");
+								}
+						
+								function remove_one(_this){
+									$(_this).parent('div').remove();
+								}
+								</script>
+							</td>
+						</tr> -->
+						<!-- <tr>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;立即购买</td>
+							<td style="text-align:left;"><textarea style="width:880px;height:200px;" name="content2" class="s_content" ></textarea></td>
+						</tr> -->
+						<tr>
+							<td style="text-align:right;">关键字：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="" name="keywords"  /> 	关键字为选填项，其目的在于方便外部搜索引擎搜索</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">描述：</td>
+							<td style="text-align:left;"><textarea style="width:400px;height:100px;" name="description" ></textarea></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td align='left'>
+								<input type="submit" value="提交"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

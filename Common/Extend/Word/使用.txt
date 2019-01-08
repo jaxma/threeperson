@@ -1,0 +1,15 @@
+  public function index()
+{
+      //导入类库
+      import("ORG.SplitWord");
+      //记录下时间，调试下花了多少时间
+       G('run');
+      $str = "我爸是李刚你妈是梦鸽";
+      //丫的，开始分词啦
+      $sp = new SplitWord();
+      echo $sp->SplitRMM($str) . "<hr />";
+       //析放资源
+       $sp->Clear();
+      //打印耗时
+     echo '分词完成，耗时：'.G('run','end').'s';
+}

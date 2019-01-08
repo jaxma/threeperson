@@ -1,0 +1,61 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">家长报名表</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td width='50%' align='right'>家庭中0-3岁的孩子有</td>
+							<td>{$detail.child_num1}</td>
+						</tr>
+						<tr>
+							<td align='right'>家庭中4-6岁的孩子有</td>
+							<td>{$detail.child_num2}</td>
+						</tr>
+						<tr>
+							<td align='right'>姓名</td>
+							<td>{$detail.name}</td>
+						</tr>
+						<tr>
+							<td align='right'>电话</td>
+							<td>{$detail.phone}</td>
+						</tr>
+						<tr>
+							<td align='right'>微信昵称</td>
+							<td>{$detail.weixin}</td>
+						</tr>
+						<tr>
+							<td align='right'>是孩子的</td>
+							<td>{$detail.role}</td>
+						</tr>
+						<tr>
+							<td align='right'>家族企业名称</td>
+							<td>{$detail.company_name}</td>
+						</tr>	
+						<tr>
+							<td align='right'>推荐人或机构</td>
+							<td>{$detail.referee}</td>
+						</tr>	
+					</tbody>
+				</table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<include file="Index:pageHeader" />
+
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">会员列表</a></li>
+            </ul>
+        </div>
+        <div class="wrapBox mainAutoHeight">
+		
+			
+            <!--文章列表-->
+            <div class="body User">
+				<form method="POST" action="{:U('User/batch')}" name="listForm">
+					<table border="0" cellpadding="0" cellspacing="0" class="center">
+						<thead>
+							<tr>
+								<th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" />编号</th>
+								<th>公司名称</th>
+								<th>用户名</th>
+								<th>联系电话</th>
+								<th>E-mail</th>
+								<th>上次登录时间</th>
+								<th>注册日期</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<foreach name="list" item="vo">
+							<tr>
+								<td>{$vo.user_id}</td>
+								<td>{$vo.company}</td>
+								<td>{$vo.user_name}</td>
+								<td>{$vo.phone}</td>
+								<td>{$vo.email}</td>
+								<td>{$vo.last_login_time}</td>
+								<td>{$vo.reg_time}</td>
+								<td>
+									<span>
+										<!-- <a title="编辑" href="{:U('User/edit',array('user_id'=>$vo['user_id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp; -->
+										<a title="移除" href="{:U('User/drop',array('user_id'=>$vo['user_id'],'p'=>$_GET['p']))}" onclick="return confirm('删除不可恢复，你确定删除吗？');"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+									</span>
+								</td>
+							</tr>
+							</foreach>
+						</tbody>
+					</table>
+					
+					
+					<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+					<div class="batchChange">
+						<div class="f_r">
+							<div class="pagination">{$page}</div>
+						</div>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

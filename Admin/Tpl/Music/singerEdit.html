@@ -1,0 +1,116 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		allowFileManager : true,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'absolute'
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">歌手</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Music/singerUpdate')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">歌手名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="singer_name" value="{$cat.singer_name}"  /><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">所属类型：</td>
+							<td style="text-align:left;">
+								<select name="singer_type">
+									<option value="0">顶级分类</option>
+									{$cat_select}
+								</select>
+							<em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">首字母：</td>
+							<td style="text-align:left;">
+								<select name="first_word">
+									<option value="A" <if condition="$cat['first_word'] eq 'A'">selected=""</if>>A</option>
+									<option value="B" <if condition="$cat['first_word'] eq 'B'">selected=""</if>>B</option>
+									<option value="C" <if condition="$cat['first_word'] eq 'C'">selected=""</if>>C</option>
+									<option value="D" <if condition="$cat['first_word'] eq 'D'">selected=""</if>>D</option>
+									<option value="E" <if condition="$cat['first_word'] eq 'E'">selected=""</if>>E</option>
+									<option value="F" <if condition="$cat['first_word'] eq 'F'">selected=""</if>>F</option>
+									<option value="G" <if condition="$cat['first_word'] eq 'G'">selected=""</if>>G</option>
+									<option value="H" <if condition="$cat['first_word'] eq 'H'">selected=""</if>>H</option>
+									<option value="I" <if condition="$cat['first_word'] eq 'I'">selected=""</if>>I</option>
+									<option value="J" <if condition="$cat['first_word'] eq 'J'">selected=""</if>>J</option>
+									<option value="K" <if condition="$cat['first_word'] eq 'K'">selected=""</if>>K</option>
+									<option value="L" <if condition="$cat['first_word'] eq 'L'">selected=""</if>>L</option>
+									<option value="M" <if condition="$cat['first_word'] eq 'M'">selected=""</if>>M</option>
+									<option value="N" <if condition="$cat['first_word'] eq 'N'">selected=""</if>>N</option>
+									<option value="O" <if condition="$cat['first_word'] eq 'O'">selected=""</if>>O</option>
+									<option value="P" <if condition="$cat['first_word'] eq 'P'">selected=""</if>>P</option>
+									<option value="Q" <if condition="$cat['first_word'] eq 'Q'">selected=""</if>>Q</option>
+									<option value="R" <if condition="$cat['first_word'] eq 'R'">selected=""</if>>R</option>
+									<option value="S" <if condition="$cat['first_word'] eq 'S'">selected=""</if>>S</option>
+									<option value="T" <if condition="$cat['first_word'] eq 'T'">selected=""</if>>T</option>
+									<option value="U" <if condition="$cat['first_word'] eq 'U'">selected=""</if>>U</option>
+									<option value="V" <if condition="$cat['first_word'] eq 'V'">selected=""</if>>V</option>
+									<option value="W" <if condition="$cat['first_word'] eq 'W'">selected=""</if>>W</option>
+									<option value="X" <if condition="$cat['first_word'] eq 'X'">selected=""</if>>X</option>
+									<option value="Y" <if condition="$cat['first_word'] eq 'Y'">selected=""</if>>Y</option>
+									<option value="Z" <if condition="$cat['first_word'] eq 'Z'">selected=""</if>>Z</option>
+								</select>
+								<em>*</em>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">热门歌手：</td>
+							<td style="text-align:left;">
+								<input type="radio" name="is_hot" value="1" <if condition="$cat['is_hot'] eq 1">checked=""</if>/>是
+								<input type="radio" name="is_hot" value="0" <if condition="$cat['is_hot'] eq 0">checked=""</if>/>否
+							<em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="{$cat.sort_order}" name="sort_order"  /><em>*</em> </td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">视频图片预览：</td>
+							<td style="text-align:left;"><img src="__ROOT__/{$cat.thumb_img}"/></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">歌手图片：</td>
+							<td style="text-align:left;"><input type="file" name="singer_img" size="35" /><br/><font color="#ff0000"> 注：图片最佳大小为220px*220px</font> </td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">详细介绍：</td>
+							<td style="text-align:left;"><textarea style="width:880px;height:400px;" name="content" id="content" >{$cat.content}</textarea></td>
+						</tr>
+						<tr>
+							<td style="text-align:center;" colspan="2">
+								<input type="hidden" name="cat_id" value="{$cat.singer_id}"/>
+								<input type="submit" value="提交"/>
+							</td>
+						</tr>
+						<tr><tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

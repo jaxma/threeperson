@@ -1,0 +1,101 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delArticle(id) {
+	$.dialog.confirm('你确定要删除这个文章吗？', function(){
+		window.location.href="{:U('Article/del')}/article_id/"+id;
+	}, function(){
+		//$.dialog.tips('执行取消操作');
+	});
+}
+</script>
+
+    <div class="column_Box mainAutoHeight">
+        <div class="tab">
+            <ul>
+                <li class="current"><a href="javascript:">管理员日志</a></li>
+            </ul>
+        </div>
+		
+        <div class="wrapBox mainAutoHeight">
+			
+			
+            <!--管理员日志-->
+            <div class="body User">				
+				<div class="item">
+					<form action="{:U('Adminlog/index')}" method="post">
+						按IP地址查看
+						<select name="ip" class="dot_Item">
+							<option value="0">选择IP地址...</option>
+							<volist name="ip_list" id="vo">
+							<option value="{$vo}" <if condition="$vo eq $admin_id">selected=""</if>>{$vo}</option>
+							</volist>
+						</select>
+						排序方式：
+						<select name="sort_by" class="dot_Item">
+							<option value="">请选择排序方式</option>
+							<option value="al.log_id" <if condition="$filter.sort_by eq 'al.log_id'">selected=""</if>>编号</option>
+								<option value="al.user_id" <if condition="$filter.sort_by eq 'al.user_id'">selected=""</if>>操作者</option>
+								<option value="al.log_time" <if condition="$filter.sort_by eq 'al.log_time'">selected=""</if>>操作日期</option>
+								<option value="al.ip_address" <if condition="$filter.sort_by eq 'al.ip_address'">selected=""</if>>IP地址</option>
+						</select>
+						排序：
+						<select name="sort_order" class="dot_Item">
+							<option value="">请选择排序</option>
+							<option value="DESC" <if condition="$filter.sort_order eq 'DESC'">selected=""</if>>倒序</option>
+							<option value="ASC" <if condition="$filter.sort_order eq 'ASC'">selected=""</if>>顺序</option>
+						</select>
+						&nbsp;&nbsp;<input type="submit" class="submit btn_search" value="确定" />
+					</form>
+					<div class="searchBar">
+						<form action="{:U('Adminlog/batch_drop')}" method="post">
+							清除日志：
+							<select name="log_date">
+								<option value="0">选择清除的日期...</option>
+								<option value="1">一周之前</option>
+								<option value="2">一个月之前</option>
+								<option value="3">三个月之前</option>
+								<option value="4">半年之前</option>
+								<option value="5">一年之前</option>
+							</select>
+							&nbsp;&nbsp;<input type="submit" class="submit btn_search" value="确定" />
+						</form>
+					</div>
+				</div>
+				<form action="{:U('Adminlog/batch_drop')}" method="post">
+				<table border="0" cellpadding="0" cellspacing="0" class="center">
+					<thead>
+						<tr>
+							<th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" />编号</th>
+							<th>操作者</th>
+							<th>操作日期</th>
+							<th>IP地址</th>
+							<th>操作记录</th>
+						</tr>
+					</thead>
+					<tbody>
+						<foreach name="list.list" item="vo">
+						<tr>
+							<td><input type="checkbox" name="checkboxes[]" class="checkBox_list" value="{$vo.log_id}" />{$vo.log_id}</td>
+							<td>{$vo.user_name}</td>
+							<td>{$vo.log_time|date='Y-m-d H:i:s',###}</td>
+							<td>{$vo.ip_address}</td>
+							<td>{$vo.log_info}</td>
+						</tr>
+						</foreach>
+					</tbody>
+				</table>
+				
+				
+				<div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+				
+				<div class="batchChange">
+					<div class="f_l">
+						<input type="submit" class="button" name="btnSubmit" id="btnSubmit" value=" 清除日志 "/>
+					</div>
+				</div>
+				</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

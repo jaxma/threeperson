@@ -1,0 +1,88 @@
+<style>
+.tag{padding:5px 10px; color:white; margin:5px 10px 10px 0; cursor: pointer;}
+</style>
+
+<div style="padding-left:55px;">
+    <fieldset>
+        <legend>已添加的标签</legend>
+        <div id='added_tags'>
+            <foreach name='tags' item='tag'>
+            <php>$randcolor = 'rgb('. rand(55,200) . ',' . rand(55,200) . ',' . rand(55,200) . ')';</php>
+            <span class='tag' style="background-color:{$randcolor};">
+                {$tag.tag_name}
+                <input type='hidden' name='tags[]' value='{$tag.id}'/>
+            </span>
+            </foreach>
+        </div>
+    </fieldset>
+
+    <input type='text' id='tag' size='10' maxlength='4' placeholder='四个汉字以内' onkeyup="search_tags();"/>&nbsp;
+    <input type="button" value='添加标签' class='btn' onclick="addTag();"/>
+
+    <br/>
+    <fieldset>
+        <legend>选择标签</legend>
+        <div id='tags_list'></div>
+    </fieldset>
+</div>
+
+<script type="text/javascript">
+//添加标签
+function addTag(){
+    var cat_id   = parseInt('[cat_id]') || parseInt('{$cat_id}');
+    var tag_name = $('#tag').val();
+    if(!tag_name){
+        alert('请输入标签名！');
+        return false;
+    }
+
+    $.get("{:U('Control/addTag')}", {'cat_id':cat_id, 'tag_name':tag_name}, function(res){
+        var color = "rgb("+ Math.ceil(55+Math.random()*200) +","+ Math.ceil(55+Math.random()*200) +","+ Math.ceil(55+Math.random()*200) +");";
+        var tag = "<span class='tag' style='background-color:"+ color +"'>"+ tag_name;
+        tag    += "<input type='hidden' name='tag[]' value='"+ res +"'>";
+        tag    += "</span>";
+        $('#added_tags').append(tag);
+    }, 'html');
+}
+
+//选择标签
+function selectTag(){
+    $('#tags_list span').unbind('click');
+    $('#tags_list span').bind('click', function(){
+        var _this = $(this);
+
+        var _has = $("#added_tags input[value='"+ _this.children('input').val() +"']");
+        if(_has.length > 0){
+            alert('相同标签已添加！');return false;
+        }
+
+        _this.children('input').attr('name','tags[]');
+        $('#added_tags').append(_this);
+        cancelTag();
+    });
+}
+
+//删除标签
+function cancelTag(){
+    $('#added_tags span').unbind('click');
+     $('#added_tags span').bind('click', function(){
+        var _this = $(this);
+        _this.children('input').attr('name','tag[]');
+        $('#tags_list').append(_this);
+        selectTag();
+    });
+}
+cancelTag();
+
+//搜索标签
+function search_tags(){
+    var cat_id   = parseInt('[cat_id]') || parseInt('{$cat_id}');
+    var tag_name = $('#tag').val();
+    $.get("{:U('Control/tag_list')}", {'cat_id':cat_id, 'keyword':tag_name}, function(res){
+        $('#tags_list').html(res);
+        selectTag();
+    }, 'html');
+}
+
+search_tags();
+</script>

@@ -1,6 +1,6 @@
 <?php
 
-echo 'tests';
+echo '仰思，s  -》  b';
 
 
 ?>

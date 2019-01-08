@@ -349,3 +349,43 @@ INFO: Run ReadHtmlCache Behavior [ RunTime:0.002000s ]
 INFO: Run CheckLang Behavior [ RunTime:0.001000s ]
 INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
 
+[ 2019-01-08T23:04:24+08:00 ] ERR: (ThinkException) Access denied for user 'threeperson'@'localhost' (using password: YES)
+[ 2019-01-08T23:04:24+08:00 ] 0.0.0.0 /threeperson/system.php/Public/checkLogin
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001000s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [2] mysql_connect(): Access denied for user 'threeperson'@'localhost' (using password: YES) E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+NOTIC: [8] Undefined index: class E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class PublicAction could not be converted to string E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+
+[ 2019-01-08T23:04:29+08:00 ] ERR: (ThinkException) Access denied for user 'threeperson'@'localhost' (using password: YES)
+[ 2019-01-08T23:04:29+08:00 ] 0.0.0.0 /threeperson/system.php/Public/checkLogin
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001000s ]
+INFO: Run CheckLang Behavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] mysql_connect(): Access denied for user 'threeperson'@'localhost' (using password: YES) E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+NOTIC: [8] Undefined index: class E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class PublicAction could not be converted to string E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+

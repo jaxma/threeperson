@@ -14,7 +14,7 @@ class PublicModel extends Model {
         }
 		$M = M("admin_user");
 				echo '<pre>';
-				print_r(M('admin_user')->where(1)->select());die;
+				print_r(M('admin_user')->_sql());die;
 		if ( $M->where("`user_name`='" . $datas['username'] . "'")->count()>=1) {
 			$info = $M->where("`user_name`='" . $datas["username"] . "'")->find();		
 			if ($info['password'] == md5($datas['password']) && $info['user_name'] == $datas['username']) {

@@ -13,14 +13,10 @@ class PublicModel extends Model {
             die(json_encode(array('status' => 0, 'info' => '验证码错误啦，再输入吧！')));
         }
 		$M = M("admin_user");
-				echo '<pre>';
-				$ress = M('admin_user')->where(1)->select();
-				print_r(M('admin_user')->_sql());
-				print_r($ress);die;
 		if ( $M->where("`user_name`='" . $datas['username'] . "'")->count()>=1) {
 			$info = $M->where("`user_name`='" . $datas["username"] . "'")->find();		
 			if ($info['password'] == md5($datas['password']) && $info['user_name'] == $datas['username']) {
-				// 登录成功 
+				// 登录成功
 				$action_list = M('role')->where('role_id='.$info['role_id'])->getField('action_list');
 				self::set_admin_session($info['user_id'], $info['user_name'], $action_list, $info['last_login']);
 				// 更新最后登录时间和IP

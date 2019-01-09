@@ -19,9 +19,9 @@ $config1 = array(
     'LOG_EXCEPTION_RECORD'=>false,
     'TMPL_STRIP_SPACE' => false,
     'DB_HOST' => 'localhost', 
-    'DB_NAME' => 'threeperson', 
-    'DB_USER' => 'threeperson', 
-    'DB_PWD' => 'sSbw5mkRXbzn4wr5',
+    'DB_NAME' => (WEB_URL=='yangsi.tk' || WEB_URL=='www.yangsi.tk')?'threeperson': ((WEB_URL=='tp.com' || WEB_URL=='www.tp.com')?'mytp':''),
+    'DB_USER' => (WEB_URL=='yangsi.tk' || WEB_URL=='www.yangsi.tk')?'threeperson': ((WEB_URL=='www.tp.com')?'root':''),
+    'DB_PWD' => (WEB_URL=='yangsi.tk' || WEB_URL=='www.yangsi.tk')?'sSbw5mkRXbzn4wr5': ((WEB_URL=='www.tp.com')?'root':''),
     'DB_PORT' => '3306', 
     'DB_PREFIX' => 'tp_',
 );

@@ -1,0 +1,20 @@
+[ 2019-01-09T14:09:17+08:00 ] ERR: (ThinkException) Access denied for user ''@'localhost' (using password: NO)
+[ 2019-01-09T14:09:17+08:00 ] 127.0.0.1 /system.php/Public/checkLogin
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001000s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001000s ]
+INFO: Run CheckLang Behavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] mysql_connect(): Access denied for user ''@'localhost' (using password: NO) D:\www\tp\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+NOTIC: [8] Undefined index: class D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: file D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 62 行.
+NOTIC: [8] Undefined index: line D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 62 行.
+NOTIC: [4096] Object of class PublicAction could not be converted to string D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 64 行.
+NOTIC: [8] Undefined index: class D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: class D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+NOTIC: [8] Undefined index: type D:\www\tp\ThinkPHP\Lib\Core\ThinkException.class.php 第 63 行.
+

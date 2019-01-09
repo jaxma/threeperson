@@ -7,10 +7,10 @@
 			</if>
 
 			<if condition="admin_priv2('Message')">
-			<li><a href="{:U('Articlecat/index2')}" target="main" class="show_d">文章管理</a></li>
+			<li><a href="{:U('Articlecat/index2')}" target="main" class="show_d">项目管理</a></li>
 			</if>
 
-			<li><a href="{:U('Goods/index',array('cat_id'=>1))}" target="main" class="show_c">案例管理</a></li>
+			<li><a href="{:U('Goods/index',array('cat_id'=>1))}" target="main" class="show_c">事物所管理</a></li>
 
 			<if condition="admin_priv2('Images')">
 			<li><a href="{:U('Ads/index',array('cat_id'=>2))}" target="main" class="show_e">图片管理</a></li>

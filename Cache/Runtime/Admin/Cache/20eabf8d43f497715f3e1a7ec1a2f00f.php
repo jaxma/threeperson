@@ -40,9 +40,9 @@
 		<ul class="c">
 			<?php if(admin_priv2('Columns')): ?><li><a href="<?php echo U('Articlecat/index');?>" target="main" class="show_a">栏目分类</a></li><?php endif; ?>
 
-			<?php if(admin_priv2('Message')): ?><li><a href="<?php echo U('Articlecat/index2');?>" target="main" class="show_d">文章管理</a></li><?php endif; ?>
+			<?php if(admin_priv2('Message')): ?><li><a href="<?php echo U('Articlecat/index2');?>" target="main" class="show_d">项目管理</a></li><?php endif; ?>
 
-			<li><a href="<?php echo U('Goods/index',array('cat_id'=>1));?>" target="main" class="show_c">案例管理</a></li>
+			<li><a href="<?php echo U('Goods/index',array('cat_id'=>1));?>" target="main" class="show_c">事物所管理</a></li>
 
 			<?php if(admin_priv2('Images')): ?><li><a href="<?php echo U('Ads/index',array('cat_id'=>2));?>" target="main" class="show_e">图片管理</a></li><?php endif; ?>
 
@@ -74,11 +74,11 @@
 	<ul class="c">
 		<li class="show_a"><a href="<?php echo U('Articlecat/index');?>" target="main">栏目分类</a></li>
 
-		<li class="show_d" style="display:none;"><a href="<?php echo U('Articlecat/index2');?>" target="main">分类文章列表</a></li>
-		<li class="show_d" style="display:none;"><a href="<?php echo U('Article/index');?>" target="main">全部文章</a></li>
+		<li class="show_d" style="display:none;"><a href="<?php echo U('Articlecat/index2');?>" target="main">分类项目列表</a></li>
+		<li class="show_d" style="display:none;"><a href="<?php echo U('Article/index');?>" target="main">全部项目</a></li>
 
-		<li class="show_c" style="display:none;"><a href="<?php echo U('Goods/index',array('cat_id'=>1));?>" target="main">案例列表</a></li>
-		<li class="show_c" style="display:none;"><a href="<?php echo U('Goodscat/index');?>" target="main">案例分类</a></li>
+		<li class="show_c" style="display:none;"><a href="<?php echo U('Goods/index',array('cat_id'=>1));?>" target="main">事务所介绍列表</a></li>
+		<li class="show_c" style="display:none;"><a href="<?php echo U('Goodscat/index');?>" target="main">事务所分类</a></li>
 
 		<li class="show_e" style="display:none;"><a href="<?php echo U('Ads/index',array('cat_id'=>2));?>" target="main">首页Banner图</a></li>
 		<li class="show_e" style="display:none;"><a href="<?php echo U('Ads/index',array('cat_id'=>6));?>" target="main">首页广告图</a></li>

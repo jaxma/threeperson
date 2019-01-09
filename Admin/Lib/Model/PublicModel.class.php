@@ -18,8 +18,6 @@ class PublicModel extends Model {
 			if ($info['password'] == md5($datas['password']) && $info['user_name'] == $datas['username']) {
 				// 登录成功
 				$action_list = M('role')->where('role_id='.$info['role_id'])->getField('action_list');
-				echo '<pre>';
-				print_r(M('admin_user')->where()->select());die;
 				self::set_admin_session($info['user_id'], $info['user_name'], $action_list, $info['last_login']);
 				// 更新最后登录时间和IP
 				$data['last_login']=time();

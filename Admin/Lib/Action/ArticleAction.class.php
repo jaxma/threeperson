@@ -12,7 +12,7 @@ class ArticleAction extends CommonAction {
     public function index($cat_id=0) {
     	// if($cat_id==2){//培训课程
     	// 	$this->redirect('Goods/index',array('cat_id'=>1));exit;
-    	// }
+    	// } 
 
 		// 筛选条件及排序
 		$filter = array();

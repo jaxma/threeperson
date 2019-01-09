@@ -19,7 +19,11 @@ $config1 = array(
     'LOG_EXCEPTION_RECORD'=>false,
     'TMPL_STRIP_SPACE' => false,
     'DB_HOST' => 'localhost', 
+<<<<<<< HEAD
     'DB_NAME' => (WEB_URL=='yangsi.tk' || WEB_URL=='tp.yangsi.tk')?'threeperson': ((WEB_URL=='tp.com' || WEB_URL=='www.tp.com')?'mytp':''),
+=======
+    'DB_NAME' => (WEB_URL=='yangsi.tk' || WEB_URL=='tp.yangsi.tk')?'threeperson': ((WEB_URL=='tp.com' || WEB_URL=='www.tp.com')?'tp':''),
+>>>>>>> tp
     'DB_USER' => (WEB_URL=='yangsi.tk' || WEB_URL=='tp.yangsi.tk')?'threeperson': ((WEB_URL=='tp.com' || WEB_URL=='www.tp.com')?'root':''),
     'DB_PWD' => (WEB_URL=='yangsi.tk' || WEB_URL=='tp.yangsi.tk')?'sSbw5mkRXbzn4wr5': ((WEB_URL=='tp.com' || WEB_URL=='www.tp.com')?'root':''),
     'DB_PORT' => '3306', 

@@ -114,7 +114,7 @@ class GoodsAction extends CommonAction {
 		$data['sort_order'] = $this->_post("sort_order","intval",0);
 		$data['is_open']    = $this->_post("is_open","intval",1);
 		$data['add_time']   = $now;
-		$data['publish_time']   = $this->_post("publish_time","intval",$now);
+		$data['publish_time']   = $this->_post("publish_time","","");
 		$data['content']= $this->_post("content","","");
 		$data['content_en']= $this->_post("content_en","","");
 		$data['keywords']= $this->_post("keywords","","");
@@ -145,7 +145,7 @@ class GoodsAction extends CommonAction {
 		}else{
 			$this->error("详情页大图未上传或上传失败，请重试");
 		}
-		$data['publish_time'] = strtotime($data['publish_time']);
+		$data['publish_time'] = $data['publish_time']?strtotime($data['publish_time']):$now;
 		$data['admin_id'] = $_SESSION['admin_id'];
 		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
 		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));
@@ -178,7 +178,7 @@ class GoodsAction extends CommonAction {
 		$data['sort_order'] = $this->_post("sort_order","intval",0);
 		$data['is_open']    = $this->_post("is_open","intval",1);
 		$data['add_time']   = $now;
-		$data['publish_time']   = $this->_post("publish_time","intval",$now);
+		$data['publish_time']   = $this->_post("publish_time","","");
 		$data['content']= $this->_post("content","","");
 		$data['content_en']= $this->_post("content_en","","");
 		$data['keywords']= $this->_post("keywords","","");
@@ -203,7 +203,7 @@ class GoodsAction extends CommonAction {
 			move_uploaded_file($_FILES['goods_img_detail']['tmp_name'], $goods_img_detail);
 			$data['goods_img_detail'] = $goods_img_detail;
 		}
-		$data['publish_time'] = strtotime($data['publish_time']);
+		$data['publish_time'] = $data['publish_time']?strtotime($data['publish_time']):$now;
 		$data['admin_id'] = $_SESSION['admin_id'];
 		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
 		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));

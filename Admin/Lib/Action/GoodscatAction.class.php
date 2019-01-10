@@ -13,9 +13,7 @@ class GoodscatAction extends CommonAction {
 		$this->assign("action",$_GET['action']);
 		$this->assign("parent_id",$_GET['parent_id']);
 		$this->assign("cat_id",$_GET['cat_id']);
-		
 		$goodscat=D("Goodscat")->listGoodscat();
-		
 		$html='';
 		foreach($goodscat as $key=>$value){
 			$html.='<li class="closed"><a href="javascript:void(0);" onclick="goodscatInfo('.$value['id'].')"><span class="folder">'.$value['name'].'</span></a>';
@@ -44,7 +42,6 @@ class GoodscatAction extends CommonAction {
 				}
 			$html.='</li>';
 		}
-		
 		$this->assign("html",$html);
 		$this->assign("goodscat",$goodscat);
 		$this->display();
@@ -55,9 +52,7 @@ class GoodscatAction extends CommonAction {
 		$this->assign("action",$_GET['action']);
 		$this->assign("parent_id",$_GET['parent_id']);
 		$this->assign("cat_id",$_GET['cat_id']);
-		
 		$goodscat=D("Goodscat")->listGoodscat();
-		
 		$html='';
 		foreach($goodscat as $key=>$value){
 			$html.='<li class="closed"><a href="'. U('Goods/index',array('cat_id'=>$value['id'])) .'" target="container"><span class="folder">'.$value['name'].'</span></a>';
@@ -139,6 +134,7 @@ class GoodscatAction extends CommonAction {
 	public function insert(){
 		/* 权限判断 */
 		$data['cat_name']   = $_POST['cat_name'];
+		$data['cat_name_en']   = $_POST['cat_name_en'];
 		$data['cat_type']   = 1;
 		$data['cat_desc']   = $_POST['cat_desc'];
 		$data['cat_attr']   = $_POST['cat_attr'];
@@ -187,6 +183,7 @@ class GoodscatAction extends CommonAction {
 		$cat_id   = intval($_POST['cat_id']);
 		
 		$data['cat_name']   = $_POST['cat_name'];
+		$data['cat_name_en']   = $_POST['cat_name_en'];
 		$data['cat_type']   = 1;
 		$data['cat_desc']   = $_POST['cat_desc'];
 		$data['cat_attr']   = $_POST['cat_attr'];

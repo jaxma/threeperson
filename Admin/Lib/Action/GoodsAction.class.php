@@ -115,6 +115,7 @@ class GoodsAction extends CommonAction {
 		$data['is_open']    = $this->_post("is_open","intval",1);
 		$data['add_time']   = $now;
 		$data['publish_time']   = $this->_post("publish_time","intval",$now);
+		var_dump($data);
 
 		if(
 			empty($data['title']) ||

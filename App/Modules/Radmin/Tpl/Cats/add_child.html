@@ -1,0 +1,45 @@
+<style type="text/css">
+  .layui-form-item span{
+    line-height: 38px!important;
+    }
+    /*小屏幕样式*/
+    @media screen and (max-width: 768px) {
+        .layui-input-block {
+            left: -99px;
+        }
+    }
+</style>
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__URL__/insert" data-auto="false" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+            <input type="text" name = "name" value='{$detail.name}'class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否显示</label>
+        <div class="layui-input-block">
+            <input type="radio" name="status" value="1" title="显示" <?php echo $detail['status']==1?'checked':'';?>>
+            <input type="radio" name="status" value="0" title="隐藏" <?php echo $detail['status']==0?'checked':'';?>>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">优先级</label>
+        <div class="layui-input-block">
+            <input type="text" name = "sequence" value='{$detail.sequence}'class="layui-input">
+        </div>
+        <span style="color:red;">数字越大排名越前</span>
+    </div>
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        <input type="hidden" name="pid" value="{$pid}" />
+        <button class="layui-btn" type='submit'>确认添加</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消</button>
+    </div>
+
+</form>
+<script type="text/javascript">
+    form.render();
+</script>

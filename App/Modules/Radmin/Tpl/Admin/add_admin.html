@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form {
+                padding: 15px 0;
+            }
+            .edit-wrapper .layui-content .layui-form .items {
+                display: block;
+            }
+            .edit-wrapper .layui-content .layui-form .items .form-text {
+                text-align: left;
+                padding-left: 5%;
+                float: none;
+            }
+            .edit-wrapper .layui-content .layui-form .items .form-right {
+                float: none;
+            }
+        }
+    </style>
+    <script>
+        /**
+         * 使用图片上传接口需满足以下条件
+         * 1.容器选择器id=upload
+         * 2.设置name=image的input标签隐藏域
+         * 3.指定上传目录名称
+         */
+        //上传目录
+        var upload_dir_name = '';
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid edit-wrapper layui-container">
+        <div class="layui-content">
+            <form class="layui-form layui-box" action="__GROUP__/admin/excu_add_admin" data-auto="false" method="post">
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">用户名：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="{$list.username}" required="" type="text" name="username" id="username" lay-verify="username"
+                            autocomplete="off" title="请输入用户名" placeholder="请输入用户名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item  items layui-row">
+                    <label class="form-text layui-col-xs12">手机号码：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="{$list.phone}" type="number" name="phone" id="phone" lay-verify="phone" autocomplete="off" placeholder="请输入手机号码">
+                    </div>
+                </div>
+                
+                <div class="layui-form-item  items layui-row">
+                    <label class="form-text layui-col-xs12">邮箱：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="{$list.email}" type="text" name="email" id="email" lay-verify="email" autocomplete="off" placeholder="请输入邮箱地址">
+                    </div>
+                </div>
+
+                <div class="layui-form-item  items layui-row">
+                    <label class="form-text layui-col-xs12">密码：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="" type="password" name="pw" id="pd" lay-verify="pass" autocomplete="off" required="" placeholder="请输入密码">
+                    </div>
+                </div>
+                
+                <div class="layui-form-item  items layui-row">
+                    <label class="form-text layui-col-xs12">确认密码：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="" type="password" name="repw" id="repw" lay-verify="pass" required="" autocomplete="off" placeholder="确认密码">
+                    </div>
+                </div>
+                
+                <div class="layui-form-item  items layui-row">
+                    <label class="form-text layui-col-xs12"></label>
+                    <div class="form-right layui-col-xs12" style="margin-left: 10px;">
+                        <input type="hidden" name="id" value="{$vo.id}" />
+                        <input class="layui-btn" value="立即提交" type="submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

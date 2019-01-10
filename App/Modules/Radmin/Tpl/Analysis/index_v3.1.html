@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>首页</title>
+    <!--<link rel="stylesheet" href="__PUBLIC__/Radmin_v2/css/reset.css" />-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Radmin_v3/css/analysis_v3.1.css" />
+
+    <script type="text/javascript">
+      var orderapi = '__GROUP__/analysis/get_new_order_ajax'
+      var todaytotalapi = '__GROUP__/analysis/get_order_count'
+      var levelurl = '__GROUP__/analysis/get_distributor_level'
+      var kindurl = '__GROUP__/analysis/get_order_type'
+      var mapurl = '__PUBLIC__/Radmin_v2/js/map/';
+      var mapimg = '__PUBLIC__/Radmin_v2/images/'
+    </script>
+  </head>
+
+  <body>
+    <div class="container-fluid edit-wrapper layui-container">
+      <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+          <span class="title">欢迎进入管理系统</span>
+        </blockquote>
+      </header>
+      <div class="layui-content clearfloat">
+        <dl class="analysis-wrapper clearfloat">
+          <dt class="analysis-top clearfloat">
+        	  <h1 class="title">经销商模块</h1>
+        	  <ul class="agent-count">
+        	    <li>
+        	        <img src="__PUBLIC__/Radmin_v3/images/icons-1_01.png" alt="" />
+          	      <p class="num">{$total_users}</p>
+          	      <p class="title">经销商总数量</p>
+        	    </li>
+        	    <li>
+        	      <img src="__PUBLIC__/Radmin_v3/images/icons-1_02.png" alt="" />
+                <p class="num">{$no_head_audited_users}</p>
+                <p class="title">待总部审核数量</p>
+        	    </li>
+                <li>
+        	      <img src="__PUBLIC__/Radmin_v3/images/icons-1_10.png" alt="" />
+                <p class="num">{$no_agent_audited_users}</p>
+                <p class="title">待上级审核数量</p>
+        	    </li>
+        	    <li>
+        	      <img src="__PUBLIC__/Radmin_v3/images/icons-1_03.png" alt="" />
+                <p class="num">{$yes_audited_users}</p>
+                <p class="title">已审核数量</p>
+        	    </li>
+        	    <li>
+        	      <img src="__PUBLIC__/Radmin_v3/images/icons-1_04.png" alt="" />
+                <p class="num">{$day_users}</p>
+                <p class="title">今日增长数量</p>
+        	    </li>
+        	  </ul>
+        	</dt>
+          <dd class="analysis-bottom clearfloat">
+              <div class="layui-input-inline timer">
+                <input type="text" class="layui-input green" id="agent" readonly="readonly">
+                <i class="fa fa-angle-down"></i>
+              </div>
+            <div id="charts1"></div>
+          </dd>
+        </dl>
+        
+        <dl class="analysis-wrapper clearfloat">
+          <dt class="analysis-top clearfloat">
+            <h1 class="title">订单模块</h1>
+            <ul class="agent-count">
+              <li>
+                <img src="__PUBLIC__/Radmin_v3/images/icons-1_05.png" alt="" />
+                <p class="num">{$total_orders}</p>
+                <p class="title">订单总金额</p>
+              </li>
+              <li>
+                <img src="__PUBLIC__/Radmin_v3/images/icons-1_06.png" alt="" />
+                <p class="num">{$no_audited_orders}</p>
+                <p class="title">待审核订单数量</p>
+              </li>
+              <li>
+                <img src="__PUBLIC__/Radmin_v3/images/icons-1_09.png" alt="" />
+                <p class="num">{$yes_audited_orders}</p>
+                <p class="title">已发货订单数量</p>
+              </li>
+              <li>
+                <img src="__PUBLIC__/Radmin_v3/images/icons-1_07.png" alt="" />
+                <p class="num">{$finished_orders}</p>
+                <p class="title">已收货订单数量</p>
+              </li>
+              <li>
+                <img src="__PUBLIC__/Radmin_v3/images/icons-1_08.png" alt="" />
+                <p class="num">{$day_orders}</p>
+                <p class="title">今日订单数量</p>
+              </li>
+            </ul>
+          </dt>
+          <dd class="analysis-bottom clearfloat">
+              <div class="layui-input-inline timer">
+                <input type="text" class="layui-input blue" id="order" readonly="readonly">
+                <i class="fa fa-angle-down"></i>
+              </div>
+            <div id="charts2"></div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <script src="__PUBLIC__/Radmin_v3/js/analysis.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+
+
+</html>

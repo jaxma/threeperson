@@ -1,0 +1,271 @@
+<div class="wrapper">
+
+</div>
+<div class="sidebar-inner">
+    <div class="sidebar-fold">
+        <span class="glyphicon glyphicon-option-vertical transition"></span>
+    </div>
+    <div data-menu-box="m-1" class="toleft">
+        <!--用户信息-->
+        <div class="user-wrapper">
+            <div class="user-img">
+                <img class="avatar" src="__ROOT__/upload/system_logo/system_logo.png" onerror="this.src='__PUBLIC__/Radmin_v3/images/logo/system_logo.png'" alt="" />
+            </div>
+            <div class="user-info">
+                <p class="name">{$Think.session.aname}</p>
+                <span>
+                    <i class="status"></i>在线</span>
+            </div>
+        </div>
+        <!--搜索框-->
+        <!--<div class="search-wrapper">
+      <form action="" method="get" class="sidebar-form" onsubmit="return false;">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" id="search-text" placeholder="搜索菜单">
+          <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+          <div class="menuresult list-group sidebar-form hide" style="width: 210px;">
+          </div>
+        </div>
+      </form>
+    </div>-->
+
+        <!--新版菜单列表-->
+        <div class="menu-wrapper" style="padding-bottom: 100px;">
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a data-menu-node='m-0-0' data-open="__GROUP__/analysis/index" class="only">
+                        <i class="fa fa-home icons"></i>
+                        <span class="title2">首页</span>
+                    </a>
+                </li>
+                
+                
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-cogs icons"></i>
+                        <span class="title">账号管理</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-1-2' data-open="__GROUP__/admin/edit">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">编辑资料</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-1-3' data-open="__GROUP__/admin/active_log">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">操作日志</span>
+                            </a>
+                        </li>
+                        <?php if(  $aid==1 || in_array(1,$admin_auth) ||  in_array($aid,$superids)  ): ?>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-1-4' data-open="__GROUP__/admin/manage">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">管理员管理</span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                </li>
+                <?php if( in_array($aid,$superids) || in_array(98,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-file-text icons"></i>
+                        <span class="title">公司管理</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-2-1' data-open="__GROUP__/photo/company_con1">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">公司介绍</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-2-1' data-open="__GROUP__/photo/company_con2">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">个人介绍</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+                <?php if( in_array($aid,$superids) || in_array(97,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-file-text icons"></i>
+                        <span class="title">摄影棚</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-3-1' data-open="__GROUP__/studio/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">摄影棚</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+                <?php if( in_array($aid,$superids) || in_array(99,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-sitemap icons"></i>
+                        <span class="title">摄影分类管理</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/photo/cat">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">摄影分类</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+<!--                 <li>
+                    <a data-menu-node='m-200-1' data-open="__GROUP__/cats/index" class="only">
+                        <i class="fa fa-home icons"></i>
+                        <span class="title2">分类</span>
+                    </a>
+                </li> -->
+                
+                <?php if( in_array($aid,$superids) || in_array(100,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-money icons"></i>
+                        <span class="title">摄影封面管理</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-5-1' data-open="__GROUP__/photo/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">摄影封面上传</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+                
+                <?php if( in_array($aid,$superids) || in_array(101,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-gift icons"></i>
+                        <span class="title">视频分享管理</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-6-1' data-open="__GROUP__/video/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">视频上传</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-6-2' data-open="__GROUP__/video/scan_video">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">视频文件夹</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+
+                <?php if( in_array($aid,$superids) || in_array(102,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-file-text icons"></i>
+                        <span class="title">后台花絮</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-7-1' data-open="__GROUP__/backstage/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">后台花絮</span>
+                                <!--<span class="layui-badge">99</span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+                
+                <?php if( in_array($aid,$superids) || in_array(21,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-line-chart icons"></i>
+                        <span class="title">系统配置</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-22-1' data-open="__GROUP__/webset/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">系统配置</span>
+                            </a>
+                        </li>
+                        <?php if( $aid==1 ): ?>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-22-2' data-open="__GROUP__/webset/clear_cache">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">清除缓存</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-22-3' data-open="__GROUP__/webset/replace">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">系统更新</span>
+                            </a>
+                        </li>
+<!--                         <li>
+                            <a class="tm-items" data-menu-node='m-22-4' data-open="__GROUP__/webset/system_style">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">后台样式</span>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a class="tm-items" data-menu-node='m-22-5' data-open="__GROUP__/webset/log_view">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">日志管理</span>
+                            </a>
+                        </li>
+                        <?php endif;?>
+<!--                         <li>
+                            <a class="tm-items" data-menu-node='m-22-6' data-open="__GROUP__/webset/certificate_set">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">自定义授权书</span>
+                            </a>
+                        </li> -->
+                        
+                    </ul>
+                </li>
+                <?php endif;?>
+                
+
+            </ul>
+        </div>
+    </div>
+</div>

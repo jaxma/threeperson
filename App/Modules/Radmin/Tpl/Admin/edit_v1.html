@@ -1,0 +1,50 @@
+<layout name="Public/public" />
+
+
+<h1 class="page-header">编辑资料</h1>
+
+
+<div class="row">
+   <div class="col-md-12 col-xs-12">
+        <form class="form-inline" method="post" action="__URL__/update">
+            <table class="table table-condensed table-hover table-responsive table-bordered">
+                <tbody>
+                    <tr>
+                        <td>用户名：
+                        </td>
+                        <td>
+                            <label class="sr-only" for="username">用户名</label>
+                            <input class="form-control" name="username" id="username" value="{$vo.username}" required type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>手机号码：
+                        </td>
+                        <td>
+                            <label class="sr-only" for="phone">手机号码</label>
+                            <input class="form-control" name="phone" id="phone" value="{$vo.phone}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>邮箱：
+                        </td>
+                        <td>
+                            <label class="sr-only" for="email">邮箱</label>
+                            <input class="form-control" name="email" id="email" value="{$vo.email}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--确定按钮-->
+                        <td >
+                        </td>
+                        <td>
+                            <input type="hidden" name="id" value="{$vo.id}"/>
+                            <input class="btn btn-default" value="确定" type="submit">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+

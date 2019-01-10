@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+<section class="layui-container">
+    <div class="content">
+        <header class="header">
+            <h3>操作日志</h3>
+        </header>
+        <form class="layui-form form layui-row form-search" action="__SELF__" method="get" onsubmit="return false">
+            <div class="layui-form-item form-item">
+                <div class="select-wrapper">
+                    <label class="layui-form-label" for="aid">管理员</label>
+                    <select name="aid" id="aid"  lay-verify="required" lay-search="">
+                        <option value="">管理员</option>
+                        <foreach name="admin_info" key="key_a" item="vo_a">
+                            <option value="{$vo_a.id}">{$vo_a.username}</option>
+                        </foreach>
+                    </select>
+                    <label class="layui-form-label" for="log">日志记录</label>
+                    <div class="input-wrapper">
+                        <input type="text" autocomplete="on" class="layui-input" id="log" name="log" placeholder="日志记录">
+                    </div>
+                    
+                    <div class="layui-form-item form-item">
+                    <label class="layui-form-label" for="start_time">开始时间</label>
+                    <div class="time-wrapper site-demo-laydate">
+                      <input type="text" class="layui-input blue" name="start_time" id="start_time" readonly="readonly" placeholder="开始时间" autocomplete="on">
+                      <i class="fa fa-angle-down"></i>
+                    </div>
+                  </div>
+                  <div class="layui-form-item form-item">
+                    <label class="layui-form-label" for="end_time">结束时间</label>
+                    <div class="time-wrapper site-demo-laydate">
+                      <input type="text" class="layui-input blue" name="end_time" id="end_time" readonly="readonly" placeholder="结束时间" autocomplete="on">
+                      <i class="fa fa-angle-down"></i>
+                    </div>
+                  </div>
+                    
+                </div>
+                <div class="search-btn">
+                <button type="submit" class="layui-btn layui-btn-radius">搜索</button>
+                </div>
+
+
+            
+            </div>
+
+                    
+        </form>
+        <div class="table-wrapper">
+            <table class="layui-table" lay-skin="row" lay-size="sm">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>管理员</th>
+                    <th>日志记录</th>
+                    <!--<th>操作链接</th>-->
+                    <th>创建时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <empty name="list">
+                    <tr style="position: relative;">
+                        <td style="position: absolute;width: 97%;border-top: solid 1px #e6e6e6;">对不起,暂无更多数据!</td>
+                    </tr>
+                    <else />
+                    <volist name="list" id="m">
+                        <tr>
+                            <td>{$m.id}</td>
+                            <td>{$m.username}</td>
+                            <td>{$m.log}</td>
+                            <!--<td>{$m.active_url}</td>-->
+                            <td>{$m.created_format}</td>
+                        </tr>
+                    </volist>
+                    <!-- <div id="page"></div> -->
+                    <!--<tr><td colspan="14"><div class="pull-right">{$page}</div></td></tr>-->
+                </empty>
+                </tbody>
+            </table>
+        </div>
+        <include file="Public/page" />
+    </div>
+    <script>
+        layui.use('laydate', function() {
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#start_time'
+            });
+            laydate.render({
+                elem: '#end_time'
+            });
+        })
+    </script>
+</section>
+</body>
+</html>
+
+

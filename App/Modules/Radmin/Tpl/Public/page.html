@@ -1,0 +1,22 @@
+<script>
+    /**
+     * 1.要使用搜索功能，则form必须要设置class="form-search",详情请参考listen.js
+     * 2.要使用分页功能，只需要传三个参数即可
+     */
+    //总数
+    var count = "{$count}";
+    //当前页
+    var p = "{$p}";
+    //每页显示数量
+    var limit = "{$limit}";
+//      require(['page','url'])
+
+    $(document).ready(function () {
+        form.render();
+    })
+</script>
+
+<div id="page"></div>
+
+<script src="__PUBLIC__/Radmin_v3/js/url.js"></script>
+<script src="__PUBLIC__/Radmin_v3/js/page.js"></script>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网站链接</title>
+    <style>
+        .edit-wrapper .layui-content .layui-form {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid edit-wrapper layui-container">
+        <header class="edit-title">
+            <blockquote class="layui-elem-quote">
+                <span class="title">网站链接</span>
+            </blockquote>
+        </header>
+        <div class="layui-content">
+            <form class="layui-form layui-box" data-auto="false" method="post">
+                <?php if( $Think['config']['FUNCTION_MODULE']['GW'] ):?>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">微官网：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/" type="text" disabled autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent1" >复制链接</button>
+                    </div>
+                </div>
+                <?php endif;?>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">官网：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://www.toposla.com/index" type="text" disabled autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent2">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">总部后台：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/Radmin/Login/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent3">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">代理后台（自动登录链接）：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/admin/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent4">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">代理后台（账号密码登录）：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/admin/login/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent4">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">代理查询：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/manager/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent5">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">防伪查询：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/security/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent6">复制链接</button>
+                    </div>
+                </div>
+                <?php if( $Think['config']['FUNCTION_MODULE']['GW'] ):?>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">公司资质：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/company/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent7">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">宣传图：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/taobao/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent8">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">产品系列：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/product/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent9">复制链接</button>
+                    </div>
+                </div>
+                <div class="layui-form-item items layui-row">
+                    <label class="form-text layui-col-xs12">案例模板：</label>
+                    <div class="form-right layui-col-xs12">
+                        <input class="input-inf2 layui-input" value="http://topos.weisika.net/template/index" type="text" disabled
+                            autocomplete="off">
+                        <button class="layui-btn layui-btn-normal copy" data-content="copyContent10">复制链接</button>
+                    </div>
+                </div>
+                <?php endif;?>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.copy').on('click', function () {
+                var sContent = $(this).prev().val();                
+                copyTextToClipboard(sContent);
+                return false;
+            })
+
+            function copyTextToClipboard(text) {
+                var textArea = document.createElement("textarea");
+                textArea.value = text
+
+                document.body.appendChild(textArea);
+
+                textArea.select();
+
+                try {
+                    document.execCommand('copy');
+                    layer.msg('复制成功！');
+                } catch (err) {
+                    layer.msg('复制失败！当前浏览器不支持复制功能,请手动复制');
+                }
+                document.body.removeChild(textArea)
+            }
+        })
+    </script>
+</body>
+
+</html>

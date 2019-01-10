@@ -1,0 +1,207 @@
+<html>
+
+  <head>
+    <title>编辑产品信息</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Radmin_v3/css/edit_product.css" />
+  </head>
+
+  <body>
+
+    <div class="container-fluid edit-wrapper">
+      <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+          <span class="title">编辑产品信息</span>
+          <button class="layui-btn layui-btn-big back">返回</button>
+        </blockquote>
+      </header>
+      <div class="layui-content">
+        <form class="layui-form" action="">
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">图片：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md4 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请选择上传图片" class="layui-input">
+              <div class="layui-upload">
+                <button type="button" class="layui-btn orange" id="test1">上传图片</button>
+                <span class="orange-text desc">（*请上传正方形的图片 图片大小为：188*188）</span>
+                <div class="layui-upload-list">
+                  <img class="layui-upload-img" id="demo1">
+                  <p id="demoText"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">名称：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md4 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">优先级：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md4 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入优先级" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">产品分类：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <div class="layui-form-select layui-col-md10 layui-col-xs4 layui-col-sm6 input-inf">
+                <div class="layui-input-inline">
+                  <select name="one" lay-verify="required">
+                    <option value="">一级分类</option>
+                    <option value="0">北京</option>
+                    <option value="1">上海</option>
+                    <option value="2">广州</option>
+                    <option value="3">深圳</option>
+                    <option value="4">杭州</option>
+                  </select>
+                </div>
+                <div class="layui-input-inline">
+                  <select name="two" lay-verify="required">
+                    <option value="">二级分类</option>
+                    <option value="0">北京</option>
+                    <option value="1">上海</option>
+                    <option value="2">广州</option>
+                    <option value="3">深圳</option>
+                    <option value="4">杭州</option>
+                  </select>
+                </div>
+                <div class="layui-input-inline">
+                  <select name="three" lay-verify="required">
+                    <option value="">三级分类</option>
+                    <option value="0">北京</option>
+                    <option value="1">上海</option>
+                    <option value="2">广州</option>
+                    <option value="3">深圳</option>
+                    <option value="4">杭州</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">是否上架：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <div class="layui-form-select layui-col-md9 layui-col-xs4 layui-col-sm6 input-inf">
+                <select name="modules" class="input-inf" lay-verify="required" lay-search="">
+                  <option value="">直接选择或搜索选择</option>
+                  <option value="1">是</option>
+                  <option value="2">否</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">价格：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md3 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+              <span class="yuan">（元）</span>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">总经销商拿货价：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md3 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+              <span class="yuan">（元）</span>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">一级经销商拿货价：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md3 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+              <span class="yuan">（元）</span>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">二级经销商拿货价：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md3 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+              <span class="yuan">（元）</span>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">三级经销商拿货价：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md3 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+              <span class="yuan">（元）</span>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">VIP经销商拿货价：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <input class="layui-col-md3 layui-col-xs4 layui-col-sm6 input-inf" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+              <span class="yuan">（元）</span>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">描述：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <div class="layui-col-md9 layui-col-xs4 layui-col-sm6">
+                <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text">产品介绍：</label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-md-offset1 ">
+              <div class="layui-col-md9 layui-col-xs4 layui-col-sm6">
+                <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="layui-form-item layui-row items">
+            <label class="layui-col-md2 layui-col-sm2 layui-col-xs2 form-text"></label>
+            <div class="layui-col-md9 layui-col-sm9 layui-col-xs9 layui-col-sm-offset3 ">
+              <div class="layui-col-md9 layui-col-xs4 layui-col-sm6">
+                <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      layui.use(['upload', 'form', 'layedit'], function() {
+        var form = layui.form,
+          $ = layui.jquery,
+          layer = layui.layer,
+          layedit = layui.layedit,
+          upload = layui.upload;
+        form.render();
+        var uploadInst = upload.render({
+          elem: '#test1',
+          auto: true,
+          url: '/upload/',
+          before: function(obj) {
+            //预读本地文件示例，不支持ie8
+            console.log(obj)
+            obj.preview(function(index, file, result) {
+              $('#demo1').attr('src', result); //图片链接（base64）
+            });
+          },
+          success: function(res) {
+            //如果上传失败
+            //    if(res.code > 0){
+            //      return layer.msg('上传失败');
+            //    }
+            //上传成功
+          },
+          error: function() {
+            //演示失败状态，并实现重传
+            var demoText = $('#demoText');
+            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+            demoText.find('.demo-reload').on('click', function() {
+              uploadInst.upload();
+            });
+          }
+        });
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+      });
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,41 @@
+<style type="text/css">
+	.layui-form-item span{
+	  line-height: 38px!important;
+    }
+    /*小屏幕样式*/
+    @media screen and (max-width: 768px) {
+        .layui-input-block {
+            left: -99px;
+        }
+    }
+</style>
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__URL__/changePsw" data-auto="false" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">旧的密码</label>
+        <div class="layui-input-block">
+            <input type="password" autofocus name="old_psw" value='' pattern="^\S{1,}$" required=""  title="请输入旧的密码" placeholder="请输入旧的密码" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">新的密码</label>
+        <div class="layui-input-block">
+            <input type="password" name="password" value='' pattern="^\S{1,}$" required=""  title="请输入新的密码" placeholder="请输入新的密码" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">重复密码</label>
+        <div class="layui-input-block">
+            <input type="password" name="twopassword" value='' pattern="^\S{1,}$" required="" title="请输入重复密码" placeholder="请输入重复密码" class="layui-input">
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        <button class="layui-btn" type='submit'>确认修改</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+    </div>
+
+</form>

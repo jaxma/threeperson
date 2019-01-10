@@ -1,0 +1,86 @@
+<style type="text/css">
+  .layui-form-item span{
+    line-height: 38px!important;
+  }
+  @media screen and (max-width: 768px) {
+      .console-topbar {
+          min-width: 0;
+      }
+  }
+</style>
+<div class="framework-topbar">
+  <div class="console-topbar">
+    <div class="topbar-wrap topbar-clearfix">
+      <!--顶部左边开始-->
+      <!--左边Logo开始-->
+      <div class="topbar-head topbar-left">
+        <a href="#" class="topbar-logo topbar-left">
+          <span class="icon-logo">{$Think.config.SYSTEM_NAME}管理系统</span>
+        </a>
+      </div>
+      <div class="topbar-menu topbar-middle hidden-xs">
+        <ul class="control-menu">
+          <li class="dropdown pull-right tabdrop">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="true">
+              <i class="glyphicon glyphicon-align-justify"></i><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu downs">
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--左边logo结束-->
+      <!--<a data-menu-target='m-61' class="topbar-home-link topbar-btn topbar-left">-->
+      <!--<span> 微信管理</span>-->
+      <!--</a>-->
+      <!--<a data-menu-target='m-2' class="topbar-home-link topbar-btn topbar-left">-->
+      <!--<span> 系统管理</span>-->
+      <!--</a>-->
+      <!--顶部左边结束-->
+      <!--顶部右边开始-->
+      <!--<div class="topbar-breadcrumb topbar-middle">
+              <span class="layui-breadcrumb" style="visibility: visible;">
+                <a href="/">首页<span class="layui-box">&gt;</span></a>
+                <a href="/demo/">演示<span class="layui-box">&gt;</span></a>
+                <a><cite>导航元素</cite></a>
+              </span>
+            </div>-->
+      <div class="topbar-info topbar-right">
+        <a data-reload data-tips-text='刷新' class=" topbar-btn topbar-left topbar-info-item text-center" style='width:50px;'>
+          <span class='glyphicon glyphicon-refresh'></span>
+        </a>
+        <script>
+          require(['jquery', 'topbar'], function() {
+            $('[data-reload]').hover(function() {
+              $(this).find('.glyphicon').addClass('fa-spin');
+            }, function() {
+              $(this).find('.glyphicon').removeClass('fa-spin');
+            });
+          });
+        </script>
+        <div class="topbar-left topbar-user">
+          <div class="dropdown topbar-info-item">
+            <a href="#" class="dropdown-toggle topbar-btn text-center" data-toggle="dropdown">
+              <span class='glyphicon glyphicon-user'></span> {$Think.session.aname} </span>
+              <span class="glyphicon glyphicon-menu-up transition" style="font-size:12px"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="topbar-info-btn">
+                <a data-modal="__GROUP__/admin/editpsw" data-title="修改密码">
+                  <span><i class='glyphicon glyphicon-lock'></i> 修改密码</span>
+                </a>
+              </li>
+
+              <li class="topbar-info-btn">
+                <a href="__GROUP__/index/logout" data-confirm='确定要退出登录吗？'>
+                  <span><i class="glyphicon glyphicon-log-out"></i> 退出登录</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--顶部右边结束-->
+    </div>
+  </div>
+</div>

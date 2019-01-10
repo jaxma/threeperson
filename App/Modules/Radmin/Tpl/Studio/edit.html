@@ -1,0 +1,97 @@
+<html>
+
+<head>
+	<script>
+        /**
+         * 使用图片上传接口需满足以下条件
+         * 1.容器选择器id=upload
+         * 2.设置name=image的input标签隐藏域
+         * 3.指定上传目录名称
+         */
+            //上传目录
+        var upload_dir_name = 'studio';
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form .items .desc {
+                position: static;
+            }
+        } 
+/*        .layui-form-item .form-right input{
+            margin-left: 15px;
+            display: inline-block;
+        }
+        .layui-form-item .form-right label{
+            margin-bottom: -8px;
+            margin-left: 6px;
+        }*/
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid edit-wrapper">
+	<header class="edit-title">
+		<blockquote class="layui-elem-quote">
+			<span class="title">编辑摄影棚信息</span>
+		</blockquote>
+	</header>
+	<div class="layui-content">
+		<form class="layui-form layui-box" action="__URL__/update" data-auto="false" method="post">
+			<div class="layui-form-item items">
+				<label class="form-text">摄影标题名称：</label>
+				<div class="form-right">
+					<input class="input-inf2" required="" type="text" name="name" lay-verify="name" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.name}">
+					<input type="hidden" name="id" value="{$id}">
+				</div>
+			</div>
+			<div class="layui-form-item  items">
+				<label class="form-text">是否开启</label>
+				<div class="form-right">
+		            <input type="radio" name="isopen" value="1" title="开启" <?php echo $row['isopen']==1?'checked':'';?> >
+		            <input type="radio" name="isopen" value="0" title="关闭" <?php echo $row['isopen']==0?'checked':'';?> >
+				</div>
+			</div>
+            <div class="layui-form-item  items">
+                <label class="form-text">优先级</label>
+                <div class="form-right">
+                    <input class="input-inf2" style="max-width: 190px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="{$row.sequence}">
+                    <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
+                </div>
+            </div>
+			<!--引入图片页面-->
+			<div class="layui-form-item items">
+				<label class="form-text">摄影棚封面：</label>
+				<div class="form-right">
+					<script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
+					<if condition="$row.image neq ''">
+						<include file="Public/image" image_name="image" is_show="1" img_url="{$row.image}"/>
+						<else/>
+						<include file="Public/image" image_name="image" is_show="0" img_url="{$row.image}"/>
+					</if>
+					<!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
+				</div>
+			</div>
+			<div class="layui-form-item  items">
+				<label class="form-text">详情：</label>
+				<div class="form-right">
+					<textarea id="editor" class="ueditors" name="news">{$row.news}</textarea>
+					<!--<textarea class="layui-textarea layui-hide" name="news" lay-verify="news" id="LAY_demo_editor"></textarea>-->
+					<include file="Public/ueditor" />
+				</div>
+			</div>
+			<div class="layui-form-item  items">
+				<label class="form-text"></label>
+				<div class="form-right">
+					<button class="layui-btn" type='submit'>确定</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+    form.render();
+</script>
+</body>
+
+</html>

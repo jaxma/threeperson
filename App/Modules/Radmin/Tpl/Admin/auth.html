@@ -1,0 +1,115 @@
+<style type="text/css">
+    .layui-layer-content {
+        overflow: visible!important;
+    }
+    .layui-form-checkbox[lay-skin=primary] i {
+        margin-top: 10px;
+    }
+    /*小屏幕样式*/
+
+    @media screen and (max-width: 768px) {
+        .modal-body .reset {
+            margin-left: 0 !important;
+        }
+        .modal-body .reset .layui-btn-small {
+            margin: 5px 0 0 15px;
+        }
+        .modal-body .layui-form .layui-form-label {
+            width: 50px;
+        }
+        .modal-body .layui-form .layui-input-block {
+            float: left;
+            margin-left: 15px;
+        }
+        .special-item {
+            padding: 15px;
+        }
+        .special-item .layui-input-block {
+            margin-left: 15px;
+        }
+        .special-item .special-flex {
+            margin-left: 15px;
+        }
+    }
+</style>
+<div class="modal-body">
+    <form class="layui-form layui-box" action="__GROUP__/admin/auth_update" data-auto="false" method="post">
+        
+        <div class="layui-form-item">
+                <?php 
+                    foreach( $admin_auth as $k => $v ):
+                        if( in_array($k,$list['auth_mat']) ):
+                ?>
+                    <input type="checkbox" value="{$k}" name="auth[]" title="{$v}" lay-skin="primary" checked>
+                <?php else:?>
+                    <input type="checkbox" value="{$k}" name="auth[]" title="{$v}" lay-skin="primary" >
+                <?php 
+                    endif;
+                    endforeach;
+                ?>
+        </div>
+        
+        
+        <div class="layui-form-item special-item">
+            
+
+            <div class="layui-form-item text-center">
+                <p>注意修改后要重新登录才能生效！</p>
+                <input type="hidden" name="id" value="{$id}" />
+                <button class="layui-btn" type='submit'>确认修改</button>
+                <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+            </div>
+        </div>
+    </form></div>
+
+<script type="text/javascript">
+    var province,province1,city,city1,area,area1;
+
+    $.getJSON("__PUBLIC__/Radmin_v3/plugs/echart/map/area.json",function(data){
+        province = new Array();
+        $.each(data,function(key,value){
+            province.push('<option value="'+value.name+'">'+value.name+'</option>');
+        })
+        $('#province').append(province);
+        form.render('select');
+    })
+
+    form.on('select(province)',function(data){
+        province1 = data.value;
+        $.getJSON("__PUBLIC__/Radmin_v3/plugs/echart/map/area.json",function(data){
+            city = new Array();
+            $.each(data, function(key,value) {
+                if(province1 === value.name){
+                    $.each(value.sub, function(k,v) {
+                        city.push('<option value="'+v.name+'">'+v.name+'</option>');
+                    });
+                }
+            });
+            $('#city').empty().append(city);
+            form.render('select');
+        });
+    })
+
+    form.on('select(city)',function(data){
+        city1 = data.value;
+        $.getJSON("__PUBLIC__/Radmin_v3/plugs/echart/map/area.json",function(data){
+            area = new Array();
+            $.each(data, function(key,value) {
+                if(province1 == value.name){
+                    $.each(value.sub, function(k,v) {
+                        if(city1 == v.name){
+                            if(!(v.sub==undefined||v.sub==""||v.sub==null)){
+                                $.each(v.sub, function(i,j) {
+                                    area.push('<option value="'+j.name+'">'+j.name+'</option>');
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+            $('#area').empty().append(area);
+            form.render('select');
+        });
+    })
+    form.render();
+</script>

@@ -1,0 +1,108 @@
+<layout name="Public/public" />
+
+
+
+
+
+  <div id="body" class="body page_index">
+    <div id="js_container_box" class="container_box side_l">
+     <div class="col_main"  >
+			<div class="index_show_area">
+				<div class="index_tap total">
+          <p><img src="__PUBLIC__/Admin/images/ym.png" alt="" width="70" >欢迎进入{$Think.config.SYSTEM_NAME}账户管理</p>
+				</div>
+       </div>
+        <div class="row">
+          <div class="box">
+            <ul>
+                <li>
+                  <h3>经销商总数量</h3>
+                  <h2>{$mulCount.agentSum}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></p>
+                </li>
+
+                <li>
+                  <p>已审核</p>
+                  <h2>{$mulCount.auditSum}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></p>
+
+                </li>
+
+                <li>
+                  <p>未审核</p>
+                  <h2>{$mulCount.notauditSum}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></p>
+
+                </li>
+            </ul>
+          </div>
+       <!--    <div class="test">
+         <h2>今天的总统计量<span>900</span>人</h2>
+         <p>数量直在上升当中</p>
+       </div> -->
+        </div>
+        <div class="row">
+          <div class="box">
+            <ul>
+            <notempty name="level.1">
+                <li>
+                  <h3>{$level.1}</h3>
+                  <h2>{$mulCount.agent.0}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji2.png" alt=""></p>
+                </li>
+            </notempty>
+            <notempty name="level.2">
+                <li>
+                  <p>{$level.2}</p>
+                  <h2>{$mulCount.agent.1}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji2.png" alt=""></p>
+                </li>
+            </notempty>
+            <notempty name="level.3">
+                <li>
+                  <p>{$level.3}</p>
+                  <h2>{$mulCount.agent.2}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji2.png" alt=""></p>
+                </li>
+            </notempty>
+            </ul>
+          </div>
+          <div class="test">
+            <h2>总统计量<span>{$mulCount.agentSum}</span>人</h2>
+            <p>数量值在上升当中</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box">
+            <ul>
+            <notempty name="level.4">
+                <li>
+                  <h3>{$level.4}</h3>
+                  <h2>{$mulCount.agent.3}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji3.png" alt=""></p>
+                </li>
+            </notempty>
+            <notempty name="level.5">
+                <li>
+                  <p>{$level.5}</p>
+                  <h2>{$mulCount.agent.4}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji3.png" alt=""></p>
+                </li>
+            </notempty>
+            <notempty name="level.6">
+                <li>
+                  <p>{$level.6}</p>
+                  <h2>{$mulCount.agent.5}</h2>
+                  <p><img src="__PUBLIC__/Admin/images/tongji3.png" alt=""></p>
+                </li>
+            </notempty>
+            </ul>
+          </div>
+       <!--    <div class="test">
+         <h2>今天的总统计量<span>900</span>人</h2>
+         <p>数量直在上升当中</p>
+       </div> -->
+        </div>
+      </div>
+    </div>
+  </div>

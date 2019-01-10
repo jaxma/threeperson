@@ -1,0 +1,103 @@
+<layout name="Public/public" />
+
+
+
+<link href="__PUBLIC__/css/index.css" rel="stylesheet">
+<script type="text/javascript" src="__PUBLIC__/Admin/js/agentcode.js"></script>
+<script type="text/javascript" src='__PUBLIC__/js/jquery.js'></script>
+<script type="text/javascript" src='__PUBLIC__/js/index.js'></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/editor/plugins/code/prettify.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/editor/kindeditor.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/editor/lang/zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/js/editor/themes/default/default.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/js/editor/plugins/code/prettify.css" />
+<script type="text/javascript">
+    var editor;
+    KindEditor.ready(function (K) {
+        editor = K.create('textarea[pname="fm_content"]', {
+//		items : ['source','|','wordpaste','table','quickformat', '|','link',   'image', 'insertfile',   '|','code', 'preview', 'fullscreen'],
+            cssPath: '__PUBLIC__/Admin/js/editor/plugins/code/prettify.css',
+            uploadJson: '__PUBLIC__/Admin/js/editor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/Admin/js/editor/php/file_manager_json.php',
+            allowFileManager: true,
+            width: '670px',
+            height: '300px'
+        });
+    });
+</script>
+
+
+<h1 class="page-header">
+    添加产品信息
+</h1>
+
+
+<div class="row">
+   <div class="col-md-12 col-xs-12">
+        <form class="form-inline" method="post" action="__URL__/insert" enctype="multipart/form-data">
+            <table class='table table-condensed table-hover table-responsive table-bordered'>
+                <tbody>
+                    <tr>
+                        <td>系列产品名称:
+                        </td><td>
+                            <input class="form-control" name="name" type="text" placeholder="请输入产品名称">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>系列简短介绍:
+                        </td><td>
+                            <input class="form-control" name="presents" type="text" placeholder="请输入产品简短介绍">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>系列小图片：
+                        </td><td>
+                            <input type="file" name="image"  id="file0"/>
+                            <br><span style="color:red">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</span>
+                            <br><img style="width:80px;height:80px;margin-left:105px;"  src="" id="img0" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>产品信息:
+                        </td><td>
+                            <textarea pname="fm_content" name="disc"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--确定按钮-->
+                        <td>
+                            <input class="btn btn-default" id="确定" value="确定" type="submit">
+                        </td><td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    (function ($) {
+        $("#file0").change(function () {
+            var objUrl = getObjectURL(this.files[0]);
+            console.log("objUrl = " + objUrl);
+            if (objUrl) {
+                $("#img0").attr("src", objUrl);
+            }
+        });
+    })(jQuery);
+//建立一個可存取到該file的url
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) { // basic
+            url = window.createObjectURL(file);
+        } else if (window.URL != undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
+</script>

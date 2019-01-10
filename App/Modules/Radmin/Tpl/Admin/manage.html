@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <section class="layui-container">
+        <div class="content">
+            <header class="header">
+                <h3>管理员管理</h3>
+                <div class="pull-right">
+                <input type="button" class="layui-btn" data-modal="__GROUP__/admin/add_admin" value="添加" data-title="添加管理员"/>
+              </div>
+            </header>
+<!--            <form class="layui-form form layui-row form-search" action="__SELF__" method="get" onsubmit="return false">
+                <div class="layui-form-item form-item">
+                    <div class="select-wrapper">
+                        <label class="layui-form-label" for="aid"></label>
+                        <select name="aid" id="aid" lay-verify="required" lay-search="">
+                            <option value="">管理员</option>
+                            <foreach name="admin_info" key="key_a" item="vo_a">
+                                <option value="{$vo_a.id}">{$vo_a.username}</option>
+                            </foreach>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="search-btn">
+                    <button type="submit" class="layui-btn layui-btn-radius">搜索</button>
+                </div>
+            </form>-->
+            
+            <div class="table-wrapper">
+                <table class="layui-table" lay-skin="row" lay-size="sm">
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>管理员</th>
+                            <th>电话号码</th>
+                            <th>邮箱</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <empty name="admin_info">
+                            <tr style="position: relative;">
+                                <td style="position: absolute;width: 97%;border-top: solid 1px #e6e6e6;">对不起,暂无更多数据!</td>
+                            </tr>
+                            <else />
+                            <volist name="admin_info" id="m">
+                                <tr>
+                                    <td>{$m.id}</td>
+                                    <td>{$m.username}</td>
+                                    <td>{$m.phone}</td>
+                                    <td>{$m.email}</td>
+                                    <td class="operate">
+                                        <span data-tips-text="权限分配" data-modal="__GROUP__/admin/auth?id=<?PHP echo $m['id'] ?>" data-title='编辑管理员权限'></span>
+                                        <span data-tips-text="修改密码" data-modal="__GROUP__/admin/edit_admin?id=<?PHP echo $m['id'] ?>" data-title='修改密码'></span>
+                                        <span data-tips-text="修改资料" data-modal="__GROUP__/admin/edit_message?id=<?PHP echo $m['id'] ?>" data-title='修改资料'></span>
+                                        <span data-tips-text="删除管理员" data-title='删除管理员' onclick="return adminDelete(<?PHP echo $m['id'] ?>)"></span>
+                                    </td>
+                                </tr>
+                            </volist>
+                        </empty>
+                    </tbody>
+                </table>
+            </div>
+            <include file="Public/page" />
+        </div>
+        <script>
+            layui.use('laydate', function () {
+                var laydate = layui.laydate;
+                laydate.render({
+                    elem: '#start_time'
+                });
+                laydate.render({
+                    elem: '#end_time'
+                });
+            })
+
+            function adminDelete(id) {
+                layer.confirm('确定删除该管理员？', function(){
+                    $.ajax({
+                        url: '__GROUP__/admin/delete_admin',
+                        data: {
+                            id: id
+                        },
+                        type: 'post',
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data);
+                            if (data.code == 1) {
+                                layer.msg(data.info);
+                            } else {
+                                layer.msg(data.info);
+                            }
+
+                            setTimeout(function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.location.reload();
+                            }, 2000)
+                        }
+                    })
+                })
+            }
+        </script>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<layout name="Public/public" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>重置密码</title>
+<link href="__PUBLIC__/css/index.css" rel="stylesheet">
+<script type="text/javascript" src="__PUBLIC__/Admin/js/agentcode.js"></script>
+
+<script type="text/javascript" src='__PUBLIC__/js/jquery.js'></script>
+	<script type="text/javascript" src='__PUBLIC__/js/index.js'></script>
+	<script type="text/javascript">
+        var auditUrl = '{:U(GROUP_NAME . "/Manager/audit")}/';
+        var delUrl = '{:U(GROUP_NAME . "/Manager/delete")}/';
+    </script>
+    
+</head>
+<body class="zh_CN">
+          <div class="col_main">
+		<div class="main_hd">
+			<div class="title_tab" id="topTab">
+				<ul class="tab_navs mt title_tab">
+                   	<li class="tab_nav js_top  selected" data-id="send"><a href="#">重置密码</a></li>
+                 	</ul>
+               </div>
+               
+               <div class="menu">
+				
+				
+			</div>
+	
+		</div>
+		<!--右边内容--> 
+		<div class="main_bd">
+				<form method="post" action="__URL__/editUser?aid={$admin.id}">
+		            <table style="margin-left:0px;text-align:left;width:900px;">
+		             <tbody>
+		              <tr>
+		              	<td>用&nbsp;户&nbsp;&nbsp;名：
+		              	 <input name="username" type="text" value="{$admin.username}">
+		                </td>
+		              </tr>
+		               <tr>
+		              	<td>手&nbsp;机&nbsp;&nbsp;号：
+		              	 <input name="phone" type="text" value="{$admin.phone}">
+		                </td>
+		              </tr>
+		              <tr>
+		              	<td>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：
+		              	 <input name="email" type="text" value="{$admin.email}">
+		                </td>
+		              </tr>
+		              <tr>
+		              	<td>新&nbsp;密&nbsp;&nbsp;码：
+		              	 <input name="password" type="password">
+		                </td>
+		              </tr>
+                         <tr>
+                           <td>确认密码：
+                            <input name="confirm" type="password">
+                           </td>
+                         </tr>
+		        	  <tr>
+		              	<!--确定按钮-->
+		              <td style="float:left;margin-left:177px;margin-top:20px">
+		              	<input class="btn1" id="确定" value="确定" type="submit">
+		              </td>
+		              </tr>
+		            	</tbody>
+		            </table>
+				</form><br/>
+			</div>
+	</div>
+	
+</body>
+</html>

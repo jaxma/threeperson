@@ -10,7 +10,7 @@
    'DB_PORT'=>'3306',
    'DB_USER'=>'threeperson',
    'DB_PWD'=>'DSyEf84YrL',
-   'DB_NAME'=>'topos',
+   'DB_NAME'=>'threeperson',
    'DB_PREFIX'=>'',
    'URL_HTML_SUFFIX'=>'',
    'LOAD_EXT_CONFIG'=>'verify',

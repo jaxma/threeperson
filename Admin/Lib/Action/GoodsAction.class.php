@@ -149,7 +149,7 @@ class GoodsAction extends CommonAction {
 		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
 		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));
 		if(empty($data['sort_order']))$data['sort_order'] = 50;
-		
+		$data['update_time'] = $now;
 
 		$insertId=$M_Goods->add($data);
 		if($insertId){
@@ -169,100 +169,51 @@ class GoodsAction extends CommonAction {
 	public function update(){
 		/* 权限判断 */
 		$M_Goods = M("Goods");
-		$data = $M_Goods->create();
-		if(
-			empty($data['title']) || 
-			empty($data['cat_id']) || 
-			empty($data['content'])
+		$now = time();
+		$data['goods_id']       = $this->_post("goods_id","intval",0);
+		$data['title']       = $this->_post("title","","");
+		$data['title_en']= $this->_post("title_en","","");
+		$data['cat_id']     = $this->_post("cat_id","intval",0);
+		$data['sort_order'] = $this->_post("sort_order","intval",0);
+		$data['is_open']    = $this->_post("is_open","intval",1);
+		$data['add_time']   = $now;
+		$data['publish_time']   = $this->_post("publish_time","intval",$now);
+		$data['content']= $this->_post("content","","");
+		$data['content_en']= $this->_post("content_en","","");
+		$data['keywords']= $this->_post("keywords","","");
+		$data['description']= $this->_post("description","","");
+		if( empty($data['goods_id']) ||
+			empty($data['title']) ||
+			empty($data['title_en']) ||
+			empty($data['cat_id']) ||
+			empty($data['content'])||
+			empty($data['content_en'])
 		){
 			$this->error("所有带<font color='red'>*</font>的表单项都是必填的！");
 		}
-		
-		$data['content']    = stripslashes(htmlspecialchars_decode($_POST['content']));
+		if($_FILES['goods_img_index']['error']===0){
+			$goods_img_index = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img_index']['name'],PATHINFO_EXTENSION);
+			move_uploaded_file($_FILES['goods_img_index']['tmp_name'], $goods_img_index);
+			$data['goods_img_index'] = $goods_img_index;
+		}
+		//产品图片 详情页大图
+		if($_FILES['goods_img_detail']['error']===0){
+			$goods_img_detail = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img_detail']['name'],PATHINFO_EXTENSION);
+			move_uploaded_file($_FILES['goods_img_detail']['tmp_name'], $goods_img_detail);
+			$data['goods_img_detail'] = $goods_img_detail;
+		}
 
+		$data['admin_id'] = $_SESSION['admin_id'];
+		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
+		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));
 		if(empty($data['sort_order']))$data['sort_order'] = 50;
-		$data['add_time'] = time();
+		$data['update_time'] = $now;
 
-		$goods_id = $data['goods_id']+0;
+		$goods_id = $data['goods_id'];
 		unset($data['goods_id']);
 
-		//$data['related_downloads'] = implode(',',$_POST['related_downloads']);//相关下载
-
-		//产品图片
-		if($_FILES['goods_img']['error']===0){
-			$old_goods_img = $M_Goods->where(array('goods_id'=>$goods_id))->getField('goods_img');
-			@unlink($old_goods_img);
-			$goods_img = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img']['name'],PATHINFO_EXTENSION);
-			move_uploaded_file($_FILES['goods_img']['tmp_name'], $goods_img);
-			$data['goods_img'] = $goods_img;
-		}
-		
 		$afterrow=$M_Goods->where(array('goods_id'=>$goods_id))->save($data);
 
-		/*
-		//相关下载
-		foreach($_FILES['related_downloads']['error'] as $key=>$value){
-			if($value===0){
-				$filename = 'Uploads/download/'.$_FILES['related_downloads']['name'][$key];
-				$file_url = iconv('utf-8','gbk',$filename);
-				move_uploaded_file($_FILES['related_downloads']['tmp_name'][$key], $file_url);
-
-				$download_data = array();
-				$download_data['file_url'] = $filename;
-				$download_data['goods_id'] = $goods_id;
-				$download_data['file_desc'] = $_FILES['related_downloads']['name'][$key];
-				$download_data['add_time'] = time();
-				M('download')->add($download_data);
-			}
-		}
-		*/
-
-		//更新旧的扩展内容
-		$old_ex_img_url = $_FILES['old_ex_img_url'];
-		$old_ex_title = $_POST['old_ex_title'];
-		$old_ex_content = $_POST['old_ex_content'];
-		$old_ex_sort_order = $_POST['old_ex_sort_order'];
-		$old_ex_id = $_POST['old_ex_id'];
-		foreach($old_ex_title as $key=>$value){
-			if(empty($value))continue;//标题为空的直接跳过
-			if($old_ex_img_url['error'][$key]===0){
-				$img_url = 'Uploads/exgoods/'.date('Ymd',time()).'/'.date('His',time()).rand(0,100000).'.'.pathinfo($old_ex_img_url['name'][$key],PATHINFO_EXTENSION);
-				@mkdir(dirname($img_url),0777,true);
-				move_uploaded_file($old_ex_img_url['tmp_name'][$key], $img_url);
-				$update_ex_data['img_url'] = $img_url;
-				$img_url = '';
-			}
-			$update_ex_data['title'] = $value;
-			$update_ex_data['content'] = $old_ex_content[$key];
-			$update_ex_data['sort_order'] = $old_ex_sort_order[$key];
-
-			M('goods_excontent')->where('id='.$old_ex_id[$key])->save($update_ex_data);
-		}
-
-		//插入新的扩展内容
-		$ex_img_url = $_FILES['ex_img_url'];
-		$ex_title = $_POST['ex_title'];
-		$ex_content = $_POST['ex_content'];
-		$ex_sort_order = $_POST['ex_sort_order'];
-		foreach($ex_title as $key=>$value){
-			if(empty($value))continue;//标题为空的直接跳过
-			$img_url = '';
-			if($ex_img_url['error'][$key]===0){
-				$img_url = 'Uploads/exgoods/'.date('Ymd',time()).'/'.date('His',time()).rand(0,100000).'.'.pathinfo($ex_img_url['name'][$key],PATHINFO_EXTENSION);
-				@mkdir(dirname($img_url),0777,true);
-				move_uploaded_file($ex_img_url['tmp_name'][$key], $img_url);
-			}
-			$ex_data  = array(
-				'goods_id'=>$goods_id,
-				'img_url'=>$img_url,
-				'title'=>$value,
-				'content'=>$ex_content[$key],
-				'sort_order'=>$ex_sort_order[$key]
-			);
-
-			M('goods_excontent')->add($ex_data);
-		}
-		
 		if($afterrow){
 			parent::admin_log($data['title'],'edit','goods');
 			$this->success('修改成功！！',U('Goods/index/',array('action'=>'edit','cat_id'=>$data['cat_id'])));
@@ -294,14 +245,6 @@ class GoodsAction extends CommonAction {
 			}
 			M('goodsimg')->where("goods_id=" . $goods_id)->delete();
 
-			/*
-			//删除相关下载
-			$download_list = M('download')->where("goods_id=" . $goods_id)->select();
-			foreach($download_list as $v){
-				@unlink($v['file_url']);
-			}
-			*/
-
 			//删除扩展内容
 			$goods_excontent_list = M('goods_excontent')->where('goods_id='.$goods_id)->select();
 			foreach($goods_excontent_list as $goods_excontent){
@@ -317,10 +260,10 @@ class GoodsAction extends CommonAction {
 			$this->success("成功删除");
 		} else {
 			$this->error("删除失败，可能是不存在该ID的记录");
-		} 
+		}
     }
-	
-	
+
+
 	/**
       +----------------------------------------------------------
      * 删除文章
@@ -408,7 +351,6 @@ class GoodsAction extends CommonAction {
 				{
 					$this->error('请选择要转移的分类！');
 				}
-				
 				foreach ($_POST['checkboxes'] AS $key => $id)
 				{
 				  $M_Goods->where('goods_id '.db_create_in(join(',', $_POST['checkboxes'])))->save(array('cat_id'=>$_POST['target_cat']));
@@ -428,7 +370,7 @@ class GoodsAction extends CommonAction {
 		$this->display('goodsimg');
 	}
 
-	
+
 	public function updateGoodsimg(){
 		$goods_id = $_POST['id']+0;
 

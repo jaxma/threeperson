@@ -15,10 +15,10 @@
    'URL_HTML_SUFFIX'=>'',
    'LOAD_EXT_CONFIG'=>'verify',
    'URL_CASE_INSENSITIVE'=>'1',
-   // 'URL_ROUTER_ON'=>'1',
-   // 'URL_ROUTE_RULES'=> array(
-   //         '/^p_(\d+)_o_(\d+)$/'=>'Admin/Manage/apply?pid==>1&oid=:2',
-   // ),
+   'URL_ROUTER_ON'=>'1',
+   'URL_ROUTE_RULES'=> array(
+           '/^p_(\d+)_o_(\d+)$/'=>'Admin/Manage/apply?pid==>1&oid=:2',
+   ),
    'TMPL_PARSE_STRING'=> array(
            '__SIGN__'=>'/topos/signatures',
    ),

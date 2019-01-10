@@ -123,8 +123,7 @@ class GoodsAction extends CommonAction {
 			empty($data['title_en']) ||
 			empty($data['cat_id']) ||
 			empty($data['content'])||
-			empty($data['content_en'])||
-			empty($data['publish_time'])
+			empty($data['content_en'])
 		){
 			$this->error("所有带<font color='red'>*</font>的表单项都是必填的！");
 		}

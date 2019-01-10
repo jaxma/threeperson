@@ -145,6 +145,7 @@ class GoodsAction extends CommonAction {
 		}else{
 			$this->error("详情页大图未上传或上传失败，请重试");
 		}
+		$data['publish_time'] = strtotime($data['publish_time']);
 		$data['admin_id'] = $_SESSION['admin_id'];
 		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
 		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));
@@ -202,7 +203,7 @@ class GoodsAction extends CommonAction {
 			move_uploaded_file($_FILES['goods_img_detail']['tmp_name'], $goods_img_detail);
 			$data['goods_img_detail'] = $goods_img_detail;
 		}
-
+		$data['publish_time'] = strtotime($data['publish_time']);
 		$data['admin_id'] = $_SESSION['admin_id'];
 		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
 		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));

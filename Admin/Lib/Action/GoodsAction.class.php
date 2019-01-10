@@ -116,8 +116,8 @@ class GoodsAction extends CommonAction {
 		$data['add_time']   = $now;
 		$data['publish_time']   = $this->_post("publish_time","intval",$now);
 		$data['content']= $this->_post("content","","");
-		$data['content_en']= $this->_post("content_en","","");
-
+		$data['keywords']= $this->_post("keywords","","");
+		$data['description']= $this->_post("description","","");
 		if(
 			empty($data['title']) ||
 			empty($data['title_en']) ||

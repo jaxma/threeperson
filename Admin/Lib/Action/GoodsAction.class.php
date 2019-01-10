@@ -144,11 +144,11 @@ class GoodsAction extends CommonAction {
 		}else{
 			$this->error("详情页大图未上传或上传失败，请重试");
 		}
-
-		$data['content']    = stripslashes(htmlspecialchars_decode($_POST['content']));
-		$data['content_en']    = stripslashes(htmlspecialchars_decode($_POST['content_en']));
+		$data['admin_id'] = $_SESSION['admin_id'];
+		$data['content'] = stripslashes(htmlspecialchars_decode($data['content']));
+		$data['content_en'] = stripslashes(htmlspecialchars_decode($data['content_en']));
 		if(empty($data['sort_order']))$data['sort_order'] = 50;
-		$data['add_time'] = time();
+		
 
 		$insertId=$M_Goods->add($data);
 		if($insertId){

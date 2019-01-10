@@ -1,0 +1,125 @@
+.flex { display: flex; }
+
+.flex-item { flex: 1; margin-right: 5px; }
+.flex-item:last-child { margin-right: 0; }
+
+.edit-wrapper { padding: 15px; background-color: #f1f4f6; width: 100%; }
+.edit-wrapper .edit-title { background-color: #e8edf0; border-radius: 5px 5px 0 0; }
+.edit-wrapper .edit-title .layui-elem-quote { padding-left: 20px; position: relative; border-left: none; margin-bottom: 0; background-color: transparent; }
+.edit-wrapper .edit-title .layui-elem-quote .title { font-size: 22px; }
+.edit-wrapper .edit-title .layui-elem-quote .back { position: absolute; right: 0; top: 0; margin-top: 8px; padding: 0 18px; line-height: 1; }
+.edit-wrapper .layui-content .upload-btn { transform: translateX(10px); }
+.edit-wrapper .layui-content .layui-elem-field legend { font-size: 14px; color: red; }
+.edit-wrapper .layui-content .layui-form { padding-top: 15px; font-size: 14px; background-color: white; }
+.edit-wrapper .layui-content .layui-form .layui-elem-field legend { font-size: 14px; color: red; }
+.edit-wrapper .layui-content .layui-form .border-radius { border-radius: 2px !important; }
+.edit-wrapper .layui-content .layui-form .layui-upload-list { position: relative; display: none; }
+.edit-wrapper .layui-content .layui-form .layui-upload-list .layui-upload-img { width: 190px; height: 150px; padding: 0 30px 32px 30px; margin: 0 10px 10px 0; border-radius: 5px; border: solid 1px #E0E0E0; box-sizing: border-box; overflow: hidden; }
+.edit-wrapper .layui-content .layui-form .layui-upload-list .demoText { position: absolute; bottom: 10px; width: 190px; border-radius: 0 0 5px 5px; background-color: #e74d3c; text-align: center; cursor: pointer; }
+.edit-wrapper .layui-content .layui-form .layui-upload-lists { min-width:310px;max-width: 350px;max-height: 125px; padding: 10px 0; overflow-x: hidden;overflow-y: scroll; box-sizing: border-box;}
+.edit-wrapper .layui-content .layui-form .layui-upload-lists li { position: relative; float: left; width: 90px; height: 110px; margin: 0 5px 5px 0; overflow: hidden; }
+.edit-wrapper .layui-content .layui-form .layui-upload-lists li img { width: 100%; height: 90px; }
+.edit-wrapper .layui-content .layui-form .layui-upload-lists li i { position: absolute; width: 100%; bottom: 0; left: 0; background-color: #e74d3c; font-size: 16px; text-align: center; border-radius: 0 0 5px 5px; color: #fff; cursor: pointer; z-index: 99999; }
+
+.edit-wrapper .layui-content .layui-form .layui-upload-others { min-width:310px;max-width: 350px;max-height: 125px; padding: 10px 0; overflow-x: hidden;overflow-y: scroll; box-sizing: border-box;}
+.edit-wrapper .layui-content .layui-form .layui-upload-others li { position: relative; float: left; width: 90px; height: 110px; margin: 0 5px 5px 0; overflow: hidden; }
+.edit-wrapper .layui-content .layui-form .layui-upload-others li img { width: 100%; height: 90px; }
+.edit-wrapper .layui-content .layui-form .layui-upload-others li i { position: absolute; width: 100%; bottom: 0; left: 0; background-color: #e74d3c; font-size: 16px; text-align: center; border-radius: 0 0 5px 5px; color: #fff; cursor: pointer; z-index: 99999; }
+
+.edit-wrapper .layui-content .layui-form .items { display: flex; position: relative; }
+@media screen and (max-width: 1370px) { .edit-wrapper .layui-content .layui-form .items .desc { left: 80% !important; } }
+.edit-wrapper .layui-content .layui-form .items input::-webkit-input-placeholder { /* WebKit browsers*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .items input:-moz-placeholder { /* Mozilla Firefox 4 to 18*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .items input::-moz-placeholder { /* Mozilla Firefox 19+*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .items input:-ms-input-placeholder { /* Internet Explorer 10+*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .items .three-select { width: 31.2%; float: left; margin-bottom: 5px; }
+.edit-wrapper .layui-content .layui-form .items .three-select:last-child { margin-right: 0; margin-bottom: 0; }
+.edit-wrapper .layui-content .layui-form .items .layui-input { border: 1px solid #959595; }
+.edit-wrapper .layui-content .layui-form .items .form-text { flex: 1; max-width: 270px; font-size: 14px; text-align: right; line-height: 38px; margin: 0; float: left; }
+.edit-wrapper .layui-content .layui-form .items .form-text:after { line-height: 38px !important; }
+.edit-wrapper .layui-content .layui-form .items .form-right { float: right; flex: 4; max-width: 930px; padding-left: 5%; position: relative; }
+.edit-wrapper .layui-content .layui-form .items .form-right span { line-height: 38px !important; right: 58% !important; }
+.edit-wrapper .layui-content .layui-form .items .form-right textarea { width: 100%; }
+.edit-wrapper .layui-content .layui-form .items .form-right .three-select { width: 160px; }
+.edit-wrapper .layui-content .layui-form .items .desc { position: absolute; top: 0; left: 73%; line-height: 25px; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .input-inf { float: left; height: 38px; padding-left: 15px; font-size: 14px; width: 60%; margin-right: 15px; max-width: 500px; }
+.edit-wrapper .layui-content .layui-form .input-inf2 { float: left; height: 38px; padding-left: 15px; font-size: 14px; width: 55%; margin-right: 15px; max-width: 330px; min-width: 190px; box-sizing: border-box; }
+.edit-wrapper .layui-content .layui-form #file-name { width: 60%; max-width: 500px; margin-right: 15px; }
+.edit-wrapper .layui-content .layui-form .yuan { line-height: 38px; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .layui-textarea { border-color: #a9a9a9 !important; font-size: 14px; padding-top: 8px; padding-left: 15px; }
+.edit-wrapper .layui-content .layui-form .layui-textarea::-webkit-input-placeholder { /* WebKit browsers*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .layui-textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .layui-textarea::-moz-placeholder { /* Mozilla Firefox 19+*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .layui-textarea:-ms-input-placeholder { /* Internet Explorer 10+*/ color: #959595; font-size: 14px; }
+.edit-wrapper .layui-content .layui-form .layui-layedit { border-color: #a9a9a9 !important; }
+.edit-wrapper .layui-content .layui-form .layui-table { margin-top: 0; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td { overflow: -webkit-paged-y; width: 100%; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set { line-height: 50px; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set .name { display: inline-block; width: 160px; text-align: right; padding-right: 20px; vertical-align: top; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set .input-infs { display: inline-block; height: 38px; padding-right: 15px; margin: 6px 0 6px 15px; font-size: 14px; width: 60%; max-width: 500px; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set .input-infs .wrapper .layui-upload .layui-upload-list { display: none; position: relative; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set .input-infs .wrapper .layui-upload .layui-upload-list .layui-upload-img { width: 220px; height: 150px; padding: 0 50px 30px 50px; margin: 0 10px 20px 0; border-radius: 5px; border: solid 1px #E0E0E0; overflow: hidden; box-sizing: content-box;}
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set .input-infs .wrapper .layui-upload .layui-upload-list .demoText { position: relative; width: 200px; height: 30px; line-height: 30px; border-radius: 0 0 5px 5px; background-color: #e74d3c; text-align: center; cursor: pointer; left: 0; margin-top: -40px; }
+.edit-wrapper .layui-content .layui-form .layui-table .table-wrapper tr td .set .btns { margin-left: 195px; }
+.edit-wrapper .layui-content .orange { display: block; background-color: #e74d3c; height: 38px; border-radius: 2px !important; }
+.edit-wrapper .layui-content .orange-text { color: #e74d3c; }
+
+.layui-input-inline1 { float: left; max-width: 190px; min-width: 170px; margin-right: 10px; display: inline-block; vertical-align: middle; position: relative; }
+
+.select-m4 { width: 40% !important; box-sizing: border-box; }
+
+.imgs-wrapper { display: flow-root; }
+
+.layui-layer-content .edit-wrapper .layui-content .layui-form .items .form-right span { right: 38% !important; }
+
+.modal-open .modal{ z-index: 9999;}
+/*# sourceMappingURL=content.css.map */
+
+/*小屏幕样式*/
+@media screen and (max-width: 768px) {
+    .edit-wrapper {
+        background-color: #fff;
+    }
+    .edit-wrapper .layui-content .layui-form {
+        padding: 0 0 10px 0;
+    }
+    .edit-wrapper .layui-content .layui-form .items {
+        display: block;
+    }
+    .edit-wrapper .layui-content .layui-form .items .form-text {
+        float: none;
+    }
+    .edit-wrapper .layui-content .layui-form .items .form-right {
+        float: none;
+        padding-left: 0;
+        line-height: 38px;
+    }
+    .layui-form-item .layui-input-inline {
+        margin: 0 0 10px 13px;
+    }
+    .edit-wrapper .layui-content .layui-form .input-inf2 {
+        width: auto;
+        float: none;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+    .layui-btn+.layui-btn {
+        margin-left: 0;
+    }
+
+    .layui-form-item .layui-form-label {
+        float: none;
+        /* width: 50px; */
+        text-align: left;
+    }
+    .layui-input-block {
+        width: 80%;
+        /* left: -99px; */
+    }
+    .layui-upload-list {
+        margin-left: 10px;
+    }
+    .edit-wrapper .layui-content .orange-text {
+        margin-left: 10px;
+    }
+}

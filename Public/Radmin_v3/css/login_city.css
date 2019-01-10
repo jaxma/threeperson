@@ -1,0 +1,545 @@
+﻿@charset "UTF-8";
+
+/* ------------------------------------- 
+ * 楚才团队后台框架
+ * author Anyon <zoujingli@qq.com>
+ * date 2017/02/13 14:15
+ * --------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "黑体";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%!important;
+  overflow: hidden!important;
+  overflow-y: hidden !important;
+  min-width: auto!important;
+}
+
+.login-container {
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  font-family: '微软雅黑', serif;
+  margin: 0 auto;
+  font-size: 9pt;
+}
+
+.login-container ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+.login-container ul li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+.login-container img {
+  border: 0
+}
+
+.login-container .clouds-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.login-container .clouds-wrapper .clouds {
+  background: url("../images/cloud_three.png") repeat-x left 15%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 300%;
+  -webkit-animation: cloudmove 200s linear infinite;
+  -moz-animation: cloudmove 200s linear infinite;
+  -o-animation: cloudmove 200s linear infinite;
+  animation: cloudmove 200s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0)
+}
+
+.login-container .clouds-wrapper .clouds-fast {
+  background: url("../images/cloud.png") no-repeat 0px 40%;
+  -webkit-animation: cloudmove 30s linear infinite;
+  -moz-animation: cloudmove 30s linear infinite;
+  -o-animation: cloudmove 30s linear infinite;
+  animation: cloudmove 30s linear infinite
+}
+
+.login-container .clouds-wrapper .clouds-footer {
+  background: url("../images/cloud_one.png") no-repeat left 100%;
+  animation: none
+}
+
+@-webkit-keyframes cloudmove {
+  0% {
+    left: -50%
+  }
+  100% {
+    left: 150%
+  }
+}
+
+@-moz-keyframes cloudmove {
+  0% {
+    left: -50%
+  }
+  100% {
+    left: 150%
+  }
+}
+
+@keyframes cloudmove {
+  0% {
+    left: -50%
+  }
+  100% {
+    left: 150%
+  }
+}
+
+.login-container a,
+.login-container a:focus {
+  text-decoration: none;
+  color: #000;
+  outline: none;
+  blur: expression(this.onFocus=this.blur())
+}
+
+.login-container a:hover {
+  color: #00a4ac;
+  text-decoration: none
+}
+
+.login-container .header {
+  height: 47px;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  background: url(../images/loginbg1.png) repeat-x;
+  z-index: 100;
+  width: 100%
+}
+
+.login-container .header span {
+  line-height: 47px;
+  text-indent: 44px;
+  float: left;
+  font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "\9ED1\4F53", Arial, sans-serif;
+  color: #DDD;
+  font-size: 12px
+}
+
+.login-container .header ul {
+  float: right;
+  padding-right: 30px
+}
+
+.login-container .header ul li {
+  float: left;
+  margin-left: 20px;
+  line-height: 47px
+}
+
+.login-container .header ul li a {
+  color: #afc5d2
+}
+
+.login-container .header ul li a:hover {
+  color: #fff
+}
+
+.login-container .container {
+  background: url(../images/loginbg3.png) no-repeat center center;
+  width: 100%;
+  height: 585px;
+  overflow: hidden;
+  position: relative;
+  top: 47px
+}
+
+
+/* 登录表单 */
+
+.login-container .content {
+  position: absolute;
+  display: block;
+  top: 40%;
+  left: 50%;
+  width: 85%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.login-container .content ul {
+  width: 35%;
+  margin-left: 285px;
+  margin-right: 60px
+}
+
+.login-container .content ul li {
+  /*margin-bottom:-7px;*/
+  position: relative
+}
+
+.login-container .content ul li input {
+  margin-bottom: 25px;
+  position: relative;
+  background: url(../images/icon.png) no-repeat;
+  background-size: 20px;
+  padding-left: 38px
+}
+
+.login-container .content ul li input.username {
+  background-position: 8px 7px
+}
+
+.login-container .content ul li input.password {
+  background-position: 8px -20px
+}
+
+.login-container .content ul li input.code {
+  background-position: 8px -20px;
+  width: 255px;
+}
+
+.login-container .content ul .login-change-code {
+  position: absolute;
+  bottom: 107px;
+  right: 60px;
+}
+
+.login-container .content ul .login-change-code img {
+  height: 36px;
+  width: 80px;
+}
+
+.login-container .login-input {
+  display: block;
+  width: 100%;
+  padding-left: 10px;
+  height: 45px;
+  line-height: 45px;
+  line-height: 45px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  border-radius: 2px
+}
+
+.login-container .form_content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.login-container .form_content .login_wrapper .logo_wrapper {
+  position: relative;
+  border: solid 1px rgba(255, 255, 255, .6);
+  background-color: rgba(255, 255, 255, .1);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.login-container .form_content .login_wrapper .logo_wrapper .logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.login-container .form_content .login_wrapper .input_wrapper {
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  padding: 40px 65px 50px;
+  background-color: rgba(255, 255, 255, .1);
+  border: none;
+  border-left: solid 1px rgba(255, 255, 255, .3);
+  border-right: solid 1px rgba(255, 255, 255, .3);
+  border-bottom: solid 1px rgba(255, 255, 255, .3);
+  box-sizing: content-box;
+}
+
+#verifys {
+  margin-bottom: 10px;
+}
+
+.login-container .layui-container {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 50px;
+  right: 0;
+}
+
+@media only screen and (max-width:500px) {
+  .login-container .content {
+    background-position: -270px 0;
+    top: 50%;
+  }
+  .login-container .content ul {
+    width: 80%;
+    margin-left: 30px;
+  }
+  .layui-layer-page {
+    width: 300px!important;
+  }
+}
+
+
+/* 头像 */
+
+.login-container .people {
+  width: 165px;
+  height: 80px;
+  position: relative;
+  top: 8px;
+  left: -70px
+}
+
+.login-container .people .tou {
+  background: url("../images/tou.png") no-repeat;
+  width: 121px;
+  height: 66px;
+  position: absolute;
+  top: -66px;
+  left: 127px;
+  background-size: 121px auto;
+}
+
+.login-container .people .left_hand {
+  background: url("../images/left_hand.png") no-repeat;
+  width: 32px;
+  height: 37px;
+  position: absolute;
+  top: -38px;
+  left: 150px
+}
+
+.login-container .people .right_hand {
+  background: url("../images/right_hand.png") no-repeat;
+  width: 32px;
+  height: 37px;
+  position: absolute;
+  top: -38px;
+  right: -64px
+}
+
+.login-container .people .initial_left_hand {
+  background: url("../images/hand.png") no-repeat;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: -12px;
+  left: 100px;
+  background-size: 90px auto;
+}
+
+.login-container .people .initial_right_hand {
+  background: url("../images/hand.png") no-repeat;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: -12px;
+  right: -112px;
+  background-size: 90px auto;
+  background-position: -62px;
+}
+
+
+/* 底部版权 */
+
+.login-container .footer {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: url(../images/loginbg2.png) repeat-x;
+  position: fixed;
+  _position: absolute;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #fff
+}
+
+.login-container .footer a {
+  font-weight: bold;
+  color: #0b3a58
+}
+
+.login-container .footer a:hover {
+  color: #fff
+}
+
+
+/* 頭部名字 */
+
+.com_name {
+  background: url(../images/cname.png) no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  width: 40%;
+  height: 50px;
+  margin-top: 8%;
+}
+
+.bg_wrapper {
+  display: flex;
+  position: absolute;
+  /*top: 45px;*/
+  transform: translate3d(0, -82%, 0);
+  left: 0;
+  height: 55px;
+  width: 100%;
+  font-size: 0;
+}
+
+.bg_wrapper .logo_left {
+  display: inline-flex;
+  flex: 1;
+  background-color: rgba(255, 255, 255, .1);
+  border: none;
+  border-top: solid 1px rgba(255, 255, 255, .3);
+  border-left: solid 1px rgba(255, 255, 255, .3);
+  font-size: 0;
+}
+
+.bg_wrapper .logo_middle {
+  display: inline-flex;
+  flex: 0 0 110px;
+  background: url(../images/login_middle4.png) no-repeat;
+  background-size: 110px 55px;
+}
+
+.bg_wrapper .logo_right {
+  display: inline-flex;
+  flex: 1;
+  background-color: rgba(255, 255, 255, .1);
+  border: none;
+  border-top: solid 1px rgba(255, 255, 255, .3);
+  border-right: solid 1px rgba(255, 255, 255, .3);
+  font-size: 0;
+}
+
+.input_wrapper .title {
+  position: relative;
+  font-size: 24px;
+  font-weight: normal;
+  top: -25px;
+  color: white;
+}
+
+.input_wrapper #account {
+  margin-bottom: 20px;
+  border: solid 1px #fff;
+  padding-left: 60px;
+  background-color: transparent;
+}
+
+.input_wrapper #passWord {
+  border: solid 1px #fff;
+  padding-left: 60px;
+  background-color: transparent;
+}
+
+.input_wrapper dd {
+  position: relative;
+}
+
+.input_wrapper dd .icons {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 24px;
+  font-size: 20px;
+  color: #fff;
+  transform: translateY(-50%);
+}
+
+.input_wrapper dd .icons::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  height: 20px;
+  width: 0px;
+  border: solid 1px #fff;
+}
+
+.input_wrapper dd input {
+  color: white;
+}
+
+.input_wrapper .opetion_wrapper {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.input_wrapper .opetion_wrapper input {
+  color: #fff;
+  border: solid 1px #fff;
+  /*background-color: transparent;*/
+}
+
+.input_wrapper .opetion_wrapper label {
+  color: #fff;
+  /* line-height: 21px; */
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.input_wrapper .opetion_wrapper a {
+  float: right;
+  color: white;
+}
+
+.login_btn{
+  width: 100%;
+  height: 45px;
+  font-size: 24px;
+  color: white;
+  border: solid 1px white;
+  margin-top: 30px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+input:focus{
+  background-color:transparent;
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,1) inset !important; //关于解决输入框背景颜色
+  -webkit-text-fill-color: rgba(255, 255, 255, .1)!important; //关于接输入框文字颜色
+}
+
+@media only screen and (max-width: 500px) {
+	.login-container .form_content .login_wrapper .input_wrapper{
+	  padding: 30px 20px 25px;
+	}
+	.com_name{
+	  width: 80%;
+	}
+}

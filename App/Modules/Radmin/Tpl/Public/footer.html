@@ -1,0 +1,30 @@
+<!-- Bootstrap core JavaScript
+        ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!--<script type="text/javascript" src="__PUBLIC__/radmin/js/jquery-3.1.0.min.js"></script>-->
+
+<script src="__PUBLIC__/radmin/js/jquery.min.js"></script>
+<!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+
+<script type="text/javascript" src="__PUBLIC__/radmin/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://v3.bootcss.com/assets/js/docs.min.js"></script>
+<script src="__PUBLIC__/radmin/js/left.js" type="text/javascript" charset="utf-8"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script type="text/javascript" src="http://v3.bootcss.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<script>
+//    var MODULE_NAME = {$Think.const.MODULE_NAME};
+//    var ACTION_NAME = {$Think.const.ACTION_NAME};
+//    var left_href = __ACTION__;
+
+
+    $(document).ready(function () {
+        $("#leftnavigation ul li a[href='__SELF__']").addClass('menu-second-selected');
+        $("#leftnavigation ul li a[href='__SELF__']").closest('ul').closest('li').addClass('active');
+//        $("#leftnavigation ul li a[href='__SELF__']").closest('ul').collapse();
+//        var test = $("#leftnavigation ul li a[href='__SELF__']").closest('ul').closest('li').html();
+//        alert(test);
+    });
+
+</script>
+

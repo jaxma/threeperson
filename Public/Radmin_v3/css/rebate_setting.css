@@ -1,0 +1,49 @@
+.edit-wrapper .layui-content .layui-form .items .form-right .checkbox_wrapper span {
+  line-height: initial!important;
+}
+
+.form-right .black_normal {
+  line-height: 38px;
+  font-size: 14px;
+}
+
+.nav-tabs a {
+  font-size: 14px;
+  color: #303030;
+  text-decoration: none;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+  color: #009688!important;
+}
+
+.panel-heading {
+  border-bottom: none;
+}
+
+.panel-heading {
+  padding: 10px 15px 0 15px;
+}
+
+.help {
+  font-size: 16px;
+  vertical-align: sub;
+  position: absolute;
+  top: 12px;
+}
+
+.table-wrapper {
+  width: 200px;
+}
+
+.tb_input {
+  height: 38px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+.table-wrapper {
+    overflow: inherit;
+}

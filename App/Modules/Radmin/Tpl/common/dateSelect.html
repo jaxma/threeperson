@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .select-time {
+            position: relative;
+            margin: 20px 0;
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .select-time .btn-wrapper {
+            margin-right: 320px;
+        }
+
+        .select-time .time-input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            margin-left: 10px;
+            height: 38px;
+        }
+
+        .select-time .time-input p {
+            display: inline-block;
+            margin-right: 5px;
+            width: 80px;
+            line-height: 38px;
+        }
+
+        .select-time .time-input input {
+            display: inline-block;
+            width: 200px;
+        }
+
+        .select-time .time-input .layui-icon {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="select-time">
+        <div class="btn-wrapper">
+            <button class="layui-btn" id="one-day">一天</button>
+            <button class="layui-btn" id="three-day">三天</button>
+            <button class="layui-btn" id="one-week">一周</button>
+            <button class="layui-btn" id="two-week">两周</button>
+            <button class="layui-btn" id="one-month">一个月</button>
+            <button class="layui-btn" id="three-month">三个月</button>
+        </div>
+    <script>
+        var oTimeArea = '';
+        $(document).ready(function(){
+
+            var date = new Date();
+            var oOneDayTime = 24 * 60 * 60 * 1000;
+            var oThreeDayTime = oOneDayTime * 3;
+            var oOneWeekTime = oOneDayTime * 7;
+            var oTwoWeekTime = oOneWeekTime * 2;
+            var oOneMonthTime = oOneDayTime * 30;
+            var oThreeMonthTime = oOneMonthTime * 3;
+            var oNowTime = date.getTime();
+            var oTimeStart = '';
+            var oTimeEnd = '';
+
+            layui.use(['laydate'], function () {
+                var laydate = layui.laydate;
+
+                // 渲染日期选择器
+                laydate.render({
+                    elem: '#time-area',
+                    range: '~'
+                });
+            });
+
+            $('#one-day').on('click', function () {
+                getTimeArea(oOneDayTime);
+            })
+            $('#three-day').on('click', function () {
+                getTimeArea(oThreeDayTime);
+            })
+            $('#one-week').on('click', function () {
+                getTimeArea(oOneWeekTime);
+            })
+            $('#two-week').on('click', function () {
+                getTimeArea(oTwoWeekTime);
+            })
+            $('#one-month').on('click', function () {
+                getTimeArea(oOneMonthTime);
+            })
+            $('#three-month').on('click', function () {
+                getTimeArea(oThreeMonthTime);
+            })
+
+            // 时间范围
+            function getTimeArea(timeLimit) {
+                oTimeStart = new Date(parseInt(oNowTime - timeLimit)).format("yyyy-MM-dd");
+                oTimeEnd = new Date(parseInt(oNowTime)).format("yyyy-MM-dd");
+                oTimeArea = oTimeStart + ' ~ ' + oTimeEnd;
+//              layui.use(['laydate'], function () {
+//                  var laydate = layui.laydate;
+//                  laydate.render({
+//                      elem: '#time-area',
+//                      value: oTimeArea
+//                  })
+//              })
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

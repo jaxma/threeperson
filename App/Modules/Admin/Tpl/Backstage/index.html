@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BACKSTAGE</title>
+    <!-- 头部css -->
+    <include file="Public/header" />
+    <link rel="stylesheet" href="__PUBLIC__/Admin_v3/css/backstage/index.css">
+  </head>
+  <script>
+      var backstageFind = '__APP__/Api/photo/backstageFind';
+  </script>
+  <body>
+   <div class="page" id="san-content">
+      <header class="bar bar-nav">
+        <span class="icon icon-menu pull-left" id="san"></span>
+        <h1 class="title titleh2">BACKSTAGE</h1>
+      </header>
+      <div class="content backstage-content">
+  <!-- 奇偶图片排版 -->
+          <foreach name="list.content" item="vo" key="vkey">
+              <if condition="$vkey%2==0">
+                <div class="backstage-content-in-top">
+                   <foreach name="vo" item="i">
+                      <div class="boby-img"><img src="__APP__{$i}" alt="" class="backstage-content-image"></div>
+                  </foreach>
+                </div>
+                <else/>
+                <div class="backstage-content-in-bottom">
+                   <foreach name="vo" item="i">
+                      <div class="boby-img"><img src="__APP__{$i}" alt="" class="backstage-content-image"></div>
+                  </foreach>
+                </div>
+             </if>
+          </foreach>
+      </div>
+    </div>
+   <!-- 引入脚部js -->
+    <include file="Public/footer" />
+    <script type='text/javascript' src='__PUBLIC__/Admin_v3/js/backstage/index.js' charset='utf-8'></script>
+  </body>
+</html>
+

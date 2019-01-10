@@ -1,0 +1,14 @@
+@media print { .order-wrapper { page-break-before: auto;  page-break-after: always; page-break-inside:always;}
+  .btn-wrapper .btn-print { display: none; } }
+.order-wrapper { width: 80%; margin: 0 auto 50px; }
+.order-wrapper .title { font-size: 24px; }
+.order-wrapper .top-wrapper { display: flex; }
+.order-wrapper .top-wrapper .top-left { flex: 1; }
+.order-wrapper .top-wrapper .top-right { flex: 1; }
+.order-wrapper .bottom-wrapper table { width: 100%; text-align: center; table-layout: fixed;}
+.order-wrapper .bottom-wrapper table td, .order-wrapper .bottom-wrapper table th { padding: 10px 0; border-top: solid 1px #000; border-left: solid 1px #000; }
+.order-wrapper .bottom-wrapper table td:last-child, .order-wrapper .bottom-wrapper table th:last-child { border-right: solid 1px #000; }
+.order-wrapper .bottom-wrapper table tr:last-child td { border-bottom: solid 1px #000; word-break: break-word; }
+.order-wrapper .footer { margin-top: 20px; text-align: center; }
+.btn-wrapper .btn-print{margin-left: 10%;font-size:18px;margin-bottom: 20px;color: #fff;background-color: #1E9FFF;padding: 5px 10px;border: none;border-radius: 3px;}
+/*# sourceMappingURL=send_order.css.map */

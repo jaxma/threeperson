@@ -1,0 +1,15 @@
+
+<!--
+上传图片页面
+-->
+<div class="wrapper">
+  <input class="input-inf2" type="text" name="" lay-verify="title" autocomplete="off" placeholder="请选择上传图片" class="layui-input">
+  <button type="button" class="layui-btn orange layui-btn-danger upload-btn"><i class="layui-icon">&#xe67c;</i>上传图片</button>
+  <div class="layui-upload layui-inline">
+    <div class="layui-upload-list" data-show="[is_show]" data-url="__ROOT__[img_url]">
+      <img class="layui-upload-img">
+      <p class="demoText"><i class="layui-icon delete" style="font-size: 26px;color: white;line-height: 27px;">&#xe640;</i></p>
+    </div>
+    <input type="hidden" class="image-name" name="[image_name]" value="[img_url]" />
+  </div>
+</div>

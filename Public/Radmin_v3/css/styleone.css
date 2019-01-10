@@ -1,0 +1,286 @@
+.tree {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fbfbfb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+
+.tree li {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 5px 0 5px;
+  position: relative
+}
+
+.tree li::before,
+.tree li::after {
+  content: '';
+  left: -20px;
+  position: absolute;
+  right: auto
+}
+
+.tree li::before {
+  border-left: 1px dashed #999;
+  bottom: 50px;
+  height: 100%;
+  top: -6px;
+  width: 2px
+}
+
+.tree li::after {
+  border-top: 1px dashed #999;
+  height: 20px;
+  top: 25px;
+  width: 25px
+}
+
+.tree li span {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  display: inline-block;
+  text-decoration: none
+}
+
+.tree li.parent_li>span {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.tree li.parent_li>span .glyphicon {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.tree>ul>li::before,
+.tree>ul>li::after {
+  border: 0
+}
+
+.tree li:last-child::before {
+  /*height: 26px*/
+}
+
+.tree li.parent_li>span:hover,
+.tree li.parent_li>span:hover+ul li span {
+  background: #eee;
+  border: 1px solid #94a0b4;
+  color: #000
+}
+
+.tree ul ul {
+  margin-left: 35px;
+}
+
+.level {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  display: inline-block;
+  padding: 12px;
+  text-decoration: none;
+  vertical-align: middle;
+  margin: 0 5px 0 20px;
+}
+
+b {
+  color: red;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.level1 {
+  background-color: #2db693;
+  color: #fff;
+}
+
+.level2 {
+  background-color: #3398fd;
+  color: #fff;
+}
+
+.level3 {
+  background-color: #fab014;
+  color: #fff;
+}
+
+.level4 {
+  background-color: #f94b24;
+  color: #fff;
+}
+
+.level5 {
+  background-color: #20d9b0;
+  color: #fff;
+}
+
+.level6 {
+  background-color: #ADD8E6;
+  color: #fff;
+}
+
+.level7 {
+  background-color: #FFA500;
+  color: #fff;
+}
+
+.level8 {
+  background-color: #C0C0C0;
+  color: #fff;
+}
+
+.level9 {
+  background-color: #A52A2A;
+  color: #fff;
+}
+
+.level10 {
+  background-color: #2a3947;
+  color: #fff;
+}
+
+
+/* .parent_li a{position: absolute;left: 30px;} */
+
+.iframe_div {
+  width: 640px;
+  height: 800px;
+  /*zoom:100%;*/
+}
+
+.tree .table-wrapper {
+  padding-left: 120px;
+  /*overflow-x: scroll;
+  overflow-y: visible;*/
+}
+
+.tree .table-wrapper .row:last-child {
+  margin: 30px 0 0 20px;
+}
+
+.parent-wrapper .parent {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: none;
+  display: inline-block;
+  padding: 12px;
+  text-decoration: none;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.table-wrapper .row .tree-list {
+  margin-left: 17px;
+}
+
+.loadmore::before {
+  height: 32px!important;
+  top: -7px!important
+}
+
+.loadchild {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 5px 0 5px;
+  position: relative;
+  left: 36px;
+}
+
+.loadchild::before {
+  content: '';
+  left: -20px;
+  position: absolute;
+  right: auto;
+  border-left: 1px dashed #999;
+  bottom: 50px;
+  height: 100%;
+  top: 0;
+  width: 2px;
+}
+
+.load_c,
+.load_p {
+  position: relative;
+  top: 5px;
+  text-decoration: none;
+}
+
+.loadchild::after {
+  border-top: 1px dashed #999;
+  height: 20px;
+  top: 25px;
+  width: 25px;
+  content: '';
+  left: -20px;
+  position: absolute;
+  right: auto;
+}
+
+.select-wrapper {
+  background-color: #fff;
+  margin-bottom: 25px;
+}
+
+.select-wrapper .option-item {
+  display: inline-block;
+  width: 190px;
+  margin-right: 50px;
+}
+
+.select-wrapper #level-wrapper {
+  display: inline-block;
+}
+
+.select-wrapper #name-wrapper {
+  display: inline-block;
+}
+
+#level-wrapper select {
+  width: 130px;
+}
+
+
+/*小屏幕样式*/
+
+@media screen and (max-width: 768px) {
+  .tree {
+    padding: 0;
+  }
+  .tree .table-wrapper {
+    padding-left: 0;
+  }
+  .tree .level-wrapper {
+    width: 276px;
+    margin: 0 auto;
+  }
+  .tree .level1 {
+    margin: 0 19px 0 20px;
+  }
+}
+
+
+/*.tree-list #parent_list::after {
+  content: "";
+  border: none;
+  border-left: 1px dashed #999;
+  display: block;
+  position: absolute;
+  height: 60%;
+  left: -4px;
+  top: 25px;
+}*/

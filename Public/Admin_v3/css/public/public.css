@@ -1,0 +1,120 @@
+.content-padded{
+	margin: 0;
+}
+/*.sidebar-content-left-col{
+	overflow-y:scroll;
+	height: 35rem;
+}*/
+.sidebar-content-left h2{
+	width: 80%;
+	margin: 0;
+	/*margin-top:.5rem; */
+	background: #fff;
+	line-height: 3.3rem;
+	text-align: center;
+	height: 3.3rem;
+	border-bottom: 1px solid #ececec;
+	font-size: .8rem;
+	padding-left:2rem; 
+	position: fixed;
+	top:1.2%;
+	z-index: 100;
+}
+.sidebar-content-left-p{
+	margin-top:3.3rem; 
+	background: #fff!important;
+}
+.sidebar-content-left-p p{
+	margin: 0;
+	height:3.5rem;
+	text-align: left!important;
+	padding:0 1.2rem;
+	font-size: .8rem;
+	border-bottom: 1px solid #ececec;
+	font-weight:bold;
+}
+.sidebar-content-left-p p a{
+	display: block;
+	height:3.5rem;
+	line-height:3.5rem;
+	color:#000!important;
+	opacity: 0.8!important;
+}
+.sidebar-content-left-fp p{
+	margin: 0;
+	text-align: left!important;
+	padding:0 1.2rem;
+	font-size: .8rem;
+	height:2.5rem;
+	line-height: 2.8rem;
+	color:#000!important;
+	opacity: 0.6!important;
+}
+
+.go-left-sidebar{
+	width:  2rem;
+	height: 3.3rem;
+	float: left;
+	margin-left:.5rem; 
+	position: absolute;
+	left: -13%;
+	top:0;
+	font-size: .8rem;
+}
+
+
+.san-content{
+	z-index: 10000;
+}
+
+#sidebar-content{
+	position: absolute;
+	width: 160%;
+	height: 50rem;
+	/*background: #fff!important;*/
+	border-top: 8px solid #000;
+	-webkit-backface-visibility: hidden;
+	font-family:"Bahnschrift"!important;
+
+	webkit-transform: translate3d(0,0,0); 
+	-moz-transform: translate3d(0,0,0); 
+	-ms-transform: translate3d(0,0,0); 
+	-o-transform: translate3d(0,0,0); 
+	transform: translate3d(0,0,0);
+
+/*	 -webkit-backface-visibility: hidden;
+   -moz-backface-visibility: hidden;
+   -ms-backface-visibility: hidden;
+   backface-visibility: hidden;
+ 
+   -webkit-perspective: 1000;
+   -moz-perspective: 1000;
+   -ms-perspective: 1000;
+   perspective: 1000;*/
+
+}
+/*遮罩*/
+.mask {       
+    position: absolute;top: 0px; filter: alpha(opacity=60); background-color: #777;     
+    z-index: 10005; left: 0px;     
+    opacity:0.5; -moz-opacity:0.5;  
+     transition:.5s,   
+
+}     
+
+.go-right-sidebar{
+	font-size: 1.2rem;
+	margin-right:4%; 
+	
+}
+
+.sidebar-content-left-col{
+	width: 48%!important;
+	margin-left: 4%!important;
+}
+
+
+.sidebar-content-right-col{
+	margin:0!important;
+	width: 48%!important;
+}

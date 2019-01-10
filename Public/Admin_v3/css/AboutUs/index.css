@@ -1,0 +1,33 @@
+.AboutUs-contnet{
+	margin-top: 1.6rem;
+}
+.AboutUs-contnet p{
+	color:#000;
+}
+.buttons-tab .button.active{
+	z-index: 100;
+    color: #000;
+    border-color: #000;
+}
+.buttons-tab a{
+	height: 2.8rem!important;
+    font-size: .9rem!important;
+    line-height: 2.8rem!important;
+}
+
+.classifyTitle_photoSet-img{
+	width: 100%;
+	height: auto;
+	padding:0;
+	margin-bottom:3rem; 
+}
+.classifyTitle_photoSet-img p{
+	margin: 0!important;
+}
+.classifyTitle_photoSet-img img{
+	max-width: 100%;
+    max-height: 100%;
+}
+.titleh2{
+	font-size: .8rem!important;
+}

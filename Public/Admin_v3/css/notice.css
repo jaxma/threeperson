@@ -1,0 +1,49 @@
+.inform {
+  margin-top: 1px;
+  display: flex;
+  text-align: left;
+  height: 1.75rem;
+  background-color: #FFDCE8;
+  padding: 0 5%;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  color: #fff;
+}
+
+.inform-icon {
+  flex: 0 0 1.875rem;
+}
+
+.inform-icon img {
+  width: 1.25rem;
+}
+
+.inform-icon .fa {
+  line-height: 28px;
+}
+
+.inform-text {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 20px;
+  color: #fff;
+}
+
+.inform-text p {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  padding-top: 2px;
+  color: #fff;
+  animation: textMove 15s 9999 linear;
+}
+
+@keyframes textMove {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}

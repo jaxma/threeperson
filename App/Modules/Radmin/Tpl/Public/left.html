@@ -1,0 +1,499 @@
+<div class="col-sm-3 col-md-2 sidebar"  id="sidebar" role="navigation">
+
+    <?php 
+        $left_class = 'nav nav-list collapse menu-second';
+        $left_class_active = 'nav nav-list collapse menu-second in';
+    ?>
+    <button id="btn-show" class="btn btn-info"><i class="glyphicon glyphicon-chevron-left"></i></button>
+    <!--Sidebar content-->
+    <div class="sidebar-menu" id="leftnavigation">
+        <ul class="nav nav-pills nav-stacked nav-action" role="tablist">
+
+            <!--1、2、3 所有权限-->
+            <!--4 账户管理,经销商管理,审核管理-->
+            <!--5 订单管理-->
+            <!--6 虚拟币管理-->
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--账号管理-->
+            <li>
+                <a href="#leftuser" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-wrench"></i> 账号管理
+                </a>
+                <ul id="leftuser" class="<?php echo $left_active_key=='admin'?$left_class_active:$left_class;?>" role="tablist">
+                    <li><a href="__GROUP__/admin/editpsw"> 修改密码</a></li>
+                    <li><a href="__GROUP__/admin/edit"> 编辑资料</a></li>
+<!--                    <li><a href="{:U(GROUP_NAME . '/User/index')}"> 用户管理</a></li>
+                    <li><a href="{:U(GROUP_NAME . '/User/add')}"> 用户列表</a></li>-->
+                    <li><a href="__GROUP__/admin/active_log"> 操作日志</a></li>
+                </ul>
+            </li>
+            <!--end 账号管理-->
+            </in>
+            
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--经销商管理-->
+            <li>
+                <a href="#left2" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-user"></i> 经销商管理
+                </a>
+                <ul id="left2" class="<?php echo $left_active_key=='manager'?$left_class_active:$left_class;?>">
+                    <foreach name="Think.config.LEVEL_NAME" key="key_left_num" item="vo_left_name">
+                        <li>
+                            <a href="__GROUP__/manager/index?level={$key_left_num}">{$vo_left_name}</a>
+                        </li>
+                    </foreach>
+                    <li><a href="__GROUP__/manager/transmit"> 转移经销商旗下经销商</a></li>
+                    <li><a href="__GROUP__/manager/replace"> 经销商更换上级</a></li>
+                    <!--<li><a href="__GROUP__/manager/transmit_recommend"> 转移经销商推荐的经销商</a></li>-->
+                    <!--<li><a href="__GROUP__/manager/rec_replace"> 经销商更换推荐人</a></li>-->
+                    <li><a href="__GROUP__/manager/user_add"> 总部添加经销商 </a></li>
+                    <li><a href="__GROUP__/manager/tree"> 下级树状图</a></li>
+                    <li><a href="__GROUP__/manager/recommend_tree"> 推荐人树状图</a></li>
+                    <li><a href="__GROUP__/manager/cont_user"> 用户统计</a></li>
+                </ul>
+            </li>
+            <!--end经销商管理-->
+            
+            
+            <!--审核管理-->
+            <li>
+                <a href="#left3" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-th"></i> 审核管理
+                </a>
+                <ul id="left3" class="<?php echo $left_active_key=='manager2'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/manager/applylist"> 审核总部直属经销商 </a></li>
+                    <li><a href="__GROUP__/manager/qtapplyList?isRecommend=0"> 审核经销商生成的经销商</a></li>
+                    <if condition="$Think.config.GROW_MODEL neq 1">
+                        <li><a href="__GROUP__/manager/qtapplyList?isRecommend=1"> 审核经销商推荐的经销商</a></li>
+                    </if>
+                </ul>
+            </li>
+            <!--end 审核管理-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--虚拟币管理-->
+            <li>
+                <a href="#left13" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-usd"></i> 虚拟币管理
+                </a>
+                <ul id="left13" class="<?php echo $left_active_key=='funds'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/funds/index"> 经销商资金记录</a></li>
+                    <li><a href="__GROUP__/funds/money_recharge_log"> 充值记录</a></li>
+                    <li><a href="__GROUP__/funds/money_charge_log"> 扣费记录</a></li>
+                    <li><a href="__GROUP__/funds/money_refund"> 提现记录</a></li>
+                    <!--<li><a href="__GROUP__/funds/min_refund_set"> 经销商门槛设置</a></li>-->
+                    <li><a href="__GROUP__/funds/count"> 资金统计</a></li>
+                </ul>
+            </li>
+            <!--end 虚拟币管理-->
+            
+            <!--虚拟币审核-->
+            <li>
+                <a href="#left15" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-pencil"></i> 虚拟币审核
+                </a>
+                <ul id="left15" class="<?php echo $left_active_key=='funds2'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/funds/money_apply"> 经销商充值申请</a></li>
+                    <li><a href="__GROUP__/funds/money_refund_apply"> 经销商提现申请</a></li>
+                    <li><a href="__GROUP__/funds/money_apply?status=0&audit_id=0"> 审核经销商充值申请</a></li>
+                    <li><a href="__GROUP__/funds/money_refund_apply?status=0&audit_id=0"> 审核经销商提现申请</a></li>
+                </ul>
+            </li>
+            <!--end 虚拟币审核-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+                <!--佣金审核-->
+<!--                <li>
+                    <a href="#left31" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-usd"></i> 佣金审核
+                    </a>
+                    <ul id="left31" class="<?php echo $left_active_key=='mallfunds'?$left_class_active:$left_class;?>">
+                        <li><a href="__GROUP__/mallfunds/money_refund_apply"> 经销商提现申请</a></li>
+                        <li><a href="__GROUP__/mallfunds/money_refund_apply?status=0&audit_id=0"> 审核经销商提现申请</a></li>
+                    </ul>
+                </li>-->
+                <!--end 佣金审核-->
+            </in>
+            
+            
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--订单管理-->
+            <li>
+                <a href="#left4" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-sort-by-order"></i> 订单管理
+                </a>
+                <ul id="left4" class="<?php echo $left_active_key=='order'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/order/index"> 全部订单</a></li>
+                    <li><a href="__GROUP__/order/applyList?status=1"> 审核订单</a></li>
+                    <!--<li><a href="__GROUP__/order/index?status=4"> 审核不通过订单</a></li>-->
+                    <li><a href="__GROUP__/order/index?status=2"> 配送中订单</a></li>
+                    <li><a href="__GROUP__/order/index?status=3"> 已收货订单</a></li>
+                    <li><a href="__GROUP__/order/order_count"> 订单统计</a></li>
+                    <!--<li><a href="__GROUP__/order/shipping_way_index"> 配送方式列表</a></li>-->
+                    <li><a href="__GROUP__/order/order_limit"> 订单限制</a></li>
+                    <!--<li><a href="__GROUP__/order/cont_min_chart"> 最低消费统计</a></li>-->
+                </ul>
+            </li>
+            <!--end 订单管理-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--防伪管理-->
+            <li>
+                <a href="#left5" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-record"></i> 防伪管理
+                </a>
+                <ul id="left5" class="<?php echo $left_active_key=='security'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/security/index"> 防伪记录</a></li>
+                </ul>
+            </li>
+            <!--end 防伪管理-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--返利管理-->
+            <li>
+                <a href="#left6" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-usd"></i> 返利管理
+                </a>
+                <ul id="left6" class="<?php echo $left_active_key=='rebate'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/rebate/rrebate?st=1"> 已审核的推荐返利列表</a></li>
+                    <li><a href="__GROUP__/rebate/rrebate?st=0"> 未审核的推荐返利列表</a></li>
+                    <li><a href="__GROUP__/rebate/recommend_setting"> 推荐返利设置</a></li>
+                    <li><a href="__GROUP__/rebate/rerebate?st=1"> 已审核的下单返利记录</a></li>
+                    <li><a href="__GROUP__/rebate/rerebate?st=0"> 未审核的下单返利记录</a></li>
+                    <li><a href="__GROUP__/rebate/order_rebate_setting"> 订单返利设置</a></li>
+                    <li><a href="__GROUP__/rebate/rebate_apply_money?st=1"> 已审核的充值返利记录</a></li>
+                    <li><a href="__GROUP__/rebate/rebate_apply_money?st=0"> 未审核的充值返利记录</a></li>
+                    <li><a href="__GROUP__/rebate/apply_rebate_setting"> 充值返利设置</a></li>
+                </ul>
+            </li>
+            <!--end 返利管理-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--产品模板信息管理-->
+            <li>
+                <a href="#left7" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-tree-deciduous"></i> 产品信息管理
+                </a>
+                <ul id="left7" class="<?php echo $left_active_key=='templet'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/templet/category_index"> 产品分类列表</a></li>
+                    <li><a href="__GROUP__/templet/product_index"> 产品模板信息列表</a></li>
+                </ul>
+            </li>
+            <!--end 产品模板信息管理-->
+            </in>
+
+            <!--<in name="Think.session.aid" value="1,2,3">-->
+                <!--&lt;!&ndash;产品模板信息管理&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a href="#left31" data-toggle="collapse">-->
+                        <!--<i class="glyphicon glyphicon-tree-deciduous"></i> 运费模板管理-->
+                    <!--</a>-->
+                    <!--<ul id="left31" class="<?php echo $left_active_key=='shipping'?$left_class_active:$left_class;?>">-->
+                        <!--<li><a href="__GROUP__/shipping/index"> 配送方式列表</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--&lt;!&ndash;end 产品模板信息管理&ndash;&gt;-->
+            <!--</in>-->
+
+
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--出库管理-->
+            <li>
+                <a href="#left8" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-tags"></i> 出库管理
+                </a>
+                <ul id="left8" class="<?php echo $left_active_key=='stock'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/stock/systemBigStock"> 系统大标出库</a></li>
+                    <li><a href="__GROUP__/stock/systemMStock"> 系统小标出库</a></li>
+                    <li><a href="__GROUP__/stock/stock?type=system"> 系统出库记录</a></li>
+                    <li><a href="__GROUP__/stock/stock?type=b"> 大标签出库记录</a></li>
+                    <li><a href="__GROUP__/stock/stock?type=m"> 小标签出库记录</a></li>
+                    <li><a href="__GROUP__/stock/stock?is_sell=1"> 零售出库记录</a></li>
+                    <!--<li><a href="__GROUP__/Stock/freeze"> 冻结小标</a></li>-->
+                </ul>
+            </li>
+            <!--end 出库管理-->
+            </in>
+            
+            
+            
+            
+            <in name="Think.session.aid" value="1,2,3">
+            
+            <!--积分管理-->
+            <li>
+                <a href="#left16" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-bitcoin"></i> 积分管理
+                </a>
+                <ul id="left16" class="<?php echo $left_active_key=='integral'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/integral/index"> 代理积分</a></li>
+                    <li><a href="__GROUP__/integral/log"> 积分日志</a></li>
+                    <li><a href="__GROUP__/integral/rule"> 积分规则</a></li>
+                </ul>
+            </li>
+            <!--end 积分管理-->
+            
+            <!--积分订单管理-->
+            <li>
+                <a href="#left20" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-sort-by-order"></i> 积分订单管理
+                </a>
+                <ul id="left20" class="<?php echo $left_active_key=='integralorder'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/integralorder/index"> 全部积分订单</a></li>
+                    <!--<li><a href="__GROUP__/integralorder/applyList?status=1"> 审核积分订单</a></li>-->
+                    <!--<li><a href="__GROUP__/order/index?status=4"> 审核不通过订单</a></li>-->
+                    <li><a href="__GROUP__/integralorder/index?status=1"> 待付款积分订单</a></li>
+                    <li><a href="__GROUP__/integralorder/index?status=2"> 配送中积分订单</a></li>
+                    <li><a href="__GROUP__/integralorder/index?status=3"> 已收货积分订单</a></li>
+                    <!--<li><a href="__GROUP__/integralorder/order_count"> 订单统计</a></li>-->
+                    <!--<li><a href="__GROUP__/integralorder/order_limit"> 订单限制</a></li>-->
+                    <!--<li><a href="__GROUP__/integralorder/cont_min_chart"> 最低消费统计</a></li>-->
+                </ul>
+            </li>
+            <!--end 积分订单管理-->
+            </in>
+
+            <in name="Think.session.aid" value="1,2,3">
+                <!--产品模板信息管理-->
+                <li>
+                    <a href="#left21" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-tree-deciduous"></i> 积分产品管理
+                    </a>
+                    <ul id="left21" class="<?php echo $left_active_key=='integraltemplet'?$left_class_active:$left_class;?>">
+                        <li><a href="__GROUP__/integraltemplet/category_index"> 积分产品分类列表</a></li>
+                        <li><a href="__GROUP__/integraltemplet/product_index"> 积分产品模板信息列表</a></li>
+                        <li><a href="__GROUP__/integraltemplet/advert_index"> 广告列表</a></li>
+                    </ul>
+                </li>
+                <!--end 产品模板信息管理-->
+            </in>
+            <!--end 积分产品管理-->
+            <!--</in>-->
+            <in name="Think.session.aid" value="1,2,3">
+                <!--产品模板信息管理-->
+                <li>
+                    <a href="#left30" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-tree-deciduous"></i>品牌商城
+                    </a>
+                    <ul id="left30" class="<?php echo $left_active_key=='malltemplet'?$left_class_active:$left_class;?>">
+                        <li><a href="__GROUP__/malltemplet/category_index"> 商品分类列表</a></li>
+                        <li><a href="__GROUP__/malltemplet/product_index"> 商品模板信息列表</a></li>
+                        <li><a href="__GROUP__/malltemplet/advert_index"> 广告列表</a></li>
+                    </ul>
+                </li>
+                <!--end 产品模板信息管理-->
+            </in>
+            
+
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--商城订单管理-->
+            <li>
+                <a href="#left25" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-sort-by-order"></i> 商城订单管理
+                </a>
+                <ul id="left25" class="<?php echo $left_active_key=='mallorder'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/mallorder/index"> 全部商城订单</a></li>
+                    <li><a href="__GROUP__/mallorder/index?status=1"> 待付款商城订单</a></li>
+                    <li><a href="__GROUP__/mallorder/index?status=2"> 配送中商城订单</a></li>
+                    <li><a href="__GROUP__/mallorder/index?status=3"> 已收货商城订单</a></li>
+                </ul>
+            </li>
+            <!--end 商城订单管理-->
+            
+            <!--商城产品管理-->
+            <!--<li>-->
+                <!--<a href="#left26" data-toggle="collapse">-->
+                    <!--<i class="glyphicon glyphicon-tree-deciduous"></i> 商城产品管理-->
+                <!--</a>-->
+                <!--<ul id="left26" class="<?php echo $left_active_key=='malltemplet'?$left_class_active:$left_class;?>">-->
+                    <!--<li><a href="__GROUP__/malltemplet/category_index"> 商城产品分类列表</a></li>-->
+                    <!--<li><a href="__GROUP__/malltemplet/edit"> 商城产品模板信息添加</a></li>-->
+                    <!--<li><a href="__GROUP__/malltemplet/index"> 商城产品模板信息列表</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--end 商城产品管理-->
+            </in>
+            
+            
+
+            <in name="Think.session.aid" value="1,2,3">
+                <!--市场营销管理-->
+                <li>
+                    <a href="#left17" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-tags"></i> 市场营销管理
+                    </a>
+                    <ul id="left17" class="<?php echo $left_active_key=='market'?$left_class_active:$left_class;?>">
+                        <li><a href="__GROUP__/market/business_index"> 商学院</a></li>
+                        <li><a href="__GROUP__/market/business_category_index">商学院分类</a></li>
+                        <li><a href="__GROUP__/market/movie_index"> 视频中心</a></li>
+                        <li><a href="__GROUP__/market/material_index"> 素材库目录</a></li>
+                        <li><a href="__GROUP__/market/material_detail_index"> 素材库详情</a></li>
+                    </ul>
+                </li>
+                <!--end 出库管理-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--微官网管理-->
+            <li>
+                <a href="#left9" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-home"></i> 微官网管理
+                </a>
+                <ul id="left9" class="<?php echo $left_active_key=='weiguanwang'?$left_class_active:$left_class;?>">
+                    <!--<li><a href="__GROUP__/rotationmap/index"> 轮播图设置</a></li>-->
+                    <li><a href="__GROUP__/publicity/index"> 宣传信息</a></li>
+                    <li><a href="__GROUP__/regulations/index"> 申请条例信息</a></li>
+                    <li><a href="__GROUP__/aptitude/add"> 公司资质信息添加</a></li>
+                    <li><a href="__GROUP__/aptitude/index"> 公司资质信息列表</a></li>
+                    <li><a href="__GROUP__/goods/add"> 产品信息添加</a></li>
+                    <li><a href="__GROUP__/goods/index"> 产品信息列表</a></li>
+                </ul>
+            </li>
+            <!--end 微官网管理-->
+            </in>
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--营销管理-->
+            <li>
+                <a href="#left19" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-briefcase"></i> 营销活动管理
+                </a>
+                <ul id="left19" class="<?php echo $left_active_key=='sale'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/sale/index"> 营销用户</a></li>
+                    <li><a href="__GROUP__/sale/record"> 中奖记录</a></li>
+                    <li><a href="__GROUP__/sale/order"> 中奖订单</a></li>
+                    <li><a href="__GROUP__/sale/order?status=1"> 中奖订单发货</a></li>
+                    <li><a href="__GROUP__/sale/lunpanbase"> 轮盘抽奖设置</a></li>
+                </ul>
+            </li>
+            <!--end 营销管理-->
+            
+            </in>
+            
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--申请二维码-->
+            <li>
+                <a href="#left10" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-qrcode"></i> 申请二维码
+                </a>
+                <ul id="left10" class="<?php echo $left_active_key=='templet2'?$left_class_active:$left_class;?>">
+                    <!--<li><a href="__GROUP__/templet/show"> {$Think.config.LEVEL_NAME.1}申请</a></li>-->
+                    
+                    <foreach name="Think.config.LEVEL_NAME" key="key_left_num" item="vo_left_name">
+                        <li><a href="__GROUP__/templet/show?level={$key_left_num}"> {$vo_left_name}申请</a></li>
+                    </foreach>
+                    
+                </ul>
+            </li>
+            <!--end 申请二维码-->
+            </in>
+            
+            
+<!--            <in name="Think.session.aid" value="1,2,3">
+            申请二维码
+            <li>
+                <a href="#left23" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-qrcode"></i> 特邀注册
+                </a>
+                <ul id="left23" class="<?php echo $left_active_key=='invite'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/invite/index?level"> 特邀注册</a></li>
+                    
+                    <foreach name="Think.config.LEVEL_NAME" key="key_left_num" item="vo_left_name">
+                        <li><a href="__GROUP__/invite/index?level={$key_left_num}"> {$vo_left_name}特邀</a></li>
+                    </foreach>
+                    
+                </ul>
+            </li>
+            end 申请二维码
+            </in>-->
+            
+            
+            <in name="Think.session.aid" value="1,2,3">
+            <!--数据统计-->
+<!--            <li>
+                <a href="#left11" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-stats"></i> 数据统计
+                </a>
+                <ul id="left11" class="<?php echo $left_active_key=='count'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/count/index"> 经销商统计</a></li>
+                </ul>
+            </li>-->
+            <!--end 数据统计-->
+            
+            <!--数据统计-->
+            <li>
+                <a href="#left22" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-stats"></i> 数据分析
+                </a>
+                <ul id="left22" class="<?php echo $left_active_key=='analysis'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/analysis/index"> 公司概况</a></li>
+                </ul>
+            </li>
+            <!--end 数据统计-->
+            
+            
+            
+<!--             <li>
+                <a href="#left12" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-tree-deciduous"></i> 活动管理
+                </a>
+                <ul id="left12" class="<?php echo $left_active_key=='activity'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/activityproduct/index"> 礼品列表</a></li>
+                    <li><a href="__GROUP__/activityproduct/add"> 礼品添加</a></li>
+                    <li><a href="__GROUP__/activityorder/index"> 全部订单</a></li>
+                    <li><a href="__GROUP__/activityorder/apply"> 未发货</a></li>
+                    <li><a href="__GROUP__/activityorder/index?status=3"> 已发货</a></li>
+                </ul>
+            </li>-->
+            </in>
+
+
+
+            
+            
+            <!--视频教程-->
+<!--            <li>
+                <a href="#left12" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-film"></i> 微商控价视频教程
+                </a>
+                <ul id="left12" class="<?php echo $left_active_key=='templet'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/templet/sp"> 微商管理系统经销商教程</a></li>
+                    <li><a href="__GROUP__/templet/ck"> 微商系统出库教程</a></li>
+                </ul>
+            </li>-->
+            <!--end 视频教程-->
+            
+            <!--帮助-->
+<!--            <li>
+                <a href="#left14" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-book"></i> 微商系统指南
+                </a>
+                <ul id="left14" class="<?php echo $left_active_key=='help'?$left_class_active:$left_class;?>">
+                    <li><a href="__GROUP__/help/index"> 图文教程教程</a></li>
+                </ul>
+            </li>-->
+            <!--end 帮助-->
+            
+
+
+        </ul>
+    </div>
+
+
+    
+    <!--注意左栏链接地址不要用大写字母-->
+    
+</div>
+
+

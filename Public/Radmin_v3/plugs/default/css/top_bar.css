@@ -1,0 +1,22 @@
+.topbar-menu { position: absolute; margin-left: 220px; margin-right: 140px; float: left; }
+.topbar-menu .control-menu { height: 50px; width: 100%; }
+.topbar-menu .control-menu .tabdrop { display: none; margin: 0 5px; padding: 0 15px; line-height: 50px; background-color: #01a4da; }
+.topbar-menu .control-menu .tabdrop a { display: block; text-decoration: none; color: white; }
+.topbar-menu .control-menu .tabdrop a .caret { margin-left: 5px; color: white; }
+.topbar-menu .control-menu .tabdrop .dropdown-menu { border-radius: 5px; border: none; color: #09c; padding: 15px 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+.topbar-menu .control-menu .tabdrop .dropdown-menu > .active > a, .topbar-menu .control-menu .tabdrop .dropdown-menu > .active > .dropdown-items > a { color: white; background-color: #7fd7f5; }
+.topbar-menu .control-menu .tabdrop .dropdown-menu .dropdown-items { position: relative; height: 22px; }
+.topbar-menu .control-menu .tabdrop .dropdown-menu .dropdown-items a { color: black; width: 100%; height: 100%; line-height: 22px; transition: all .2s linear; }
+.topbar-menu .control-menu .tabdrop .dropdown-menu .dropdown-items a .icons, .topbar-menu .control-menu .tabdrop .dropdown-menu .dropdown-items a .icons2 { font-size: 14px; width: 10px; margin: 0 10px; }
+.topbar-menu .control-menu .tabdrop .dropdown-menu .dropdown-items a:hover { background-color: #7fd7f5; }
+.topbar-menu .control-menu .tabdrop .dropdown-menu .dropdown-items .close-tab { position: absolute; right: 10px; top: 50%; transform: translateY(-55%); z-index: 50; cursor: pointer; }
+.topbar-menu .control-menu .tabdrop:hover { background-color: #09c; }
+.topbar-menu .control-menu .items { position: relative; float: left; height: 50px; box-sizing: border-box; text-align: center; background-color: #01a4da; margin-right: 2px; border-radius: 3px; border: none; }
+.topbar-menu .control-menu .items:hover { background-color: #09c; }
+.topbar-menu .control-menu .items:hover .close { opacity: 1; }
+.topbar-menu .control-menu .items a { display: block; color: white; text-decoration: none; padding: 0 18px 0 10px; }
+.topbar-menu .control-menu .items a .icons { margin-right: 5px; }
+.topbar-menu .control-menu .items span, .topbar-menu .control-menu .items i { font-size: 12px; line-height: 50px; color: white; margin-right: 5px; }
+.topbar-menu .control-menu .items .close { position: absolute; right: 3px; top: 0; opacity: .3; color: white; text-shadow: none; z-index: 50; }
+
+/*# sourceMappingURL=top_bar.css.map */

@@ -1,0 +1,19 @@
+.rental-content img{
+	/*width: 100%!important;*/
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.titleh2{
+	font-size: .8rem!important;
+}
+/*.rental-content{
+	margin: 0!important;
+}
+*/
+.rental-content{
+    top: 4rem!important;
+}
+.rental-list-content{
+	margin: 0!important;
+}

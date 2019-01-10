@@ -1,0 +1,12 @@
+.edit-wrapper { margin-top: 15px; padding-right: 0; }
+.edit-wrapper .edit-title .layui-elem-quote { padding-left: 20px; position: relative; border-left: none; }
+.edit-wrapper .edit-title .layui-elem-quote .title { font-size: 22px; }
+.edit-wrapper .edit-title .layui-elem-quote .back { position: absolute; right: 0; top: 0; height: 52px; width: 120px; background-color: #2c3f50; }
+.edit-wrapper .layui-content .layui-form { font-size: 18px; }
+.edit-wrapper .layui-content .layui-form .layui-form-item .layui-upload-img { width: 92px; height: 92px; margin: 0 10px 10px 0; }
+.edit-wrapper .layui-content .layui-form .layui-form-item .form-text { font-size: 18px; text-align: right; line-height: 38px; margin: 0; }
+.edit-wrapper .layui-content .layui-form .input-inf { height: 38px; margin-right: 20px; }
+.edit-wrapper .layui-content .orange { background-color: #e74d3c; }
+.edit-wrapper .layui-content .orange-text { color: #e74d3c; }
+
+/*# sourceMappingURL=edit_product.css.map */

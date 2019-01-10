@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Radmin_v3/plugs/default/css/verify.css">
+    <script src="__PUBLIC__/Radmin_v3/plugs/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/Radmin_v3/plugs/default/js/verify.js"></script>
+    <!--[if lt IE 9]>
+      <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="verify-container">
+      <div class="container">
+        <div class="content">
+          <p class="msgs">拖动方块到空白处完成验证</p>
+          <div id="mpanel"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var v_width = 0;
+      var v_height = 0;
+      var block = 0;
+      if(document.body.clientWidth>500){
+        v_width = '400px';
+        v_height = '200px';
+        block = '40px';
+      }else{
+        v_width = '90%';
+        v_height = '100px';
+        block = "30px";
+      }
+      $('#mpanel').slideVerify({
+        type: 2,
+        vOffset: 5,
+        vSpace: 5,
+        //传入图片地址
+        imgPath: ['__PUBLIC__/Radmin_v3/plugs/default/img/login/verify/1.jpg', '__PUBLIC__/Radmin_v3/plugs/default/img/login/verify/2.jpg'],
+        imgSize: {
+          width: v_width,
+          height: v_height,
+        },
+        blockSize: {
+          width: block,
+          height: block,
+        },
+        barSize: {
+          width: v_width,
+          height: block,
+        },
+        success: function() {
+          //......后续操作
+          if(loginurl) {
+            $.post(loginurl, {
+              password: passWord,
+              username: account
+            }, function(data) {
+              if(data.status === 1){
+                layer.msg('登录成功！');
+                setTimeout(function(){
+                  window.location.href = data.url;
+                },1000);
+              }else{
+                layer.msg(data.info);
+                setTimeout(function(){
+                  layer.closeAll();
+                },1000);
+              }
+            })
+          }
+        },
+        error: function() {
+          layer.msg('验证失败！');
+        }
+      });
+    </script>
+  </body>
+
+</html>

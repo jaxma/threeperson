@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head lang="en">
+        <title>在线购买</title>
+        <include file="Public/header_v2"/>
+        <link rel="stylesheet" href="__PUBLIC__/Admin_v2/css/order.css">
+    </head>
+<body>
+     <header class="header">
+        <a href="javascript:history.go(-1);" class="a"></a>
+        <p>立即购买</p>
+        <!--dd-->
+    </header>
+    <div class="order-section">
+        <div class="order-content">
+            <div class="order-detail">
+                <p>商品名称：{$order.product_name}</p>
+                <p>商品数量：{$order.total_num}</p>
+                <p>订单金额：￥{$order.total_price}</p>
+                <p>订&nbsp;单&nbsp;&nbsp;号：{$order.order_num}</p>
+                <p>订单日期：{$order.time|date="Y-m-d H:i",###}</p>
+            </div>
+        </div>
+    </div>
+    <div class="order-section shouhuo_box1">
+        <div class="order-content" style="width:100%" onclick="callpay()">
+            <p class="order-num" style="text-align: center;color:#ffffff;background: green">微信支付</p>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        //调用微信JS api 支付
+        function jsApiCall()
+        {
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                {$jsApiParameters},
+                function(res){
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                        window.location.href = '__APP__/admin/activityorder/detail?order_num='+{$order_num};
+                    }
+//                    WeixinJSBridge.log(res.err_msg);
+//                    alert(res.err_code+res.err_desc+res.err_msg);
+                }
+            );
+        }
+
+        function callpay()
+        {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }else{
+                jsApiCall();
+            }
+        }
+    </script>
+</body>
+</html>

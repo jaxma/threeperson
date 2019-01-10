@@ -1,0 +1,78 @@
+<layout name="Public/public" />
+
+<h1>
+    <img src="__PUBLIC__/Admin/images/ym.png" alt="" width="70" >
+    欢迎进入{$Think.config.SYSTEM_NAME}管理系统
+</h1>
+
+<div class="jumbotron">
+    <div class="container">
+        
+        <ul class="list-inline">
+            <li>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">经销商总数量
+                            <span class="badge pull-right">{$mulCount.agentSum}</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body"><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">已审核
+                            <span class="badge pull-right">{$mulCount.auditSum}</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body"><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">未审核
+                            <span class="badge pull-right">{$mulCount.notauditSum}</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body"><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></div>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="list-inline">
+            <foreach name="Think.config.LEVEL_NAME" key="key_left_num" item="vo_left_name">
+                <li>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                {$vo_left_name}<span class="badge pull-right">{$mulCount.agent.$key_left_num}</span>
+                            </h3>
+                        </div>
+                        <div class="panel-body"><img src="__PUBLIC__/Admin/images/tongji1.png" alt=""></div>
+                    </div>
+                </li>
+            </foreach>
+        </ul>
+
+        <ul class="list-inline">
+            <li>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">总统计量
+                            <span class="badge pull-right">{$mulCount.agentSum}</span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">数量值在上升当中</div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+
+
+
+

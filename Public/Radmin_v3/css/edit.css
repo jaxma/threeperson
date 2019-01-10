@@ -1,0 +1,155 @@
+.layui-container {
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px 0 15px;
+  background-color: #f1f4f6;
+}
+.layui-container .content {
+  background-color: #fff;
+}
+.header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: #e8edf0;
+  background-clip: content-box;
+}
+.header h3 {
+  flex: 1;
+  font-size: 24px;
+  line-height: 60px;
+  text-indent: 24px;
+}
+.header button {
+  flex: 0 0 100px;
+  margin-top: 10px;
+  height: 40px;
+  background-color: #09c;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+}
+.form {
+  position: relative;
+  height: 90px;
+  font-size: 14px;
+  background-color: #fff;
+}
+.form .form-item {
+  display: inline-block;
+  text-align: center;
+  margin-right: 70px;
+}
+.form .form-item label {
+  width: auto;
+  display: inline-block;
+  margin-top: 32px;
+}
+.form .form-item div {
+  display: inline-block;
+  margin-top: 30px;
+}
+.form .form-item div input {
+  min-width: 235px;
+  height: 40px;
+  border: 1px solid #e8edf0;
+  border-radius: 4px;
+}
+.form .form-item div input:hover,
+.form .form-item div input:focus,
+.form .form-item div input:active,
+.form .form-item div input:visited {
+  border: 1px solid #e8edf0 !important;
+}
+.form .search-btn {
+  display: inline-block;
+}
+.form .search-btn button {
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: #18bb9c;
+  border-radius: 4px !important;
+  color: #fff;
+}
+.table-wrapper {
+  padding: 0 15px;
+  text-align: center;
+  background-color: #fff;
+}
+.table-wrapper thead tr th {
+  text-align: center;
+  background-color: #fff;
+  height: 50px;
+}
+.table-wrapper tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+.table-wrapper tbody .operate span {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+}
+.table-wrapper tbody .operate span:nth-of-type(1) {
+  background-image: url("../images/editIcon.png");
+  background-position: 0 0;
+}
+.table-wrapper tbody .operate span:nth-of-type(2) {
+  background-image: url("../images/editIcon.png");
+  background-position: -43px 0;
+}
+.table-wrapper tbody .operate span:nth-of-type(3) {
+  background-image: url("../images/editIcon.png");
+  background-position: -86px 0;
+}
+.table-wrapper tbody .operate span:nth-of-type(4) {
+  background-image: url("../images/editIcon.png");
+  background-position: -129px 0;
+}
+.table-wrapper tbody .operate span:nth-of-type(5) {
+  background-image: url("../images/editIcon.png");
+  background-position: -172px 0;
+}
+.table-wrapper tbody .recharge-btn {
+  background-color: #18bb9c;
+  margin-bottom: 5px;
+  border-radius: 5px !important;
+}
+.table-wrapper tbody .integral-btn {
+  background-color: #ffb700;
+  margin-bottom: 5px;
+  border-radius: 5px !important;
+}
+.table-wrapper tbody .layui-form-item {
+  margin-bottom: 0;
+}
+.table-wrapper tbody .layui-form-item .layui-form-label {
+  width: auto;
+}
+.table-wrapper tbody .layui-form-item .layui-input-block {
+  margin-left: 10px;
+}
+.table-wrapper tbody .layui-form-item .layui-form-switch {
+  margin-left: -10px;
+  width: 55px;
+}
+.table-wrapper tbody .layui-form-item .layui-form-switch i {
+  top: 2px;
+}
+.table-wrapper tbody td:last-child {
+  width: 175px;
+}
+.layui-table td,
+.layui-table th,
+.layui-table-header,
+.layui-table-tool,
+.layui-table-view,
+.layui-table[lay-skin=row],
+.layui-table[lay-skin=line] {
+  border: 1px solid #f4f4f4;
+}
+#page .layui-box {
+  display: inline-block;
+  text-align: right;
+}

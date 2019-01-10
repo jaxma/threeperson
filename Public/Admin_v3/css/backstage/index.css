@@ -1,0 +1,94 @@
+
+.titleh2{
+	font-size: .8rem!important;
+}
+.backstage-content{
+	top: 4rem!important;
+}
+.backstage-content-in-top,.backstage-content-in-bottom{
+	width: 100%;
+}
+
+
+/*
+.backstage-content-in-top img{
+	display: inline-block;
+	float: right;
+	width: 32%;
+	height: 7rem;
+	margin:1% 1% 0 0; 
+}
+.backstage-content-in-top img:first-child{
+	width: 65%!important;
+	margin:.9% 1% 0 0; 
+	height: 14.2rem;
+}
+
+.backstage-content-in-bottom img{
+	display: inline-block;
+	float: left;
+	width: 32%;
+	height: 7rem;
+	margin:1% 0 0 1%; 
+}
+.backstage-content-in-bottom img:first-child{
+	width: 65%!important;
+	margin: .9% 0 0 1%!important;
+	height: 14.2rem;
+}*/
+
+.boby-img{
+	display: inline-block;
+	width: 32%;
+	height: 7rem;
+	overflow:hidden;
+}
+.boby-img img{
+	width: 100%;
+}
+.backstage-content-in-top .boby-img{
+	float: right;
+	margin:1% 1% 0 0; 
+}
+.backstage-content-in-top .boby-img:first-child{
+	width: 65%!important;
+	margin:.9% 1% 0 0; 
+	height: 14.2rem;
+}
+
+.backstage-content-in-bottom .boby-img{
+	float: left;
+	margin:1% 0 0 1%; 
+}
+.backstage-content-in-bottom .boby-img:first-child{
+	width: 65%!important;
+	margin: .9% 0 0 1%!important;
+	height: 14.2rem;
+}
+
+@media screen and (max-width: 414px){
+	.backstage-content-in-top .boby-img{height: 8rem!important;}
+	.backstage-content-in-top .boby-img:first-child{height: 16.2rem!important;}
+	.backstage-content-in-bottom .boby-img{height: 8rem!important;}
+	.backstage-content-in-bottom .boby-img:first-child{height: 16.2rem!important;}
+}
+@media screen and (max-width: 375px){
+	.backstage-content-in-top .boby-img{height: 7rem!important;}
+	.backstage-content-in-top .boby-img:first-child{height: 14.2rem!important;}
+	.backstage-content-in-bottom .boby-img{height: 7rem!important;}
+	.backstage-content-in-bottom .boby-img:first-child{height: 14.2rem!important;}
+}
+@media screen and (max-width: 320px){
+	.backstage-content-in-top .boby-img{height: 6rem!important;}
+	.backstage-content-in-top .boby-img:first-child{height: 12.2rem!important;}
+	.backstage-content-in-bottom .boby-img{height: 6rem!important;}
+	.backstage-content-in-bottom .boby-img:first-child{height: 12.2rem!important;}
+}
+.swiper-container{
+    padding-bottom:0!important;
+    padding-top: 28px!important;
+}
+
+.small-image-imru{
+  height: 100%;
+}

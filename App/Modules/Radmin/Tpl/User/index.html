@@ -1,0 +1,85 @@
+<layout name="Public/public" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>用户列表</title>
+<link href="__PUBLIC__/css/index.css" rel="stylesheet">
+<script type="text/javascript" src="__PUBLIC__/Admin/js/agentcode.js"></script>
+
+<script type="text/javascript" src='__PUBLIC__/js/jquery.js'></script>
+    <script type="text/javascript" src='__PUBLIC__/js/index.js'></script>
+    <script type="text/javascript">
+    function sc($name,$ulr){
+        //利用对话框返回的值 （true 或者 false）
+        if(confirm("您确定要删除"+$name+"吗？")){
+            window.location.href=$ulr;
+        }else{
+            return false;
+        }
+    }
+    </script>
+    
+</head>
+<body class="zh_CN">
+       <div class="col_main">
+        <div class="main_hd">
+            <div class="title_tab" id="topTab">
+                <ul class="tab_navs mt title_tab">
+                    <li class="tab_nav js_top  selected" data-id="send"><a href="#">用户列表</a></li>
+                </ul>
+            </div>
+            
+            <div class="menu">
+                
+                
+            </div>
+    
+        </div>
+        <!--右边内容--> 
+        <div class="main_bd">
+             
+            <div class="mp_news_area notices_box" style="width:600px;margin:0 auto;">
+                <div class="title_bar2" style="width:227px;">姓名</div>
+                
+                <div class="title_bar2" style="width:200px;">用户名</div>
+                
+                <!-- <div class="title_bar2" style="width:120px">手机号</div>
+                
+                <div class="title_bar2" style="width:150px;">email</div> -->
+                
+                <div class="title_bar2" style="width:170px;">操作</div>
+                
+                <ul class="mp_news_list">
+                    <notempty name="admin">
+                        <foreach name="admin" item="vo">
+                        <li class="mp_news_item">
+                            <span class="title_bar8" style="width:227px; ">{$vo.name}</span> 
+                            <span class="title_bar8" style="width:200px; ">{$vo.username}</span>
+                            <!-- <span class="title_bar8" style="width:120px; ">{$vo.phone}</span>
+                            
+                            <span class="title_bar8" style="width:150px; ">{$vo.email}</span> -->
+                            
+                            <span class="title_bar8" style="width:170px;">
+                                <p><input type="button" class="wz2 btn" value="重置密码" onClick="javascript:location.href='__URL__/edit?aid={$vo.id}'"/></p>
+                                <p><input type="button" class="wz2 btn" value="删除" onClick="sc('{$vo.name}','__URL__/delete?aid={$vo.id}')"/></p>
+                            </span>
+                            
+                        </li>
+                        </foreach>
+                    <else/>
+                        <p>无用户信息！<a href="javascript:history.go(-1);">返回上一页</a></p>
+                    </notempty>
+                </ul>
+            </div>
+            <div><center><font color="red">{$page}</font></center></div>
+            <!--5行为一页，方便查看-->
+             <div style="padding-left:33%; padding-top:10px;"> 
+                <span style="font-weight:bold; color:#ff2222;"> 
+                </span> 
+            </div>
+        </div>
+    </div>
+ 
+</body>
+</html>

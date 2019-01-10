@@ -1,0 +1,110 @@
+<head>
+  <script>
+    /**
+     * 使用图片上传接口需满足以下条件
+     * 1.容器选择器id=upload
+     * 2.设置name=image的input标签隐藏域
+     * 3.指定上传目录名称
+     */
+    //上传目录
+    var upload_dir_name = 'Goods';
+    form.render();
+  </script>
+</head>
+<div class="container-fluid edit-wrapper layui-container">
+  <div class="layui-content">
+    <form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__URL__/advert_update" data-auto="false" method="post" enctype="multipart/form-data">
+      <div class="layui-form-item">
+        <label class="layui-form-label">名称</label>
+        <div class="layui-input-block">
+          <input type="text" autofocus name="name" placeholder="请输入标题" class="layui-input" value="{$row.name}" required="" title="请输入标题">
+          <input type="hidden" name="id" value="{$row.id}">
+        </div>
+      </div>
+
+      <div class="layui-form-item items">
+        <label class="layui-form-label">图片</label>
+        <!--引入图片页面-->
+        <div>
+          <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
+          <if condition="$row.image neq ''">
+            <include file="Public/image" image_name="image" is_show="1" img_url="{$row.image}" />
+            <else/>
+            <include file="Public/image" image_name="image" is_show="0" img_url="{$row.image}" />
+          </if>
+          <small class="orange-text">(请上传长方型的图片 图片大小为：375*150)</small>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">状态</label>
+        <div class="form-right">
+          <div class="layui-col-sm6">
+            <div class="layui-col-sm6">
+              <div class="layui-input-inline three-select">
+                <select name="status" class="input-inf2" lay-verify="required" lay-search="">
+                  <if condition="$row.status eq '0'">
+                    <option value="0" selected="selected">未启用</option>
+                    <else/>
+                    <option value="1">已启用</option>
+                  </if>
+                  <if condition="$row.status eq 0">
+                    <option value="1">已启用</option>
+                  </if>
+                  <if condition="$row.status eq 1">
+                    <option value="0">未启用</option>
+                  </if>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">类型</label>
+        <div class="form-right">
+          <div class="layui-col-sm6">
+            <div class="layui-col-sm6">
+              <div class="layui-input-inline three-select">
+                <select name="type" id="type" class="form-control">
+                  <if condition="$row.type eq 0">
+                    <option value="0" selected="selected">请选择</option>
+                    <elseif condition="$row.type eq 1" />
+                    <option value="1">轮播图</option>
+                    <elseif condition="$row.type eq 2" />
+                    <option value="2">海报</option>
+                  </if>
+                  <if condition="$row.type eq 0">
+                    <option value="1">轮播图</option>
+                    <option value="2">海报</option>
+                    <elseif condition="$row.type eq 1" />
+                    <option value="0">请选择</option>
+                    <option value="2">海报</option>
+                    <elseif condition="$row.type eq 2" />
+                    <option value="0">请选择</option>
+                    <option value="1">轮播图</option>
+
+                  </if>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="layui-form-item  items">
+        <label class="layui-form-label">优先级</label>
+        <input class="input-inf2" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="{$row.sequence}">
+        <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
+      </div>
+      <div class="hr-line-dashed"></div>
+
+      <div class="layui-form-item text-center">
+        <button class="layui-btn" type='submit'>确认修改</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+      </div>
+
+    </form>
+  </div>
+</div>

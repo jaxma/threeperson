@@ -1,0 +1,430 @@
+.layui-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px 0 15px;
+    background-color: #f1f4f6;
+}
+
+.layui-container .content {
+    height: 100%;
+    position: relative;
+    display: box;              /* OLD - Android 4.4- */
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+     /* 09版 */
+    -webkit-box-orient: vertical;
+    /* 12版 */
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    /* padding-bottom: 37px; */
+}
+
+.layui-layer-page {
+    max-height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.header {
+    -webkit-box-flex: 0 0 60px;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 60px;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 60px;          /* Chrome */
+    -ms-flex: 0 0 60px;              /* IE 10 */
+    flex: 0 0 60px;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: #e8edf0;
+    background-clip: content-box;
+}
+
+.header h3 {
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
+    flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    font-size: 24px;
+    line-height: 60px;
+    text-indent: 24px;
+}
+
+.header a {
+    /*flex: 0 0 100px;*/
+    margin-top: 10px;
+    /*  height: 40px;
+  background-color: #09c;
+  color: #fff;
+  border: none;
+  font-size: 18px;*/
+}
+
+.header a:hover {
+    text-decoration: none;
+}
+
+.header input {
+    margin-top: 10px;
+}
+
+.form {
+    position: relative;
+    /* height: 77px; */
+    font-size: 14px;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.form .form-item {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 0
+}
+
+.form .form-item .select-wrapper input {
+    max-width: 150px;
+}
+
+.form .form-item .layui-input-block {
+    margin-left: 0
+}
+
+.form-item {
+    margin-top: 20px;
+}
+
+.form .form-item label {
+    float: none;
+    width: auto;
+    display: inline-block;
+}
+
+.form .form-item div {
+    display: inline-block;
+}
+
+.form .form-item .time-wrapper{
+  position: relative;
+  min-width: 190px;
+}
+
+.form .form-item .time-wrapper .fa {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    line-height: 38px;
+}
+
+.form .form-item .input-wrapper input {
+    max-width: 150px;
+    height: 40px;
+    border: 1px solid #e8edf0;
+    border-radius: 4px;
+}
+
+.form .form-item div input:hover,
+.form .form-item div input:focus,
+.form .form-item div input:active,
+.form .form-item div input:visited {
+    border: 1px solid #e8edf0 !important;
+}
+
+.form .search-btn {
+    display: inline-block;
+}
+
+.form .search-btn button {
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: #18bb9c;
+    border-radius: 4px !important;
+    color: #fff;
+}
+
+.table-wrapper {
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
+    flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    height: calc(100% - 200px);
+    overflow: auto;
+}
+
+.table-wrapper table {
+    position: relative;
+    padding: 0 15px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.table-wrapper table thead tr {
+    z-index: 99999;
+}
+.table-wrapper table thead tr th {
+    text-align: center;
+    background-color: #fff;
+    height: 50px;
+}
+.table-wrapper table tbody tr{
+    border-top: solid 40px transparent;
+}
+.table-wrapper table tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-wrapper table tbody .operate span {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.table-wrapper table tbody .operate span:nth-of-type(1) {
+    background-image: url("../images/editIcon.png");
+    background-position: 0 0;
+}
+
+.table-wrapper table tbody .operate span:nth-of-type(2) {
+    background-image: url("../images/editIcon.png");
+    background-position: -43px 0;
+}
+
+.table-wrapper table tbody .operate span:nth-of-type(3) {
+    background-image: url("../images/editIcon.png");
+    background-position: -86px 0;
+}
+
+.table-wrapper table tbody .operate span:nth-of-type(4) {
+    background-image: url("../images/editIcon.png");
+    background-position: -129px 0;
+}
+
+.table-wrapper table tbody .operate span:nth-of-type(5) {
+    background-image: url("../images/editIcon.png");
+    background-position: -172px 0;
+}
+
+.table-wrapper table tbody .recharge-btn {
+    background-color: #18bb9c;
+    margin-bottom: 5px;
+    border-radius: 5px !important;
+}
+
+.table-wrapper table tbody .integral-btn {
+    background-color: #ffb700;
+    margin-bottom: 5px;
+    border-radius: 5px !important;
+}
+
+.table-wrapper table tbody .order-btn {
+    background-color: #1E9FFF;
+    margin-bottom: 5px;
+    border-radius: 5px !important;
+}
+
+.table-wrapper table tbody .layui-form-item {
+    margin-bottom: 0;
+}
+
+.table-wrapper table tbody .layui-form-item .layui-form-label {
+    width: auto;
+}
+
+.table-wrapper table tbody .layui-form-item .layui-input-block {
+    margin-left: 10px;
+}
+
+.table-wrapper table tbody .layui-form-item .layui-form-switch {
+    margin-left: -10px;
+    width: 55px;
+}
+
+.table-wrapper table tbody .layui-form-item .layui-form-switch i {
+    top: 2px;
+}
+
+.table-wrapper table tbody td:last-child {
+    width: 175px;
+}
+
+.table-wrapper table tbody td p {
+    width: 64px;
+    margin-left: 45px;
+    margin-bottom: 1px;
+}
+
+#page {
+    -webkit-box-flex: 0 0 55px;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 55px;         /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 55px;          /* Chrome */
+    -ms-flex: 0 0 55px;              /* IE 10 */
+    flex: 0 0 55px;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    text-align: right;
+    /*position: absolute;*/
+    bottom: 0;
+    right: 15px;
+    z-index: 99999;
+}
+
+.layui-table td,
+.layui-table th,
+.layui-table-header,
+.layui-table-tool,
+.layui-table-view,
+.layui-table[lay-skin=row],
+.layui-table[lay-skin=line] {
+    border: 1px solid #f4f4f4;
+}
+
+.change-wrapper {
+    text-align: left;
+}
+
+.change-wrapper .sm-td {
+    text-align: right;
+    width: 200px!important;
+    display: inline-block!important;
+}
+
+.header button {
+    margin-top: 10px;
+}
+
+#dialog table tr td {
+    width: auto
+}
+
+
+/*小屏幕样式*/
+
+@media screen and (max-width: 768px) {
+    .layui-container .content .form .form-item {
+        display: block;
+    }
+    .layui-container .content .form .form-item .layui-form-label {
+        float: left;
+    }
+    .layui-container .content .form .form-item select {
+        float: left;
+    }
+    .layui-container .content .form .form-item>div {
+        float: left;
+    }
+    .form .search-btn {
+        margin: 20px 0 0 10px;
+    }
+    .layui-container .content .table-wrapper {
+        overflow: auto;
+        padding: 0 0 40px 0;
+    }
+    #page {
+        right: 0;
+        left: 5px;
+    }
+    .layui-layer-page {
+        position: fixed;
+        top: 5% !important;
+        left: 5% !important;
+        width: 90% !important;
+        height: 90%;
+        overflow: auto;
+    }
+    .layui-layer-iframe {
+        position: fixed;
+        top: 5% !important;
+        left: 5% !important;
+        width: 90% !important;
+        height: 90% !important;
+        overflow: auto;
+    }
+    .header h3 {
+        font-size: 14px;
+        text-indent: 5px;
+        font-weight: 700;
+    }
+    .header input {
+        padding: 0 5px;
+        font-size: 12px;
+    }
+    .table-wrapper table tbody td p {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .form {
+        padding: 0;
+    }
+    .layui-container .content .form .form-item {
+        margin-right: 0;
+    }
+    .layui-container .content .form .form-item .layui-form-label {
+        padding: 9px 10px;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .table-wrapper {
+        height: calc(100% - 210px);
+    }
+}
+@media screen and (max-width: 1550px) {
+    .table-wrapper {
+        height: calc(100% - 220px);
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .table-wrapper {
+        height: calc(100% - 230px);
+    }
+}
+@media screen and (max-width: 1450px) {
+    .table-wrapper {
+        height: calc(100% - 240px);
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .table-wrapper {
+        height: calc(100% - 250px);
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .table-wrapper {
+        height: calc(100% - 260px);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .table-wrapper {
+        height: calc(100% - 270px);
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .table-wrapper {
+        height: calc(100% - 280px);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .table-wrapper {
+        height: calc(100% - 290px);
+    }
+}

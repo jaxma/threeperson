@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <include file="Public:header" />
+    <head>
+        <link href="__PUBLIC__/radmin/css/signin.css" rel="stylesheet">
+        <script type="text/javascript">
+            var URL = '__GROUP__/Login/verify/';
+            var logUrl = '__GROUP__/Login/login';
+            var indexUrl = '__GROUP__/Index/index';
+        </script>
+        <!--        <script language="javascript" type="text/javascript">
+                    document.onkeydown = function (event_e) {
+                        if (window.event) {
+                            event_e = window.event;
+                        }
+        
+                        var int_keycode = event_e.charCode || event_e.keyCode;
+                        if (int_keycode == '13') {
+                            //your handler function,please.  
+            //            onlogin();  
+                            document.getElementById("jkl").click();
+                            return false;
+                        }
+                    }
+                </script>-->
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <form class="form-signin" method="post" onsubmit="return login();" role="form">
+                <h2 class="form-signin-heading">管理系统登录</h2>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
+                        <input type="password" name="password" class="form-control" placeholder="密码" required>
+                    </div>
+
+                    <div class="col-xs-8" id="verify_area" >
+                        <input type="text" class="form-control" name="code" required> 
+                    </div>
+                    <div class="col-xs-4" id="verify_area" >
+                        <img src="__GROUP__/Login/verify" id="code"/> 
+                        <!--验证码--> 
+                        <a href="javascript:void(change_code(this));" class="login-change-code" id="changeimg_link">看不清</a><br />
+                    </div>
+
+                    <div class="col-xs-12">
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                        <!--<button class="btn btn-lg btn-primary btn-block" onclick="return login()" id="jkl" type="button">登录</button>-->
+                    </div>
+                </div>
+            </form>
+
+        </div> <!-- /container -->
+
+
+    <include file="Public:footer" />
+
+    <script>
+
+
+
+        //验证码图像转换
+        function change_code(obj) {
+            $("#code").attr("src", URL + Math.random());
+            return false;
+        }
+
+        //管理员登录
+        function login()
+        {
+            var username = $('input[name=username]').val();
+            var password = $('input[name=password]').val();
+            var code = $('input[name=code]').val();
+
+            if (username == '') {
+                alert('请填写用户名！');
+                return false;
+            }
+            if (password == '') {
+                alert('请填写密码');
+                return false;
+            }
+            if (code == '') {
+                alert('请填写验证码！');
+                return false;
+            }
+
+            $.post(logUrl, {username: username, password: password, code: code}, function (res) {
+                if (res.status == 1) {
+                    alert('验证码错误！');
+                } else if (res.status == 2) {
+                    alert('用户名或密码错误！');
+                } else {
+                    location.href = indexUrl;
+                }
+            }, 'json');
+            
+            return false;
+        }
+        
+        
+    </script>
+
+
+
+
+</body>
+</html>

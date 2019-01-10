@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/hyzc.css"/>
+<!--     <link rel="stylesheet" type="text/css" href="css/base19b826.css"> -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/base1c776e.css">
+    <script type="text/javascript" src="__PUBLIC__/Admin/js/jquery-1.8.3.min.js"></script>
+</head>
+<body class="zh_CN">
+<div class="head" id="header">
+    <div class="head_box">
+        <div class="inner wrp">
+            <h1 class="logo">&nbsp;</h1>
+            <div class="account">
+                <!--登录账号名称-->
+                <div class="account_meta account_info"> 
+	                    <span class="nickname">管理员 : {$Think.session.aname}&nbsp;&nbsp;</span>
+                    </div>
+                <!--退出-->
+                <div class="account_meta account_logout">
+                	<a id="logout" href="__APP__/Radmin/Index/logout">退出</a>
+                </div>
+            </div>
+            <!--用户头像-->
+            <a href="index.php"><img src="__PUBLIC__/Admin/images/ym.png" height="60" width="213"></a>
+        </div>
+    </div>
+</div>
+<div id="body" class="body page_mass_send">
+    <div id="js_container_box" class="container_box side_l">
+        <div class="col_side">
+            <div class="menu_box" id="menuBar">
+            	
+            <!--1账号管理 被选中-->
+                <dl id="menu_function" class="menu no_extra">
+                    <dt class="menu_title"><i class="icon_menu one"></i><i class="icon_menu_switch"></i>账号管理</dt>
+                    <dd id="menu_masssend" class="menu_item selected"><a href="__URL__/htgl">后台管理</a></dd>
+                    <dd id="menu_advanced" class="menu_item "><a href="__APP__/Radmin/Index/index">账户管理</a></dd>
+                </dl>
+                
+                <!-- 2管理 -->
+                <dl id="menu_function" class="menu closed">
+                    <dt class="menu_title"><i class="icon_menu two"></i><i class="icon_menu_switch"></i>经销商管理</dt>
+                    <if condition="$Think.session.did eq 0">
+                    <egt name="level_num" value="1"><dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/index',array('level' => 1))}">{$level_name.1}</a></dd></egt>
+                    </if>
+                    <egt name="level_num" value="2"><dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/index',array('level' => 2))}">{$level_name.2}</a></dd></egt>
+                  <egt name="level_num" value="3"><dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/index',array('level' => 3))}">{$level_name.3}</a></dd></egt>
+                  <egt name="level_num" value="4"><dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/index',array('level' => 4))}">{$level_name.4}</a></dd></egt>
+                  <egt name="level_num" value="5"><dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/index',array('level' => 5))}">{$level_name.5}</a></dd></egt>
+                  <egt name="level_num" value="6"><dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/index',array('level' => 6))}">{$level_name.6}</a></dd></egt>
+                </dl>
+                <if condition="$Think.session.did eq 0">
+                <dl id="menu_function" class="menu closed">
+                    <dt class="menu_title"><i class="icon_menu three"></i><i class="icon_menu_switch"></i>审核管理</dt>
+                    <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Manager/applyList')}">审核官方经销商</a></dd>
+                </dl>
+                <dl id="menu_function" class="menu closed">
+                    <dt class="menu_title"><i class="icon_menu four"></i><i class="icon_menu_switch"></i>防伪管理</dt>
+                    <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Security/index')}">防伪记录</a></dd>
+                </dl>
+                    <!-- <dl id="menu_function" class="menu closed">
+                        <dt class="menu_title"><i class="icon_menu five"></i><i class="icon_menu_switch"></i>用户管理</dt>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/User/index')}">用户列表</a></dd>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/User/add')}">添加用户</a></dd>
+                    </dl> -->
+                    <dl id="menu_function" class="menu closed">
+                        <dt class="menu_title"><i class="icon_menu seven"></i><i class="icon_menu_switch"></i>产品信息管理</dt>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Templet/add')}">产品信息添加</a></dd>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Templet/index')}">产品信息列表</a></dd>
+                    </dl>
+                    <dl id="menu_function" class="menu closed">
+                        <dt class="menu_title"><i class="icon_menu eight"></i><i class="icon_menu_switch"></i>出库管理</dt>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Stock/systemStock')}">系统出库</a></dd>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Stock/stock?type=system')}">系统出库记录</a></dd>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Stock/stock?type=big')}">大标签出库记录</a></dd>
+                        <dd id="menu_masssend" class="menu_item "><a href="{:U(GROUP_NAME . '/Stock/stock?type=m')}">小标签出库记录</a></dd>
+                    </dl>
+                	</if>
+            </div>
+        </div>
+        <div class="col_main" style="padding: 16px;">
+            <!--右边标题-->
+            <div class="index_show_area" style="text-align:center;padding-top:50px;">
+				<div class="index_tap total" style="width:50%;">
+					<ul class="inner">
+						<li class="index_tap_item total_fans extra">
+							<a href="index.php">
+								<span class="tap_inner" ><strong class="title">欢迎进入{$Think.config.SYSTEM_NAME}后台管理系统</strong></span>
+	             			 </a>
+	              		</li>
+	              	</ul>
+				</div>
+			</div>   	
+    	</div>
+    </div>
+	    <!--客服-->
+	    <div class="faq">
+	        <ul class="links">
+	            <li class="links_item no_extra"><a href="#" target="_blank">在线客服</a></li>
+	            <li class="links_item"><a href="#" target="_blank">客服中心</a></li>
+	            <p class="tail">&nbsp;</p>
+	        </ul>
+	    </div>
+	</div>
+<div class="foot" id="footer">
+    <ul class="links ft">
+        <li class="links_item no_extra"><a href="#" target="_blank">关于我们</a></li>
+        <li class="links_item"><a href="#" target="_blank">服务协议</a></li>
+        <li class="links_item"><a href="#" target="_blank">客服中心</a></li>
+        <li class="links_item"><a href="#" target="_blank">在线客服</a></li>
+        <li class="links_item"><a href="#" target="_blank">联系邮箱</a></li>
+        <li class="links_item"><a href="#" target="_blank">侵权投诉</a></li>
+    </ul>
+    <p class="copyright">Copyright © 2013-2015 szzao. All Rights Reserved.</p>
+</div>
+
+<script type="text/javascript" src="__PUBLIC__/Admin/js/lib1c6c0c.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Admin/js/wx1c6c0c.js"></script>
+
+<div style="position: absolute; width: 6px; height: 6px; top: -9999px; left: -9999px;" class="movieContainer " id="sm2-container"></div>
+</body>
+</html>

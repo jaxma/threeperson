@@ -1,0 +1,192 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>系统风格</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Radmin_v3/css/admin_style.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid edit-wrapper layui-container">
+      <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+          <span class="title">系统风格</span>
+        </blockquote>
+      </header>
+
+      <div class="layui-tab layui-tab-brief style_tab" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+          <li class="layui-this">代理后台样式</li>
+          <li>总后台样式</li>
+          <li>总后台登录样式</li>
+        </ul>
+
+        <div class="style_wrapper layui-container layui-tab-content">
+<!------------------------------------------- 代理后台样式  ------------------------------------>
+          <div class="layui-tab-item layui-show">
+            <form action="__URL__/change_system_style" class="layui-form admin_style" data-auto="false" method="post" >
+              <ul class="style_list layui-row">
+                <li class="style_item_sm style_item layui-col-md3">
+                  <div class="layui-carousel" id="sm_carousel1">
+                    <div carousel-item>
+                      <div><img src="__PUBLIC__/Radmin_v3/images/style/admin/default_1.jpg"/></div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">默认风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="color_scheme-default.css" title="样式一"  >
+                  </div>
+                </li>
+                <li class="style_item_sm style_item layui-col-md3">
+                  <div class="layui-carousel" id="sm_carousel2">
+                    <div carousel-item>
+                      <div><img src="__PUBLIC__/Radmin_v3/images/style/admin/green_1.jpg"/></div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">清新绿风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="color_scheme-green.css" title="样式二">
+                  </div>
+                </li>
+                <li class="style_item_sm style_item layui-col-md3">
+                  <div class="layui-carousel" id="sm_carousel3">
+                    <div carousel-item>
+                      <div><img src="__PUBLIC__/Radmin_v3/images/style/admin/pink_1.jpg"/></div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">魅力粉风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="color_scheme-pink.css" title="样式三"  >
+                  </div>
+                </li>
+              </ul>
+              <input type="hidden" name="style_name" class="style_name" value="admin_style" />
+              <input type="hidden" name="style_url" class="style_url" value="" />
+              <button class="layui-btn btn_submit" lay-submit>提交修改</button>
+            </form>
+          </div>
+<!------------------------------------------- 总后台样式  ------------------------------------>
+          <div class="layui-tab-item">
+            <form action="__URL__/change_system_style" class="layui-form radmin_style" data-auto="false" method="post">
+              <ul class="style_list layui-row">
+                <li class="style_item layui-col-md5">
+                  <div class="layui-carousel" id="carousel4">
+                    <div carousel-item>
+                      <div>条目1</div>
+                      <div>条目2</div>
+                      <div>条目3</div>
+                      <div>条目4</div>
+                      <div>条目5</div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">商务风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="1" title="样式一"  >
+                  </div>
+                </li>
+                <li class="style_item layui-col-md5">
+                  <div class="layui-carousel" id="carousel5">
+                    <div carousel-item>
+                      <div>条目1</div>
+                      <div>条目2</div>
+                      <div>条目3</div>
+                      <div>条目4</div>
+                      <div>条目5</div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">清新风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="2" title="样式二" >
+                  </div>
+                </li>
+              </ul>
+              <input type="hidden" name="style_name" class="style_name" value="radmin_style" />
+              <input type="hidden" name="style_url" class="style_url" value="" />
+              <button class="layui-btn btn_submit" lay-submit>提交修改</button>
+            </form>
+          </div>
+<!------------------------------------------- 总后台登录样式  ------------------------------------>
+          <div class="layui-tab-item">
+            <form action="__URL__/change_system_style" class="layui-form radmin_login" data-auto="false" method="post">
+              <ul class="style_list layui-row">
+                <li class="style_item layui-col-md5">
+                  <div class="layui-carousel" id="carousel6">
+                    <div carousel-item>
+                      <div><img src="__PUBLIC__/Radmin_v3/images/style/radmin_login/default_1.jpg"/></div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">商务风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="index" title="样式一">
+                  </div>
+                </li>
+                <li class="style_item layui-col-md5">
+                  <div class="layui-carousel" id="carousel7">
+                    <div carousel-item>
+                      <div><img src="__PUBLIC__/Radmin_v3/images/style/radmin_login/city_1.jpg"/></div>
+                    </div>
+                  </div>
+                  <div class="style_mask">
+                    <i class="icons fa fa-check"></i>
+                  </div>
+                  <div class="desc">
+                    <p class="text">清新风格主题</p>
+                  </div>
+                  <div class="check-wrapper">
+                    <input class="style_check" type="radio" name="style" value="index_city" title="样式二">
+                  </div>
+                </li>
+              </ul>
+              <input type="hidden" name="style_name" class="style_name" value="radmin_login" />
+              <input type="hidden" name="style_url" class="style_url" value="" />
+              <button class="layui-btn btn_submit" lay-submit>提交修改</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="__PUBLIC__/Radmin_v3/js/admin_style.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    var radmin_style = $('.radmin_style').find('.style_check[value="{$radmin_style}"]').eq(0);
+    var radmin_login = $('.radmin_login').find('.style_check[value="{$radmin_login}"]').eq(0);
+    var admin_style = $('.admin_style').find('.style_check[value="{$admin_style}"]').eq(0);
+    radmin_style.attr('checked',true).parent().siblings('.style_mask').addClass('active');
+    radmin_login.attr('checked',true).parent().siblings('.style_mask').addClass('active');
+    admin_style.attr('checked',true).parent().siblings('.style_mask').addClass('active');
+    form.render();
+  </script>
+
+</html>

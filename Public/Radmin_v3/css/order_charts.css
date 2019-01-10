@@ -1,0 +1,90 @@
+#chart1,
+#chart2 {
+    width: 100%;
+    height: 600px;
+}
+#chart3,
+#chart4,
+#chart5 {
+    height: 600px;
+}
+
+.chart-wrapper {
+    margin-top: 50px;
+}
+
+.layui-tab-item {
+    position: relative;
+}
+
+.layui-tab-item .select-product {
+    position: absolute;
+    top: 0;
+    left: 8%;
+}
+/* .layui-tab-item:nth-of-type(3) .select-product {
+    position: absolute;
+    top: -35px;
+    right: 8%;
+} */
+/* .layui-tab-item .select-product .layui-form-select {
+    width: 100px;
+} */
+.layui-tab-item .select-product .layui-input-block {
+    margin-left: 0
+}
+
+/* .layui-tab-item .select-product .layui-form-select .layui-input {
+    width: 200px;
+} */
+
+
+
+/* 时间选择器 */
+.select-time {
+    position: relative;
+    margin: 20px 0;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.select-time .btn-wrapper {
+    margin-right: 320px;
+}
+
+.select-time .time-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    margin-left: 10px;
+    height: 38px;
+}
+
+.select-time .time-input p {
+    display: inline-block;
+    margin-right: 5px;
+    width: 80px;
+    line-height: 38px;
+}
+
+.select-time .time-input input {
+    display: inline-block;
+    width: 200px;
+}
+
+.select-time .time-input .layui-icon {
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

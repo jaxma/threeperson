@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="__PUBLIC__/Radmin_v3/images/logo.png" />
+    <title>{$Think.config.SYSTEM_NAME}&nbsp;·&nbsp;系统管理</title>
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/plugs/bootstrap/css/bootstrap.min.css?ver=170725" />
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/plugs/layui/css/layui.css?ver=170725" />
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/plugs/default/css/console.css?ver=170725">
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/plugs/default/css/animate.css?ver=170725">
+    <!--自定义css-->
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/plugs/default/css/left_menu.css?ver=170725">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Radmin_v3/plugs/default/css/top_bar.css"/>
+    <!--列表展示css-->
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/css/list.css">
+    <!--内容编辑/添加css-->
+    <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/css/content.css">
+
+    <script src="__PUBLIC__/Radmin_v3/plugs/require/require.js?ver=170725"></script>
+    <script src="__PUBLIC__/Radmin_v3/js/app.js?ver=170725"></script>
+    <!--解决弹出层问题-->
+    <style>
+        .modal-backdrop{
+            display: none;
+        }
+        #dialog{
+            margin-top: 5%;
+
+        }
+
+    </style>
+    <script>
+        var URL = "__URL__";
+    </script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?6c445663e719abf0b505d6cf82bbb15d";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+<!--top开始-->
+<include file="common/indexTop" />
+<!--top结束-->
+<!--左边导航栏开始-->
+<div class="framework-body framework-sidebar-full">
+
+    <div class="framework-sidebar">
+      <div class="hide-scroll">
+        <div class="sidebar-content">
+            <include file="common/indexLeft" />
+        </div>
+      </div>
+    </div>
+    <!--左边导航栏到此结束-->
+    <!--中间内容部分-->
+    <div class="framework-container layer-main-container framework-sidebar-full">
+    </div>
+    <!--中间内容部分结束-->
+</div>
+
+
+
+<!-- 百度统计 开始 -->
+<!-- 百度统计 结束 -->
+</body>
+
+</html>

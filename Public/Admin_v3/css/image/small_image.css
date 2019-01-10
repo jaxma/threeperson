@@ -1,0 +1,41 @@
+ .small-image-im{
+      padding-top:.5rem; 
+      margin:0!important;  
+    }
+    .boby-img{
+      width: 100%;
+      height:7rem;
+      overflow:hidden;
+    }
+    .small-image-im img{
+      width: 100%;
+    }
+
+    .small-image-imru{
+      height: 100%;
+    }
+    .small-image-im-banner img{
+      width: 100%;
+      height: 100%;
+    }
+    .small-image-content{
+      top:4rem!important;
+    }
+    .small-image-c{
+      margin:0!important;
+      width: 33%!important; 
+      padding:0 0 0.1rem .4rem;
+    }
+    @media screen and (max-width: 414px){
+      .boby-img{height: 8rem;}
+    }
+    @media screen and (max-width: 375px){
+      .boby-img{height: 7rem;}
+    }
+      @media screen and (max-width: 320px){
+      .boby-img{height: 6rem;}
+    }
+   .swiper-container{
+        padding-bottom:0!important;
+        padding-top: 28px!important;
+   }

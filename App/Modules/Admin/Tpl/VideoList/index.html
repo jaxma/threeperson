@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VEDIO</title>
+    <!-- 头部css -->
+    <include file="Public/header" />
+    <link rel="stylesheet" href="__PUBLIC__/Admin_v3/css/videoList/index.css">
+    <!-- <link href="__PUBLIC__/Admin_v3/css/video-js.min.css" rel="stylesheet"> -->
+  </head>
+  <!-- <script src="__PUBLIC__/Admin_v3/js/videojs-ie8.min.js"></script> -->
+  <style type="text/css">
+	.infinite-scroll-preloader {
+	  margin-top:20px;
+	}
+</style>
+  <script type="text/javascript">
+  	 var video_list =   '__APP__/api/video/video';
+  </script>
+  <body oncontextmenu = "return false">
+   <div class="page" id="san-content">
+      <header class="bar bar-nav">
+        <span class="icon icon-menu pull-left" id="san"></span>
+        <h1 class="title titleh2">VEDIO</h1>
+      </header>
+
+      <!-- 添加 class infinite-scroll 和 data-distaance -->
+		<div class="content infinite-scroll" data-distance="100">
+			<div class="videoList-content">
+				<!-- <div class="card" >
+				    <div class="card-header">2018年6月26日</div>
+				    <div class="card-content">
+				      <div class="card-content-inner">
+				      	<video controls controlslist="nodownload" playsinline="" webkit-playsinline="">
+							<source src="__PUBLIC__/Admin_v3/video/3.mp4" type="video/mp4">
+					  	</video>
+				      </div>
+				    </div>
+				    <div class="card-footer">
+				    	<div class="card-footer-video">
+				    		<h2>21312</h2>
+					  		<p>213</p>
+				    	</div> 
+					</div>
+				</div> -->
+			</div>
+			 <!-- 无限加指示 -->
+		    <div class="infinite-scroll-preloader">
+		        <div class="preloader"></div>
+		    </div>   
+		</div>
+    </div>
+   <!-- 引入脚部js -->
+     <include file="Public/footer" />
+     <!-- <script type="text/javascript" src="__PUBLIC__/Admin_v3/js/video.min.js"></script> -->
+     <script type="text/javascript" src="__PUBLIC__/Admin_v3/js/videoList/index.js"></script>
+  </body>
+</html>

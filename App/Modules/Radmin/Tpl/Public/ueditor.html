@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>文本编辑器</title>
+    <script type="text/javascript" charset="UTF-8">
+      window.UEDITOR_HOME_URL = "__PUBLIC__/Radmin_v3/plugs/ueditor/"; //编辑器项目路径
+    </script>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      require(['ZeroClipboard','ueditor.config', 'ueditor.all', 'zh-cn'], function(ZeroClipboard) {
+        window['ZeroClipboard'] = ZeroClipboard;
+        $('.ueditors').each(function(key,value){
+          UE.delEditor($(value).attr("id"));
+          var ue = UE.getEditor($(value).attr("id"),{initialFrameWidth:'100%',initialFrameHeight:350});
+        })
+      })
+    </script>
+  </body>
+
+
+</html>

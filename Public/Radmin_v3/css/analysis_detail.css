@@ -1,0 +1,32 @@
+.content { background-color: #01100e; overflow: hidden; }
+.content .left-charts, .content .right-charts { display: flex; flex-direction: column;height: 100%;}
+.content .right-charts .actual-order{flex: 1;min-height: 250px;overflow: hidden;}
+#mychart1,#mychart2,#mychart4,#mychart5{margin-bottom: 2rem;}
+.content .middle-charts { display: flex; flex-direction: column; }
+.content .middle-charts div { margin-bottom: 1rem; }
+.content .middle-charts .header-title { flex: 2; }
+.content .middle-charts .header-title #select-time {flex: 2; background-color: transparent; margin: 0 auto;outline: none;width: 100%;}
+.content .middle-charts .header-title i{flex:.5;padding: 0;height:38px;top:0;background-color: transparent;font-size: 1.2rem; border: solid 1px rgb(230,230,230);border-right:none;border-radius:2px;line-height: 36px;box-sizing: border-box;}
+.content .middle-charts .header-title .datatime{ display: flex;padding: 0 35%;margin-bottom: 1rem;}
+.content .middle-charts .header-title .datatime .search{flex: 1;padding: 0 .5rem;height: 38px;outline: none;box-sizing: border-box;}
+.content .middle-charts .header-title .datatime .search i{line-height: 28px;}
+.content .middle-charts .header-title h3{font-size: 24px;}
+.content .middle-charts .header-title h2{font-size: 30px;}
+.content .middle-charts .header-title h3, .content .middle-charts .header-title h2, .content .middle-charts .header-title p { margin: 20px 0 10px 0;}
+.content .middle-charts .header-title h3 i, .content .middle-charts .header-title h2 i, .content .middle-charts .header-title p i { margin-right: 1rem; }
+.bg-dark { display: inline-block; padding: 5px 60px; background-color: #1c4947; font-weight: bold;color:white}
+.actual-order .order-title{width: 100%; font-size: 1.8rem;word-break: keep-all;}
+.actual-order .order-control { overflow: hidden; position: relative; height: 100%; min-height: 220px;}
+.actual-order .order-control .order-wrap { position: absolute;list-style: none;padding: 0 3%; width: 100%;}
+.actual-order .order-control .order-wrap .order-item {  padding: .5rem 0; border-bottom: #303030 1px solid;}
+.actual-order .order-control .order-wrap .order-item span { margin: 0 .5rem; word-break: keep-all;display: inline-block;text-align: center;}
+.actual-order .order-control .order-wrap .order-item span:first-child {min-width: 40px;}
+.actual-order .order-control .order-wrap .order-item span:nth-child(2) {min-width: 115px;}
+.actual-order .order-control .order-wrap .order-item span:nth-child(3) {min-width: 40px;}
+.actual-order .order-control .order-wrap .order-item span:last-child {min-width: 60px;}
+.content .middle-charts .header-title .money span { font-size: 5rem; font-weight: bold; }
+.content .middle-charts .footer-detail { flex: 1;  text-align: center; }
+.content .middle-charts .footer-detail p { display: flex; }
+.content .middle-charts .footer-detail p span { flex: 1; }
+
+/*# sourceMappingURL=analysis.css.map */

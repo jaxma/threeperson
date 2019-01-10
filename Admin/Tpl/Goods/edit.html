@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>内容管理=>课程管理</title>
+    <title>事务所=>事务所管理</title>
     <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
     <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
     <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
@@ -32,7 +32,7 @@ $(function(){
 <div class="column_Box mainAutoHeight">
 	<div class="tab">
 		<ul>
-			<li class="current"><a href="javascript:">课程属性</a></li>
+			<li class="current"><a href="javascript:">栏目属性</a></li>
 		</ul>
 	</div>
 	<div class="column_Box mainAutoHeight wrapBox">
@@ -41,11 +41,15 @@ $(function(){
 				<table border="0" cellpadding="0" cellspacing="0">
 					<tbody>
 						<tr>
-							<td style="text-align:right;">课程名称：</td>
-							<td style="text-align:left;"><input type="text" class="txt" name="title" value="{$info.title}"  size="50"/><em>*</em></td>
+							<td style="text-align:right;">新闻标题（中文）：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title" value="{$info.title}"  size="100"/><em>*</em></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;">课程分类：</td>
+							<td style="text-align:right;">新闻标题（英文）：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title_en" value="{$info.title_en}"  size="100"/><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">分类：</td>
 							<td style="text-align:left;">
 								<select name="cat_id" id="cat_id">
 									<option value="0">请选择...</option>
@@ -64,137 +68,32 @@ $(function(){
 						      <input type="radio" name="is_open" value="0" <eq name='info.is_open' value='0'>checked</eq>/>否
 							</td>
 						</tr>
-						<!-- <tr>
-							<td style="text-align:right;">首页推荐：</td>
-							<td style="text-align:left;">
-						      <input type="radio" name="is_recommend" value="1" <eq name='info.is_recommend' value='1'>checked</eq> />是&nbsp;&nbsp;
-						      <input type="radio" name="is_recommend" value="0" <eq name='info.is_recommend' value='0'>checked</eq>/>否
-							</td>
-						</tr> -->
 						<tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;开课时间</td>
-							<td style="text-align:left;"><input type="text" class="txt" name="short" value="{$info.short|strip_tags}"/></td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;主页小图：</td>
+							<td style="text-align:left;"><input type="file" name="goods_img_index" size="35" /></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;开课说明</td>
-							<td style="text-align:left;"><input type="text" class="txt" name="content" value="{$info.content|strip_tags}"/></td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;详情页大图：</td>
+							<td style="text-align:left;"><input type="file" name="goods_img_detail" size="35" /></td>
 						</tr>
 
+						<tr>
+							<td style="text-align:right;">&nbsp;&nbsp;发布时间</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="publish_time" value="{$vo.publish_time|date='Y-m-d H:i:s',###}" placeholder="默认为今天日期" /></td>
+						</tr>
 
 						<tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;课程班型</td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;内容（中文）</td>
 							<td style="text-align:left;">
-								<input type="hidden" value="13" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="课程班型">
-								<input type="hidden" name="old_ex_sort_order[]" value="1">
-								<input name="old_ex_content[]" value="{$goods_excontent_list[0]['content']}">
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;上课地点</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="14" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="上课地点">
-								<input type="hidden" name="old_ex_sort_order[]" value="2">
-								<input name="old_ex_content[]" value="{$goods_excontent_list[1]['content']}">
-							</td>
-						</tr><tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;课程周期</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="15" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="课程周期">
-								<input type="hidden" name="old_ex_sort_order[]" value="3">
-								<input name="old_ex_content[]" value="{$goods_excontent_list[2]['content']}">
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;课程费用</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="16" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="课程费用">
-								<input type="hidden" name="old_ex_sort_order[]" value="4">
-								<input name="old_ex_content[]" value="{$goods_excontent_list[3]['content']}"> 元／人 (含住宿)
-							</td>
-						</tr><tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;报名程度</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="17" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="报名程度">
-								<input type="hidden" name="old_ex_sort_order[]" value="5">
-								还剩 <input name="old_ex_content[]" value="{$goods_excontent_list[4]['content']}"> 个名额
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;距报名结束还有</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="18" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="距报名结束还有">
-								<input type="hidden" name="old_ex_sort_order[]" value="6">
-								<input name="old_ex_content[]" value="{$goods_excontent_list[5]['content']}"> 名
-							</td>
-						</tr><tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;课程内容</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="19" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="课程内容">
-								<input type="hidden" name="old_ex_sort_order[]" value="7">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[6]['content']}</textarea>
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;特色教学</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="20" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="特色教学">
-								<input type="hidden" name="old_ex_sort_order[]" value="8">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[7]['content']}</textarea>
-							</td>
-						</tr><tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;全程名师指导</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="21" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="全程名师指导">
-								<input type="hidden" name="old_ex_sort_order[]" value="9">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[8]['content']}</textarea>
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;课程量身定制</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="22" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="课程量身定制">
-								<input type="hidden" name="old_ex_sort_order[]" value="10">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[9]['content']}</textarea>
-							</td>
-						</tr><tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;专业活动丰富</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="23" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="专业活动丰富">
-								<input type="hidden" name="old_ex_sort_order[]" value="11">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[10]['content']}</textarea>
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;一对一专业辅导</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="24" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="一对一专业辅导">
-								<input type="hidden" name="old_ex_sort_order[]" value="12">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[11]['content']}</textarea>
-							</td>
-						</tr><tr>
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;师兄师姐分享会</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="25" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="师兄师姐分享会">
-								<input type="hidden" name="old_ex_sort_order[]" value="13">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[12]['content']}</textarea>
-							</td>
-						</tr><tr class="tdColor">
-							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;全程监护式教学</td>
-							<td style="text-align:left;">
-								<input type="hidden" value="26" name="old_ex_id[]">
-								<input type="hidden" name="old_ex_title[]" value="全程监护式教学">
-								<input type="hidden" name="old_ex_sort_order[]" value="14">
-								<textarea class="s_content" name="old_ex_content[]" style="width:700px;height:300px;">{$goods_excontent_list[13]['content']}</textarea>
+								<textarea class="s_content" name="content" style="width:700px;height:300px;">{$vo.content}</textarea>
 							</td>
 						</tr>
-						
+						<tr class="tdColor">
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;内容（英文）</td>
+							<td style="text-align:left;">
+								<textarea class="s_content" name="content_en" style="width:700px;height:300px;">{$vo.content_en}</textarea>
+							</td>
+						</tr>
 						<tr>
 							<td style="text-align:right;">关键字：</td>
 							<td style="text-align:left;"><input type="text" class="txt" value="{$info.keywords}" name="keywords"  /> 	关键字为选填项，其目的在于方便外部搜索引擎搜索</td>

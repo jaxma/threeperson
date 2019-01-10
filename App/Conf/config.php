@@ -9,7 +9,7 @@
    'DB_HOST'=>'127.0.0.1',
    'DB_PORT'=>'3306',
    'DB_USER'=>'threeperson',
-   'DB_PWD'=>'DSyEf84YrL',
+   'DB_PWD'=>'sSbw5mkRXbzn4wr5',
    'DB_NAME'=>'threeperson',
    'DB_PREFIX'=>'',
    'URL_HTML_SUFFIX'=>'',

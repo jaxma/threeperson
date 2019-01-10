@@ -41,25 +41,25 @@ $(function(){
 				<table border="0" cellpadding="0" cellspacing="0">
 					<tbody>
 						<tr>
-							<td style="text-align:right;">新闻标题（中文）：</td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;新闻标题（中文）：</td>
 							<td style="text-align:left;"><input type="text" class="txt" name="title" value=""  size="50"/><em>*</em></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;">新闻标题（英文）：</td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;新闻标题（英文）：</td>
 							<td style="text-align:left;"><input type="text" class="txt" name="title_en" value=""  size="50"/><em>*</em></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;">分类：</td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;分类：</td>
 							<td style="text-align:left;">
 								<select name="cat_id" id="cat_id">
 									<option value="0">请选择...</option>
 									{$cat_select}
-								</select><em>*</em>
+								</select>
 							</td>
 						</tr>
 						<tr>
 							<td style="text-align:right;">排序：</td>
-							<td style="text-align:left;"><input type="text" class="txt" value="" name="sort_order" /></td>
+							<td style="text-align:left;"><input type="text" class="txt" value="" name="sort_order" placeholder="不填，默认设置为50" /></td>
 						</tr>
 						<tr>
 							<td style="text-align:right;">是否显示：</td>
@@ -70,12 +70,12 @@ $(function(){
 						</tr>
 
 						<tr>
-							<td style="text-align:right;">主页小图：</td>
-							<td style="text-align:left;"><input type="file" name="small_img" size="35" /><em>*</em></td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;主页小图：</td>
+							<td style="text-align:left;"><input type="file" name="goods_img_index" size="35" /></td>
 						</tr>
 						<tr>
-							<td style="text-align:right;">详情页大图：</td>
-							<td style="text-align:left;"><input type="file" name="big_img" size="35" /><em>*</em></td>
+							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;详情页大图：</td>
+							<td style="text-align:left;"><input type="file" name="goods_img_detail" size="35" /></td>
 						</tr>
 
 						<tr>
@@ -85,18 +85,14 @@ $(function(){
 						<tr>
 							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;内容（中文）</td>
 							<td style="text-align:left;">
-								<input type="hidden" value="19" name="ex_id[]">
-								<input type="hidden" name="ex_title[]" value="内容（中文）">
-								<input type="hidden" name="ex_sort_order[]" value="7">
-								<textarea class="s_content" name="ex_content[]" style="width:700px;height:300px;"></textarea>
+								
+								<textarea class="s_content" name="content" style="width:700px;height:300px;"></textarea>
 							</td>
 						</tr><tr class="tdColor">
 							<td style="text-align:right;"><em>*</em>&nbsp;&nbsp;内容（英文）</td>
 							<td style="text-align:left;">
-								<input type="hidden" value="20" name="ex_id[]">
-								<input type="hidden" name="ex_title[]" value="内容（英文）">
-								<input type="hidden" name="ex_sort_order[]" value="8">
-								<textarea class="s_content" name="ex_content[]" style="width:700px;height:300px;"></textarea>
+								
+								<textarea class="s_content" name="content_en[]" style="width:700px;height:300px;"></textarea>
 							</td>
 						</tr>
 						<tr>

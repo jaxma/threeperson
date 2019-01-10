@@ -11,21 +11,18 @@ class GoodsAction extends CommonAction {
      */
     public function index() {
 		// 筛选条件及排序
-		
 		$filter = array();
         $filter['keyword']    	= empty($_REQUEST['keyword']) ? '' : trim($_REQUEST['keyword']);
 		$filter['cat_id']     	= empty($_REQUEST['cat_id']) ? 0 : intval($_REQUEST['cat_id']);
         $filter['sort_by']    	= empty($_REQUEST['sort_by']) ? 'a.sort_order' : trim($_REQUEST['sort_by']);
         $filter['sort_order'] 	= empty($_REQUEST['sort_order']) ? 'asc' : trim($_REQUEST['sort_order']);
         $filter['group_id'] 	= empty($_REQUEST['group_id']) ? '' : trim($_REQUEST['group_id']);
-		
 		$M_Goods = M("Goods");
 		$filter['record_count'] = $count = D("Goods")->listGoodsCount($filter);
 
         import("ORG.Util.Page");       //载入分页类
         $page = new Page($count, 20);
         $showPage = $page->show();
-       
 		$this->assign("group_id", D("Goods")->getGroupId($filter));
 		$this->assign("other_img", $other_img);
 		$this->assign("filter", $filter);
@@ -110,75 +107,51 @@ class GoodsAction extends CommonAction {
      */
 	public function insert(){
 		$M_Goods = M("Goods");
-	
-		$data = $M_Goods->create();
+		$now = time();
+		$data['title']       = $this->_post("title","","");
+		$data['title_en']= $this->_post("title_en","","");
+		$data['cat_id']     = $this->_post("cat_id","intval",0);
+		$data['sort_order'] = $this->_post("sort_order","intval",0);
+		$data['is_open']    = $this->_post("is_open","intval",1);
+		$data['add_time']   = $now;
+		$data['publish_time']   = $this->_post("publish_time","intval",$now);
+
 		if(
-			empty($data['title']) || 
-			empty($data['cat_id']) || 
-			empty($data['content'])
+			empty($data['title']) ||
+			empty($data['title_en']) ||
+			empty($data['cat_id']) ||
+			empty($data['content'])||
+			empty($data['content_en'])||
+			empty($data['publish_time'])
 		){
 			$this->error("所有带<font color='red'>*</font>的表单项都是必填的！");
 		}
-
+		//产品图片 主页小图
+		if($_FILES['goods_img_index']['error']===0){
+			$goods_img_index = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img_index']['name'],PATHINFO_EXTENSION);
+			move_uploaded_file($_FILES['goods_img_index']['tmp_name'], $goods_img_index);
+			$data['goods_img_index'] = $goods_img_index;
+		}else{
+			$this->error("主页小图未上传或上传失败，请重试");
+		}
+		//产品图片 详情页大图
+		if($_FILES['goods_img_detail']['error']===0){
+			$goods_img_detail = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img_detail']['name'],PATHINFO_EXTENSION);
+			move_uploaded_file($_FILES['goods_img_detail']['tmp_name'], $goods_img_detail);
+			$data['goods_img_detail'] = $goods_img_detail;
+		}else{
+			$this->error("详情页大图未上传或上传失败，请重试");
+		}
 
 		$data['content']    = stripslashes(htmlspecialchars_decode($_POST['content']));
-
+		$data['content_en']    = stripslashes(htmlspecialchars_decode($_POST['content_en']));
 		if(empty($data['sort_order']))$data['sort_order'] = 50;
 		$data['add_time'] = time();
 
-		//产品图片
-		if($_FILES['goods_img']['error']===0){
-			$goods_img = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img']['name'],PATHINFO_EXTENSION);
-			move_uploaded_file($_FILES['goods_img']['tmp_name'], $goods_img);
-			$data['goods_img'] = $goods_img;
-		}
-
-		
 		$insertId=$M_Goods->add($data);
 		if($insertId){
 			parent::admin_log($_POST['title'],'add','goods');
 
-			/*
-			//相关下载
-			foreach($_FILES['related_downloads']['error'] as $key=>$value){
-				if($value===0){
-					$filename = 'Uploads/download/'.$_FILES['related_downloads']['name'][$key];
-					$file_url = iconv('utf-8','gbk',$filename);
-					move_uploaded_file($_FILES['related_downloads']['tmp_name'][$key], $file_url);
-
-					$download_data = array();
-					$download_data['file_url'] = $file_url;
-					$download_data['goods_id'] = $insertId;
-					$download_data['file_desc'] = $_FILES['related_downloads']['name'][$key];
-					$download_data['add_time'] = time();
-					M('download')->add($download_data);
-				}
-			}
-			*/
-
-			//扩展内容
-			$ex_img_url 	= $_FILES['ex_img_url'];
-			$ex_title 		= $_POST['ex_title'];
-			$ex_content 	= $_POST['ex_content'];
-			$ex_sort_order 	= $_POST['ex_sort_order'];
-			foreach($ex_title as $key=>$value){
-				if(empty($value))continue;//标题为空的直接跳过
-				$img_url = '';
-				if($ex_img_url['error'][$key]===0){
-					$img_url = 'Uploads/exgoods/'.date('Ymd',time()).'/'.date('His',time()).rand(0,100000).'.'.pathinfo($ex_img_url['name'][$key],PATHINFO_EXTENSION);
-					@mkdir(dirname($img_url),0777,true);
-					move_uploaded_file($ex_img_url['tmp_name'][$key], $img_url);
-				}
-				$ex_data  = array(
-					'goods_id'=>$insertId,
-					'img_url'=>$img_url,
-					'title'=>$value,
-					'content'=>$ex_content[$key],
-					'sort_order'=>$ex_sort_order[$key]
-				);
-
-				M('goods_excontent')->add($ex_data);
-			}
 			$this->success('添加成功！！',U('Goods/index'));
 		}else{
 			$this->error('添加失败！！',U('Goods/add/',array('cat_id'=>$data['cat_id'])));

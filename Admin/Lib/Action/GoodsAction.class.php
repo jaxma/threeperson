@@ -128,6 +128,7 @@ class GoodsAction extends CommonAction {
 		){
 			$this->error("所有带<font color='red'>*</font>的表单项都是必填的！");
 		}
+		var_dump($data);exit();
 		//产品图片 主页小图
 		if($_FILES['goods_img_index']['error']===0){
 			$goods_img_index = 'Uploads/goods/'.time().'.'.pathinfo($_FILES['goods_img_index']['name'],PATHINFO_EXTENSION);

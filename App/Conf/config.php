@@ -1,7 +1,7 @@
 <?php
  return array(
    'APP_GROUP_LIST'=>'Home,Admin,Radmin,Sale,Api',
-   'DEFAULT_GROUP'=>'Home',
+   'DEFAULT_GROUP'=>'Admin',
    'APP_GROUP_MODE'=>'1',
    'APP_GROUP_PATH'=>'Modules',
    'URL_MODEL'=>'2',

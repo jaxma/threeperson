@@ -36,7 +36,7 @@ class LoginAction extends Action {
     //登录表单处理
     public function login() {
         if (!IS_AJAX) {
-            halt("页面不存在");
+            // halt("页面不存在");
         }
         
         $username = $this->_post('username');

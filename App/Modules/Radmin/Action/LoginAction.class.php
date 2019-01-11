@@ -116,6 +116,7 @@ class LoginAction extends Action {
         //登录表单处理
     public function login_code() {
         if (!IS_AJAX) {
+            /*2019-1-11 wuchunmao 当外国IP访问时，无法识别是否为ajax，故注释*/
             // halt("页面不存在");
         }
         

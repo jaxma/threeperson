@@ -420,12 +420,17 @@ class PhotoAction extends CommonAction {
         if(empty($name)){
             $this->error('名称不能为空！');die;
         }
+        $name_en=trim(I('post.name_en'));
+        if(empty($name_en)){
+            $this->error('英文名称不能为空！');die;
+        }
         $sequence=trim(I('sequence'));
         if($sequence<0 || $sequence >9999){
             $this->error('优先级已超出指定范围');
         }
         $data = array(
             'name' => $name,
+            'name_en' => $name_en,
             'image' => $image,
             'pid' => $pid,
             'sequence' => $sequence,

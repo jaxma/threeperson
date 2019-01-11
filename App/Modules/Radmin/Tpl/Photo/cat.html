@@ -56,8 +56,8 @@
     var orderNavSonURL = '__GROUP__/Photo/get_son_templet_category';
     var setStatus = '__GROUP__/Photo/set_status';
     var str;
-    
-    $(function(){
+
+$(function(){
   //渲染第一级分类
     $.post(orderNavURL, function(data) {
         if(data.code == 1) {
@@ -182,11 +182,6 @@
         })
     })
 
-    //点击编辑分类
-//  $(document).on('click', '.btn-success', function() {
-//      var id = $(this).parent().parent().find('td').eq(0).text();
-//      window.location.href = '__URL__/category_edit?id=' + id;
-//  })
 
     //点击删除分类
     $(document).on('click', '.btn-danger', function() {
@@ -196,18 +191,6 @@
     })
 
     //点击添加分类
-//  $(document).on('click','.add',function(){
-//      var p_id = 0;
-//      if($(this).parent().parent().data('num')){
-//          p_id = Number($(this).parent().parent().data('num').substr(1))
-//      }
-//      var c_id = $(this).parent().parent().data('id');
-//      if($(this).parent().parent().data('level')=='1'){
-//          p_id = c_id;
-//          c_id = 0;
-//      }
-//      window.location.href = '__URL__/category_add?p_id=' + p_id + '&c_id=' + c_id
-//  });
 
     $(document).off('click','.toggle-btn').on('click', '.toggle-btn', function() {
         var st_id = $(this).parent().parent().data("id");
@@ -297,17 +280,9 @@
                 (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
         return fmt;
     }
-})
+});
 
-    
-    // function sc($name,$ulr){
-    //     //利用对话框返回的值 （true 或者 false）
-    //     if(confirm("您确定要删除"+$name+"吗？")){
-    //         window.location.href=$ulr;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+
 </script>
 <script src="__PUBLIC__/Radmin_v3/js/test.js" type="text/javascript" charset="utf-8"></script>
 </body>

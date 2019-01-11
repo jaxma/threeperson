@@ -469,7 +469,6 @@ class PhotoAction extends CommonAction {
         $Team = new Team();
 
         $id = $_GET['id'];
-        $pid = $_GET['pid'];
         $row = $this->cat_model->find($id);
         $listres = $this->cat_model->select();
         $list = $Team->sortt($listres);

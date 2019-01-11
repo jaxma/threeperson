@@ -7,5 +7,6 @@
         define('BUILD_DIR_SECURE',true);
         //define('DIR_SECURE_FILENAME', 'default.html');
         define('DIR_SECURE_CONTENT', 'deney Access!');
+        define('WEB_URL',  $_SERVER['SERVER_NAME']);
 	include './ThinkPHP/ThinkPHP.php';
 ?>

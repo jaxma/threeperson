@@ -230,7 +230,7 @@ class PhotoAction extends CommonAction {
             return FALSE;
         }
 
-        $cats = $this->cat_model->order('id desc')->select();
+        $cats = $this->cat_model->order('id asc')->select();
         //一级分类
         foreach ($cats as $cat) {
             if ($cat['pid'] == 0) {
@@ -288,7 +288,7 @@ class PhotoAction extends CommonAction {
         $pid = I('pid');
         //全部
         if ($pid == -1) {
-            $one_cats = $this->cat_model->order('id desc')->where(['pid' => 0])->select();
+            $one_cats = $this->cat_model->order('id asc')->where(['pid' => 0])->select();
             foreach ($one_cats as $cat) {
                 $one_ids[] = $cat['id'];
             }
@@ -298,12 +298,12 @@ class PhotoAction extends CommonAction {
         }
 
         //二级分类
-        $two = $this->cat_model->order('id desc')->where($where)->select();
+        $two = $this->cat_model->order('id asc')->where($where)->select();
         foreach ($two as $v) {
             $two_ids[] = $v['id'];
         }
         //三级分类关联二级分类
-        $cats = $this->cat_model->order('id desc')->where(['pid' => ['in', $two_ids]])->select();
+        $cats = $this->cat_model->order('id asc')->where(['pid' => ['in', $two_ids]])->select();
         foreach ($cats as $cat) {
             $three[$cat['pid']][] = $cat;
         }

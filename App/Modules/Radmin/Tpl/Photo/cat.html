@@ -16,7 +16,7 @@
 <section class="layui-container">
 	<div class="content">
 		<header class="header">
-			<h3>摄影分类</h3>
+			<h3>网站分类</h3>
 			<div class="pull-right">
         <input type="button" class="layui-btn" data-modal="__URL__/category_add" value="添加" data-title="添加分类"/>
       </div>
@@ -73,7 +73,7 @@
                   html += '<tr data-id=' + v.id + ' data-level=1 >' +
                       '<td align="center">' + v.id + '</td>' +
                       '<td align="left"><span class="glyphicon glyphicon-plus" data-key="'+v.id+'" style="margin:0 5px;padding:6px 10px;cursor: pointer; background: #337ab7;border-radius: 5px;color: #fff"></span>' + 
-                      v.name +'<input type="button" class="btn btn-info add pull-right" value="添加子分类"  data-title="添加分类" data-modal="__URL__/category_add?p_id='+v.id+'&c_id=0" />'+'</td>' +
+                      v.name +"/"+ v.name_en+'<input type="button" class="btn btn-info add pull-right" value="添加子分类"  data-title="添加分类" data-modal="__URL__/category_add?p_id='+v.id+'&c_id=0" />'+'</td>' +
                       '<td>' + v.sequence + '</td>' +
                       '<td data-status=' + v.status + '>' + str + '</td>' +
                       '<td>' + d.Format("yyyy-MM-dd hh:mm:ss") + '</td>' +
@@ -112,7 +112,7 @@
                                 ' data-level=2>' +
                                 '<td align="center">' + v.id + '</td>' +
                                 '<td align="left"><span class="glyphicon glyphicon-plus" style="margin: 0 40px;padding:6px 10px;cursor: pointer; color: #fff; background: #73DCFF;border-radius: 5px;"></span>' +
-                                v.name + '<input type="button" class="btn btn-info add pull-right" value="添加子分类"  data-title="添加分类" data-modal="__URL__/category_add?p_id='+id+'&c_id='+v.id+'"/>'+'</td>' +
+                                v.name +"/"+ v.name_en+ '<input type="button" class="btn btn-info add pull-right" value="添加子分类"  data-title="添加分类" data-modal="__URL__/category_add?p_id='+id+'&c_id='+v.id+'"/>'+'</td>' +
                                 '<td>' + v.sequence + '</td>' +
                                 '<td data-status=' + v.status + '>' + str + '</td>' +
                                 '<td>' + d.Format("yyyy-MM-dd hh:mm:ss") + '</td>' +

@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+ RewriteEngine on
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteRule ^(.*)$ index.php?s=$1 [QSA,PT,L] 
+ #RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+ #RewriteRule ^manage/([^/]+)/([^/]+)$ index.php?s=admin/g/s/st=$1&p=$2 [L]
+ #RewriteRule ^p$ index.php?s=home/product [L]
+ #RewriteRule ^p/$ index.php?s=home/product [L]
+ #RewriteRule ^r$ index.php?s=admin [L]
+</IfModule>

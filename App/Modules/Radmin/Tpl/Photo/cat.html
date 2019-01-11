@@ -70,18 +70,15 @@
                       str = '<input type="button" class="toggle-btn btn btn-warning" value="隐藏" />'
                   }
                   var d = new Date(parseInt(v.add_time * 1000));
-                  html += '<tr data-id=' + v.id + ' data-level=1 >' +
-                      '<td align="center">' + v.id + '</td>' +
-                      '<td align="left"><span class="glyphicon glyphicon-plus" data-key="'+v.id+'" style="margin:0 5px;padding:6px 10px;cursor: pointer; background: #337ab7;border-radius: 5px;color: #fff">' + 
-                      '</span>'+v.name +'/'+ v.name_en+'<input type="button" class="btn btn-info add pull-right" value="添加子分类"  data-title="添加分类" data-modal="__URL__/category_add?p_id='+v.id+'&c_id=0" />'+'</td>' +
-                      '<td>' + v.sequence + '</td>' +
-                      '<td data-status=' + v.status + '>' + str + '</td>' +
-                      '<td>' + d.Format("yyyy-MM-dd hh:mm:ss") + '</td>' +
-                      '+<td>' +
-                      '<input type="button" class="btn btn-success" data-modal="__URL__/category_edit?id='+v.id+'" value="编辑" style="margin-right: 10px;"/>' +
-                      //                          '<input type="button" class="btn btn-danger" value="删除"/>' +
-                      '</td>' +
-                      '</tr>';
+                  html += '<tr data-id=' + v.id + ' data-level=1 >';
+                  html +=  '<td align="center">' + v.id + '</td>';
+                  html +=  '<td align="left"><span class="glyphicon glyphicon-plus" data-key="'+v.id+'" style="margin:0 5px;padding:6px 10px;cursor: pointer; background: #337ab7;border-radius: 5px;color: #fff">';
+                  html +=  '</span>'+v.name +"/"+ v.name_en+'<input type="button" class="btn btn-info add pull-right" value="添加子分类"  data-title="添加分类" data-modal="__URL__/category_add?p_id='+v.id+'&c_id=0" /></td>';
+                  html +=  '<td>' + v.sequence + '</td>';
+                  html +=  '<td data-status=' + v.status + '>' + str + '</td>';
+                  html +=  '<td>' + d.Format("yyyy-MM-dd hh:mm:ss") + '</td>';
+                  html +=  '<td><input type="button" class="btn btn-success" data-modal="__URL__/category_edit?id='+v.id+'" value="编辑" style="margin-right: 10px;"/>';
+                  html +=  '</td></tr>';
               })
             }
             

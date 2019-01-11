@@ -89,6 +89,16 @@ class WebsetAction extends CommonAction {
             'YM_DOMAIN' => C('YM_DOMAIN'), //域名
             'SYSTEM_NAME' => C('SYSTEM_NAME'), //系统名称
             'LOGO_URL' => C('LOGO_URL'), //系统名称
+            //公司信息
+            'T_POSITION' => C('T_POSITION'), 
+            'T_ADDRESS' => C('T_ADDRESS'), 
+            'T_TEL' => C('T_TEL'), 
+            'T_EMAIL' => C('T_EMAIL'), 
+            'T_EN_POSITION' => C('T_EN_POSITION'), 
+            'T_EN_ADDRESS' => C('T_EN_ADDRESS'), 
+            'T_EN_TEL' => C('T_EN_TEL'), 
+            'T_EN_EMAIL' => C('T_EN_EMAIL'), 
+
             //级别配置
             'LEVEL_NUM' => C('LEVEL_NUM'), //经销商级别数
             'LEVEL_NAME' => C('LEVEL_NAME'), //经销商级别名
@@ -271,6 +281,40 @@ class WebsetAction extends CommonAction {
         $YM_DOMAIN = trim(I('YM_DOMAIN'));
         $SYSTEM_NAME = trim(I('SYSTEM_NAME'));
         $LOGO_URL = trim(I('LOGO_URL'));
+
+        //公司信息
+        $T_POSITION = trim(I('T_POSITION'));
+        $T_ADDRESS = trim(I('T_ADDRESS'));
+        $T_TEL = trim(I('T_TEL'));
+        $T_EMAIL = trim(I('T_EMAIL'));
+        if ($T_POSITION != NULL) {
+            $new_config['T_POSITION'] = $T_POSITION;
+        }
+        if ($T_ADDRESS != NULL) {
+            $new_config['T_ADDRESS'] = $T_ADDRESS;
+        }
+        if ($T_TEL != NULL) {
+            $new_config['T_TEL'] = $T_TEL;
+        }
+        if ($T_EMAIL != NULL) {
+            $new_config['T_EMAIL'] = $T_EMAIL;
+        }
+        $T_EN_POSITION = trim(I('T_EN_POSITION'));
+        $T_EN_ADDRESS = trim(I('T_EN_ADDRESS'));
+        $T_EN_TEL = trim(I('T_EN_TEL'));
+        $T_EN_EMAIL = trim(I('T_EN_EMAIL'));
+        if ($T_EN_POSITION != NULL) {
+            $new_config['T_EN_POSITION'] = $T_EN_POSITION;
+        }
+        if ($T_EN_ADDRESS != NULL) {
+            $new_config['T_EN_ADDRESS'] = $T_EN_ADDRESS;
+        }
+        if ($T_EN_TEL != NULL) {
+            $new_config['T_EN_TEL'] = $T_EN_TEL;
+        }
+        if ($T_EN_EMAIL != NULL) {
+            $new_config['T_EN_EMAIL'] = $T_EN_EMAIL;
+        }
         
         //$LEVEL_NUM = trim(I('LEVEL_NUM'));
         $LEVEL_NAME = I('LEVEL_NAME');

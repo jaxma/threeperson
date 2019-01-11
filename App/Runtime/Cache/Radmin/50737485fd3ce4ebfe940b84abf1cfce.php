@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,9 +18,9 @@
         var mp_dir_name = 'mp';
         var map_url = '__PUBLIC__/Radmin_v3/plugs/echart/map/area.json';
         var province,province1,city,city1,area,area1,china;
-        var re_province = '{$Think.config.BOSS.PROVINCE}';
-        var re_city = '{$Think.config.BOSS.CITY}';
-        var re_county = '{$Think.config.BOSS.COUNTY}';
+        var re_province = '<?php echo (C("BOSS.PROVINCE")); ?>';
+        var re_city = '<?php echo (C("BOSS.CITY")); ?>';
+        var re_county = '<?php echo (C("BOSS.COUNTY")); ?>';
         form.render();
     </script>
     <style>
@@ -230,7 +230,21 @@
                         <div class="layui-form-item items">
                             <label class="form-text layui-col-xs12">前台logo</label>
                             <div class="form-right">
-                                <include file="Public/logoimage" image_name="logoimage" is_show="1" img_url="{$logo_img_path}" />
+                                
+<!--
+上传图片页面
+-->
+<div class="wrapper">
+  <input class="input-inf2" type="text" name="" lay-verify="title" autocomplete="off" placeholder="请选择上传图片" class="layui-input">
+  <button type="button" class="layui-btn orange layui-btn-danger indexlogo-upload-btn"><i class="layui-icon">&#xe67c;</i>上传图片</button>
+  <div class="layui-upload layui-inline">
+    <div class="layui-upload-list" data-show="1" data-url="__ROOT__<?php echo ($logo_img_path); ?>">
+      <img class="layui-upload-img">
+      <p class="demoText"><i class="layui-icon delete" style="font-size: 26px;color: white;line-height: 27px;">&#xe640;</i></p>
+    </div>
+    <input type="hidden" class="image-name" name="logoimage" value="<?php echo ($logo_img_path); ?>" />
+  </div>
+</div>
                                 <input type="hidden" name="logo_src" class="image-name" />
                                 <small class="orange-text">（*请上传正方形的图片 图片大小在：150*150 图片类型为：png jpg gif jpeg）</small>
                             </div>
@@ -239,7 +253,21 @@
                         <div class="layui-form-item items">
                             <label class="form-text layui-col-xs12">后台logo</label>
                             <div class="form-right">
-                                <include file="Public/image" image_name="image" is_show="1" img_url="{$img_path}" />
+                                
+<!--
+上传图片页面
+-->
+<div class="wrapper">
+  <input class="input-inf2" type="text" name="" lay-verify="title" autocomplete="off" placeholder="请选择上传图片" class="layui-input">
+  <button type="button" class="layui-btn orange layui-btn-danger upload-btn"><i class="layui-icon">&#xe67c;</i>上传图片</button>
+  <div class="layui-upload layui-inline">
+    <div class="layui-upload-list" data-show="1" data-url="__ROOT__<?php echo ($img_path); ?>">
+      <img class="layui-upload-img">
+      <p class="demoText"><i class="layui-icon delete" style="font-size: 26px;color: white;line-height: 27px;">&#xe640;</i></p>
+    </div>
+    <input type="hidden" class="image-name" name="image" value="<?php echo ($img_path); ?>" />
+  </div>
+</div>
                                 <input type="hidden" name="logo_src" class="image-name" />
                                 <small class="orange-text">（*请上传正方形的图片 图片大小在：150*150 图片类型为：png）</small>
                             </div>
@@ -387,13 +415,13 @@
                             <ul>
                                 <!-- <li>
                                     <div class="form-right layui-col-xs12">
-                                        <input class="input-inf2 layui-input"  value="{$level_name}" name='level_name[]' type="text" autocomplete="off" title="请输入经销商级别名" placeholder="请输入经销商级别名" class="layui-input">
+                                        <input class="input-inf2 layui-input"  value="<?php echo ($level_name); ?>" name='level_name[]' type="text" autocomplete="off" title="请输入经销商级别名" placeholder="请输入经销商级别名" class="layui-input">
                                     </div>
                                     <span>-</span>
                                 </li>
                                 <li>
                                     <div class="form-right layui-col-xs12">
-                                        <input class="input-inf2 layui-input"  value="{$level_name}" name='level_name[]' type="text" autocomplete="off" title="请输入经销商级别名" placeholder="请输入经销商级别名" class="layui-input">
+                                        <input class="input-inf2 layui-input"  value="<?php echo ($level_name); ?>" name='level_name[]' type="text" autocomplete="off" title="请输入经销商级别名" placeholder="请输入经销商级别名" class="layui-input">
                                     </div>
                                 </li> -->
                                 <span class="add">+</span>
@@ -587,7 +615,7 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">JSAPI支付授权目录(虚拟币充值)右边栏：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" value="{$Think.config.YM_DOMAIN}/admin/fundspay"  type="text" autocomplete="off" class="layui-input" disabled="disabled">
+                                <input class="input-inf2 layui-input" value="<?php echo (C("YM_DOMAIN")); ?>/admin/fundspay"  type="text" autocomplete="off" class="layui-input" disabled="disabled">
                             </div>
                         </div>
                         <?php endif;?>
@@ -595,7 +623,7 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">JSAPI支付授权目录(品牌商城充值)右边栏：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" value="{$Think.config.YM_DOMAIN}/sale/mallwxpay"  type="text" autocomplete="off" class="layui-input" disabled="disabled">
+                                <input class="input-inf2 layui-input" value="<?php echo (C("YM_DOMAIN")); ?>/sale/mallwxpay"  type="text" autocomplete="off" class="layui-input" disabled="disabled">
                             </div>
                         </div>
                         <?php endif;?>
@@ -603,7 +631,7 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">JSAPI支付授权目录(积分商城充值)右边栏：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" value="{$Think.config.YM_DOMAIN}/sale/integralpay"  type="text" autocomplete="off" class="layui-input" disabled="disabled">
+                                <input class="input-inf2 layui-input" value="<?php echo (C("YM_DOMAIN")); ?>/sale/integralpay"  type="text" autocomplete="off" class="layui-input" disabled="disabled">
                             </div>
                         </div>
                         <?php endif;?>
@@ -729,14 +757,14 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">快递鸟EBusinessID：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" name="EBusinessID" id="sh-mb" type="text" autocomplete="off" title="快递鸟EBusinessID" placeholder="请输入快递鸟EBusinessID" value="{$Think.config.kdnapi.EBusinessID}" class="layui-input">
+                                <input class="input-inf2 layui-input" name="EBusinessID" id="sh-mb" type="text" autocomplete="off" title="快递鸟EBusinessID" placeholder="请输入快递鸟EBusinessID" value="<?php echo (C("kdnapi.EBusinessID")); ?>" class="layui-input">
                             </div>
                         </div>
 
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">快递鸟AppKey：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" name="AppKey" id="sq-mb" type="text" autocomplete="off" title="快递鸟AppKey" placeholder="请输入快递鸟AppKey" value="{$Think.config.kdnapi.AppKey}" class="layui-input">
+                                <input class="input-inf2 layui-input" name="AppKey" id="sq-mb" type="text" autocomplete="off" title="快递鸟AppKey" placeholder="请输入快递鸟AppKey" value="<?php echo (C("kdnapi.AppKey")); ?>" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item items layui-row">
@@ -771,7 +799,7 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">厂家发货人姓名：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" name="BOSS_NAME" id="bossname" type="text" autocomplete="off" title="厂家发货人姓名" placeholder="请输入厂家发货人姓名" value="{$Think.config.BOSS.NAME}">
+                                <input class="input-inf2 layui-input" name="BOSS_NAME" id="bossname" type="text" autocomplete="off" title="厂家发货人姓名" placeholder="请输入厂家发货人姓名" value="<?php echo (C("BOSS.NAME")); ?>">
                             </div>
                         </div>
                         <div class="layui-form-item items layui-row">
@@ -780,17 +808,17 @@
                                 <div class="layui-input-inline">
                                     <select class="select-hook" name="BOSS_PROVINCE" id="province" lay-filter="province" lay-search="" >
                                     </select>
-                                    <!--<input type="text" autofocus name="address" value='{$vo.idennum}' pattern="^\S{1,}$" required=""  title="请输入地址" placeholder="请输入地址" class="layui-input">-->
+                                    <!--<input type="text" autofocus name="address" value='<?php echo ($vo["idennum"]); ?>' pattern="^\S{1,}$" required=""  title="请输入地址" placeholder="请输入地址" class="layui-input">-->
                                 </div>
                                 <div class="layui-input-inline">
                                     <select class="select-hook" name="BOSS_CITY" id="city" lay-filter="city" lay-search="" >
                                     </select>
-                                    <!--<input type="text" autofocus name="address" value='{$vo.idennum}' pattern="^\S{1,}$" required=""  title="请输入地址" placeholder="请输入地址" class="layui-input">-->
+                                    <!--<input type="text" autofocus name="address" value='<?php echo ($vo["idennum"]); ?>' pattern="^\S{1,}$" required=""  title="请输入地址" placeholder="请输入地址" class="layui-input">-->
                                 </div>
                                 <div class="layui-input-inline">
                                     <select class="select-hook" name="BOSS_COUNTY" id="county" lay-filter="county" lay-search="" >
                                     </select>
-                                    <!--<input type="text" autofocus name="address" value='{$vo.idennum}' pattern="^\S{1,}$" required=""  title="请输入地址" placeholder="请输入地址" class="layui-input">-->
+                                    <!--<input type="text" autofocus name="address" value='<?php echo ($vo["idennum"]); ?>' pattern="^\S{1,}$" required=""  title="请输入地址" placeholder="请输入地址" class="layui-input">-->
                                 </div>
                             </div>
                             
@@ -798,13 +826,13 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">厂家发货详细地址：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" name="BOSS_DETAIL" id="boss_detail" type="text" autocomplete="off" title="厂家发货详细地址" placeholder="请输入厂家发货详细地址" value="{$Think.config.BOSS.DETAIL}">
+                                <input class="input-inf2 layui-input" name="BOSS_DETAIL" id="boss_detail" type="text" autocomplete="off" title="厂家发货详细地址" placeholder="请输入厂家发货详细地址" value="<?php echo (C("BOSS.DETAIL")); ?>">
                             </div>
                         </div>
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">厂家发货电话：</label>
                             <div class="form-right layui-col-xs12">
-                                <input class="input-inf2 layui-input" name="BOSS_PHONE" id="boss_phone" type="number" autocomplete="off" title="厂家发货电话" placeholder="请输入厂家发货电话" value="{$Think.config.BOSS.PHONE}">
+                                <input class="input-inf2 layui-input" name="BOSS_PHONE" id="boss_phone" type="number" autocomplete="off" title="厂家发货电话" placeholder="请输入厂家发货电话" value="<?php echo (C("BOSS.PHONE")); ?>">
                             </div>
                         </div>
                         <div class="layui-form-item items layui-row">
@@ -820,14 +848,12 @@
                                 </select>
                             </div>
                         </div>
-                        <foreach name="kdn_code" item="vo" key="k">
-                            <div class="layui-form-item items layui-row s_paytype">
-                                <label class="form-text layui-col-xs12">{$vo}</label>
+                        <?php if(is_array($kdn_code)): foreach($kdn_code as $k=>$vo): ?><div class="layui-form-item items layui-row s_paytype">
+                                <label class="form-text layui-col-xs12"><?php echo ($vo); ?></label>
                                 <div class="form-right layui-col-xs12">
-                                    <input class="input-inf2 layui-input" name="SHIPPER_CODE[{$k}]" id="{$k}" type="text" autocomplete="off" title="{$vo}月结码" placeholder="请输入{$vo}月结码" value="{$Think.config.SHIPPER_CODE.$k}">
+                                    <input class="input-inf2 layui-input" name="SHIPPER_CODE[<?php echo ($k); ?>]" id="<?php echo ($k); ?>" type="text" autocomplete="off" title="<?php echo ($vo); ?>月结码" placeholder="请输入<?php echo ($vo); ?>月结码" value="<?php echo (C("SHIPPER_CODE.$k")); ?>">
                                 </div>
-                            </div>
-                        </foreach>
+                            </div><?php endforeach; endif; ?>
                         <div class="layui-form-item items">
                             <label class="form-text" style="flex: 1;"></label>
                             <div class="form-right" style="text-align:right; max-width: 93%;">

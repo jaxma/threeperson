@@ -247,6 +247,18 @@ $(document).ready(function() {
                     }
                 })
 
+                /************************公司信息**********************/
+
+                //域名
+                $('#t_position-name').val(data.config.T_POSITION);
+                $('#t_address-name').val(data.config.T_ADDRESS);
+                $('#t_tel-name').val(data.config.T_TEL);
+                $('#t_email-name').val(data.config.T_EMAIL);
+                $('#t_en_position-name').val(data.config.T_EN_POSITION);
+                $('#t_en_address-name').val(data.config.T_EN_ADDRESS);
+                $('#t_en_tel-name').val(data.config.T_EN_TEL);
+                $('#t_en_email-name').val(data.config.T_EN_EMAIL);
+
                 /************************级别配置**********************/
 
                 //经销商级别数

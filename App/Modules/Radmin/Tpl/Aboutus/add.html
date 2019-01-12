@@ -95,14 +95,15 @@
           <div class="layui-form-item  items">
             <label class="form-text">发布时间</label>
             <div class="form-right">
-              <input class="input-inf2" type="text" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间">
+              <!-- <input class="input-inf2" type="text" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间"> -->
+              <input type="text" class="layui-input input-inf2" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间">
             </div>
           </div>
         
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>
             <div class="form-right">
-                <input class="input-inf2" style="max-width: 190px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="">
+                <input class="input-inf2" style="max-width: 225px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="">
                 <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
             </div>
         </div>
@@ -211,6 +212,15 @@
           }
         });
       }
+
+
+      layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+        elem: '#publish_time' //指定元素
+        });
+      });
   </script>
   </body>
 </html>

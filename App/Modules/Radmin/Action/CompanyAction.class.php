@@ -134,6 +134,7 @@ class CompanyAction extends CommonAction {
         $id = $_GET['id'];
         $row = D($model_name)->find($id);
         $this->id = $id;
+        $this->assign('row',$row)
         $this->display();
     }
 
@@ -141,55 +142,47 @@ class CompanyAction extends CommonAction {
         $model_name = $this->get_model();
         
         $id = I('post.id');
-        $id_info=M($model_name)->where(array('id' => $id))->find();
-        $old_image=$id_info['image'];
-        $image=I('image');
-        if(strcmp($old_image,$image)==0){
-            $image=$image;
-
-        }else{
-            $url = $_SERVER['DOCUMENT_ROOT'].__ROOT__ . $id_info['image'];
-            @unlink($url);
-            $image = $image;
-        }
-
-        $title = trim(I('post.title',''));
-        $title_en = trim(I('post.title_en',''));
-        $category_id1 = I('post.category_id1',0);
-        $category_id2 = I('post.category_id2',0);
-        $isopen=I('post.isopen');
-        $image=I('post.image');
-        $publish_time = I('post.publish_time',date('Y-m-d',time()));
-        $sequence = I('post.sequence');
-        $detial_title = trim(I('post.detial_title',''));
-        $detial_title_en = trim(I('post.detial_title_en',''));
-        $many_image=I('many_image');
-        $image2 = $many_image[0];
-        $many_images = implode(',',$many_image);
+        
+        $name = trim(I('post.name',''));
+        $name_en = trim(I('post.name_en',''));
+        $city_cn = I('post.city_cn','');
+        $city_usa = I('post.city_usa','');
+        $city_cn_en=I('post.city_cn_en');
+        $city_usa_en=I('post.city_usa_en');
+        $address_cn = trim(I('post.address_cn',''));
+        $address_cn_en = trim(I('post.address_cn_en',''));
+        $address_usa = trim(I('post.address_usa',''));
+        $address_usa_en = trim(I('post.address_usa_en',''));
+        $tel_en = trim(I('post.tel_en',''));
+        $tel_usa = trim(I('post.tel_usa',''));
+        $info_en = trim(I('post.info_en',''));
+        $info_uas = trim(I('post.info_uas',''));
+        $status = trim(I('post.status'));
         $content = trim(I('post.content',''));
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||empty($content)||empty($content_en)){
-            $this->error('红色带星项目必须填写，请检查后重新提交');
-            exit();
-        }
+        
         $data = array(
-            'title' => $title,
-            'title_en' => $title_en,
-            'title_news' => $detial_title,
-            'title_news_en' => $detial_title_en,
-            'image' => $image,
-            'image2' => $image2,
+            'name' => $name,
+            'name_en' => $name_en,
+            'city_cn' => $city_cn,
+            'city_usa' => $city_usa,
+            'city_cn_en' => $city_cn_en,
+            'city_usa_en' => $city_usa_en,
             'content' => $content,
-            'content_en' => $content_en,
-            'publish_time' => strtotime($publish_time),
-            'isopen' => $isopen,
-            'many_image' => $many_images,
+            'address_cn_en' => $address_cn_en,
+            'address_cn' => $address_cn,
+            'address_usa' => $address_usa,
+            'address_usa_en' => $address_usa_en,
+            'tel_en' => $tel_en,
+            'tel_usa' => $tel_usa,
+            'address_cn' => $address_cn,
+            'info_en' => $info_en,
+            'status' => $status,
             'sequence' => $sequence,
             'time' => time(),
-            'cat1'=> $category_id1,
-            'cat2'=> $category_id2,
+            'info_uas'=> $info_uas,
         );
 
         

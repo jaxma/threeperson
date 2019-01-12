@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,10 +36,13 @@
 				</tr>
 				</thead>
 				<tbody>
-				<?php if(empty($list)): ?><tr style="position: relative;">
+				<empty name="list">
+					<tr style="position: relative;">
 						<td style="position: absolute;width: 97%;border-top: solid 1px #e6e6e6;">对不起,没有找到数据!</td>
 					</tr>
-					<?php else: endif; ?>
+					<else />
+
+				</empty>
 				</tbody>
 			</table>
 

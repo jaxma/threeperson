@@ -287,7 +287,7 @@
                 </div>
             <!-- ********************************* 公司信息 国内 ********************************** -->
 
-                <div class="layui-tab-item layui-show">
+                <div class="layui-tab-item">
                     <form class="layui-form layui-box" data-auto="false" method="post" action="__GROUP__/Webset/update_webset">
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">位置：</label>
@@ -343,7 +343,7 @@
 
             <!-- ********************************* 公司信息 国外 ********************************** -->
 
-                <div class="layui-tab-item layui-show">
+                <div class="layui-tab-item">
                     <form class="layui-form layui-box" data-auto="false" method="post" action="__GROUP__/Webset/update_webset">
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">位置：</label>

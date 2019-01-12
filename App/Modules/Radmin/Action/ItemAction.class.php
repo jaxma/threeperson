@@ -3,7 +3,7 @@
 /**
  * 	topos经销商管理系统
  */
-class AboutusAction extends CommonAction {
+class ItemAction extends CommonAction {
 
     private $cat_model;
 
@@ -16,18 +16,20 @@ class AboutusAction extends CommonAction {
     //获取表名
     private function get_model(){
         
-        return 'News';
+        return 'Item';
     }
     
     //获取该栏目中文名字
     private function get_name(){
         
-        return '新闻';
+        return '项目';
     }
 
     //产品信息列表
     public function index() {
+        // $cat1 = I('category_id1');
         $cat2 = I('category_id2');
+        // $cat1 ? $where1 = ' and cat1= '.$cat1 : $where1 = '';
         $cat2 ? $where2 = ' and cat2= '.$cat2 : $where1 = '';
         $where = $where1.$where2;
         $model_name = $this->get_model();
@@ -37,7 +39,7 @@ class AboutusAction extends CommonAction {
             import('ORG.Util.Page');
             $p = new Page($count, $page_num);
             $limit = $p->firstRow . "," . $p->listRows;
-            $list = D($model_name)->order('time desc')->where('cat1 = 2 '.$where)->limit($limit)->select();
+            $list = D($model_name)->order('time desc')->where('cat1 = 1 '.$where)->limit($limit)->select();
             foreach ($list as $k => $v) {
                 $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name,pid')->find();
                 if($this_cat2){
@@ -75,8 +77,8 @@ class AboutusAction extends CommonAction {
     //摄影图片
     //添加产品信息
     public function add() {
-        $c_id = 2;
-        $p_id = 5;
+        $c_id = 1;
+        $p_id = 4;
         $this->assign('c_id',$c_id);
         $this->assign('p_id',$p_id);
         $this->display();

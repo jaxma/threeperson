@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
-
 <head>
 </head>
 
@@ -8,8 +7,8 @@
 <section class="layui-container">
     <div class="content">
         <header class="header">
-            <h3>管理列表</h3>
-            <input type="button"	class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/add" value="添加"/>
+            <h3>项目列表</h3>
+            <input type="button"    class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/add" value="添加"/>
         </header>
             <form class="layui-form form layui-row form-search" action="__SELF__" method="get" onsubmit="return false">
                 <div class="layui-form-item form-item">
@@ -47,45 +46,59 @@
                 </tr>
                 </thead>
                 <tbody>
-                <empty name="list">
-                    <tr style="position: relative;">
+                <?php if(empty($list)): ?><tr style="position: relative;">
                         <td style="position: absolute;width: 97%;border-top: solid 1px #e6e6e6;">对不起,没有找到数据!</td>
                     </tr>
-                    <else />
-                    <!--<tr><td colspan="10"><div class="pull-right">{$page}</div></td></tr>-->
-                    <volist name="list" id="m">
-                        <tr>
-                            <td>{$m.id}</td>
-                            <td>{$m.title}<br>{$m.title_en}</td>
-                            <td>{$m.cat1}<br>{$m.cat2}</td>
+                    <?php else: ?>
+                    <!--<tr><td colspan="10"><div class="pull-right"><?php echo ($page); ?></div></td></tr>-->
+                    <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?><tr>
+                            <td><?php echo ($m["id"]); ?></td>
+                            <td><?php echo ($m["title"]); ?><br><?php echo ($m["title_en"]); ?></td>
+                            <td><?php echo ($m["cat1"]); ?><br><?php echo ($m["cat2"]); ?></td>
                             <td>
-                                <if condition="$m.image neq ''">
-                                    <img src="__ROOT__{$m.image}" alt="" style="width:80px;">
-                                </if>
+                                <?php if($m["image"] != ''): ?><img src="__ROOT__<?php echo ($m["image"]); ?>" alt="" style="width:80px;"><?php endif; ?>
                             </td>
-                            <td>{$m.title_news}<br>{$m.title_news_en}</td>
+                            <td><?php echo ($m["title_news"]); ?><br><?php echo ($m["title_news_en"]); ?></td>
                             <td>
-                            <if condition="$m.image neq ''">
-                                <img src="__ROOT__{$m.image2}" alt="" style="width:80px;">
-                            </if>
+                            <?php if($m["image"] != ''): ?><img src="__ROOT__<?php echo ($m["image2"]); ?>" alt="" style="width:80px;"><?php endif; ?>
                             </td>
                             <td>
-                            <if condition="$m.isopen eq 1">开启<else/>关闭</if>
+                            <?php if($m["isopen"] == 1): ?>开启<?php else: ?>关闭<?php endif; ?>
                             </td>
-                            <td>{$m.sequence}</td>
-                            <!--<td>{$m.news}</td>-->
-                            <td>{$m.publish_time|date="Y-m-d H:i",###}</td>
+                            <td><?php echo ($m["sequence"]); ?></td>
+                            <!--<td><?php echo ($m["news"]); ?></td>-->
+                            <td><?php echo (date("Y-m-d H:i",$m["publish_time"])); ?></td>
                             <td>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/edit?id={$m.id}"/>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/delete?id={$m.id}' data-confirm="您确定要删除'{$m.name}'吗？"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/edit?id=<?php echo ($m["id"]); ?>"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/delete?id=<?php echo ($m["id"]); ?>' data-confirm="您确定要删除'<?php echo ($m["name"]); ?>'吗？"/>
                             </td>
-                        </tr>
-                    </volist>
-                </empty>
+                        </tr><?php endforeach; endif; else: echo "" ;endif; endif; ?>
                 </tbody>
             </table>
         </div>
-      <include file="Public/page" />
+      <script>
+    /**
+     * 1.要使用搜索功能，则form必须要设置class="form-search",详情请参考listen.js
+     * 2.要使用分页功能，只需要传三个参数即可
+     */
+    //总数
+    var count = "<?php echo ($count); ?>";
+    //当前页
+    var p = "<?php echo ($p); ?>";
+    //每页显示数量
+    var limit = "<?php echo ($limit); ?>";
+//      require(['page','url'])
+
+    $(document).ready(function () {
+        form.render();
+    })
+</script>
+
+<div id="page"></div>
+
+<script src="__PUBLIC__/Radmin_v3/js/url.js"></script>
+<script src="__PUBLIC__/Radmin_v3/js/page.js"></script>
+
     </div>
 
 </section>
@@ -107,7 +120,7 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  if(val.id == {$row.cat1}){
+                  if(val.id == <?php echo ($row["cat1"]); ?>){
                     html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
                   }else{
                     html = '<option value="' + val.id + '">' + val.name + '</option>';
@@ -117,8 +130,8 @@
                 if(aim != '') {
                   aim.append(temp)
                 }
-                if({$row.cat1} && {$row.cat1} != 0){
-                    getTwo({$row.cat1});
+                if(<?php echo ($row["cat1"]); ?> && <?php echo ($row["cat1"]); ?> != 0){
+                    getTwo(<?php echo ($row["cat1"]); ?>);
                 }
                 form.render();
               });
@@ -157,7 +170,7 @@
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  if(val.id == {$row.cat2}){
+                  if(val.id == <?php echo ($row["cat2"]); ?>){
                     html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
                   }else{
                     html = '<option value="' + val.id + '">' + val.name + '</option>';

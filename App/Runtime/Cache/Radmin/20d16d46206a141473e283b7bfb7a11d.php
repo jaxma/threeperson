@@ -223,45 +223,30 @@
                 <?php if( in_array($aid,$superids) || in_array(98,$admin_auth)):?>
                 <li class="treeview">
                     <a href="javascript:;" class="list">
-                        <i class="fa fa-file-text icons"></i>
+                        <i class="fa fa-asterisk icons"></i>
                         <span class="title">公司管理</span>
                         <span class="fa fa-angle-right arrow-icon"></span>
                         <!--<span class="layui-badge-dot spot"></span>-->
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a class="tm-items" data-menu-node='m-2-1' data-open="__GROUP__/photo/company_con1">
+<!--                             <a class="tm-items" data-menu-node='m-2-1' data-open="__GROUP__/company/company">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">公司介绍</span>
+                            </a> -->
+                            <a class="tm-items" data-menu-node='m-2-1' data-open="__GROUP__/company/company">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">公司信息</span>
                                 <!--<span class="layui-badge">99</span>-->
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="tm-items" data-menu-node='m-2-1' data-open="__GROUP__/photo/company_con2">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">个人介绍</span>
-                                <!--<span class="layui-badge">99</span>-->
+                                
                             </a>
-                        </li>
-                    </ul>
-                </li>
-                <?php endif;?>
-                <?php if( in_array($aid,$superids) || in_array(97,$admin_auth)):?>
-                <li class="treeview">
-                    <a href="javascript:;" class="list">
-                        <i class="fa fa-file-text icons"></i>
-                        <span class="title">摄影棚</span>
-                        <span class="fa fa-angle-right arrow-icon"></span>
-                        <!--<span class="layui-badge-dot spot"></span>-->
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a class="tm-items" data-menu-node='m-3-1' data-open="__GROUP__/studio/index">
-                                <i class="fa fa-plus-circle icons2"></i>
-                                <span class="title2">摄影棚</span>
-                                <!--<span class="layui-badge">99</span>-->
-                            </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <?php endif;?>
@@ -274,9 +259,28 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/photo/cat">
+                            <a class="tm-items" data-menu-node='m-3-1' data-open="__GROUP__/photo/cat">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">网站分类</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+
+                <?php if( in_array($aid,$superids) || in_array(97,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-file-text icons"></i>
+                        <span class="title">项目</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                        <!--<span class="layui-badge-dot spot"></span>-->
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/item/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">项目列表</span>
                             </a>
                         </li>
                     </ul>
@@ -286,30 +290,29 @@
                 <?php if( in_array($aid,$superids) || in_array(99,$admin_auth)):?>
                 <li class="treeview">
                     <a href="javascript:;" class="list">
-                        <i class="fa fa-sitemap icons"></i>
+                        <i class="fa fa-bank icons"></i>
                         <span class="title">事务所管理</span>
                         <span class="fa fa-angle-right arrow-icon"></span>
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/aboutus/index">
+                            <a class="tm-items" data-menu-node='m-6-1' data-open="__GROUP__/aboutus/index">
                                 <i class="fa fa-plus-circle icons2"></i>
-                                <span class="title2">新闻列表</span>
+                                <span class="title2">管理列表</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/aboutus/designer">
+                        <!-- <li>
+                            <a class="tm-items" data-menu-node='m-5-2' data-open="__GROUP__/aboutus/designer">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">设计师</span>
                             </a>
                         </li>
                         <li>
-                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/aboutus/books">
+                            <a class="tm-items" data-menu-node='m-5-3' data-open="__GROUP__/aboutus/books">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">出版书</span>
-                                <!--<span class="layui-badge">99</span>-->
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <?php endif;?>
@@ -330,7 +333,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a class="tm-items" data-menu-node='m-5-1' data-open="__GROUP__/photo/index">
+                            <a class="tm-items" data-menu-node='m-9-1' data-open="__GROUP__/photo/index">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">摄影封面上传</span>
                                 <!--<span class="layui-badge">99</span>-->
@@ -350,14 +353,14 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a class="tm-items" data-menu-node='m-6-1' data-open="__GROUP__/video/index">
+                            <a class="tm-items" data-menu-node='m-12-1' data-open="__GROUP__/video/index">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">视频上传</span>
                                 <!--<span class="layui-badge">99</span>-->
                             </a>
                         </li>
                         <li>
-                            <a class="tm-items" data-menu-node='m-6-2' data-open="__GROUP__/video/scan_video">
+                            <a class="tm-items" data-menu-node='m-12-2' data-open="__GROUP__/video/scan_video">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">视频文件夹</span>
                                 <!--<span class="layui-badge">99</span>-->
@@ -377,7 +380,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a class="tm-items" data-menu-node='m-7-1' data-open="__GROUP__/backstage/index">
+                            <a class="tm-items" data-menu-node='m-15-1' data-open="__GROUP__/backstage/index">
                                 <i class="fa fa-plus-circle icons2"></i>
                                 <span class="title2">后台花絮</span>
                                 <!--<span class="layui-badge">99</span>-->

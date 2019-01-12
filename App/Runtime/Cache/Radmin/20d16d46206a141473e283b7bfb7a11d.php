@@ -269,15 +269,44 @@
                 <li class="treeview">
                     <a href="javascript:;" class="list">
                         <i class="fa fa-sitemap icons"></i>
-                        <span class="title">摄影分类管理</span>
+                        <span class="title">网站分类管理</span>
                         <span class="fa fa-angle-right arrow-icon"></span>
-                        <!--<span class="layui-badge-dot spot"></span>-->
                     </a>
                     <ul class="treeview-menu">
                         <li>
                             <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/photo/cat">
                                 <i class="fa fa-plus-circle icons2"></i>
-                                <span class="title2">摄影分类</span>
+                                <span class="title2">网站分类</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <?php endif;?>
+
+                <?php if( in_array($aid,$superids) || in_array(99,$admin_auth)):?>
+                <li class="treeview">
+                    <a href="javascript:;" class="list">
+                        <i class="fa fa-sitemap icons"></i>
+                        <span class="title">事务所管理</span>
+                        <span class="fa fa-angle-right arrow-icon"></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/aboutus/index">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">新闻列表</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/aboutus/designer">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">设计师</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tm-items" data-menu-node='m-4-1' data-open="__GROUP__/aboutus/books">
+                                <i class="fa fa-plus-circle icons2"></i>
+                                <span class="title2">出版书</span>
                                 <!--<span class="layui-badge">99</span>-->
                             </a>
                         </li>

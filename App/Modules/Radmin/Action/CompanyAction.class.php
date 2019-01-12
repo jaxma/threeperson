@@ -130,23 +130,9 @@ class CompanyAction extends CommonAction {
     //编辑产品信息
     public function edit() {
         $model_name = $this->get_model();
-        
+
         $id = $_GET['id'];
         $row = D($model_name)->find($id);
-        $row_image = $row['many_image'];
-        $arr = explode(',', $row_image);
-        //在每个前面加上__ROOT__,用在编辑时本机显示图片
-        array_walk(
-            $arr,
-            function (&$s, $k, $prefix = '__ROOT__') {
-                $s = str_pad($s, strlen($prefix) + strlen($s), $prefix, STR_PAD_LEFT);
-            }
-        );
-        $row_arr=implode(',',$arr);
-        $cat1 = $this->cat_model->where('id='.$row['cat1'])->find();
-        $cat2 = $this->cat_model->where('id='.$row['cat2'])->find();
-        $this->row = $row;
-        $this->arr = $row_arr;
         $this->id = $id;
         $this->display();
     }

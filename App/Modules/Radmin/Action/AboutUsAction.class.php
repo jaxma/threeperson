@@ -3,7 +3,7 @@
 /**
  * 	topos经销商管理系统
  */
-class AboutUsAction extends CommonAction {
+class AboutusAction extends CommonAction {
 
     private $cat_model;
     private $company_model;
@@ -64,7 +64,7 @@ class AboutUsAction extends CommonAction {
 
     }
     public function designer(){
-        
+
     }
 
     //摄影分类

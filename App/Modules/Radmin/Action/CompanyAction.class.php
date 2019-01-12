@@ -66,10 +66,7 @@ class CompanyAction extends CommonAction {
     //摄影图片
     //添加产品信息
     public function add() {
-        $c_id = 2;
-        $p_id = 5;
-        $this->assign('c_id',$c_id);
-        $this->assign('p_id',$p_id);
+        
         $this->display();
     }
 
@@ -134,7 +131,7 @@ class CompanyAction extends CommonAction {
         $id = $_GET['id'];
         $row = D($model_name)->find($id);
         $this->id = $id;
-        $this->assign('row',$row)
+        $this->row = $row;
         $this->display();
     }
 
@@ -142,7 +139,7 @@ class CompanyAction extends CommonAction {
         $model_name = $this->get_model();
         
         $id = I('post.id');
-        
+
         $name = trim(I('post.name',''));
         $name_en = trim(I('post.name_en',''));
         $city_cn = I('post.city_cn','');

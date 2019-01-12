@@ -193,7 +193,7 @@ class AboutusAction extends CommonAction {
         }
         $data = array(
             'title' => $title,
-            'title' => $title,
+            'title_en' => $title_en,
             'title_news' => $detial_title,
             'title_news_en' => $detial_title_en,
             'image' => $image,

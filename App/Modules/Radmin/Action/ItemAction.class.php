@@ -30,8 +30,7 @@ class ItemAction extends CommonAction {
         // $cat1 = I('category_id1');
         $cat2 = I('category_id2');
         // $cat1 ? $where1 = ' and cat1= '.$cat1 : $where1 = '';
-        $cat2 ? $where2 = ' and cat2= '.$cat2 : $where1 = '';
-        $where = $where1.$where2;
+        $cat2 ? $where = ' and cat2= '.$cat2 : $where = '';
         $model_name = $this->get_model();
         $count = D($model_name)->count('id');
         $page_num=20;

@@ -16,11 +16,12 @@
             <table class="layui-table" lay-skin="row" lay-size="sm">
                 <thead>
                 <tr>
-                    <th>序号<button value='123' onclick="sc('me','index')"></button></th>
-                    <th>类别</th>
+                    <th>序号</th>
+                    <th>公司名</th>
+                    <th>城市</th>
+                    <th>联系电话</th>
                     <th>是否开启</th>
-                    <!-- <th>内容介绍</th> -->
-                    <th>添加时间</th>
+                    <th>信息</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -30,16 +31,16 @@
                         <td style="position: absolute;width: 97%;border-top: solid 1px #e6e6e6;">对不起,没有找到数据!</td>
                     </tr>
                     <else />
-                    <!--<tr><td colspan="10"><div class="pull-right">{$page}</div></td></tr>-->
+                    
                     <volist name="list" id="m">
                         <tr>
                             <td>{$m.id}</td>
-                            <td><if condition="$m.type eq 1">公司介绍<else/>个人介绍</if></td>
+                            <td>{$m.name}</td>
+                            <td>{$m.city_cn}</td>
+                            <td>{$m.tel_en}</td>
                             <td>
                             <if condition="$m.status eq 1">开启<else/>关闭</if>
                             </td>
-                            <!-- <td>{$m.content}</td> -->
-                            <!--<td>{$m.news}</td>-->
                             <td>{$m.time|date="Y-m-d H:i",###}</td>
                             <td>
                                 <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/edit?id={$m.id}"/>

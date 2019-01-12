@@ -121,7 +121,7 @@ class CompanyAction extends CommonAction {
         if ($res) {
             $name = $this->get_name();
             $this->add_active_log('添加'.$name.'信息');
-            $this->success('添加成功',__URL__.'/'.'index');
+            $this->success('添加成功',__URL__.'/'.'company');
         } else {
             $this->error('添加失败');
         }
@@ -213,7 +213,7 @@ class CompanyAction extends CommonAction {
         } else {
             $name = $this->get_name();
             $this->add_active_log('编辑'.$name.'信息');
-            $this->success("操作成功",__URL__.'/'.'index');
+            $this->success("操作成功",__URL__.'/'.'company');
         }
     }
     //删除产品信息

@@ -25,21 +25,103 @@
 <div class="container-fluid edit-wrapper">
     <header class="edit-title">
         <blockquote class="layui-elem-quote">
-            <span class="title">
-            <if condition = '$type eq 1'>公司介绍<elseif condition = '$type eq 2'/>个人介绍</if>
-        </span>
+            <span class="title">公司介绍</span>
         </blockquote>
     </header>
     <div class="layui-content">
-        <form class="layui-form layui-box" action="__URL__/company_insert" data-auto="false" method="post">
-            <if condition = '$company.type eq 3'>
+        <form class="layui-form layui-box" action="__URL__/insert" data-auto="false" method="post">
+            
             <div class="layui-form-item items">
-                <label class="form-text">摄影棚名称：</label>
+                <label class="form-text">公司名称：</label>
                 <div class="form-right">
                     <input class="input-inf2" required="" type="text" name="name" lay-verify="name" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.name}">
                 </div>
             </div>
-            </if>
+            <div class="layui-form-item items">
+                <label class="form-text">公司名称（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="name_en" lay-verify="name_en" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.name_en}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">中国所在城市：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="city_cn" lay-verify="city_cn" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.city_cn}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">中国所在城市（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="city_cn_en" lay-verify="city_cn_en" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.city_cn_en}">
+                </div>
+            </div>
+
+            <div class="layui-form-item items">
+                <label class="form-text">美国所在城市：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="city_usa" lay-verify="city_usa" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.city_usa}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">美国所在城市（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="city_usa_en" lay-verify="city_usa_en" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.city_usa_en}">
+                </div>
+            </div>
+
+            <div class="layui-form-item items">
+                <label class="form-text">中国公司地址：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="address_cn" lay-verify="address_cn" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.address_cn}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">中国公司地址（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="address_cn_en" lay-verify="address_cn_en" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.address_cn_en}">
+                </div>
+            </div>
+
+            <div class="layui-form-item items">
+                <label class="form-text">美国公司地址：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="address_usa" lay-verify="address_usa" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.address_usa}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">美国公司地址（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="address_usa_en" lay-verify="address_usa_en" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$company.address_usa_en}">
+                </div>
+            </div>
+
+
+
+            
+            <div class="layui-form-item items">
+                <label class="form-text">中国联系电话：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="tel_en" lay-verify="tel_en" autocomplete="off" title="请输入电话" placeholder="请输入电话" value="{$company.tel_en}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">美国联系电话：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="tel_usa" lay-verify="tel_usa" autocomplete="off" title="请输入电话" placeholder="请输入电话" value="{$company.tel_usa}">
+                </div>
+            </div>
+           <div class="layui-form-item items">
+                <label class="form-text">中国信息（info）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="info_en" lay-verify="info_en" autocomplete="off" title="请输入信息" placeholder="请输入信息" value="{$company.info_en}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">美国信息（info）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="info_uas" lay-verify="info_uas" autocomplete="off" title="请输入信息" placeholder="请输入信息" value="{$company.info_uas}">
+                </div>
+            </div>
             <div class="layui-form-item  items">
                 <label class="form-text">是否开启</label>
                 <div class="form-right">
@@ -48,9 +130,16 @@
                 </div>
             </div>
             <div class="layui-form-item  items">
-                <label class="form-text">详情：</label>
+                <label class="form-text">公司详情：</label>
                 <div class="form-right">
                     <textarea id="editor" class="ueditors" name="content">{$company.content}</textarea>
+                    <include file="Public/ueditor" />
+                </div>
+            </div>
+            <div class="layui-form-item  items">
+                <label class="form-text">公司详情（英文）：</label>
+                <div class="form-right">
+                    <textarea id="editor_en" class="ueditors" name="content_en">{$company.content_en}</textarea>
                     <include file="Public/ueditor" />
                 </div>
             </div>
@@ -58,7 +147,6 @@
                 <label class="form-text"></label>
                 <div class="form-right">
                     <input type="hidden" name="id" value="{$id}">
-                    <input type="hidden" name="type" value="{$type}">
                     <button class="layui-btn" type='submit'>确定</button>
                 </div>
             </div>

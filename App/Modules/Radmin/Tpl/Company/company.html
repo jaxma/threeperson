@@ -8,8 +8,8 @@
 <section class="layui-container">
     <div class="content">
         <header class="header">
-            <h3>  <if condition = '$type eq 1'>公司介绍<elseif condition = '$type eq 2'/>个人介绍<else/>摄影棚</if></h3>
-            <input type="button"class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/company_add?type={$type}" value="添加"/>
+            <h3>  公司介绍 </h3>
+            <input type="button"class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/add" value="添加"/>
         </header>
 
         <div class="table-wrapper">
@@ -42,14 +42,12 @@
                             <!--<td>{$m.news}</td>-->
                             <td>{$m.time|date="Y-m-d H:i",###}</td>
                             <td>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/company?id={$m.id}&type={$m.type}"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/edit?id={$m.id}"/>
                                 <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/delete_con?id={$m.id}' data-confirm="您确定要删除该记录吗？"/>
                             </td>
                         </tr>
                     </volist>
-                    
-                    <!-- <div id="page"></div> -->
-                    <!--<tr><td colspan="14"><div class="pull-right">{$page}</div></td></tr>-->
+
                 </empty>
                 </tbody>
             </table>

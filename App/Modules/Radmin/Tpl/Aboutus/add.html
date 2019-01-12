@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="layui-form-item items">
-            <label class="form-text">标题名称(英文)：</label>
+            <label class="form-text">标题(英文)：</label>
             <div class="form-right">
               <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
             </div>
@@ -93,9 +93,9 @@
             </div>
           </div>
           <div class="layui-form-item  items">
-            <label class="form-text">内容描述</label>
+            <label class="form-text">发布时间</label>
             <div class="form-right">
-              <input class="input-inf2" type="text" name="presents" lay-verify="" autocomplete="off" placeholder="请输入简短介绍">
+              <input class="input-inf2" type="text" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间">
             </div>
           </div>
         
@@ -107,19 +107,26 @@
             </div>
         </div>
             <div class="layui-form-item items">
-                <label class="form-text">详情：</label>
+                <label class="form-text">详情页图片：</label>
                 <div class="form-right">
                     <!--引入图片页面-->
                     <include file="Public/images" data-name="many_image[]"/>
                 </div>
             </div>
-<!--           <div class="layui-form-item  items">
-            <label class="form-text">详情（其他）：</label>
+          <div class="layui-form-item  items">
+            <label class="form-text">文章正文内容：</label>
             <div class="form-right">
-              <textarea id="editor" class="ueditors" name="disc"></textarea>
+              <textarea id="editor" class="ueditors" name="content"></textarea>
               <include file="Public/ueditor" />
             </div>
-          </div> -->
+          </div>
+          <div class="layui-form-item  items">
+            <label class="form-text">文章内容（英文）：：</label>
+            <div class="form-right">
+              <textarea id="editor_en" class="ueditors" name="content_en"></textarea>
+              <include file="Public/ueditor" />
+            </div>
+          </div>
           <div class="layui-form-item  items">
             <label class="form-text"></label>
             <div class="form-right">

@@ -60,20 +60,21 @@
             </div>
           </div>
         <div class="layui-form-item  items">
-        <label class="form-text">分类(必选)：</label>
-        <div class="form-right">
-          <div class="layui-input-inline three-select">
-            <select name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off">
-              <option value="a">请选择</option>
-            </select>
-          </div>
-          <div class="layui-input-inline three-select">
-            <select name="category_id2" id="level_two" lay-verify="required" lay-filter="level_two" autocomplete="off">
-              <option value="a">请选择</option>
-            </select>
+          <label class="form-text">分类(必选)：</label>
+          <div class="form-right">
+            <div class="layui-input-inline three-select">
+              <select  name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
+                <option value="a">请选择</option>
+              </select>
+            </div>
+            <div class="layui-input-inline three-select">
+              <select name="category_id2" id="level_two" lay-verify="required" lay-filter="level_two" autocomplete="off">
+                <option value="a">请选择</option>
+              </select>
+            </div>
+          <!-- <span style="color:red">备注：一级分类不能添加摄影封面喔！</span> -->
           </div>
         </div>
-      </div>
         <div class="layui-form-item  items">
           <label class="form-text">是否开启</label>
           <div class="form-right">
@@ -148,11 +149,9 @@
       </div>
     </div>
 <script>
-  
       var get_level = '__GROUP__/photo/templet_category'
       var get_son = '__GROUP__/photo/get_son_templet_category';
       $(function() {
-        var c_id = 5;
         $.ajax({
           url: get_level,
           async: false,
@@ -167,21 +166,11 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  console.log(val.id);
-                  console.log('and');
-                  console.log({$row.cat1});
-                  if(val.id == {$row.cat1}){
-                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
-                  }else{
-                    html = '<option value="' + val.id + '">' + val.name + '</option>';
-                  }
+                  html = '<option value="' + val.id + '">' + val.name + '</option>';
                   temp.push(html)
                 });
                 if(aim != '') {
                   aim.append(temp)
-                }
-                if({$row.cat1} && {$row.cat1} != 0){
-                getTwo({$row.cat1});
                 }
                 form.render();
               });
@@ -220,11 +209,7 @@
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  if(val.id == {$row.cat2}){
-                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
-                  }else{
-                    html = '<option value="' + val.id + '">' + val.name + '</option>';
-                  }
+                  html = '<option value="' + val.id + '">' + val.name + '</option>';
                   temp.push(html)
                 });
                 if(aim != '') {
@@ -238,80 +223,6 @@
           }
         });
       }
-      // var get_level = '__GROUP__/photo/templet_category'
-      // var get_son = '__GROUP__/photo/get_son_templet_category';
-      // $(function() {
-      //   $.ajax({
-      //     url: get_level,
-      //     async: false,
-      //     type: 'GET',
-      //     success: function(data) {
-      //       if(data.code == 1) {
-      //         $.each(data.info, function(key, value) {
-      //           var temp = new Array();
-      //           if(key != 'one'||value==null) {
-      //             return
-      //           }
-      //           var aim = $('#level_one');
-      //           $.each(value, function(k, val) {
-      //             var html = '';
-      //             html = '<option value="' + val.id + '">' + val.name + '</option>';
-      //             temp.push(html)
-      //           });
-      //           if(aim != '') {
-      //             aim.append(temp)
-      //           }
-      //           form.render();
-      //         });
-      //         }else {
-      //         layer.msg(data.msg);
-      //       }
-      //       form.render('select');
-      //     }
-      //   });
-      //   form.on('select(level_one)', function(data) {
-      //     var p_id = data.value;
-      //     if(p_id != 'a') {
-      //       getTwo(p_id)
-      //     } else {
-      //       $('#level_two').empty().append('<option value="a">请选择</option>')
-      //     }
-      //   });
-      // });
-
-      // function getTwo(p_id) {
-      //   $.ajax({
-      //     url: get_son,
-      //     data: {
-      //       pid: p_id
-      //     },
-      //     async: false,
-      //     success: function(data) {
-      //       if(data.code == 1) {
-      //         var aim = $('#level_two')
-      //         var temp = []
-      //         aim.empty().append('<option value="a">请选择</option>')
-      //         $('#level_three').empty().append('<option value="a">请选择</option>')
-      //         $.each(data.info, function(key, value) {
-      //           if(key != 'two'||value == null) {
-      //             return
-      //           }
-      //           $.each(value, function(k, val) {
-      //             var html = '';
-      //             html = '<option value="' + val.id + '">' + val.name + '</option>';
-      //             temp.push(html)
-      //           });
-      //           if(aim != '') {
-      //             aim.append(temp)
-      //           }
-      //         });
-      //       } else {
-      //         layer.msg(data.msg)
-      //       }
-      //       form.render('select')
-      //     }
-      //   });
-      // }
 
 
       layui.use('laydate', function(){

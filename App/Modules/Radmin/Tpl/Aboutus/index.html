@@ -17,7 +17,7 @@
                 <thead>
                 <tr>
                     <th>序号<button value='123' onclick="sc('me','index')"></button></th>
-                    <th>摄影封面名称</th>
+                    <th>标题</th>
                     <th>摄影分类</th>
                     <th>摄影封面介绍</th>
                     <th>图片</th>
@@ -37,7 +37,7 @@
                     <volist name="list" id="m">
                         <tr>
                             <td>{$m.id}</td>
-                            <td>{$m.name}</td>
+                            <td>{$m.title}</td>
                             <td><empty name = 'm.cat2'><empty name = 'm.cat1'>请选择分类<else/>{$m.cat1}</empty><else/>{$m.cat2}</empty></td>
                             <td>{$m.presents}</td>
                             <td>

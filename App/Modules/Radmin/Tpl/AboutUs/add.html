@@ -63,7 +63,7 @@
           <label class="form-text">分类：</label>
           <div class="form-right">
             <div class="layui-input-inline three-select">
-              <select name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
+              <select required="" name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
                 <option value="a">请选择</option>
               </select>
             </div>
@@ -87,7 +87,7 @@
             <label class="form-text label-required">首页封面图片：</label>
             <div class="form-right">
               <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
-              <include file="Public/image" image_name="image" is_show="0" img_url=""/>
+              <include required="" file="Public/image" image_name="image" is_show="0" img_url=""/>
               <!-- <br/> -->
               <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
             </div>
@@ -121,7 +121,7 @@
         </div>
             <div class="layui-form-item items">
                 <label class="form-text">详情页图片：</label>
-                <div class="form-right">
+                <div class="form-right" required="">
                     <!--引入图片页面-->
                     <include file="Public/images" data-name="many_image[]"/>
                 </div>

@@ -205,6 +205,8 @@ class AboutusAction extends CommonAction {
             'many_image' => $many_images,
             'sequence' => $sequence,
             'time' => time(),
+            'cat1'=> $category_id1,
+            'cat2'=> $category_id2,
         );
 
         $res = D($model_name)->add($data);

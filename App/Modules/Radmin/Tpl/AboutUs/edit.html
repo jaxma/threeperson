@@ -42,20 +42,26 @@
 <div class="container-fluid edit-wrapper">
 	<header class="edit-title">
 		<blockquote class="layui-elem-quote">
-			<span class="title">编辑摄影封面信息</span>
+			<span class="title">编辑新闻</span>
 		</blockquote>
 	</header>
 	<div class="layui-content">
 		<form class="layui-form layui-box" action="__URL__/update" data-auto="false" method="post">
 			<div class="layui-form-item items">
-				<label class="form-text">摄影标题名称：</label>
+				<label class="form-text">标题名称：</label>
 				<div class="form-right">
-					<input class="input-inf2" required="" type="text" name="name" lay-verify="name" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.name}">
+					<input class="input-inf2" required="" type="text" name="title" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.title}">
 					<input type="hidden" name="id" value="{$id}">
 				</div>
 			</div>
+      <div class="layui-form-item items">
+        <label class="form-text">标题(英文)：</label>
+        <div class="form-right">
+          <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.title_en}">
+        </div>
+      </div>
 			<div class="layui-form-item  items">
-				<label class="form-text">摄影分类：</label>
+				<label class="form-text">分类(必选)：</label>
 				<div class="form-right">
 					<div class="layui-input-inline three-select">
 						<select name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off">
@@ -67,12 +73,18 @@
 							<option value="a">请选择</option>
 						</select>
 					</div>
-				<span style="color:red">备注：一级分类不能添加摄影封面喔！</span>
 				</div>
 			</div>
+      <div class="layui-form-item  items">
+        <label class="form-text">是否开启</label>
+        <div class="form-right">
+                <input type="radio" name="isopen" value="1" title="开启" <?php echo $row['isopen']==1?'checked':'';?> >
+                <input type="radio" name="isopen" value="0" title="关闭" <?php echo $row['isopen']==0?'checked':'';?> >
+        </div>
+      </div>
 			<!--引入图片页面-->
 			<div class="layui-form-item items">
-				<label class="form-text label-required">摄影封面图片：</label>
+				<label class="form-text label-required">首页封面图片：</label>
 				<div class="form-right">
 					<script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
 					<if condition="$row.image neq ''">
@@ -83,17 +95,17 @@
 					<!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
 				</div>
 			</div>
+      <div class="layui-form-item  items">
+            <label class="form-text">发布时间</label>
+            <div class="form-right">
+              <input required="" type="text" class="layui-input input-inf2" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间" value="{$row.publish_time|date="Y-m-d H:i",###}">
+            </div>
+          </div>
+
 			<div class="layui-form-item  items">
 				<label class="form-text">内容描述：</label>
 				<div class="form-right">
 					<input class="input-inf2" type="text" name="presents" lay-verify="" autocomplete="off" placeholder="请输入简短介绍" value="{$row.presents}">
-				</div>
-			</div>
-			<div class="layui-form-item  items">
-				<label class="form-text">是否开启</label>
-				<div class="form-right">
-		            <input type="radio" name="isopen" value="1" title="开启" <?php echo $row['isopen']==1?'checked':'';?> >
-		            <input type="radio" name="isopen" value="0" title="关闭" <?php echo $row['isopen']==0?'checked':'';?> >
 				</div>
 			</div>
       <div class="layui-form-item  items">
@@ -103,8 +115,22 @@
               <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
           </div>
       </div>
+
       <div class="layui-form-item items">
-          <label class="form-text">详情：</label>
+        <label class="form-text">详情页标题：</label>
+        <div class="form-right">
+          <input class="input-inf2" required="" type="text" name="detial_title" lay-verify="detial_title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.detial_title}">
+        </div>
+      </div>
+      <div class="layui-form-item items">
+        <label class="form-text">详情页标题(英文)：</label>
+        <div class="form-right">
+          <input class="input-inf2" required="" type="text" name="detial_title_en" lay-verify="detial_title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.detial_title_en}">
+        </div>
+      </div>
+
+      <div class="layui-form-item items">
+          <label class="form-text">详情页图片（必选）：</label>
           <div class="form-right">
               <!--引入图片页面-->
               <div class="imgs-wrapper">
@@ -113,17 +139,23 @@
                       <else/>
                       <include file="Public/images" data-name="many_image[]" is_show="0" row_image="{$row.many_image}" row_arr="{$arr}"/>
                   </if>
-                  <!-- <small class="orange-text">(请上传长方型的图片 图片大小为：375*270)</small> -->
               </div>
           </div>
       </div>
-<!-- 			<div class="layui-form-item  items">
-				<label class="form-text">详情（其他）：</label>
-				<div class="form-right">
-					<textarea id="editor" class="ueditors" name="disc">{$row.news}</textarea>
-					<include file="Public/ueditor" />
-				</div>
-			</div> -->
+      <div class="layui-form-item  items">
+            <label class="form-text">文章正文内容（必写）：</label>
+            <div class="form-right">
+              <textarea id="editor" class="ueditors" name="content">{$row.content}</textarea>
+              <include file="Public/ueditor" />
+            </div>
+          </div>
+          <div class="layui-form-item  items">
+            <label class="form-text">文章内容（英文必写）：</label>
+            <div class="form-right">
+              <textarea id="editor_en" class="ueditors" name="content_en">{$row.content_en}</textarea>
+            </div>
+          </div>
+
 			<div class="layui-form-item  items">
 				<label class="form-text"></label>
 				<div class="form-right">

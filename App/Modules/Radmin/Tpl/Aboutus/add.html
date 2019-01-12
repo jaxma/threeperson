@@ -55,18 +55,19 @@
           </div>
         <div class="layui-form-item  items">
           <label class="form-text">摄影分类：</label>
+          
           <div class="form-right">
-            <div class="layui-input-inline three-select">
-              <select name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off">
-                <option value="a">请选择</option>
-              </select>
-            </div>
-            <div class="layui-input-inline three-select">
-              <select name="category_id2" id="level_two" lay-verify="required" lay-filter="level_two" autocomplete="off">
-                <option value="a">请选择</option>
-              </select>
-            </div>
-          <span style="color:red">备注：一级分类不能添加摄影封面喔！</span>
+              <div class="layui-input-inline three-select">
+                  <select class="select-hook" name="pid1" id="lv_one" lay-filter="lv_one" lay-verify="required"
+                          lay-search="">
+                      <option value="a">请选择</option>
+                  </select>
+              </div>
+              <div class="layui-input-inline three-select">
+                  <select class="select-hook" name="pid2" id="lv_two" lay-verify="required" lay-search="">
+                      <option value="a">请选择</option>
+                  </select>
+              </div>
           </div>
         </div>
           <!--引入图片页面-->

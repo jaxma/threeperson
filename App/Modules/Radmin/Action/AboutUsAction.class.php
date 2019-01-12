@@ -83,108 +83,7 @@ class AboutusAction extends CommonAction {
 
 
 
-    //产品分类
-    public function templet_category()
-    {
-        if (!IS_AJAX) {
-            return FALSE;
-        }
 
-        $cats = $this->cat_model->order('id asc')->select();
-        //一级分类
-        foreach ($cats as $cat) {
-            if ($cat['pid'] == 0) {
-                $one[] = $cat;
-                $one_id[] = $cat['id'];
-            }
-        }
-        //二级分类关联一级分类
-        foreach ($cats as $cat) {
-            if (in_array($cat['pid'], $one_id)) {
-                $two[$cat['pid']] = $cat;
-                $two_id[] = $cat['id'];
-            }
-        }
-        //三级分类关联二级分类
-        // foreach ($cats as $cat) {
-        //     if (in_array($cat['pid'], $two_id)) {
-        //         $three[$cat['pid']] = $cat;
-        //     }
-        // }
-
-        //判断是否有子分类
-        foreach ($one as $k => $v) {
-            $one[$k]['has_child'] = 0;
-            if (isset($two[$v['id']])) {
-                $one[$k]['has_child'] = 1;
-            }
-        }
-        // foreach ($two as $k => $v) {
-        //     $two[$k]['has_child'] = 0;
-        //     if (isset($three[$v['id']])) {
-        //         $two[$k]['has_child'] = 1;
-        //     }
-        // }
-        $result = [
-            'one' => $one,
-            'two' => $two,
-            // 'three' => $three
-        ];
-        $return_result = [
-            'code' => 1,
-            'msg' => '获取成功',
-            'info' => $result,
-        ];
-        $this->ajaxReturn($return_result);
-
-    }
-    //获取产品子分类
-    public function get_son_templet_category()
-    {
-        if (!IS_AJAX) {
-            return FALSE;
-        }
-        $id=I('id');
-        $pid = I('pid');
-        //全部
-        if ($pid == -1) {
-            $one_cats = $this->cat_model->order('id asc')->where(['pid' => 0])->select();
-            foreach ($one_cats as $cat) {
-                $one_ids[] = $cat['id'];
-            }
-            $where['pid'] = ['in', $one_ids];
-        } else {
-            $where['pid'] = $pid;
-        }
-
-        //二级分类
-        $two = $this->cat_model->order('id asc')->where($where)->select();
-        foreach ($two as $v) {
-            $two_ids[] = $v['id'];
-        }
-        //三级分类关联二级分类
-        $cats = $this->cat_model->order('id asc')->where(['pid' => ['in', $two_ids]])->select();
-        foreach ($cats as $cat) {
-            $three[$cat['pid']][] = $cat;
-        }
-        //判断是否有子分类
-        foreach ($two as $k => $v) {
-            $two[$k]['has_child'] = 0;
-            if (isset($three[$v['id']])) {
-                $two[$k]['has_child'] = 1;
-            }
-        }
-        $result = [
-            'two' => $two,
-            'three' => $three
-        ];
-        $return_result = [
-            'code' => 1,
-            'msg' => '获取成功',
-            'info' => $result,
-        ];
-        $this->ajaxReturn($return_result);
-    }
 
     //改变状态---开启或者关闭
     public function set_status()
@@ -261,6 +160,8 @@ class AboutusAction extends CommonAction {
     //摄影图片
     //添加产品信息
     public function add() {
+        $c_id = 2;
+        $p_id = 5;
         $this->display();
     }
 

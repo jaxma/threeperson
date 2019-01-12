@@ -270,6 +270,9 @@ class PhotoAction extends CommonAction {
             'two' => $two,
             // 'three' => $three
         ];
+        var_dump($cats);
+        var_dump($one);
+        var_dump($two);
         $return_result = [
             'code' => 1,
             'msg' => '获取成功',

@@ -60,10 +60,10 @@
             </div>
           </div>
         <div class="layui-form-item  items">
-          <label class="form-text">分类：</label>
+          <label class="form-text">分类(必选)：</label>
           <div class="form-right">
             <div class="layui-input-inline three-select">
-              <select required="" name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
+              <select  name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
                 <option value="a">请选择</option>
               </select>
             </div>
@@ -120,21 +120,21 @@
           </div>
         </div>
             <div class="layui-form-item items">
-                <label class="form-text">详情页图片：</label>
+                <label class="form-text">详情页图片（必选）：</label>
                 <div class="form-right" required="">
                     <!--引入图片页面-->
                     <include file="Public/images" data-name="many_image[]"/>
                 </div>
             </div>
           <div class="layui-form-item  items">
-            <label class="form-text">文章正文内容：</label>
+            <label class="form-text">文章正文内容（必写）：</label>
             <div class="form-right">
               <textarea id="editor" class="ueditors" name="content"></textarea>
               <include file="Public/ueditor" />
             </div>
           </div>
           <div class="layui-form-item  items">
-            <label class="form-text">文章内容（英文）：</label>
+            <label class="form-text">文章内容（英文必写）：</label>
             <div class="form-right">
               <textarea id="editor_en" class="ueditors" name="content_en"></textarea>
             </div>

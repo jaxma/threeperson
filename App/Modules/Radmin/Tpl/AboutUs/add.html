@@ -21,19 +21,12 @@
           min-width: 610px;
           max-width: 350px;
           max-height: 226px;
-        } 
+        }
         .edit-wrapper .layui-content .layui-form .items .form-right {
           min-width: 610px;
           max-width: 350px;
         }
-/*        .layui-form-item .form-right input{
-            margin-left: 15px;
-            display: inline-block;
-        }
-        .layui-form-item .form-right label{
-            margin-bottom: -8px;
-            margin-left: 6px;
-        }*/
+
     </style>
   </head>
 
@@ -47,22 +40,6 @@
       </header>
       <div class="layui-content">
         <form class="layui-form layui-box" action="__URL__/insert" data-auto="false" method="post">
-          <div class="layui-form-item  items">
-            <label class="form-text">摄影分类：</label>
-            <div class="form-right">
-              <div class="layui-input-inline three-select">
-                <select name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off">
-                  <option value="a">请选择</option>
-                </select>
-              </div>
-              <div class="layui-input-inline three-select">
-                <select name="category_id2" id="level_two" lay-verify="required" lay-filter="level_two" autocomplete="off">
-                  <option value="a">请选择</option>
-                </select>
-              </div>
-            <!-- <span style="color:red">备注：一级分类不能添加摄影封面喔！</span> -->
-            </div>
-          </div>
           <div class="layui-form-item items">
             <label class="form-text">主页标题：</label>
             <div class="form-right">
@@ -72,10 +49,16 @@
           <div class="layui-form-item items">
             <label class="form-text">主页标题（英文）：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入标题（英文）" placeholder="请输入标题名称">
+              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
             </div>
           </div>
-
+          <div class="layui-form-item  items">
+            <label class="form-text">是否开启</label>
+            <div class="form-right">
+                    <input type="radio" name="isopen" value="1" title="开启" checked>
+                    <input type="radio" name="isopen" value="0" title="关闭" >
+            </div>
+          </div>
           <!--引入图片页面-->
           <div class="layui-form-item items">
             <label class="form-text label-required">主页图片：</label>
@@ -86,21 +69,43 @@
               <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
             </div>
           </div>
-          
+
+          <div class="layui-form-item items">
+            <label class="form-text">详情页标题：</label>
+            <div class="form-right">
+              <input class="input-inf2" required="" type="text" name="title" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
+            </div>
+          </div>
+          <div class="layui-form-item items">
+            <label class="form-text">详情页标题（英文）：</label>
+            <div class="form-right">
+              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
+            </div>
+          </div>
+
+          <!--引入图片页面-->
+          <div class="layui-form-item items">
+            <label class="form-text label-required">详情页主图：</label>
+            <div class="form-right">
+              <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
+              <include file="Public/image" image_name="image" is_show="0" img_url=""/>
+            </div>
+          </div>
 
           <div class="layui-form-item  items">
             <label class="form-text">内容描述</label>
             <div class="form-right">
-              <input class="input-inf2" type="text" name="presents" lay-verify="" autocomplete="off" placeholder="请输入简短介绍">
+              <textarea id="editor" class="ueditors" name="content"></textarea>
+              <include file="Public/ueditor" />
             </div>
           </div>
-        <div class="layui-form-item  items">
-          <label class="form-text">是否开启</label>
-          <div class="form-right">
-                  <input type="radio" name="isopen" value="1" title="开启" checked>
-                  <input type="radio" name="isopen" value="0" title="关闭" >
+          <div class="layui-form-item  items">
+            <label class="form-text">内容描述（英文）</label>
+            <div class="form-right">
+              <textarea id="editor2" class="ueditors" name="content_en"></textarea>
+            </div>
           </div>
-        </div>
+        
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>
             <div class="form-right">
@@ -115,18 +120,9 @@
                     <include file="Public/images" data-name="many_image[]"/>
                 </div>
             </div>
-<!--           <div class="layui-form-item  items">
-            <label class="form-text">详情（其他）：</label>
-            <div class="form-right">
-              <textarea id="editor" class="ueditors" name="disc"></textarea>
-              <include file="Public/ueditor" />
-            </div>
-          </div> -->
           <div class="layui-form-item  items">
             <label class="form-text"></label>
             <div class="form-right">
-              <input type="hidden" name="c_id" id="c_id" value="{$c_id}"/>
-              <input type="hidden" name="p_id" id="p_id" value="{$p_id}"/>
               <button class="layui-btn" type='submit'>立即提交</button>
             </div>
           </div>
@@ -134,82 +130,7 @@
       </div>
     </div>
 <script>
-      var get_level = '__GROUP__/photo/templet_category'
-      var get_son = '__GROUP__/photo/get_son_templet_category';
-      var c_id = $('#c_id').val();
-      var p_id = $('#p_id').val();
-      $(function() {
-        $.ajax({
-          url: get_level,
-          async: false,
-          type: 'GET',
-          success: function(data) {
-            if(data.code == 1) {
-              $.each(data.info, function(key, value) {
-                var temp = new Array();
-                if(key != 'one'||value==null) {
-                  return
-                }
-                var aim = $('#level_one');
-                $.each(value, function(k, val) {
-                  var html = '';
-                  html = '<option value="' + val.id + '">' + val.name + '</option>';
-                  temp.push(html)
-                });
-                if(aim != '') {
-                  aim.append(temp)
-                }
-                form.render();
-              });
-              }else {
-              layer.msg(data.msg);
-            }
-            form.render('select');
-          }
-        });
-        form.on('select(level_one)', function(data) {
-          var p_id = data.value;
-          if(p_id != 'a') {
-            getTwo(p_id)
-          } else {
-            $('#level_two').empty().append('<option value="a">请选择</option>')
-          }
-        });
-      });
-
-      function getTwo(p_id) {
-        $.ajax({
-          url: get_son,
-          data: {
-            pid: p_id
-          },
-          async: false,
-          success: function(data) {
-            if(data.code == 1) {
-              var aim = $('#level_two')
-              var temp = []
-              aim.empty().append('<option value="a">请选择</option>')
-              $('#level_three').empty().append('<option value="a">请选择</option>')
-              $.each(data.info, function(key, value) {
-                if(key != 'two'||value == null) {
-                  return
-                }
-                $.each(value, function(k, val) {
-                  var html = '';
-                  html = '<option value="' + val.id + '">' + val.name + '</option>';
-                  temp.push(html)
-                });
-                if(aim != '') {
-                  aim.append(temp)
-                }
-              });
-            } else {
-              layer.msg(data.msg)
-            }
-            form.render('select')
-          }
-        });
-      }
+      
   </script>
   </body>
 </html>

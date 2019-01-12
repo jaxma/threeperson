@@ -21,19 +21,12 @@
           min-width: 610px;
           max-width: 350px;
           max-height: 226px;
-        } 
+        }
         .edit-wrapper .layui-content .layui-form .items .form-right {
           min-width: 610px;
           max-width: 350px;
         }
-/*        .layui-form-item .form-right input{
-            margin-left: 15px;
-            display: inline-block;
-        }
-        .layui-form-item .form-right label{
-            margin-bottom: -8px;
-            margin-left: 6px;
-        }*/
+
     </style>
   </head>
 
@@ -47,7 +40,6 @@
       </header>
       <div class="layui-content">
         <form class="layui-form layui-box" action="__URL__/insert" data-auto="false" method="post">
-          
           <div class="layui-form-item items">
             <label class="form-text">主页标题：</label>
             <div class="form-right">
@@ -60,7 +52,13 @@
               <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
             </div>
           </div>
-
+          <div class="layui-form-item  items">
+            <label class="form-text">是否开启</label>
+            <div class="form-right">
+                    <input type="radio" name="isopen" value="1" title="开启" checked>
+                    <input type="radio" name="isopen" value="0" title="关闭" >
+            </div>
+          </div>
           <!--引入图片页面-->
           <div class="layui-form-item items">
             <label class="form-text label-required">主页图片：</label>
@@ -91,8 +89,6 @@
             <div class="form-right">
               <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
               <include file="Public/image" image_name="image" is_show="0" img_url=""/>
-              <!-- <br/> -->
-              <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
             </div>
           </div>
 
@@ -107,16 +103,9 @@
             <label class="form-text">内容描述（英文）</label>
             <div class="form-right">
               <textarea id="editor2" class="ueditors" name="content_en"></textarea>
-              <include file="Public/ueditor" />
             </div>
           </div>
-        <div class="layui-form-item  items">
-          <label class="form-text">是否开启</label>
-          <div class="form-right">
-                  <input type="radio" name="isopen" value="1" title="开启" checked>
-                  <input type="radio" name="isopen" value="0" title="关闭" >
-          </div>
-        </div>
+        
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>
             <div class="form-right">

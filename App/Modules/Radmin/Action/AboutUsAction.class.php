@@ -181,7 +181,8 @@ class AboutusAction extends CommonAction {
         $detial_title_en = trim(I('post.detial_title_en',''));
         $many_image=I('many_image');
         $image2 = $many_image[0];
-        $many_images=implode(',',$many_image);
+        unset($many_image[0]);
+        $many_images=!empty($many_image)?implode(',',$many_image):'';
         $content = trim(I('post.content',''));
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
@@ -199,9 +200,9 @@ class AboutusAction extends CommonAction {
             'image2' => $image2,
             'content' => $content,
             'content_en' => $content_en,
-            'pulish_time' => strtotime($pulish_time),
+            'publish_time' => strtotime($publish_time),
             'isopen' => $isopen,
-            'many_image' => $many_image,
+            'many_image' => $many_images,
             'sequence' => $sequence,
             'time' => time(),
         );

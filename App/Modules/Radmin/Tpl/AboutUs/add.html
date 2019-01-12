@@ -21,12 +21,19 @@
           min-width: 610px;
           max-width: 350px;
           max-height: 226px;
-        }
+        } 
         .edit-wrapper .layui-content .layui-form .items .form-right {
           min-width: 610px;
           max-width: 350px;
         }
-
+/*        .layui-form-item .form-right input{
+            margin-left: 15px;
+            display: inline-block;
+        }
+        .layui-form-item .form-right label{
+            margin-bottom: -8px;
+            margin-left: 6px;
+        }*/
     </style>
   </head>
 
@@ -41,15 +48,15 @@
       <div class="layui-content">
         <form class="layui-form layui-box" action="__URL__/insert" data-auto="false" method="post">
           <div class="layui-form-item items">
-            <label class="form-text">主页标题：</label>
+            <label class="form-text">标题名称：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
+              <input class="input-inf2" required="" type="text" name="name" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
             </div>
           </div>
           <div class="layui-form-item items">
-            <label class="form-text">主页标题（英文）：</label>
+            <label class="form-text">标题名称（英文）：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
+              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
             </div>
           </div>
           <div class="layui-form-item  items">
@@ -59,59 +66,22 @@
                     <input type="radio" name="isopen" value="0" title="关闭" >
             </div>
           </div>
+          <!--引入图片页面-->
+          <div class="layui-form-item items">
+            <label class="form-text label-required">摄影封面图片：</label>
+            <div class="form-right">
+              <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
+              <include file="Public/image" image_name="image" is_show="0" img_url=""/>
+            </div>
+          </div>
           
-          <div class="layui-form-item  items">
-          <label class="form-text">是否开启</label>
-            <div class="form-right">
-                    <input type="radio" name="isopen" value="1" title="开启" checked>
-                    <input type="radio" name="isopen" value="0" title="关闭" >
-            </div>
-          </div>
-          <!--引入图片页面-->
-          <div class="layui-form-item items">
-            <label class="form-text label-required">主页图片：</label>
-            <div class="form-right">
-              <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
-              <include file="Public/image" image_name="image" is_show="0" img_url=""/>
-              <!-- <br/> -->
-              <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
-            </div>
-          </div>
-
-          <div class="layui-form-item items">
-            <label class="form-text">详情页标题：</label>
-            <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
-            </div>
-          </div>
-          <div class="layui-form-item items">
-            <label class="form-text">详情页标题（英文）：</label>
-            <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="name" autocomplete="off" title="请输入标题" placeholder="请输入标题名称">
-            </div>
-          </div>
-
-          <!--引入图片页面-->
-          <div class="layui-form-item items">
-            <label class="form-text label-required">详情页主图：</label>
-            <div class="form-right">
-              <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
-              <include file="Public/image" image_name="image" is_show="0" img_url=""/>
-            </div>
-          </div>
-
           <div class="layui-form-item  items">
             <label class="form-text">内容描述</label>
             <div class="form-right">
-              <textarea id="editor" class="ueditors" name="content"></textarea>
+              <input class="input-inf2" type="text" name="presents" lay-verify="" autocomplete="off" placeholder="请输入简短介绍">
             </div>
           </div>
-          <div class="layui-form-item  items">
-            <label class="form-text">内容描述（英文）</label>
-            <div class="form-right">
-              <textarea id="editor2" class="ueditors" name="content_en"></textarea>
-            </div>
-          </div>
+        
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>
             <div class="form-right">
@@ -126,6 +96,7 @@
                     <include file="Public/images" data-name="many_image[]"/>
                 </div>
             </div>
+
           <div class="layui-form-item  items">
             <label class="form-text"></label>
             <div class="form-right">
@@ -135,8 +106,6 @@
         </form>
       </div>
     </div>
-<script>
 
-  </script>
   </body>
 </html>

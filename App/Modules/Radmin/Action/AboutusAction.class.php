@@ -162,6 +162,8 @@ class AboutusAction extends CommonAction {
     public function add() {
         $c_id = 2;
         $p_id = 5;
+        $this->assign('c_id',$c_id);
+        $this->assign('p_id',$p_id);
         $this->display();
     }
 

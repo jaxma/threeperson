@@ -166,8 +166,11 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  str = val.id==3?'selected="selected"':'';
-                  html = '<option value="' + val.id + '" ' + str + '>' + val.name + '</option>';
+                  if(val.id == '3'){
+                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
+                  }else{
+                    html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  }
                   temp.push(html)
                 });
                 if(aim != '') {
@@ -211,9 +214,11 @@
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  var str = '';
-                  str = val.id==12?'selected="selected"':'';
-                  html = '<option value="' + val.id + '" ' + str + ' >' + val.name + '</option>';
+                  if(val.id == '12'){
+                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
+                  }else{
+                    html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  }
                   temp.push(html)
                 });
                 if(aim != '') {

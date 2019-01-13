@@ -20,7 +20,7 @@ class RecruitmentAction extends CommonAction {
     
     //获取该栏目中文名字
     private function get_name(){
-        return '新闻';
+        return '招聘';
     }
 
     //产品信息列表
@@ -38,12 +38,12 @@ class RecruitmentAction extends CommonAction {
             foreach ($list as $k => $v) {
                 $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name,pid')->find();
                 if($this_cat2){
-                    $list[$k]['cat2'] = $this_cat2['name'];
+                    $list[$k]['cat2_name'] = $this_cat2['name'];
                     $this_cat1 = $this->cat_model->where('status = 1 and id = '.$this_cat2['pid'])->field('name')->find();
-                    $list[$k]['cat1'] = $this_cat1['name'];
+                    $list[$k]['cat1_name'] = $this_cat1['name'];
                 }else{
                     $this_cat1 = $this->cat_model->where('status = 1 and id = '.$v['cat1'])->field('name')->find();
-                    $list[$k]['cat1'] = $this_cat1['name'];
+                    $list[$k]['cat1_name'] = $this_cat1['name'];
                 }
             }
             //分页显示
@@ -58,8 +58,6 @@ class RecruitmentAction extends CommonAction {
 
         $row = D($model_name)->find($id);
         $this->row=$row;
-        var_dump($row);
-        var_dump($id);
         $this->display();
     }
 

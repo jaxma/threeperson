@@ -37,12 +37,10 @@ class RecruitmentAction extends CommonAction {
             $list = D($model_name)->order('time desc')->where('cat1 = 3 '.$where)->limit($limit)->select();
             foreach ($list as $k => $v) {
                 $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name,pid')->find();
-                var_dump($this_cat2);
                 if($this_cat2){
                     $list[$k]['cat2_name'] = $this_cat2['name'];
                     $this_cat1 = $this->cat_model->where('status = 1 and id = '.$this_cat2['pid'])->field('name')->find();
                     $list[$k]['cat1_name'] = $this_cat1['name'];
-                    var_dump($this_cat1);
                 }else{
                     $this_cat1 = $this->cat_model->where('status = 1 and id = '.$v['cat1'])->field('name')->find();
                     $list[$k]['cat1_name'] = $this_cat1['name'];

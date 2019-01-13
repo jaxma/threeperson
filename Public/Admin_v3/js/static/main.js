@@ -10,9 +10,15 @@ $(function(){
     
     isScrollY();
     projectLoop();
+    //初始化-放大图片
     baguetteBox.run('#lightbox-context', {
-    // Custom options
+        // Custom options
     }); 
+    //懒加载图片lazy-load
+    $("img.lazy-load").lazyload({
+        effect: "fadeIn",
+        threshold: 180
+    });
 })
 
 //点击打开侧边栏

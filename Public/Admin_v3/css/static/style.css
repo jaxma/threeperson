@@ -922,7 +922,8 @@ to {
 	height: 100%;
 	width: 100%;
 	transition: opacity .4s ease;
-	cursor: alias
+	cursor: alias;
+	z-index: 99;
 }
 
 .no-pointerevents .darken-shim {
@@ -3835,7 +3836,10 @@ span.qualification {
 @media (max-width:1024px) {
 
 	.home .home-cover-image img.transformer,
-	.home .home-cover-image video {
+	.home .home-cover-image video,
+	.swiper-button-next,
+	.swiper-button-prev
+	{
 		display: none
 	}
 }
@@ -13440,4 +13444,8 @@ a.next-proj-link {
 		-webkit-transform: translateX(8px);
 		transform: translateX(8px)
 	}
+}
+
+.swiper-container{
+	z-index: 0;
 }

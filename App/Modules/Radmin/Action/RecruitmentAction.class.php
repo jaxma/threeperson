@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 	topos招聘模块
+ *  topos经销商管理系统
  */
 class RecruitmentAction extends CommonAction {
 
@@ -15,13 +15,12 @@ class RecruitmentAction extends CommonAction {
     
     //获取表名
     private function get_model(){
-        
         return 'Recruitment';
     }
     
     //获取该栏目中文名字
     private function get_name(){
-        return '招聘';
+        return '新闻';
     }
 
     //产品信息列表
@@ -65,6 +64,10 @@ class RecruitmentAction extends CommonAction {
     //摄影图片
     //添加产品信息
     public function add() {
+        $row = D($model_name)->find($id);
+        $cat1 = $this->cat_model->where('id='.$row['cat1'])->find();
+        $cat2 = $this->cat_model->where('id='.$row['cat2'])->find();
+        $this->row = $row;
         $this->display();
     }
 
@@ -198,6 +201,7 @@ class RecruitmentAction extends CommonAction {
             'cat2'=> $category_id2,
         );
 
+        
         $res = D($model_name)->where(array('id' => $id))->save($data);
         if ($res === false) {
             $this->error("操作失败");
@@ -210,6 +214,7 @@ class RecruitmentAction extends CommonAction {
     //删除产品信息
     public function delete() {
         $model_name = $this->get_model();
+        
         $id = I('id');
         $res = D($model_name)->where(array('id' => $id))->delete();
         if ($res) {

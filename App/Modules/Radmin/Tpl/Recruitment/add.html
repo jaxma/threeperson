@@ -166,16 +166,22 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  str = val.id==12?'selected="selected"':'';
-                  html = '<option value="' + val.id + '" ' + str + '>' + val.name + '</option>';
+                  if(val.id == {$row.cat1}){
+                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
+                  }else{
+                    html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  }
                   temp.push(html)
                 });
                 if(aim != '') {
                   aim.append(temp)
                 }
+                if({$row.cat1} && {$row.cat1} != 0){
+                    getTwo({$row.cat1});
+                }
                 form.render();
               });
-              }else {
+                }else {
               layer.msg(data.msg);
             }
             form.render('select');
@@ -186,7 +192,7 @@
           if(p_id != 'a') {
             getTwo(p_id)
           } else {
-            $('#level_two').empty().append('<option value="a">请选择</option>')
+            $('#level_two').empty().append('<option value="">请选择</option>')
           }
         });
       });
@@ -202,17 +208,19 @@
             if(data.code == 1) {
               var aim = $('#level_two')
               var temp = []
-              aim.empty().append('<option value="a">请选择</option>')
-              $('#level_three').empty().append('<option value="a">请选择</option>')
+              aim.empty().append('<option value="">请选择</option>')
+              $('#level_three').empty().append('<option value="">请选择</option>')
               $.each(data.info, function(key, value) {
                 if(key != 'two'||value == null) {
                   return
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  var str = '';
-                  str = val.id==12?'selected="selected"':'';
-                  html = '<option value="' + val.id + '" ' + str + '>' + val.name + '</option>';
+                  if(val.id == {$row.cat2}){
+                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
+                  }else{
+                    html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  }
                   temp.push(html)
                 });
                 if(aim != '') {

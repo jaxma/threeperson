@@ -14,7 +14,8 @@ class IndexAction extends CommonAction {
         
         $this->display();
     }
-    public function projectList() {
+    
+     public function projectlist() {
         
         $this->display();
     }

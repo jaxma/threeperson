@@ -183,6 +183,7 @@
         });
         form.on('select(level_one)', function(data) {
           var p_id = data.value;
+          console.log(p_id);
           if(p_id != 'a') {
             getTwo(p_id)
           } else {

@@ -51,7 +51,6 @@ class RecruitmentAction extends CommonAction {
             //模板赋值显示
             $this->assign('list', $list);
             $this->assign("page", $page);
-            var_dump($list);
             $this->count=$count;
         }
         $this->p=I('p');

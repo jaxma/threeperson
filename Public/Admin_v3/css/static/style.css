@@ -3998,6 +3998,7 @@ span.qualification {
 }
 .home .instagram .instagram-tile a{
 	color: #333;
+	display: block;
 }
 .home .instagram .instagram-tile:last-child {
 	margin-right: 0

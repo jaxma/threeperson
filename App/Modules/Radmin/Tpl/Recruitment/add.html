@@ -42,7 +42,7 @@
     <div class="container-fluid edit-wrapper">
       <header class="edit-title">
         <blockquote class="layui-elem-quote">
-          <span class="title">添加列表</span>
+          <span class="title">添加招聘信息</span>
         </blockquote>
       </header>
       <div class="layui-content">
@@ -50,20 +50,20 @@
           <div class="layui-form-item items">
             <label class="form-text">标题名称：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
+              <input required="" class="input-inf2"  type="text" name="title" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
             </div>
           </div>
           <div class="layui-form-item items">
             <label class="form-text">标题（英文）：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
+              <input required=""  class="input-inf2"  type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
             </div>
           </div>
         <div class="layui-form-item  items">
           <label class="form-text label-required">分类：</label>
           <div class="form-right">
             <div class="layui-input-inline three-select">
-              <select  name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
+              <select  name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" >
                 <option value="a">请选择</option>
               </select>
             </div>
@@ -76,6 +76,12 @@
           </div>
         </div>
         <div class="layui-form-item  items">
+            <label class="form-text">发布时间</label>
+            <div class="form-right">
+              <input required=""   type="text" class="layui-input input-inf2" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间">
+            </div>
+          </div>
+        <div class="layui-form-item  items">
           <label class="form-text">是否开启</label>
           <div class="form-right">
                   <input type="radio" name="isopen" value="1" title="开启" checked>
@@ -87,41 +93,35 @@
             <label class="form-text label-required">首页封面图片：</label>
             <div class="form-right">
               <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
-              <include required="" file="Public/image" image_name="image" is_show="0" img_url=""/>
+              <include  file="Public/image" image_name="image" is_show="0" img_url=""/>
               <!-- <br/> -->
               <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
             </div>
           </div>
-          <div class="layui-form-item  items">
-            <label class="form-text">发布时间</label>
-            <div class="form-right">
-              <!-- <input class="input-inf2" type="text" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间"> -->
-              <input required="" type="text" class="layui-input input-inf2" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间">
-            </div>
-          </div>
+          
         
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>
             <div class="form-right">
-                <input class="input-inf2" style="max-width: 225px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="">
+                <input class="input-inf2" style="max-width: 225px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input"  title="请输入优先级" value="">
                 <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
             </div>
         </div>
         <div class="layui-form-item items">
             <label class="form-text">详情页标题：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="detial_title" lay-verify="detial_title" autocomplete="off" title="请输入详情页标题名称" placeholder="">
+              <input class="input-inf2"  type="text" name="detial_title" lay-verify="detial_title" autocomplete="off" title="请输入详情页标题名称" placeholder="">
             </div>
           </div>
         <div class="layui-form-item items">
           <label class="form-text">详情页标题（英文）：</label>
           <div class="form-right">
-            <input class="input-inf2" required="" type="text" name="detial_title_en" lay-verify="detial_title_en" autocomplete="off" title="请输入详情页标题名称" placeholder="">
+            <input class="input-inf2"  type="text" name="detial_title_en" lay-verify="detial_title_en" autocomplete="off" title="请输入详情页标题名称" placeholder="">
           </div>
         </div>
             <div class="layui-form-item items">
                 <label class="form-text label-required">详情页图片：</label>
-                <div class="form-right" required="">
+                <div class="form-right" >
                     <!--引入图片页面-->
                     <include file="Public/images" data-name="many_image[]"/>
                 </div>
@@ -166,7 +166,8 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  str = val.id==12?'selected="selected"':'';
+                  html = '<option value="' + val.id + '" ' + str + '>' + val.name + '</option>';
                   temp.push(html)
                 });
                 if(aim != '') {
@@ -209,7 +210,9 @@
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  var str = '';
+                  str = val.id==12?'selected="selected"':'';
+                  html = '<option value="' + val.id + '" ' + str + '>' + val.name + '</option>';
                   temp.push(html)
                 });
                 if(aim != '') {

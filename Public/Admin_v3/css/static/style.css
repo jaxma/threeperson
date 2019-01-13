@@ -92,7 +92,6 @@ html {
 	color: #333;
 	padding: 0;
 	margin: 0;
-	overflow-y: scroll;
 	overflow-x: hidden;
 	min-height: 100%
 }
@@ -923,7 +922,7 @@ to {
 	width: 100%;
 	transition: opacity .4s ease;
 	cursor: alias;
-	z-index: 99;
+	z-index: 0;
 }
 
 .no-pointerevents .darken-shim {
@@ -3996,7 +3995,10 @@ span.qualification {
 .home .instagram .instagram-tile {
 	font-size: 0
 }
-
+.home .instagram .instagram-tile a{
+	color: #333;
+	display: block;
+}
 .home .instagram .instagram-tile:last-child {
 	margin-right: 0
 }

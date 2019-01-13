@@ -1,9 +1,9 @@
 <?php
 
 /**
- * 	topos经销商管理系统
+ *  topos经销商管理系统
  */
-class AboutusAction extends CommonAction {
+class RecruitmentAction extends CommonAction {
 
     private $cat_model;
 
@@ -15,13 +15,11 @@ class AboutusAction extends CommonAction {
     
     //获取表名
     private function get_model(){
-        
-        return 'News';
+        return 'Recruitment';
     }
     
     //获取该栏目中文名字
     private function get_name(){
-        
         return '新闻';
     }
 
@@ -36,7 +34,7 @@ class AboutusAction extends CommonAction {
             import('ORG.Util.Page');
             $p = new Page($count, $page_num);
             $limit = $p->firstRow . "," . $p->listRows;
-            $list = D($model_name)->order('time desc')->where('cat1 = 2 '.$where)->limit($limit)->select();
+            $list = D($model_name)->order('time desc')->where('cat1 = 3 '.$where)->limit($limit)->select();
             foreach ($list as $k => $v) {
                 $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name,pid')->find();
                 if($this_cat2){
@@ -57,27 +55,19 @@ class AboutusAction extends CommonAction {
         }
         $this->p=I('p');
         $this->limit=$page_num;
+
         $row = D($model_name)->find($id);
         $this->row=$row;
+        var_dump($row);
+        var_dump($id);
         $this->display();
     }
 
-    public function books(){
-
-    }
-    public function designer(){
-
-    }
-
-  
 
     //摄影图片
     //添加产品信息
     public function add() {
-        $c_id = 2;
-        $p_id = 5;
-        $this->assign('c_id',$c_id);
-        $this->assign('p_id',$p_id);
+
         $this->display();
     }
 
@@ -100,7 +90,7 @@ class AboutusAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||empty($content)||empty($content_en)){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
@@ -189,7 +179,7 @@ class AboutusAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||empty($content)||empty($content_en)){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }

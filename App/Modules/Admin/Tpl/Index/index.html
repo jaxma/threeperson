@@ -205,20 +205,24 @@
                         <!-- 招聘 -->
                         <div class="slider instagram-slider at-end at-start">
                             <ul style="transform: translate(0px, 0px) translateZ(0px);">
-                                <li class="instagram-tile ">
+                                <li class="instagram-tile">
                                     <!-- <img width="450" height="450" src="http://www.toposla.com/rsc/images/1515202805-450x450.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt=""  sizes="(max-width: 450px) 100vw, 450px">  -->
-                                    <div class="instagram-text">
-                                        <span class="news-date">2018-2-1</span>
-                                        <p>初级/中级景观设计师3名（3-5年以上知名设计事务所工作经验）</p>
-                                    </div>
+                                    <a href="javascript:void(0);">
+                                        <div class="instagram-text">
+                                            <span class="news-date">2018-2-1</span>
+                                            <p>初级/中级景观设计师3名（3-5年以上知名设计事务所工作经验）</p>
+                                        </div>
+                                    </a>
                                 </li>
         
-                                <li class="instagram-tile ">
+                                <li class="instagram-tile">
                                     <!-- <img width="450" height="450" src="http://www.toposla.com/rsc/images/1515202805-450x450.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt=""  sizes="(max-width: 450px) 100vw, 450px">   -->
-                                    <div class="instagram-text">
-                                        <span class="news-date">2018-2-1</span>
-                                        <p>景观实习生</p>
-                                    </div>
+                                    <a href="javascript:void(0);">
+                                        <div class="instagram-text">
+                                            <span class="news-date">2018-2-1</span>
+                                            <p>初级/中级景观设计师3名（3-5年以上知名设计事务所工作经验）</p>
+                                        </div>
+                                    </a>
                                 </li>
                             </ul>
                             <div class="slider-more-arrow"></div>
@@ -370,19 +374,19 @@
                         <h1>事务所介绍</h1>
                         <ul>
                             <li>
-                                <a class="menu-link" href="http://www.toposla.com/#">
+                                <a class="menu-link" href="http://www.toposla.com">
                                     &nbsp;&nbsp;新闻 </a>
                                 <ul>
                                 </ul>
                             </li>
                             <li>
-                                <a class="menu-link" href="http://www.toposla.com/#">
+                                <a class="menu-link" href="http://www.toposla.com">
                                     &nbsp;&nbsp;设计师 </a>
                                 <ul>
                                 </ul>
                             </li>
                             <li>
-                                <a class="menu-link" href="http://www.toposla.com/#">
+                                <a class="menu-link" href="http://www.toposla.com">
                                     &nbsp;&nbsp;出版书 </a>
                                 <ul>
                                 </ul>
@@ -395,19 +399,22 @@
                         <ul>
                             <li>
                                 <a class="menu-link" href="http://www.toposla.com/#">
-                                    &nbsp;&nbsp;邮箱 </a>
+                                    &nbsp;&nbsp;邮箱 
+                                </a>
                                 <ul>
                                 </ul>
                             </li>
                             <li>
                                 <a class="menu-link" href="http://www.toposla.com/#">
-                                    &nbsp;&nbsp;招聘 </a>
+                                    &nbsp;&nbsp;招聘 
+                                </a>
                                 <ul>
                                 </ul>
                             </li>
                             <li>
                                 <a class="menu-link" href="http://www.toposla.com/#">
-                                    &nbsp;&nbsp;地图 </a>
+                                    &nbsp;&nbsp;地图 
+                                </a>
                                 <ul>
                                 </ul>
     
@@ -423,6 +430,21 @@
         <script type='text/javascript' src='__PUBLIC__/Admin_v3/js/jquery-2.1.1.min.js' charset='utf-8'></script>
         <script src="__PUBLIC__/Admin_v3/js/static/swiper.min.4.6.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/baguetteBox.js"></script>
+        <script src="__PUBLIC__/Admin_v3/js/static/jquery.lazyload.min.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/main.js"></script>
+        <script>
+            //显示logo
+            $(window).on('scroll',function(){
+                var winTop = $(window).scrollTop();//滚动条滚动高度
+                var featuredCollections = $("#featured-collections");
+                var featuredCollectionsTop = featuredCollections.offset().top;
+                if((featuredCollectionsTop - winTop) <= 0){
+                    $("#page-nav").show(0);
+                }
+                else{
+                    $("#page-nav").hide(0);
+                }
+            })
+        </script>
     </body>
 </html>

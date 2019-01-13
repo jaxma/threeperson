@@ -34,7 +34,7 @@ class RecruitmentAction extends CommonAction {
             import('ORG.Util.Page');
             $p = new Page($count, $page_num);
             $limit = $p->firstRow . "," . $p->listRows;
-            $list = D($model_name)->order('time desc')->where('cat1 = 3 '.$where)->limit($limit)->select();
+            $list = D($model_name)->order('sequence desc')->where('cat1 = 3 '.$where)->limit($limit)->select();
             foreach ($list as $k => $v) {
                 $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name,pid')->find();
                 if($this_cat2){

@@ -99,6 +99,15 @@ class WebsetAction extends CommonAction {
             'T_EN_TEL' => C('T_EN_TEL'), 
             'T_EN_EMAIL' => C('T_EN_EMAIL'), 
 
+            'TE_POSITION' => C('TE_POSITION'), 
+            'TE_ADDRESS' => C('TE_ADDRESS'), 
+            'TE_TEL' => C('TE_TEL'), 
+            'TE_EMAIL' => C('TE_EMAIL'), 
+            'TE_EN_POSITION' => C('TE_EN_POSITION'), 
+            'TE_EN_ADDRESS' => C('TE_EN_ADDRESS'), 
+            'TE_EN_TEL' => C('TE_EN_TEL'), 
+            'TE_EN_EMAIL' => C('TE_EN_EMAIL'), 
+
             //级别配置
             'LEVEL_NUM' => C('LEVEL_NUM'), //经销商级别数
             'LEVEL_NAME' => C('LEVEL_NAME'), //经销商级别名
@@ -314,6 +323,39 @@ class WebsetAction extends CommonAction {
         }
         if ($T_EN_EMAIL != NULL) {
             $new_config['T_EN_EMAIL'] = $T_EN_EMAIL;
+        }
+
+        $TE_POSITION = trim(I('TE_POSITION'));
+        $TE_ADDRESS = trim(I('TE_ADDRESS'));
+        $TE_TEL = trim(I('TE_TEL'));
+        $TE_EMAIL = trim(I('TE_EMAIL'));
+        if ($TE_POSITION != NULL) {
+            $new_config['TE_POSITION'] = $TE_POSITION;
+        }
+        if ($TE_ADDRESS != NULL) {
+            $new_config['TE_ADDRESS'] = $TE_ADDRESS;
+        }
+        if ($TE_TEL != NULL) {
+            $new_config['TE_TEL'] = $TE_TEL;
+        }
+        if ($TE_EMAIL != NULL) {
+            $new_config['TE_EMAIL'] = $TE_EMAIL;
+        }
+        $TE_EN_POSITION = trim(I('TE_EN_POSITION'));
+        $TE_EN_ADDRESS = trim(I('TE_EN_ADDRESS'));
+        $TE_EN_TEL = trim(I('TE_EN_TEL'));
+        $TE_EN_EMAIL = trim(I('TE_EN_EMAIL'));
+        if ($TE_EN_POSITION != NULL) {
+            $new_config['TE_EN_POSITION'] = $TE_EN_POSITION;
+        }
+        if ($TE_EN_ADDRESS != NULL) {
+            $new_config['TE_EN_ADDRESS'] = $TE_EN_ADDRESS;
+        }
+        if ($TE_EN_TEL != NULL) {
+            $new_config['TE_EN_TEL'] = $TE_EN_TEL;
+        }
+        if ($TE_EN_EMAIL != NULL) {
+            $new_config['TE_EN_EMAIL'] = $TE_EN_EMAIL;
         }
         
         //$LEVEL_NUM = trim(I('LEVEL_NUM'));

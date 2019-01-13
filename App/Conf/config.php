@@ -7,7 +7,7 @@
    'URL_MODEL'=>'2',
    'DB_TYPE'=>'mysql',
    'DB_PORT'=>'3306',
-    'DB_HOST'=>'127.0.0.1',
+   'DB_HOST'=>'127.0.0.1',
    'DB_NAME'=>'threeperson',
    'DB_USER'=>'threeperson',
    'DB_PWD'=>'sSbw5mkRXbzn4wr5',
@@ -207,5 +207,13 @@
    'T_EN_EMAIL'=>'info@toposla.com',
    'T_POSITION'=>'深圳',
    'T_EN_POSITION'=>'圣迭戈',
+   'TE_POSITION'=>'1',
+   'TE_ADDRESS'=>'2',
+   'TE_TEL'=>'3',
+   'TE_EMAIL'=>'4',
+   'TE_EN_POSITION'=>'5',
+   'TE_EN_ADDRESS'=>'6',
+   'TE_EN_TEL'=>'7',
+   'TE_EN_EMAIL'=>'8',
 
 ); ?>

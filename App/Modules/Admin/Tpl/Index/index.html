@@ -432,5 +432,19 @@
         <script src="__PUBLIC__/Admin_v3/js/static/baguetteBox.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/jquery.lazyload.min.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/main.js"></script>
+        <script>
+            //显示logo
+            $(window).on('scroll',function(){
+                var winTop = $(window).scrollTop();//滚动条滚动高度
+                var featuredCollections = $("#featured-collections");
+                var featuredCollectionsTop = featuredCollections.offset().top;
+                if((featuredCollectionsTop - winTop) <= 0){
+                    $("#page-nav").show(0);
+                }
+                else{
+                    $("#page-nav").hide(0);
+                }
+            })
+        </script>
     </body>
 </html>

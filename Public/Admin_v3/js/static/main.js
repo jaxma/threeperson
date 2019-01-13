@@ -132,16 +132,10 @@ function resetView(){
 
 //背景跟随滚动条滚动
 $(window).on('scroll',function(){
-    var winTop = $(window).scrollTop();//滚动条滚动高度
-    var handleClickIndexImage = $("#handleClickIndexImage .landscape");
-    handleClickIndexImage.animate({top:0 - winTop},20);
-
-    var featuredCollections = $("#featured-collections");
-    var featuredCollectionsTop = featuredCollections.offset().top;
-    if((featuredCollectionsTop - winTop) <= 0){
-        $("#page-nav").show(0);
-    }
-    else{
-        $("#page-nav").hide(0);
+    var width = $(window).width();
+    if(width > 1280){
+        var winTop = $(window).scrollTop();//滚动条滚动高度
+        var handleClickIndexImage = $("#handleClickIndexImage .landscape");
+        handleClickIndexImage.animate({top:0 - winTop},20);
     }
 })

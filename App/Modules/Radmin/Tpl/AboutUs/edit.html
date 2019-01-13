@@ -42,7 +42,7 @@
 <div class="container-fluid edit-wrapper">
 	<header class="edit-title">
 		<blockquote class="layui-elem-quote">
-			<span class="title">编辑新闻</span>
+			<span class="title">编辑列表</span>
 		</blockquote>
 	</header>
 	<div class="layui-content">
@@ -55,13 +55,13 @@
 				</div>
 			</div>
       <div class="layui-form-item items">
-        <label class="form-text">标题(英文)：</label>
+        <label class="form-text">标题（英文）：</label>
         <div class="form-right">
           <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.title_en}">
         </div>
       </div>
 			<div class="layui-form-item  items">
-				<label class="form-text">分类(必选)：</label>
+				<label class="form-text label-required">分类：</label>
 				<div class="form-right">
 					<div class="layui-input-inline three-select">
 						<select name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off">
@@ -117,14 +117,14 @@
         </div>
       </div>
       <div class="layui-form-item items">
-        <label class="form-text">详情页标题(英文)：</label>
+        <label class="form-text">详情页标题（英文）：</label>
         <div class="form-right">
           <input class="input-inf2" required="" type="text" name="detial_title_en" lay-verify="detial_title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.title_news_en}">
         </div>
       </div>
 
       <div class="layui-form-item items">
-          <label class="form-text">详情页图片（必选）：</label>
+          <label class="form-text  label-required">详情页图片：</label>
           <div class="form-right">
               <!--引入图片页面-->
               <div class="imgs-wrapper">
@@ -137,14 +137,14 @@
           </div>
       </div>
       <div class="layui-form-item  items">
-            <label class="form-text">文章正文内容（必写）：</label>
+            <label class="form-text label-required">文章正文内容：</label>
             <div class="form-right">
               <textarea id="editor" class="ueditors" name="content">{$row.content}</textarea>
               <include file="Public/ueditor" />
             </div>
           </div>
           <div class="layui-form-item  items">
-            <label class="form-text">文章内容（英文必写）：</label>
+            <label class="form-text label-required">文章正文内容（英文）：</label>
             <div class="form-right">
               <textarea id="editor_en" class="ueditors" name="content_en">{$row.content_en}</textarea>
             </div>

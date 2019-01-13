@@ -6,13 +6,11 @@
 class AboutusAction extends CommonAction {
 
     private $cat_model;
-    private $company_model;
 
     public function _initialize()
     {
         parent::_initialize();
         $this->cat_model = M('cat');
-        $this->company_model = M('company');
     }
     
     //获取表名
@@ -29,6 +27,8 @@ class AboutusAction extends CommonAction {
 
     //产品信息列表
     public function index() {
+        $cat2 = I('category_id2');
+        $cat2 ? $where = ' and cat2= '.$cat2 : $where = '';
         $model_name = $this->get_model();
         $count = D($model_name)->count('id');
         $page_num=20;
@@ -36,9 +36,9 @@ class AboutusAction extends CommonAction {
             import('ORG.Util.Page');
             $p = new Page($count, $page_num);
             $limit = $p->firstRow . "," . $p->listRows;
-            $list = D($model_name)->order('time desc')->limit($limit)->select();
+            $list = D($model_name)->order('time desc')->where('cat1 = 2 '.$where)->limit($limit)->select();
             foreach ($list as $k => $v) {
-                $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name')->find();
+                $this_cat2 = $this->cat_model->where('status = 1 and id = '.$v['cat2'])->field('name,pid')->find();
                 if($this_cat2){
                     $list[$k]['cat2'] = $this_cat2['name'];
                     $this_cat1 = $this->cat_model->where('status = 1 and id = '.$this_cat2['pid'])->field('name')->find();
@@ -57,6 +57,8 @@ class AboutusAction extends CommonAction {
         }
         $this->p=I('p');
         $this->limit=$page_num;
+        $row = D($model_name)->find($id);
+        $this->row=$row;
         $this->display();
     }
 

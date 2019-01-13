@@ -923,7 +923,7 @@ to {
 	width: 100%;
 	transition: opacity .4s ease;
 	cursor: alias;
-	z-index: 99;
+	z-index: 0;
 }
 
 .no-pointerevents .darken-shim {

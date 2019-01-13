@@ -55,8 +55,11 @@ class RecruitmentAction extends CommonAction {
         }
         $this->p=I('p');
         $this->limit=$page_num;
+
         $row = D($model_name)->find($id);
         $this->row=$row;
+        var_dump($row);
+        var_dump($id);
         $this->display();
     }
 
@@ -64,10 +67,7 @@ class RecruitmentAction extends CommonAction {
     //摄影图片
     //添加产品信息
     public function add() {
-        $row = D($model_name)->find($id);
-        $cat1 = $this->cat_model->where('id='.$row['cat1'])->find();
-        $cat2 = $this->cat_model->where('id='.$row['cat2'])->find();
-        $this->row = $row;
+
         $this->display();
     }
 

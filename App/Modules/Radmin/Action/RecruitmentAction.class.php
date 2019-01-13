@@ -59,7 +59,7 @@ class RecruitmentAction extends CommonAction {
         $row = D($model_name)->find($id);
         $this->row=$row;
         var_dump($row);
-        p($id);
+        var_dump($id);
         $this->display();
     }
 

@@ -259,6 +259,14 @@ $(document).ready(function() {
                 $('#t_en_tel-name').val(data.config.T_EN_TEL);
                 $('#t_en_email-name').val(data.config.T_EN_EMAIL);
 
+                $('#te_position-name').val(data.config.TE_POSITION);
+                $('#te_address-name').val(data.config.TE_ADDRESS);
+                $('#te_tel-name').val(data.config.TE_TEL);
+                $('#te_email-name').val(data.config.TE_EMAIL);
+                $('#te_en_position-name').val(data.config.TE_EN_POSITION);
+                $('#te_en_address-name').val(data.config.TE_EN_ADDRESS);
+                $('#te_en_tel-name').val(data.config.TE_EN_TEL);
+                $('#te_en_email-name').val(data.config.TE_EN_EMAIL);
                 /************************级别配置**********************/
 
                 //经销商级别数

@@ -921,7 +921,7 @@ to {
 	height: 100%;
 	width: 100%;
 	transition: opacity .4s ease;
-	cursor: alias;
+	cursor: pointer;
 	z-index: 0;
 }
 
@@ -10059,7 +10059,8 @@ a.next-proj-link {
 		position: relative;
 		width: 90vw;
 		margin-left: auto;
-		margin-right: auto
+		margin-right: auto;
+		margin-bottom: 10px;
 	}
 }
 

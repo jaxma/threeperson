@@ -56,7 +56,6 @@ class RecruitmentAction extends CommonAction {
         }
         $this->p=I('p');
         $this->limit=$page_num;
-
         $row = D($model_name)->find($id);
         $this->row=$row;
         $this->display();

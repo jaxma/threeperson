@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* @font-face {
+@font-face {
 	font-family: Mueller;
 	src: url(fonts/mueller/mueller-300-b1.eot) format("opentype");
 	src: url(fonts/mueller/mueller-300-b1.woff) format("woff");
@@ -34,7 +34,7 @@
 	src: url(fonts/fontawesome/fontello.woff) format("woff");
 	font-weight: 400;
 	font-style: normal
-} */
+}
 
 @media (min-width:2000px) {
 	.example-class {

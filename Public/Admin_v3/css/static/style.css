@@ -3996,7 +3996,9 @@ span.qualification {
 .home .instagram .instagram-tile {
 	font-size: 0
 }
-
+.home .instagram .instagram-tile a{
+	color: #333;
+}
 .home .instagram .instagram-tile:last-child {
 	margin-right: 0
 }

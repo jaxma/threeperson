@@ -46,7 +46,6 @@ class RecruitmentAction extends CommonAction {
                     $list[$k]['cat1_name'] = $this_cat1['name'];
                 }
             }
-            
             //分页显示
             $page = $p->show();
             //模板赋值显示

@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <script>
+        /**
+         * 使用图片上传接口需满足以下条件
+         * 1.容器选择器id=upload
+         * 2.设置name=image的input标签隐藏域
+         * 3.指定上传目录名称
+         */
+            //上传目录
+        var upload_dir_name = 'photo';
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form .items .desc {
+                position: static;
+            }
+        } 
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid edit-wrapper">
+    <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+            <span class="title">首页介绍</span>
+        </blockquote>
+    </header>
+    <div class="layui-content">
+        <form class="layui-form layui-box" action="__URL__/update" data-auto="false" method="post">
+            
+            <div class="layui-form-item items">
+                <label class="form-text">公司名称：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="name" lay-verify="name" autocomplete="off" title="请输入名称" placeholder="请输入名称" value="{$row.name}">
+                </div>
+            </div>
+            <div class="layui-form-item  items">
+                <label class="form-text">是否开启</label>
+                <div class="form-right">
+                    <input style="display: inline-block;margin-bottom:6px;" type="radio" name="status" value="1" title="开启" id="copen" <?php echo $row['status']==1?'checked':'';?> ><label for = "copen">开启</label>
+                    <input style="display: inline-block;margin-bottom:6px;margin-left: 8px;" type="radio" name="status" value="0" title="关闭" id="cclose" <?php echo $row['status']==0?'checked':'';?>  ><label for = "cclose">关闭</label>
+                </div>
+            </div>
+            <div class="layui-form-item  items">
+                <label class="form-text">公司详情：</label>
+                <div class="form-right">
+                    <textarea id="editor" class="ueditors" name="content">{$row.content}</textarea>
+                    <include file="Public/ueditor" />
+                </div>
+            </div>
+            <div class="layui-form-item  items">
+                <label class="form-text">公司详情（英文）：</label>
+                <div class="form-right">
+                    <textarea id="editor_en" class="ueditors" name="content_en">{$row.content_en}</textarea>
+                </div>
+            </div>
+            <div class="layui-form-item  items">
+                <label class="form-text"></label>
+                <div class="form-right">
+                    <input type="hidden" name="id" value="{$id}">
+                    <button class="layui-btn" type='submit'>确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

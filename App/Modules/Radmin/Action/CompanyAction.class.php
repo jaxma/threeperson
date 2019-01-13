@@ -47,6 +47,28 @@ class CompanyAction extends CommonAction {
         $this->display('company');
     }
 
+    //首页介绍
+    public function int() {
+        $where = array();
+        $count = $this->company_model->where($where)->count('id');
+        $page_num=20;
+        if ($count > 0) {
+            import('ORG.Util.Page');
+            $p = new Page($count, $page_num);
+            $limit = $p->firstRow . "," . $p->listRows;
+            $list = $this->company_model->where($where)->order('id asc')->limit($limit)->select();
+            //分页显示
+            $page = $p->show();
+            //模板赋值显示
+            $this->assign('list', $list);
+            $this->assign("page", $page);
+            $this->count=$count;
+        }
+        $this->p=I('p');
+        $this->limit=$page_num;
+        $this->display('company');
+    }
+
     //删除公司信息
     public function delete_con() {
         
@@ -129,12 +151,26 @@ class CompanyAction extends CommonAction {
     public function edit() {
         $model_name = $this->get_model();
 
-        $id = $_GET['id'];
+        $id = I('id');
+
         $row = D($model_name)->find($id);
         $this->id = $id;
         $this->row = $row;
         $this->display();
     }
+
+    //编辑产品信息
+    public function introduct_edit() {
+        $model_name = $this->get_model();
+
+        $id = I('id');
+
+        $row = D($model_name)->find($id);
+        $this->id = $id;
+        $this->row = $row;
+        $this->display();
+    }
+
 
     public function update() {
         $model_name = $this->get_model();
@@ -191,7 +227,13 @@ class CompanyAction extends CommonAction {
         } else {
             $name = $this->get_name();
             $this->add_active_log('编辑'.$name.'信息');
-            $this->success("操作成功",__URL__.'/'.'company');
+            if($id == 2){
+                $this->success("操作成功",U(__URL__.'/'.'edit',array('id'=>2)));
+            }elseif($id == 3){
+                $this->success('操作成功',U(__URL__.'/'.'introduct_edit',array('id'=>3)));
+            }else{
+                $this->success("操作成功",__URL__.'/'.'company');
+            }
         }
     }
     //删除产品信息

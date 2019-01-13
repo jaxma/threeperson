@@ -7,8 +7,9 @@ class IndexAction extends CommonAction {
 
    
     public function index() {
+    	$this->title = C('SYSTEM_NAME');
         
-        $this->display();
+       $this->display();
     }
 }
 ?>

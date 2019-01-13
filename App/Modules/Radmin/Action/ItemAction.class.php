@@ -59,8 +59,6 @@ class ItemAction extends CommonAction {
         }
         $this->p=I('p');
         $this->limit=$page_num;
-        $row = D($model_name)->find($id);
-        $this->row=$row;
         $this->display();
     }
 
@@ -95,6 +93,8 @@ class ItemAction extends CommonAction {
         $sequence = I('post.sequence');
         $detial_title = trim(I('post.detial_title',''));
         $detial_title_en = trim(I('post.detial_title_en',''));
+        $detail = trim(I('post.detail',''));
+        $detail_en = trim(I('post.detail_en',''));
         $many_image=I('many_image');
         $image2 = $many_image[0];
         $many_images = implode(',',$many_image);
@@ -115,6 +115,8 @@ class ItemAction extends CommonAction {
             'image2' => $image2,
             'content' => $content,
             'content_en' => $content_en,
+            'detail' => $detail,
+            'detail_en' => $detail_en,
             'publish_time' => strtotime($publish_time),
             'isopen' => $isopen,
             'many_image' => $many_images,
@@ -184,6 +186,8 @@ class ItemAction extends CommonAction {
         $sequence = I('post.sequence');
         $detial_title = trim(I('post.detial_title',''));
         $detial_title_en = trim(I('post.detial_title_en',''));
+        $detail = trim(I('post.detail',''));
+        $detail_en = trim(I('post.detail_en',''));
         $many_image=I('many_image');
         $image2 = $many_image[0];
         $many_images = implode(',',$many_image);
@@ -204,6 +208,8 @@ class ItemAction extends CommonAction {
             'image2' => $image2,
             'content' => $content,
             'content_en' => $content_en,
+            'detail' => $detail,
+            'detail_en' => $detail_en,
             'publish_time' => strtotime($publish_time),
             'isopen' => $isopen,
             'many_image' => $many_images,

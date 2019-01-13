@@ -106,18 +106,11 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  if(val.id == {$row.cat1}){
-                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
-                  }else{
-                    html = '<option value="' + val.id + '">' + val.name + '</option>';
-                  }
+                  html = '<option value="' + val.id + '">' + val.name + '</option>';
                   temp.push(html)
                 });
                 if(aim != '') {
                   aim.append(temp)
-                }
-                if({$row.cat1} && {$row.cat1} != 0){
-                    getTwo({$row.cat1});
                 }
                 form.render();
               });
@@ -156,11 +149,7 @@
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  if(val.id == {$row.cat2}){
-                    html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
-                  }else{
-                    html = '<option value="' + val.id + '">' + val.name + '</option>';
-                  }
+                  html = '<option value="' + val.id + '">' + val.name + '</option>';
                   temp.push(html)
                 });
                 if(aim != '') {

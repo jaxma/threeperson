@@ -7261,12 +7261,7 @@ span.clear-all-filters {
 	position: relative;
 	margin-bottom: 60px;
 }
-.featured-collections .slider .tile-inner-wrap{
-	height: auto !important;
-}
-.featured-collections .slider .tile img{
-	width: 100%;
-}
+
 @media (max-width:1024px) {
 
 	.featured-collections .slider .tile-inner-wrap,

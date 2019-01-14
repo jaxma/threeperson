@@ -7157,9 +7157,6 @@ span.clear-all-filters {
 	white-space: nowrap;
 	padding-right: 10px
 }
-.featured-collections .slider .tile .text{
-	bottom: 0;
-}
 @media (max-width:668px) {
 
 	.featured-collections .slider .tile .text,
@@ -13502,4 +13499,8 @@ a.next-proj-link {
 
 .featured-collections .slider .tile img{
 	width: 100%;
+}
+
+.featured-collections .slider .tile .text{
+	bottom: 0;
 }

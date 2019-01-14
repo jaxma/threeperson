@@ -6977,7 +6977,7 @@ span.clear-all-filters {
 
 	.related-content .slider-title-wrap,
 	.selected-work .slider-title-wrap {
-		position: relative
+		position: relative;
 	}
 }
 
@@ -13460,15 +13460,12 @@ a.next-proj-link {
 	margin: auto;
 	padding-left: 0;
 	padding-bottom: 30px;
+	width: 30%;
 }
 #portfolio-filter li{
 	/* float: left; */
 	list-style: none;
-	margin: 0 6px;
 	font-size: 16px;
-}
-#portfolio-filter li:nth-child(1){
-	margin-left: 0;
 }
 #portfolio-filter li a{
 	color: #333;

@@ -6791,7 +6791,8 @@ span.clear-all-filters {
 	height: 20px;
 	border-left: 3px solid #fff;
 	border-top: 3px solid #fff;
-	transform: rotate(-45deg)
+	transform: rotate(-45deg);
+	height: calc(100% -60px);
 }
 .nextBtn{
 	position: absolute;
@@ -6805,8 +6806,8 @@ span.clear-all-filters {
 	height: 20px;
 	border-left: 3px solid #fff;
 	border-top: 3px solid #fff;
-	transform: rotate(-13545deg)
-	
+	transform: rotate(-13545deg);
+	height: calc(100% -60px);
 }
 .swiper-button-next{
 	right: 0;
@@ -7158,7 +7159,9 @@ span.clear-all-filters {
 	white-space: nowrap;
 	padding-right: 10px
 }
-
+.featured-collections .slider .tile .text{
+	bottom: 0;
+}
 @media (max-width:668px) {
 
 	.featured-collections .slider .tile .text,

@@ -6767,7 +6767,7 @@ span.clear-all-filters {
 }
 /* 临时 */
 .pageContent-ui{
-	width: 90vw !important;
+	/* width: 90vw !important; */
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;

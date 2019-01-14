@@ -7264,9 +7264,6 @@ span.clear-all-filters {
 .featured-collections .slider .tile-inner-wrap{
 	height: auto !important;
 }
-.featured-collections .slider .tile img{
-	width: 100%;
-}
 @media (max-width:1024px) {
 
 	.featured-collections .slider .tile-inner-wrap,
@@ -13501,4 +13498,8 @@ a.next-proj-link {
 #portfolio-filter li.active a{
 	color: #fff;
 	background-color: #31c178;
+}
+
+.featured-collections .slider .tile img{
+	width: 100%;
 }

@@ -7031,12 +7031,15 @@ span.clear-all-filters {
 .featured-collections .slider-title-wrap,
 .other-collections .slider-title-wrap,
 .related-content .slider-title-wrap,
-.selected-work .slider-title-wrap {
+.selected-work .slider-title-wrap{
 	display: block;
 	width: calc(50vw - 46vw/2);
 	position: absolute;
 	padding-left: calc(50vw - 90vw/2);
 	padding-right: 120px
+}
+.project-content-left{
+	padding-left: calc(50vw - 90vw/2);
 }
 .featured-collections .slider-title-wrap{
 	padding-right: 0 !important;
@@ -7050,6 +7053,9 @@ span.clear-all-filters {
 		margin-top: 5px;
 		padding-right: 50px;
 		padding-left: 5vw
+	}
+	.project-content-left{
+		padding-left: calc(50vw - 90vw/2);
 	}
 }
 

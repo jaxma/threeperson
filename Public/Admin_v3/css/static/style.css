@@ -7257,7 +7257,8 @@ span.clear-all-filters {
 .related-content .slider .tile-inner-wrap,
 .selected-work .slider .tile-inner-wrap {
 	height: 160px;
-	position: relative
+	position: relative;
+	margin-bottom: 60px;
 }
 
 @media (max-width:1024px) {

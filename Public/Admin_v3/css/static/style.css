@@ -6767,17 +6767,17 @@ span.clear-all-filters {
 }
 /* 临时 */
 .pageContent-ui{
-	width: 90vw !important;
+	/* width: 90vw !important; */
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
 }
 .swiper-button-next, .swiper-button-prev{
-	height: 100%;
 	margin-top: 0;
 	width: 50px;
 	top: 0;
 	background: rgba(0, 0, 0, 0.6);
+	height: calc(100% - 60px);
 }
 .prevBtn{
 	position: absolute;
@@ -6791,7 +6791,7 @@ span.clear-all-filters {
 	height: 20px;
 	border-left: 3px solid #fff;
 	border-top: 3px solid #fff;
-	transform: rotate(-45deg)
+	transform: rotate(-45deg);
 }
 .nextBtn{
 	position: absolute;
@@ -6805,15 +6805,20 @@ span.clear-all-filters {
 	height: 20px;
 	border-left: 3px solid #fff;
 	border-top: 3px solid #fff;
-	transform: rotate(-13545deg)
-	
+	transform: rotate(-13545deg);
 }
 .swiper-button-next{
+	right: 0;
+}
+.swiper-button-prev{
+	left: 0;
+}
+/* .swiper-button-next{
 	right: -5vw;
 }
 .swiper-button-prev{
 	left: -5vw;
-}
+} */
 @media (max-width:668px) {
 	.slider ul {
 		padding-bottom: 56px;
@@ -6977,7 +6982,7 @@ span.clear-all-filters {
 
 	.related-content .slider-title-wrap,
 	.selected-work .slider-title-wrap {
-		position: relative
+		position: relative;
 	}
 }
 
@@ -7031,14 +7036,20 @@ span.clear-all-filters {
 .featured-collections .slider-title-wrap,
 .other-collections .slider-title-wrap,
 .related-content .slider-title-wrap,
-.selected-work .slider-title-wrap {
+.selected-work .slider-title-wrap{
 	display: block;
 	width: calc(50vw - 46vw/2);
 	position: absolute;
 	padding-left: calc(50vw - 90vw/2);
 	padding-right: 120px
 }
-
+.project-content-left{
+	padding-left: calc(50vw - 670px/2);
+}
+.featured-collections .slider-title-wrap{
+	padding-right: 0 !important;
+	width: auto !important;
+}
 @media (max-width:668px) {
 
 	.featured-collections .slider-title-wrap,
@@ -7047,6 +7058,9 @@ span.clear-all-filters {
 	.selected-work .slider-title-wrap {
 		margin-top: 5px;
 		padding-right: 50px;
+		padding-left: 5vw
+	}
+	.project-content-left{
 		padding-left: 5vw
 	}
 }
@@ -7143,7 +7157,9 @@ span.clear-all-filters {
 	white-space: nowrap;
 	padding-right: 10px
 }
-
+.featured-collections .slider .tile .text{
+	bottom: 0;
+}
 @media (max-width:668px) {
 
 	.featured-collections .slider .tile .text,
@@ -7242,7 +7258,8 @@ span.clear-all-filters {
 .related-content .slider .tile-inner-wrap,
 .selected-work .slider .tile-inner-wrap {
 	height: 160px;
-	position: relative
+	position: relative;
+	margin-bottom: 60px;
 }
 
 @media (max-width:1024px) {
@@ -7353,7 +7370,7 @@ span.clear-all-filters {
 
 .featured-collections .slider-wrap {
 	border-bottom: 1px solid #F4F4F4;
-	padding: 75px 0 190px
+	padding: 35px 0 190px
 }
 
 @media (min-width:2000px) {
@@ -13451,4 +13468,32 @@ a.next-proj-link {
 
 .swiper-container{
 	z-index: 0;
+}
+
+/* 项目分类 */
+#portfolio-filter{
+	/* overflow: hidden; */
+	margin: auto;
+	padding-left: 0;
+	padding-bottom: 30px;
+	padding-right: 10px;
+}
+#portfolio-filter li{
+	/* float: left; */
+	list-style: none;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+#portfolio-filter li a{
+	color: #333;
+	padding: 6px 12px;
+	display: block;
+}
+#portfolio-filter li a:hover{
+	color: #fff;
+	background-color: #31c178;
+}
+#portfolio-filter li.active a{
+	color: #fff;
+	background-color: #31c178;
 }

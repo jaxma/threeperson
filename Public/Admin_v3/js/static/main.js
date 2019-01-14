@@ -71,6 +71,8 @@ function projectLoop(){
         watchOverflow: true,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         observeParents: true,//修改swiper的父元素时，自动初始化swipe
+        slidesPerView: 4,//一行显示3个
+        slidesPerColumn: 3,//显示2行
         //width: parseInt(slidesOffsetAfterDataInt) + docmentWidth,
         navigation: {
             nextEl: '.swiper-button-next',//自动隐藏

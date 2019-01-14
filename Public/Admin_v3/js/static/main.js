@@ -85,6 +85,17 @@ function projectLoop(){
             init: function(){
                 
             }
+        },
+        breakpoints: { 
+            //当宽度小于等于640
+            640: {
+                slidesPerView: 2,//一行显示3个
+                slidesPerColumn: 6,//显示2行
+            },
+            1366: {
+                slidesPerView: 3,//一行显示3个
+                slidesPerColumn: 4,//显示2行
+            }
         }
 });
 }

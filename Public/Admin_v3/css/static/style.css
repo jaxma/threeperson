@@ -13505,3 +13505,13 @@ a.next-proj-link {
 .featured-collections .slider .tile .text{
 	bottom: 0;
 }
+
+
+@media (max-width:1150px) {
+	.featured-collections .slider-title-wrap{
+		position: relative;
+	}
+	.project-content-left{
+		margin-left: calc(50vw - 90vw/2);
+	}
+}

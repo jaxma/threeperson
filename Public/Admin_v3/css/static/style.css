@@ -6808,12 +6808,12 @@ span.clear-all-filters {
 	transform: rotate(-13545deg)
 	
 }
-.swiper-button-next{
+/* .swiper-button-next{
 	right: -5vw;
 }
 .swiper-button-prev{
 	left: -5vw;
-}
+} */
 @media (max-width:668px) {
 	.slider ul {
 		padding-bottom: 56px;

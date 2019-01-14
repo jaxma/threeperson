@@ -13513,5 +13513,6 @@ a.next-proj-link {
 	}
 	.project-content-left{
 		margin-left: calc(50vw - 90vw/2);
+		padding-left: 0;
 	}
 }

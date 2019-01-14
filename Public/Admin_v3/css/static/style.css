@@ -13456,6 +13456,8 @@ a.next-proj-link {
 /* 项目分类 */
 #portfolio-filter{
 	overflow: hidden;
+	width: 90vw;
+	margin: auto;
 }
 #portfolio-filter li{
 	float: left;

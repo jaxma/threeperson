@@ -13455,14 +13455,14 @@ a.next-proj-link {
 
 /* 项目分类 */
 #portfolio-filter{
-	overflow: hidden;
+	/* overflow: hidden; */
 	width: 90vw;
 	margin: auto;
 	padding-left: 0;
 	padding-bottom: 30px;
 }
 #portfolio-filter li{
-	float: left;
+	/* float: left; */
 	list-style: none;
 	margin: 0 6px;
 	font-size: 16px;

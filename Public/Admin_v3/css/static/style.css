@@ -13516,7 +13516,14 @@ a.next-proj-link {
 		margin-right: calc(50vw - 90vw/2);
 		padding-left: 0;
 	}
+	#portfolio-filter{
+		overflow: hidden;
+	}
 	#portfolio-filter li{
 		float: left;
+		margin-right: 8px;
+	}
+	#portfolio-filter li:last-child{
+		margin-right: 0;
 	}
 }

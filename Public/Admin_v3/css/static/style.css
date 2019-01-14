@@ -7170,6 +7170,9 @@ span.clear-all-filters {
 		bottom: -49px;
 		padding-top: 5px
 	}
+	.featured-collections .slider .tile .text{
+		bottom: 0;
+	}
 }
 
 .featured-collections .slider .tile h4,

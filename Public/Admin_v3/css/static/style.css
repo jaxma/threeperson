@@ -5214,41 +5214,41 @@ span.qualification {
 	}
 }
 
-.section.intro .credit {
+.single-project .section.intro .credit {
 	margin: 12px 27px 0 0;
 	display: inline-block
 }
 
-.section.intro .credit:first-child {
+.single-project .section.intro .credit:first-child {
 	margin-left: 0
 }
 
-.section.intro .credit:first-child span {
+.single-project .section.intro .credit:first-child span {
 	margin-left: -2px
 }
 
 @media (max-width:668px) {
-	.section.intro .credit {
+	.single-project .section.intro .credit {
 		margin: 0 0 12px;
 		display: block
 	}
 
-	.section.intro .credit:last-child {
+	.single-project .section.intro .credit:last-child {
 		margin-bottom: 5px
 	}
 
-	.section.intro .credit:first-child,
-	.section.intro .credit:first-child span {
+	.single-project .section.intro .credit:first-child,
+	.single-project .section.intro .credit:first-child span {
 		margin-left: 0
 	}
 }
 
-.section.intro .credit:nth-child(1)+.credit {
+.single-project .section.intro .credit:nth-child(1)+.credit {
 	margin-left: 25px
 }
 
 @media (max-width:668px) {
-	.section.intro .credit:nth-child(1)+.credit {
+	.single-project .section.intro .credit:nth-child(1)+.credit {
 		margin-left: 0
 	}
 }

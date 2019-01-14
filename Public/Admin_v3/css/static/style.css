@@ -7038,7 +7038,9 @@ span.clear-all-filters {
 	padding-left: calc(50vw - 90vw/2);
 	padding-right: 120px
 }
-
+.featured-collections .slider-title-wrap{
+	padding-right: 0 !important;
+}
 @media (max-width:668px) {
 
 	.featured-collections .slider-title-wrap,
@@ -13459,7 +13461,6 @@ a.next-proj-link {
 	margin: auto;
 	padding-left: 0;
 	padding-bottom: 30px;
-	width: 30%;
 }
 #portfolio-filter li{
 	/* float: left; */

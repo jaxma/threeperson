@@ -7353,7 +7353,7 @@ span.clear-all-filters {
 
 .featured-collections .slider-wrap {
 	border-bottom: 1px solid #F4F4F4;
-	padding: 75px 0 190px
+	padding: 35px 0 190px
 }
 
 @media (min-width:2000px) {
@@ -13458,6 +13458,8 @@ a.next-proj-link {
 	overflow: hidden;
 	width: 90vw;
 	margin: auto;
+	padding-left: 0;
+	padding-bottom: 30px;
 }
 #portfolio-filter li{
 	float: left;

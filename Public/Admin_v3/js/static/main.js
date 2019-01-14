@@ -9,7 +9,7 @@ $(function(){
     });
     
     isScrollY();
-    //projectLoop();
+    projectLoop();
     //初始化-放大图片
     baguetteBox.run('#lightbox-context', {
         // Custom options

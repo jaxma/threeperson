@@ -7043,6 +7043,7 @@ span.clear-all-filters {
 }
 .featured-collections .slider-title-wrap{
 	padding-right: 0 !important;
+	width: auto !important;
 }
 @media (max-width:668px) {
 
@@ -13467,11 +13468,13 @@ a.next-proj-link {
 	margin: auto;
 	padding-left: 0;
 	padding-bottom: 30px;
+	padding-right: 10px;
 }
 #portfolio-filter li{
 	/* float: left; */
 	list-style: none;
 	font-size: 16px;
+	margin-bottom: 5px;
 }
 #portfolio-filter li a{
 	color: #333;

@@ -7039,7 +7039,7 @@ span.clear-all-filters {
 	padding-right: 120px
 }
 .project-content-left{
-	padding-left: calc(50vw - 90vw/2);
+	padding-left: calc(50vw - 670px/2);
 }
 .featured-collections .slider-title-wrap{
 	padding-right: 0 !important;
@@ -7055,7 +7055,7 @@ span.clear-all-filters {
 		padding-left: 5vw
 	}
 	.project-content-left{
-		padding-left: calc(50vw - 90vw/2);
+		padding-left: 5vw
 	}
 }
 

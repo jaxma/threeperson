@@ -7061,7 +7061,8 @@ span.clear-all-filters {
 		padding-left: 5vw
 	}
 	.project-content-left{
-		padding-left: 5vw
+		padding-left: 5vw;
+		padding-right: 5vw;	
 	}
 }
 

@@ -7133,9 +7133,9 @@ span.clear-all-filters {
 	}
 }
 /* .featured-collections .slider .tile:hover h4 */
- .featured-collections .slider .tile:hover p{
+ /* .featured-collections .slider .tile:hover p{
 	color: rgb(140, 84, 84)
-}
+} */
 
 .featured-collections .slider .tile,
 .other-collections .slider .tile,
@@ -13514,6 +13514,7 @@ a.next-proj-link {
 }
 .featured-collections .slider .tile .text p{
 	margin-top: 0;
+	padding-left: 10px;
 }
 .featured-collections .slider .tile .mask{
 	position: absolute;

@@ -52,6 +52,8 @@ class DetailAction extends CommonAction {
             $p_info['name'] = "项目";
             $p_info['name_en'] = "Item";
         }
+        $detail_des = array('地点','用地面积','建成时间','发布时间');
+        $detail_des_en = array('Location','Site Area','Completion','Release time');
         $res = array();
         if(empty($lang)){
             $res['head'] = $p_info['name'];
@@ -68,7 +70,7 @@ class DetailAction extends CommonAction {
                 $res['type'] = 0;//新闻
             }
             $res['detail'] = $info['detail'];
-
+            $res['detail_des'] = $detail_des;
 
         }else{
             $res['head'] = $p_info['name_en'];
@@ -84,6 +86,7 @@ class DetailAction extends CommonAction {
                 $res['type'] = 0;//新闻
             }
             $res['detail'] = $info['detail_en'];
+            $res['detail_des'] = $detail_des_en;
         }
         $res['publish_time'] = date('Y-m-d',$info['publish_time']);
         $res['image'] = $info['image'];
@@ -99,8 +102,7 @@ class DetailAction extends CommonAction {
         $res['many_image_open'] = count($images)>=1?true:false;
         $res['many_image'] = $images;
 
-        $detail_des = array('地点','用地面积','建成时间','发布时间');
-        $detail_des_en = array('Location:','Site Area:','Completion:','Release time:');
+
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

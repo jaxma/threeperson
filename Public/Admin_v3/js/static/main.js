@@ -146,6 +146,26 @@ function otherProjectSwiper(){
                 
             }
         },
+        breakpoints: { 
+            //当宽度小于等于640
+            480: {
+                slidesPerView: 1,//一行显示3个
+            },
+            640: {
+                slidesPerView: 2,//一行显示3个
+            },
+            768: {
+                slidesPerView: 3,//一行显示3个
+            },
+            //当宽度小于等于1366
+            1366: {
+                slidesPerView: 4,//一行显示3个
+            },
+            //当宽度小于等于1980
+            1980: {
+                slidesPerView: 6,//一行显示3个
+            }
+        }
     });
 }
 

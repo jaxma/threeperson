@@ -21,23 +21,20 @@ class DetailAction extends CommonAction {
         $this->cat_model = M('cat');
         $this->lang = I('lang')=='1'?1:0;
         $this->cat_id = I('cat_id',0);
+        $this->a_id = I('a_id',0);
     }
     public function project() {
-        if(empty($cat_id)) $this->redirect('Admin/Index/index',,array('lang'=>$this->lang));
+        if(empty($cat_id)) $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
         $cat_id = intval($cat_id);
         $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid')->find();
-        if(empty($cat_info)) $this->redirect('Admin/Index/index',,array('lang'=>$this->lang));
-        $keys = array_keys($this->cat_table);
         $pid = $cat_info['pid'];
-        if(!in_array($pid,$keys)){
-            $this->redirect('Admin/Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$cat_id));
-            exit();
-        }
-
-        $model_name = $this->cat_table[$cat_info['pid']];
+        $keys = array_keys($this->cat_table);
+        if(empty($cat_info)||(!in_array($pid,$keys))) $this->redirect('Admin/Index/index',,array('lang'=>$this->lang));
+        $model_name = $this->cat_table[$pid];
         $model = M($model_name);
-        $info = $model->where('isopen = 1 and id = '.$cat_id)->find($cat_id);
-        if(empty($info)){
+        $info = $model->where('isopen = 1 and id = '.$a_id)->find();
+
+        if(empty($info)||$info['cat2']!=$this->cat_id){
             $this->redirect('Admin/Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
             exit();
         }

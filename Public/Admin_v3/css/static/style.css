@@ -13517,9 +13517,15 @@ a.next-proj-link {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, .6)
+	background: rgba(0, 0, 0, .6);
+	display: none;
+	transition: .25s;
 }
-
+.featured-collections .slider .tile:hover .mask,
+.featured-collections .slider .tile .text
+{
+	display: block;
+}
 @media (max-width:1150px) {
 	.featured-collections .slider-title-wrap{
 		position: relative;

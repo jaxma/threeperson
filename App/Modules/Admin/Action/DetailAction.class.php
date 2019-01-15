@@ -44,7 +44,7 @@ class DetailAction extends CommonAction {
             $p_info['name'] = "项目";
             $p_info['name_en'] = "Item";
         }
-        $res = array()
+        $res = array();
         if(empty($lang)){
             $res['head'] = $p_info['name'];
             $res['title'] = $info['title'];

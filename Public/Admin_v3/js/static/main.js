@@ -89,6 +89,7 @@ function projectLoop(){
             //当宽度小于等于640
             640: {
                 slidesPerView: 1,//一行显示3个
+                slidesPerColumn: 12,//显示2行
                 spaceBetween: 8,
             },
             //当宽度小于等于1366

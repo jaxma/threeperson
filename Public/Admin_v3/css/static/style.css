@@ -13539,6 +13539,20 @@ a.next-proj-link {
 {
 	display: block;
 }
+@media (max-width:668px) {
+
+	.project-content-left{
+		padding-left: 5vw;
+		/* padding-right: 5vw;	 */
+	}
+	.featured-collections .slider .tile .mask{
+		display: none;
+	}
+	.featured-collections .slider .tile .text{
+		display: block;
+		background-color: #000;
+	}
+}
 @media (max-width:1150px) {
 	.featured-collections .slider-title-wrap{
 		position: relative;

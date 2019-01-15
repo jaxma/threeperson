@@ -7159,7 +7159,9 @@ span.clear-all-filters {
 	position: absolute;
 	width: 100%;
 	display: block;
-	height: 60px;
+	height: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	bottom: -60px;
 	text-overflow: ellipsis;
 	white-space: nowrap;

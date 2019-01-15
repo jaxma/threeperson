@@ -176,14 +176,14 @@ $(document).unbind("click","#portfolio-filter li").on("click","#portfolio-filter
     $(this).addClass("active").siblings().removeClass("active");
     var type = $(this).find('a').data('type');
     if(type == 0){
-        $(".otherProject").hide(0);
-        $(".classicProject").show(0);
+    $(".otherProject").hide(0);
+    $(".classicProject").show(0);
     }
     else{
-        var index_ = $(this).index();
-        $(".classicProject").hide(0);
-        $(".otherProject").eq(index_ -1).show(0);
-        otherProjectSwiper();
+    var index_ = $(this).index();
+    $(".classicProject").hide(0);
+    $(".otherProject").eq(index_ -1).show(0).siblings(".otherProject").hide(0);
+    otherProjectSwiper();
     }
 })
 

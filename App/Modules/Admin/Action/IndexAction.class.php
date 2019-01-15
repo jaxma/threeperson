@@ -13,7 +13,9 @@ class IndexAction extends CommonAction {
         $this->company_model = M('company');
         $this->cat_model = M('cat');
         $this->item_model = M('item');
-        $this->lang = I('lang')?I('lang'):'';
+        $this->news_model = M('news');
+        $this->recruitment_model = M('recruitment');
+        $this->lang = I('lang')?I('lang'):0;
     }
 
    
@@ -29,9 +31,49 @@ class IndexAction extends CommonAction {
         $cats = $this->cat_model->where('pid  = 0')->select();
 
         foreach ($cats as $k => $v) {
-            $cats[$k]['cat'] = $this->cat_model->where('pid = '.$v['id'])->select();
+            $second_cats = $this->cat_model->where('pid = '.$v['id'])->select();
+            if($v['id'] == 1){
+                $classical = $this->item_model->where('classical = 1')->select();
+                foreach ($classical as $kk => $vv) {
+                    if(!empty($vv['detail'])){
+                       $detail = $this->detail_arr($vv['detail']);
+                    }
+                    if(!empty($vv['detail_en'])){
+                       $detail_en = $this->detail_arr($vv['detail_en']);
+                    }
+                    $classical[$kk]['position'] = $detail[0];
+                    $classical[$kk]['position_en'] = $detail_en[0];
+                }
+                $cats[$k]['classical'] = $classical;
+            }
+            foreach ($second_cats as $kk => $vv) {
+                if($vv['pid'] == 1){
+                    //项目 
+                    $model = $this->item_model;
+                }elseif($vv['pid'] == 2){
+                    //事务所
+                    $model = $this->news_model;
+                }elseif($vv['pid'] == 3){
+                    //招聘
+                    $model = $this->recruitment_model;
+                }
+                $second_cats_item = $model->where('cat2 = '.$vv['id'])->select();
+                foreach ($second_cats_item as $kkk => $vvv) {
+                    if(!empty($vvv['detail'])){
+                       $detail = $this->detail_arr($vvv['detail']);
+                    }
+                    if(!empty($vvv['detail_en'])){
+                       $detail_en = $this->detail_arr($vvv['detail_en']);
+                    }
+                    $second_cats_item[$kkk]['position'] = $detail[0];
+                    $second_cats_item[$kkk]['position_en'] = $detail_en[0];
+                    $second_cats_item[$kkk]['publish_time'] = date('Y-m-d',$vvv['publish_time']);
+                }
+                $second_cats[$kk]['items'] = $second_cats_item;
+            }
+            $cats[$k]['cat'] = $second_cats;
         }
-
+        
         //公司信息 
         $this->position =  $lang?C('TE_POSITION'):C('T_POSITION');
         $this->address =  $lang?C('TE_ADDRESS'):C('T_ADDRESS');
@@ -57,6 +99,14 @@ class IndexAction extends CommonAction {
      public function projectlist() {
         
         $this->display();
+    }
+
+    public function detail_arr($detail){
+        if(!empty($detail)){
+            $detail = str_replace("；",";",$detail);
+            $detail = explode(";",$detail);
+        }
+        return $detail;
     }
 }
 ?>

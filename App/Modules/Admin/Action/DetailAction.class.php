@@ -105,6 +105,7 @@ class DetailAction extends CommonAction {
         echo "<hr />";
         var_dump($res['many_image_open']);
         var_dump($images);
+        exit();
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

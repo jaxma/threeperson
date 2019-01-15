@@ -89,17 +89,17 @@ function projectLoop(){
             //当宽度小于等于640
             480: {
                 slidesPerView: 1,//一行显示3个
-                slidesPerColumn: 18,//显示2行
+                slidesPerColumn: 12,//显示2行
                 spaceBetween: 8,
             },
             640: {
                 slidesPerView: 2,//一行显示3个
-                slidesPerColumn: 9,//显示2行
+                slidesPerColumn:6,//显示2行
                 spaceBetween: 8,
             },
             768: {
                 slidesPerView: 3,//一行显示3个
-                slidesPerColumn: 6,//显示2行
+                slidesPerColumn: 4,//显示2行
                 spaceBetween: 15,
             },
             //当宽度小于等于1366
@@ -111,7 +111,7 @@ function projectLoop(){
             //当宽度小于等于1980
             1980: {
                 slidesPerView: 6,//一行显示3个
-                slidesPerColumn: 3,//显示2行
+                slidesPerColumn: 2,//显示2行
                 spaceBetween: 15,
             }
         }

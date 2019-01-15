@@ -58,7 +58,7 @@ function classicProjectSwiper(){
     // var slidesOffsetAfterData =  $(".swiper-wrapper-project").css("padding-left");
     // var slidesOffsetAfterDataInt = slidesOffsetAfterData.substring(0,slidesOffsetAfterData.length - 2);
     // var docmentWidth = $(document).width();
-    var swiper2 = new Swiper('.project-collections-warp2', {
+    var swiper2 = new Swiper('.project-collections-warp', {
         pagination: '.swiper-pagination',
         slidesPerView: "auto",
         paginationClickable: true,
@@ -71,10 +71,10 @@ function classicProjectSwiper(){
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         observeParents: true,//修改swiper的父元素时，自动初始化swipe
         //width: parseInt(slidesOffsetAfterDataInt) + docmentWidth,
-        navigation: {
-            nextEl: '.swiper-button-next',//自动隐藏
-            prevEl: '.swiper-button-prev',//自动隐藏
-        },
+        // navigation: {
+        //     nextEl: '.swiper-button-next',//自动隐藏
+        //     prevEl: '.swiper-button-prev',//自动隐藏
+        // },
         pagination: {
             el: '.swiper-pagination',//自动隐藏
         },
@@ -121,7 +121,7 @@ function otherProjectSwiper(){
     // var slidesOffsetAfterData =  $(".swiper-wrapper-project").css("padding-left");
     // var slidesOffsetAfterDataInt = slidesOffsetAfterData.substring(0,slidesOffsetAfterData.length - 2);
     // var docmentWidth = $(document).width();
-    var swiper2 = new Swiper('.project-collections-warp', {
+    var swiper2 = new Swiper('.project-collections-warp2', {
         pagination: '.swiper-pagination',
         slidesPerView: "auto",
         paginationClickable: true,

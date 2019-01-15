@@ -62,7 +62,6 @@ function projectLoop(){
         pagination: '.swiper-pagination',
         slidesPerView: "auto",
         paginationClickable: true,
-        spaceBetween: 8,
         freeMode: true,
         slidesOffsetAfter: 0,
         slidesOffsetBefter: 0,
@@ -91,10 +90,12 @@ function projectLoop(){
             640: {
                 slidesPerView: 2,//一行显示3个
                 slidesPerColumn: 6,//显示2行
+                spaceBetween: 8,
             },
             1366: {
                 slidesPerView: 3,//一行显示3个
                 slidesPerColumn: 4,//显示2行
+                spaceBetween: 15,
             }
         }
 });

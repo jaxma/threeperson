@@ -69,7 +69,7 @@ class DetailAction extends CommonAction {
                 $info['detail'] = date('Y-m-d',$info['publish_time']);
                 $res['type'] = 0;//新闻
             }
-            $res['detail'] = $info['detail'];
+            $res['detail'] = $detail;
             $res['detail_des'] = $detail_des;
 
         }else{
@@ -85,7 +85,7 @@ class DetailAction extends CommonAction {
                 $info['detail_en'] = date('Y-m-d',$info['publish_time']);
                 $res['type'] = 0;//新闻
             }
-            $res['detail'] = $info['detail_en'];
+            $res['detail'] = $detail;
             $res['detail_des'] = $detail_des_en;
         }
         $res['publish_time'] = date('Y-m-d',$info['publish_time']);
@@ -101,8 +101,10 @@ class DetailAction extends CommonAction {
         }
         $res['many_image_open'] = count($images)>=1?true:false;
         $res['many_image'] = $images;
-
-
+        var_dump($detail);
+        echo "<hr />";
+        var_dump($res['many_image_open']);
+        var_dump($images);
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

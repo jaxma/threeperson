@@ -58,7 +58,7 @@ function classicProjectSwiper(){
     // var slidesOffsetAfterData =  $(".swiper-wrapper-project").css("padding-left");
     // var slidesOffsetAfterDataInt = slidesOffsetAfterData.substring(0,slidesOffsetAfterData.length - 2);
     // var docmentWidth = $(document).width();
-    var swiper2 = new Swiper('.project-collections-warp', {
+    var swiper2 = new Swiper('.project-collections-warp2', {
         pagination: '.swiper-pagination',
         slidesPerView: "auto",
         paginationClickable: true,

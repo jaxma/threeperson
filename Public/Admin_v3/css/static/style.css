@@ -13576,6 +13576,7 @@ a.next-proj-link {
 	#portfolio-filter li{
 		float: left;
 		margin-right: 8px;
+		cursor: pointer;
 	}
 	#portfolio-filter li:last-child{
 		margin-right: 0;

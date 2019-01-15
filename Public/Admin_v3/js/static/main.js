@@ -172,7 +172,7 @@ function otherProjectSwiper(){
 // 点击项目分类切换
 $(document).unbind("click","#portfolio-filter li").on("click","#portfolio-filter li",function(){
     $(this).addClass("active").siblings().removeClass("active");
-    var type = $(this).data('type');
+    var type = $(this).find('a').data('type');
     if(type == 0){
         $(".otherProject").hide(0);
         $(".classicProject").show(0);

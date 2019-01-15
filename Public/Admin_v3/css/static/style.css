@@ -7061,7 +7061,14 @@ span.clear-all-filters {
 	}
 	.project-content-left{
 		padding-left: 5vw;
-		padding-right: 5vw;	
+		/* padding-right: 5vw;	 */
+	}
+	.featured-collections .slider .tile .mask{
+		display: none;
+	}
+	.featured-collections .slider .tile .text{
+		display: block;
+		background-color: #000;
 	}
 }
 

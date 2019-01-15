@@ -30,22 +30,22 @@
 							<if condition="$res['type']">
 							<!-- 地址-介绍 -->
 							<div class="credit location">
-								<span class="role">地点:</span>
+								<span class="role">{$res.detail_des[0]}:</span>
 								<span class="name">{$res.detail[0]}</span>
 							</div>
 							<!-- 面积-介绍 -->
 							<div class="credit">
-								<span class="role">用地面积:</span>
+								<span class="role">{$res.detail_des[1]}:</span>
 								<span class="name">{$res.detail[1]}</span>
 							</div>
 							<!-- 时间-成立时间 -->
 							<div class="credit">
-								<span class="role">建成时间:</span>
+								<span class="role">{$res.detail_des[2]}:</span>
 								<span class="name">{$res.detail[2]}</span>
 							</div>
 							<else />
 							<div class="credit location">
-								<span class="role">发布时间:</span>
+								<span class="role">{$res.detail_des[3]}:</span>
 								<span class="name">{$res['publish_time']}</span>
 							</div>
 							</if>

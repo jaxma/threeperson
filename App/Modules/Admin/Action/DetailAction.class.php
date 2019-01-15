@@ -26,8 +26,8 @@ class DetailAction extends CommonAction {
     public function project() {
         $cat_id = $this->cat_id;
         $a_id = $this->a_id;
-        if(empty($cat_id)){
-            echo "222222222222";
+        $lang = $this->lang;
+        if(empty($cat_id)){;
             exit();
             $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
         }
@@ -36,7 +36,6 @@ class DetailAction extends CommonAction {
         $pid = $cat_info['pid'];
         $keys = array_keys($this->cat_table);
         if(empty($cat_info)||(!in_array($pid,$keys))){
-            echo "33333333333";exit();
             $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
         }
         $model_name = $this->cat_table[$pid];
@@ -44,7 +43,6 @@ class DetailAction extends CommonAction {
         $info = $model->where('isopen = 1 and id = '.$a_id)->find();
 
         if(empty($info)||$info['cat2']!=$cat_id){
-            echo "5555555555";exit();
             $this->redirect('Admin/Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
             exit();
         }
@@ -99,9 +97,10 @@ class DetailAction extends CommonAction {
             }
         }
         $res['many_image_open'] = count($images)>=1?true:false;
-
         $res['many_image'] = $images;
-        var_dump($res);exit();
+
+        $detail_des = array('地点','用地面积','建成时间','发布时间');
+        $detail_des_en = array('Location:','Site Area:','Completion:','Release time:');
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

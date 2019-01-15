@@ -40,6 +40,7 @@
                     <th>详情页标题</th>
                     <th>详情页图片</th>
                     <th>是否开启</th>
+                    <th>是否经典</th>
                     <th>优先级</th>
                     <th>发布时间</th>
                     <th>操作</th>
@@ -70,6 +71,9 @@
                             </td>
                             <td>
                             <if condition="$m.isopen eq 1">开启<else/>关闭</if>
+                            </td>
+                            <td>
+                            <if condition="$m.classical eq 1">经典<else/>非经典</if>
                             </td>
                             <td>{$m.sequence}</td>
                             <!--<td>{$m.news}</td>-->

@@ -95,6 +95,7 @@ class ItemAction extends CommonAction {
         $detial_title_en = trim(I('post.detial_title_en',''));
         $detail = trim(I('post.detail',''));
         $detail_en = trim(I('post.detail_en',''));
+        $classical = trim(I('post.classical',''));
         $many_image=I('many_image');
         $image2 = $many_image[0];
         $many_images = implode(',',$many_image);
@@ -124,6 +125,7 @@ class ItemAction extends CommonAction {
             'time' => time(),
             'cat1'=> $category_id1,
             'cat2'=> $category_id2,
+            'classical'=> $classical,
         );
 
         $res = D($model_name)->add($data);
@@ -188,6 +190,7 @@ class ItemAction extends CommonAction {
         $detial_title_en = trim(I('post.detial_title_en',''));
         $detail = trim(I('post.detail',''));
         $detail_en = trim(I('post.detail_en',''));
+        $classical = trim(I('post.classical',''));
         $many_image=I('many_image');
         $image2 = $many_image[0];
         $many_images = implode(',',$many_image);
@@ -217,6 +220,7 @@ class ItemAction extends CommonAction {
             'time' => time(),
             'cat1'=> $category_id1,
             'cat2'=> $category_id2,
+            'classical'=> $classical,
         );
 
         

@@ -52,10 +52,10 @@
                         <div class="section-anchor-links">
                             <!-- 项目btn 需要中英文标注一下-->
                             <div class="projects-section-anchor homepage-section-link" onclick="handleProject()" data-section="featured-collections">
-                                项目<span class="down-arrow">&or;</span>
+                                <if condition = "$lang eq 1" >project<else/>项目</if><span class="down-arrow">&or;</span>
                             </div>
                             <div class="news-section-anchor homepage-section-link" onclick="handleNew()" data-section="news">
-                                新闻<span class="down-arrow">&or;</span>
+                                <if condition = "$lang eq 1" >news<else/>新闻</if><span class="down-arrow">&or;</span>
                             </div>
                             <!-- 项目btn -->
                         </div>
@@ -67,21 +67,14 @@
                         <div class="slider-wrap collection-">
                             <div class="slider-title-wrap">
                                 <ul id="portfolio-filter">
-                                    <li class="active">
-                                        <a href="javascript:void(0);" class="filter" data-type="0" data-filter="">经典项目</a>
+                                    <li  class="active">
+                                        <a href="javascript:void(0);" class="filter" data-type="0" data-filter=""><if condition = "$lang eq 1" >classical project<else/>经典项目</if></a>
                                     </li> 
-                                    <li class="">
-                                        <a href="javascript:void(0);" class="filter" data-type="1" data-filter="">酒店及度假</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="javascript:void(0);" class="filter" data-type="2" data-filter="">酒店及度假</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="javascript:void(0);" class="filter" data-type="3" data-filter="">酒店及度假</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="javascript:void(0);" class="filter" data-type="4" data-filter="">酒店及度假</a>
-                                    </li>
+                                    <foreach name = "cats.0.cat" key='k' item = "i">
+                                        <li class="">
+                                            <a href="javascript:void(0);" class="filter" data-type="{$k+1}" data-filter=""><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a>
+                                        </li> 
+                                    </foreach>
                                 </ul>
                             </div>
                             <!-- 经典项目 -->
@@ -89,211 +82,25 @@
                                 <div class="slider collection- swiper-container project-collections-warp pageContent-ui">
                                     <div class="swiper-wrapper swiper-wrapper-project">
                                         <!-- 项目中的列子 item -->
+                                    <foreach name = "cats.0.classical" key='k' item = "i">
                                         <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
+                                            <a href="{:U(GROUP_NAME.'/Detail/project',array('cat_id'=>'classical','id'=>$i['id'],'lang'=>$lang))}" class="history-link "
                                              data-collection-id="">
                                                 <div class="tile-inner-wrap preload-image">
                                                     <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/hotel-yishan-450x270.jpg">
+                                                    <img src="__APP__{$i.image}">
                                                     <div class="type-icon">
                                                         <div class="icon-wrap"></div>
                                                     </div>
                                                 </div>
                                                 <div class="mask"></div>
                                                 <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
+                                                    <p class="head"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></p>
+                                                    <p class="subhead"><if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></p>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/1.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/2.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/3.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/4.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/5.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/6.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/7.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/8.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/9.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/10.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/11.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!-- 项目中的列子 -->
+                                        </foreach>
                                     </div>
                                     <!-- <div class="slider-more-arrow"></div>
                                     <div class="slider-less-arrow"></div> -->
@@ -308,130 +115,31 @@
                             </div>
                             <!-- 经典项目 -->
 
+                            <foreach name = "cats.0.cat" key='k' item = "i">
                             <!-- 其他类别项目 for item star-->
                             <div class="project-content-left otherProject" data-type="otherProject">
                                 <div class="slider collection- swiper-container project-collections-warp2 pageContent-ui">
                                     <div class="swiper-wrapper swiper-wrapper-project">
                                         <!-- 项目中的列子 item -->
+                                        <foreach name = "i.items" key='kk' item = "ii">
                                         <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
+                                            <a href="{:U(GROUP_NAME.'/Detail/project',array('cat_id'=>$ii['cat2'],'id'=>$ii['id'],'lang'=>$lang))}" class="history-link "
                                              data-collection-id="">
                                                 <div class="tile-inner-wrap preload-image">
                                                     <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/hotel-yishan-450x270.jpg">
+                                                    <img src="__APP__{$ii.image}">
                                                     <div class="type-icon">
                                                         <div class="icon-wrap"></div>
                                                     </div>
                                                 </div>
                                                 <div class="mask"></div>
                                                 <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
+                                                    <p class="head"><if condition = "$lang eq 1" >{$ii.title_en}<else/>{$ii.title}</if></p>
+                                                    <p class="subhead"><if condition = "$lang eq 1" >{$ii.position_en}<else/>{$ii.position}</if></p>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/1.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/2.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/3.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/4.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/5.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="tile type-project swiper-slide">
-                                            <a href="" class="history-link "
-                                             data-collection-id="">
-                                                <div class="tile-inner-wrap preload-image">
-                                                    <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__PUBLIC__/Admin_v3/image/6.jpg">
-                                                    <div class="type-icon">
-                                                        <div class="icon-wrap"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mask"></div>
-                                                <div class="text">
-                                                    <p class="head">驿山高尔夫度假酒店别墅区</p>
-                                                    <p class="subhead">中国武汉</p>
-                                                </div>
-                                            </a>
-                                        </div>
+                                        </foreach>
                                         <!-- 项目中的列子 -->
                                     </div>
                                     <!-- <div class="slider-more-arrow"></div>
@@ -446,26 +154,29 @@
                                 </div>
                             </div>
                             <!-- 其他类别项目 for item end -->
+                            </foreach>
                         </div>
                     </div>
                     <!-- 项目 -->
-                    
+                    <foreach name = "cats.1.cat" item = "i">
                     <!-- 新闻 -->
                     <div class="news" id="featured-new">
-                        <h2>新闻</h2>
+                        <h2><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></h2>
                         <div class="slider swiper-container project-collections-warp2 homepage-news__slider" style="overflow:visible">
                             <div class="swiper-wrapper">
                                 <ul>
                                     <!-- 新闻文章 -->
+                                    <foreach name = "i.items" item = "ii">
                                     <li class="homepage-news__tile homepage-news__tile--internal swiper-slide homepage-news__tile--portrait">
                                         <a href="">
-                                            <img class="homepage-news__image" src="__PUBLIC__/Admin_v3/image/wuhanguanggu.jpg" ?="">
+                                            <img class="homepage-news__image" src="__APP__{$ii.image}" ?="">
                                             <div class="homepage-news__text-wrap">
-                                                <span class="homepage-news__date">2017-11-08</span>
-                                                <p class="homepage-news__title">大光谷终于出纯新盘</p>
+                                                <span class="homepage-news__date"><if condition = "$lang eq 1" >{$ii.publish_time}<else/>{$ii.publish_time}</if></span>
+                                                <p class="homepage-news__title"><if condition = "$lang eq 1" >{$ii.title_en}<else/>{$ii.title}</if></p>
                                             </div>
                                         </a>
                                     </li>
+                                    </foreach>
                                         <!-- 新闻文章 -->
                                 </ul>
                             </div>
@@ -481,30 +192,24 @@
                         </div>
                     </div>
                      <!-- 新闻 end-->
+                     </foreach>
                     <div class="instagram">
-                        <h2>招聘</h2>
+                        <h2><if condition = "$lang eq 1" >RECRUIT<else/>招聘</if></h2>
                         <!-- 招聘 -->
                         <div class="slider instagram-slider at-end at-start">
                             <ul style="transform: translate(0px, 0px) translateZ(0px);">
+
+                            <foreach name = "cats.2.cat.1.items" item = "i">
                                 <li class="instagram-tile">
                                     <!-- <img width="450" height="450" src="http://www.toposla.com/rsc/images/1515202805-450x450.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt=""  sizes="(max-width: 450px) 100vw, 450px">  -->
                                     <a href="javascript:void(0);">
                                         <div class="instagram-text">
-                                            <span class="news-date">2018-2-1</span>
-                                            <p>初级/中级景观设计师3名（3-5年以上知名设计事务所工作经验）</p>
+                                            <span class="news-date"><if condition = "$lang eq 1" >{$i.publish_time}<else/>{$i.publish_time}</if></span>
+                                            <p><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></p>
                                         </div>
                                     </a>
                                 </li>
-        
-                                <li class="instagram-tile">
-                                    <!-- <img width="450" height="450" src="http://www.toposla.com/rsc/images/1515202805-450x450.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt=""  sizes="(max-width: 450px) 100vw, 450px">   -->
-                                    <a href="javascript:void(0);">
-                                        <div class="instagram-text">
-                                            <span class="news-date">2018-2-1</span>
-                                            <p>初级/中级景观设计师3名（3-5年以上知名设计事务所工作经验）</p>
-                                        </div>
-                                    </a>
-                                </li>
+                                </foreach>
                             </ul>
                             <div class="slider-more-arrow"></div>
                             <div class="slider-less-arrow"></div>
@@ -515,7 +220,7 @@
                             <ul>
                                 <li>
                                     <a href="mailto:info@toposla.com" target="blank">
-                                        邮箱 </a>
+                                        <if condition = "$lang eq 1" >EMAIL<else/>邮箱</if> </a>
                                 </li>
                             </ul>
                         </div>
@@ -528,19 +233,18 @@
                         </div>
                         <div class="col three">
                             <p>
-                                中国深圳市福田中心区<br>
-                                皇达东方雅苑写字楼1A<br>
+                                {$address}<br>
                             </p>
-                            <p>tel:+86 755 8616 9093</p>
-                            <p>info@toposla.com</p>
+                            <p>tel:{$tel}</p>
+                            <p>{$email}</p>
                         </div>
                         <div class="col four">
                             <span>
-                                美国加利福尼亚州圣迭戈格莱尼特山道9655
+                                {$en_address}
                             </span>
                             <span>
-                                tel: +1 619 272 9669
-                            </span><span>info@toposla.com</span>
+                                tel: {$en_tel}
+                            </span><span>{$en_email}</span>
                         </div>
                     </div>
                 </div>
@@ -626,13 +330,18 @@
                         <nav class="menu-section">
                             <h1><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></h1>
                             <ul>
+                                <if condition = "$i.id eq 1" >
+                                    <li>
+                                        <a class="menu-link" href="{:U(GROUP_NAME . '/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
+                                            &nbsp;&nbsp;<if condition = "$lang eq 1" >classical project<else/>经典项目</if> 
+                                        </a>
+                                    </li>
+                                </if> 
                                 <foreach name="i.cat" item="ii">
                                     <li>
-                                        <a class="menu-link" href="__GROUP__">
+                                        <a class="menu-link" href="{{:U(GROUP_NAME . '/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
                                             &nbsp;&nbsp;<if condition = "$lang eq 1" >{$ii.name_en}<else/>{$ii.name}</if> 
                                         </a>
-                                        <ul>
-                                        </ul>
                                     </li>
                                 </foreach>
                             </ul>

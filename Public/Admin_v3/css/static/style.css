@@ -2346,7 +2346,7 @@ a {
 	font-weight: regular !important
 }
 
-.slider .tile h4+h4,
+/* .slider .tile h4+h4, */
 .slider .tile.type-instagram p,
 .slider .tile.type-twitter p {
 	color: #7F7F7F

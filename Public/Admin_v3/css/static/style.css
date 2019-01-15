@@ -13513,11 +13513,12 @@ a.next-proj-link {
 
 .featured-collections .slider .tile img{
 	width: 100%;
+	float: left;
 }
 
 .featured-collections .slider .tile .text{
-	bottom: 0;
 	top: 0;
+	bottom: 0;
 	margin: auto;
 	display: none;
 	color: #fff;
@@ -13553,7 +13554,8 @@ a.next-proj-link {
 	.featured-collections .slider .tile .text{
 		display: block;
 		background-color: rgba(0, 0, 0, .6);
-		bottom: 0 !important;
+		bottom: 0;
+		margin-bottom: 0;
 	}
 	.featured-collections .slider .tile:hover .mask{
 		display: none;

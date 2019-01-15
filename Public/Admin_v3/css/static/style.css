@@ -13552,7 +13552,8 @@ a.next-proj-link {
 	}
 	.featured-collections .slider .tile .text{
 		display: block;
-		background-color: #000;
+		background-color: rgba(0, 0, 0, .6);
+		bottom: 0;
 	}
 }
 @media (max-width:1150px) {

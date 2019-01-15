@@ -24,17 +24,25 @@ class DetailAction extends CommonAction {
         $this->a_id = I('a_id',0);
     }
     public function project() {
-        if(empty($cat_id)) $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
+        if(empty($cat_id)){
+            echo "222222222222";
+            exit();
+            $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
+        }
         $cat_id = intval($cat_id);
         $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid')->find();
         $pid = $cat_info['pid'];
         $keys = array_keys($this->cat_table);
-        if(empty($cat_info)||(!in_array($pid,$keys))) $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
+        if(empty($cat_info)||(!in_array($pid,$keys))){
+            echo "33333333333";exit();
+            $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
+        }
         $model_name = $this->cat_table[$pid];
         $model = M($model_name);
         $info = $model->where('isopen = 1 and id = '.$a_id)->find();
 
         if(empty($info)||$info['cat2']!=$this->cat_id){
+            echo "5555555555";exit();
             $this->redirect('Admin/Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
             exit();
         }
@@ -91,6 +99,7 @@ class DetailAction extends CommonAction {
         $res['many_image_open'] = count($images)>=1?true:false;
 
         $res['many_image'] = $images;
+        var_dump($res);exit();
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

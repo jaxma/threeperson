@@ -332,14 +332,14 @@
                             <ul>
                                 <if condition = "$i.id eq 1" >
                                     <li>
-                                        <a class="menu-link" href="{:U(GROUP_NAME . '/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
+                                        <a class="menu-link" href="{:U(GROUP_NAME.'/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
                                             &nbsp;&nbsp;<if condition = "$lang eq 1" >classical project<else/>经典项目</if> 
                                         </a>
                                     </li>
                                 </if> 
                                 <foreach name="i.cat" item="ii">
                                     <li>
-                                        <a class="menu-link" href="{{:U(GROUP_NAME . '/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
+                                        <a class="menu-link" href="{:U(GROUP_NAME.'/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
                                             &nbsp;&nbsp;<if condition = "$lang eq 1" >{$ii.name_en}<else/>{$ii.name}</if> 
                                         </a>
                                     </li>

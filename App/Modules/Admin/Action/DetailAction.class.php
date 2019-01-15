@@ -24,6 +24,8 @@ class DetailAction extends CommonAction {
         $this->a_id = I('a_id',0);
     }
     public function project() {
+        $cat_id = $this->cat_id;
+        $a_id = $this->a_id;
         if(empty($cat_id)){
             echo "222222222222";
             exit();
@@ -41,7 +43,7 @@ class DetailAction extends CommonAction {
         $model = M($model_name);
         $info = $model->where('isopen = 1 and id = '.$a_id)->find();
 
-        if(empty($info)||$info['cat2']!=$this->cat_id){
+        if(empty($info)||$info['cat2']!=$cat_id){
             echo "5555555555";exit();
             $this->redirect('Admin/Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
             exit();

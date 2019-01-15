@@ -6776,7 +6776,7 @@ span.clear-all-filters {
 	width: 50px;
 	top: 0;
 	background: rgba(0, 0, 0, 0.6);
-	height: calc(100% - 60px);
+	/* height: calc(100% - 60px); */
 }
 .prevBtn{
 	position: absolute;

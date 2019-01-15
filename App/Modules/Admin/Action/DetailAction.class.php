@@ -63,7 +63,7 @@ class DetailAction extends CommonAction {
             $res['publish_time'] = date('Y-m-d',$info['publish_time']);
             if(!empty($info['detail'])){
                 $info['detail'] = str_replace("；",";",$info['detail']);
-                $detail = implode(";",$info['detail']);
+                $detail = explode(";",$info['detail']);
                 $res['type'] = 1;//项目
             }else{
                 $info['detail'] = date('Y-m-d',$info['publish_time']);
@@ -79,7 +79,7 @@ class DetailAction extends CommonAction {
             $res['content'] = $info['content_en'];
             if(!empty($info['detail_en'])){
                 $info['detail_en'] = str_replace("；",";",$info['detail_en']);
-                $detail = implode(";",$info['detail_en']);
+                $detail = explode(";",$info['detail_en']);
                 $res['type'] = 1;//项目
             }else{
                 $info['detail_en'] = date('Y-m-d',$info['publish_time']);
@@ -92,7 +92,7 @@ class DetailAction extends CommonAction {
         $res['image'] = $info['image'];
         $res['image2'] = $info['image2'];
         if(!empty($res['many_image'])){
-            $images = implode(",",$res['many_image']);
+            $images = explode(",",$res['many_image']);
             if(count($images)<=1){
                 $images = array();
             }else{
@@ -101,11 +101,7 @@ class DetailAction extends CommonAction {
         }
         $res['many_image_open'] = count($images)>=1?true:false;
         $res['many_image'] = $images;
-        var_dump($detail);
-        echo "<hr />";
-        var_dump($res['many_image_open']);
-        var_dump($images);
-        exit();
+        
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

@@ -7132,7 +7132,8 @@ span.clear-all-filters {
 		background: 0 0
 	}
 }
-.featured-collections .slider .tile:hover h4, .featured-collections .slider .tile:hover p{
+/* .featured-collections .slider .tile:hover h4 */
+ .featured-collections .slider .tile:hover p{
 	color: rgb(140, 84, 84)
 }
 
@@ -13511,6 +13512,9 @@ a.next-proj-link {
 	display: none;
 	color: #fff;
 }
+.featured-collections .slider .tile .text p{
+	margin-top: 0;
+}
 .featured-collections .slider .tile .mask{
 	position: absolute;
 	left: 0;
@@ -13522,7 +13526,7 @@ a.next-proj-link {
 	transition: .25s;
 }
 .featured-collections .slider .tile:hover .mask,
-.featured-collections .slider .tile .text
+.featured-collections .slider .tile:hover .text
 {
 	display: block;
 }

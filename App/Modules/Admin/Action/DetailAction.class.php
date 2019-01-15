@@ -29,7 +29,7 @@ class DetailAction extends CommonAction {
         $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid')->find();
         $pid = $cat_info['pid'];
         $keys = array_keys($this->cat_table);
-        if(empty($cat_info)||(!in_array($pid,$keys))) $this->redirect('Admin/Index/index',,array('lang'=>$this->lang));
+        if(empty($cat_info)||(!in_array($pid,$keys))) $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
         $model_name = $this->cat_table[$pid];
         $model = M($model_name);
         $info = $model->where('isopen = 1 and id = '.$a_id)->find();
@@ -44,25 +44,6 @@ class DetailAction extends CommonAction {
             $p_info['name'] = "项目";
             $p_info['name_en'] = "Item";
         }
-        /*
-         `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title_news` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title_news_en` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image2` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` blob,
-  `content_en` blob,
-  `publish_time` int(10) unsigned DEFAULT '0' COMMENT '发表时间',
-  `time` int(10) unsigned DEFAULT '0',
-  `isopen` tinyint(10) DEFAULT '0' COMMENT '是否开启',
-  `many_image` text CHARACTER SET utf8 COMMENT '多图上传',
-  `sequence` int(11) DEFAULT '0' COMMENT '优先级',
-  `cat1` int(10) NOT NULL DEFAULT '0' COMMENT '一级分类',
-  `cat2` int(10) DEFAULT '0' COMMENT '二级分类',
-  `classical` int(11) NOT NULL,
-         */
         $res = array()
         if(empty($lang)){
             $res['head'] = $p_info['name'];

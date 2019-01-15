@@ -9,7 +9,7 @@ $(function(){
     });
     
     isScrollY();
-    projectLoop();
+    classicProjectSwiper();
     //初始化-放大图片
     baguetteBox.run('#lightbox-context', {
         // Custom options
@@ -53,8 +53,8 @@ function isScrollY(){
     }
 }
 
-//项目新闻轮播
-function projectLoop(){
+//项目新闻轮播--经典项目
+function classicProjectSwiper(){
     // var slidesOffsetAfterData =  $(".swiper-wrapper-project").css("padding-left");
     // var slidesOffsetAfterDataInt = slidesOffsetAfterData.substring(0,slidesOffsetAfterData.length - 2);
     // var docmentWidth = $(document).width();
@@ -115,8 +115,59 @@ function projectLoop(){
                 spaceBetween: 15,
             }
         }
-});
+    });
 }
+
+//项目新闻轮播--经典项目
+function otherProjectSwiper(){
+    // var slidesOffsetAfterData =  $(".swiper-wrapper-project").css("padding-left");
+    // var slidesOffsetAfterDataInt = slidesOffsetAfterData.substring(0,slidesOffsetAfterData.length - 2);
+    // var docmentWidth = $(document).width();
+    var swiper2 = new Swiper('.project-collections-warp', {
+        pagination: '.swiper-pagination',
+        slidesPerView: "auto",
+        paginationClickable: true,
+        freeMode: true,
+        slidesOffsetAfter: 0,
+        slidesOffsetBefter: 0,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        watchOverflow: true,
+        observer: true,//修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true,//修改swiper的父元素时，自动初始化swipe
+        slidesPerView: 4,//一行显示3个
+        slidesPerColumn: 3,//显示2行
+        //width: parseInt(slidesOffsetAfterDataInt) + docmentWidth,
+        navigation: {
+            nextEl: '.swiper-button-next',//自动隐藏
+            prevEl: '.swiper-button-prev',//自动隐藏
+        },
+        pagination: {
+            el: '.swiper-pagination',//自动隐藏
+        },
+        on: {
+            init: function(){
+                
+            }
+        },
+    });
+}
+
+// 点击项目分类切换
+$(document).unbind("click","#portfolio-filter li").on("click","#portfolio-filter li",function(){
+    $(this).addClass("active").siblings().removeClass("active");
+    var type = $(this).data('type');
+    if(type == 0){
+        $(".otherProject").hide(0);
+        $(".classicProject").show(0);
+    }
+    else{
+        var index_ = $(this).index();
+        $(".classicProject").hide(0);
+        $(".otherProject").eq(index_ -1).show(0);
+        otherProjectSwiper();
+    }
+})
 
 //项目 新闻点击、
 function handleProject(){

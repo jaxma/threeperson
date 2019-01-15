@@ -13553,7 +13553,10 @@ a.next-proj-link {
 	.featured-collections .slider .tile .text{
 		display: block;
 		background-color: rgba(0, 0, 0, .6);
-		bottom: 0;
+		bottom: 0 !important;
+	}
+	.featured-collections .slider .tile:hover .mask{
+		display: none;
 	}
 }
 @media (max-width:1150px) {

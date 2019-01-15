@@ -13581,3 +13581,7 @@ a.next-proj-link {
 		margin-right: 0;
 	}
 }
+
+.project-content-left.otherProject{
+	display: none;
+}

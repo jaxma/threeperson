@@ -2,7 +2,7 @@
 <html lang="en-US">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>TOP — TOPOS 公共空间及园区</title>
+		<title>TOP — TOPOS {$res.head}</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width">
 		<meta name="viewport" content="initial-scale=1">
@@ -17,57 +17,31 @@
 		<div class="single-collection" id="single-project">
 				<!-- 图片--项目 -->
 				<div class="cover-image-wrap scrolly-fixy scrolly-fixy-fix shorter-than-vp" onclick="handleClickIndexImage()" id="handleClickIndexImage">
-					<img src="__PUBLIC__/Admin_v3/image/public-chognqin18-1.jpg" class="cover-image spacer lazy-load landscape ready animated bounceInDown">
-					<img src="__PUBLIC__/Admin_v3/image/public-chognqin18-1.jpg" class="cover-image transformer lazy-load landscape ready animated bounceInDown">
+					<img src="__ROOT__{$res.image}" class="cover-image spacer lazy-load landscape ready animated bounceInDown">
+					<img src="__ROOT__{$res.image}" class="cover-image transformer lazy-load landscape ready animated bounceInDown">
 				</div>
 				<!-- 图片--项目 -->
 				<!-- 项目列表 -->
 				<div class="content-wrap" id="project-warp">
 					<div class="section intro">
 						<span class="subheading">Collection</span>
-						<h1>度假旅游规划</h1>
+						<h1>{$res.head}</h1>
 					</div>
 					<div class="section">
 						<!-- 项目列表list -->
 						<ul class="collection-list">
+							<foreach name="list" item="vo" key="k">
 							<li class="collection-member">
-								<a href="holiday_haixiaqundao_index.php" class="history-link tile project">
-									<div class="image-wrap" style="background-image:url(&quot;http://www.toposla.com/rsc/images/project/holiday-haixiaqundao-1.jpg&quot;)">
+								<a href="U('Detail/project',array('a_id'=>$vo['id'],'cat_id'=>$vo['cat2'],'lang'=>$lang))" class="history-link tile project">
+									<div class="image-wrap" style="background-image:url(&quot;__ROOT__{$image}&quot;)">
 									</div>
 									<div class="tile-title-wrap">
-										<h4>海峡群岛港总体景观规划</h4>
-										<h5 class="sub-title">美国加利福尼亚州文图拉郡</h5>
+										<h4>{$vo.title}</h4>
+										<h5 class="sub-title">{$vo.address}</h5>
 									</div>
 								</a>
 							</li>
-							<li class="collection-member">
-								<a href="holiday_houguanhu_index.php" class="history-link tile project">
-									<!-- <div class='tile-inner-wrap preload-image ' data-img-preload='http://d352orssbgs8s7.cloudfront.net/wp-content/uploads/2015/05/12_10055_00_N43-2000x1499.jpg'  data-dom-col="#7f7572"> -->
-									<div class="image-wrap" style="background-image:url(&quot;http://www.toposla.com/rsc/images/project/holiday-houguanhu-1.jpg&quot;)">
-										<!-- <img class='lazy-load' data-default-size='sd' data-src-sd='http://d352orssbgs8s7.cloudfront.net/wp-content/uploads/2015/05/12_10055_00_N43-800x600.jpg' data-src-hd='http://d352orssbgs8s7.cloudfront.net/wp-content/uploads/2015/05/12_10055_00_N43-2000x1499.jpg'  data-width="3500" data-height="2623" data-dom-col="#7f7572" width="3500" height="2623" > -->
-									</div>
-									<!-- <div  class='spacer'></div> -->
-									<div class="tile-title-wrap">
-										<h4>后官湖景观规划</h4>
-										<h5 class="sub-title">中国武汉</h5>
-									</div>
-									<!-- </div> -->
-								</a>
-							</li>
-							<li class="collection-member">
-								<a href="holiday_qiandaohu_index.php" class="history-link tile project">
-									<!-- <div class='tile-inner-wrap preload-image ' data-img-preload='http://d352orssbgs8s7.cloudfront.net/wp-content/uploads/2015/04/10055_00_Studhorse_Outlook_N16-e1436900808716-2000x1950.jpg'  data-dom-col="#6f726d"> -->
-									<div class="image-wrap" style="background-image:url(&quot;http://www.toposla.com/rsc/images/project/holiday-qiandaohu-1.jpg&quot;)">
-										<!-- <img class='lazy-load' data-default-size='sd' data-src-sd='http://d352orssbgs8s7.cloudfront.net/wp-content/uploads/2015/04/10055_00_Studhorse_Outlook_N16-e1436900808716-800x780.jpg' data-src-hd='http://d352orssbgs8s7.cloudfront.net/wp-content/uploads/2015/04/10055_00_Studhorse_Outlook_N16-e1436900808716-2000x1950.jpg'  data-width="2708" data-height="2640" data-dom-col="#6f726d" width="2708" height="2640" > -->
-									</div>
-									<!-- <div  class='spacer'></div> -->
-									<div class="tile-title-wrap">
-										<h4>千岛湖文渊狮城</h4>
-										<h5 class="sub-title">中国杭州 </h5>
-									</div>
-									<!-- </div> -->
-								</a>
-							</li>
+							</foreach>
 						</ul>
 					</div>
 					</div>

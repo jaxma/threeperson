@@ -16,6 +16,7 @@ class DetailAction extends CommonAction {
     );
     private $detail_des = array('地点','用地面积','建成时间','发布时间');
     private $detail_des_en = array('Location','Site Area','Completion','Release time');
+    private $limit = 100; //列表页限制显示文章篇数为100篇
     public function _initialize()
     {
         parent::_initialize();
@@ -31,25 +32,25 @@ class DetailAction extends CommonAction {
         $lang = $this->lang;
         if(empty($cat_id)){;
             exit();
-            $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
+            $this->redirect('Index/index',array('lang'=>$this->lang));
         }
         $cat_id = intval($cat_id);
-        $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid')->find();
+        $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,name_en,pid')->find();
         $pid = $cat_info['pid'];
         $keys = array_keys($this->cat_table);
         if(empty($cat_info)||(!in_array($pid,$keys))){
-            $this->redirect('Admin/Index/index',array('lang'=>$this->lang));
+            $this->redirect('Index/index',array('lang'=>$this->lang));
         }
         $model_name = $this->cat_table[$pid];
         $model = M($model_name);
         $info = $model->where('isopen = 1 and id = '.$a_id)->find();
 
         if(empty($info)||$info['cat2']!=$cat_id){
-            $this->redirect('Admin/Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
+            $this->redirect('Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
             exit();
         }
         $res = array();
-        $p_info = $this->cat_model->where('status = 1 and id = '.$pid)->field('name')->find();
+        $p_info = $this->cat_model->where('status = 1 and id = '.$pid)->field('name,name_en')->find();
         if(empty($p_info)){
             $p_info['name'] = "项目";
             $p_info['name_en'] = "Item";
@@ -103,7 +104,6 @@ class DetailAction extends CommonAction {
         }
         $res['many_image_open'] = count($images)>=1?true:false;
         $res['many_image'] = $images;
-        
         $this->res = $res;
         $this->lang = $lang;
         $this->display();
@@ -111,7 +111,58 @@ class DetailAction extends CommonAction {
     }
 
     public function projectlist() {
+        $cat_id = $this->cat_id;
+        $lang = $this->lang;
+        if(empty($cat_id)){;
+            exit();
+            $this->redirect('Index/index',array('lang'=>$this->lang));
+        }
+        $cat_id = intval($cat_id);
+        $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid,name_en,image')->find();
+        $pid = $cat_info['pid'];
+        $keys = array_keys($this->cat_table);
+        //目前只有项目有详情页
+        if(empty($cat_info)||(!in_array($pid,$keys))){
+            $this->redirect('Index/index',array('lang'=>$this->lang));
+        }
 
+        $p_info = $this->cat_model->where('status = 1 and id = '.$pid)->field('name,name_en,image')->find();
+        if(empty($p_info['image'])) $this->redirect('Index/index',array('lang'=>$this->lang));
+        $res = array();
+        if(empty($p_info)){
+            $p_info['name'] = "项目";
+            $p_info['name_en'] = "Item";
+        }
+        $res['head'] = $lang?$cat_info['name_en']:$cat_info['name'];
+        $res['image'] = $cat_info['image'];
+        $model_name = $this->cat_table[$pid];
+        $model = M($model_name);
+        $field = array('image,title,title_en,detail,detail_en');
+        $info = $model->where('isopen = 1 and cat2 = '.$cat_id)->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
+
+        if(empty($info)) $this->redirect('Index/index',array('lang'=>$this->lang));
+        $list = array();
+        foreach ($info as $key => $val) {
+            $tmp = array();
+            $tmp['id'] = $val['id'];
+            $tmp['cat2'] = $val['cat2'];
+            $tmp['image'] = $val['image'];
+            if($lang){
+                $tmp['title'] = $val['title_en'];
+                $val['detail_en'] = str_replace("；",";",$val['detail_en']);
+                $detail = explode(";",$val['detail_en']);
+            }else{
+                $tmp['title'] = $val['title'];
+                $val['detail'] = str_replace("；",";",$val['detail']);
+                $detail = explode(";",$val['detail']);
+            }
+            $tmp['address'] = $detail[0];
+            $list[] = $tmp;
+        }
+        $this->res = $res;
+        $this->list = $list;
+        $this->lang = $lang;
+        $this->display();
     }
 
 

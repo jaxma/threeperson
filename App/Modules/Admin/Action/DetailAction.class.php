@@ -128,7 +128,7 @@ class DetailAction extends CommonAction {
         }
         $keys = array_keys($this->cat_table);
 
-        var_dump($cat_info);exit();
+        
         //目前只有项目有详情页
         if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
             $this->redirect('Index/index',array('lang'=>$this->lang));
@@ -144,7 +144,7 @@ class DetailAction extends CommonAction {
         }else{
             $info = $model->where('isopen = 1 and cat2 = '.$cat_id)->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
         }
-        
+        var_dump($info);exit();
 
         if(empty($info)){
             $this->redirect('Index/index',array('lang'=>$this->lang));

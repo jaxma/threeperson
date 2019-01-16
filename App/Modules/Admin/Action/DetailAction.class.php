@@ -119,11 +119,13 @@ class DetailAction extends CommonAction {
             $photo_model = M('photo');
             $cat_info = $photo_model->where('type=2 and isopen =1')->field('name,name_en,image')->find();
             $pid = 1;
+            $switch = true;
         }else{
             $cat_id = intval($cat_id);
             $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid,name_en,image')->find();
             $pid = $cat_info['pid'];
             $keys = array_keys($this->cat_table);
+            $switch = false;
         }
         //目前只有项目有详情页
         if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
@@ -135,7 +137,12 @@ class DetailAction extends CommonAction {
         $model_name = $this->cat_table[$pid];
         $model = M($model_name);
         $field = array('image,title,title_en,detail,detail_en');
-        $info = $model->where('isopen = 1 and cat2 = '.$cat_id)->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
+        if($switch){
+            $info = $model->where('isopen = 1 and classical=1')->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
+        }else{
+            $info = $model->where('isopen = 1 and cat2 = '.$cat_id)->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
+        }
+        
 
         if(empty($info)){
             $this->redirect('Index/index',array('lang'=>$this->lang));

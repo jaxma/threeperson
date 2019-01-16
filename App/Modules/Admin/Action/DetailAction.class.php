@@ -127,6 +127,8 @@ class DetailAction extends CommonAction {
             $switch = false;
         }
         $keys = array_keys($this->cat_table);
+
+        var_dump($cat_info);exit();
         //目前只有项目有详情页
         if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
             $this->redirect('Index/index',array('lang'=>$this->lang));

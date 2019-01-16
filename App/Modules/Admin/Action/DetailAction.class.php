@@ -116,8 +116,6 @@ class DetailAction extends CommonAction {
         var_dump($cat_id);
         var_dump($lang);
         if(empty($cat_id)){
-            echo "11111111111";
-            exit();
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
         $cat_id = intval($cat_id);
@@ -125,18 +123,10 @@ class DetailAction extends CommonAction {
         $pid = $cat_info['pid'];
         $keys = array_keys($this->cat_table);
         //目前只有项目有详情页
-        if(empty($cat_info)||(!in_array($pid,$keys))){
-            echo "222222";exit();
+        if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
-
-        $p_info = $this->cat_model->where('status = 1 and id = '.$pid)->field('name,name_en,image')->find();
-        if(empty($p_info['image'])) $this->redirect('Index/index',array('lang'=>$this->lang));
         $res = array();
-        if(empty($p_info)){
-            $p_info['name'] = "项目";
-            $p_info['name_en'] = "Item";
-        }
         $res['head'] = $lang?$cat_info['name_en']:$cat_info['name'];
         $res['image'] = $cat_info['image'];
         $model_name = $this->cat_table[$pid];

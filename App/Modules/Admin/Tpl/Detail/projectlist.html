@@ -32,8 +32,8 @@
 						<ul class="collection-list">
 							<foreach name="list" item="vo" key="k">
 							<li class="collection-member">
-								<a href="U('Detail/project',array('a_id'=>$vo['id'],'cat_id'=>$vo['cat2'],'lang'=>$lang))" class="history-link tile project">
-									<div class="image-wrap" style="background-image:url(&quot;__ROOT__{vo.image}&quot;)">
+								<a href="{:U('Detail/project',array('a_id'=>$vo['id'],'cat_id'=>$vo['cat2'],'lang'=>$lang))}" class="history-link tile project">
+									<div class="image-wrap" style="background-image:url(&quot;__ROOT__{$vo.image}&quot;)">
 									</div>
 									<div class="tile-title-wrap">
 										<h4>{$vo.title}</h4>

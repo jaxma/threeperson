@@ -21,23 +21,18 @@
                     <div class="cover-images mod-slideshow swiper-container" id="swiperIndexImage">
                         <div class="swiper-wrapper">
                             <!-- 单独首页轮播图 item star-->
+                            <foreach name="mobile_photo" item="i">
                             <div class="swiper-slide">
-                                <img class="mod-slideshow__image_1 lazy-load" src="__PUBLIC__/Admin_v3/image/index-001-sd.jpg">
+                                <img class="mod-slideshow__image_1 lazy-load" src="__APP__{$i}">
                             </div>
-                            <!-- 单独首页轮播图 item end-->
-                            <div class="swiper-slide">
-                                <img class="mod-slideshow__image_1 lazy-load" src="__PUBLIC__/Admin_v3/image/index-002-sd.jpg">
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="mod-slideshow__image_1 lazy-load" src="__PUBLIC__/Admin_v3/image/index-003-sd.jpg">
-                            </div>
+                            </foreach>
                         </div>
                     </div>
                     <!-- 轮播实现--介绍 -->
 
                     <!-- pc状态下的图片显示 -->
-                    <img src="__PUBLIC__/Admin_v3/image/index-001-pc.jpg" class="cover-image spacer">
-                    <img src="__PUBLIC__/Admin_v3/image/index-001-pc.jpg" class="cover-image transformer lazy-load landscape ready">
+                    <img src="__APP__{$index_photo.image}" class="cover-image spacer">
+                    <img src="__APP__{$index_photo.image}" class="cover-image transformer lazy-load landscape ready">
                     <!-- pc状态下的图片显示 -->
                     <img class="oka-wordmark" src="__PUBLIC__/Admin_v3/image/ok-wordmark-white-med.png">
                 </div>
@@ -84,7 +79,7 @@
                                         <!-- 项目中的列子 item -->
                                     <foreach name = "cats.0.classical" key='k' item = "i">
                                         <div class="tile type-project swiper-slide">
-                                            <a href="{:U(GROUP_NAME.'/Detail/project',array('cat_id'=>'classical','id'=>$i['id'],'lang'=>$lang))}" class="history-link "
+                                            <a href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$i['cat2'],'a_id'=>$i['id'],'lang'=>$lang))}" class="history-link "
                                              data-collection-id="">
                                                 <div class="tile-inner-wrap preload-image">
                                                     <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
@@ -123,7 +118,7 @@
                                         <!-- 项目中的列子 item -->
                                         <foreach name = "i.items" key='kk' item = "ii">
                                         <div class="tile type-project swiper-slide">
-                                            <a href="{:U(GROUP_NAME.'/Detail/project',array('cat_id'=>$ii['cat2'],'id'=>$ii['id'],'lang'=>$lang))}" class="history-link "
+                                            <a href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$ii['cat2'],'a_id'=>$ii['id'],'lang'=>$lang))}" class="history-link "
                                              data-collection-id="">
                                                 <div class="tile-inner-wrap preload-image">
                                                     <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
@@ -332,14 +327,14 @@
                             <ul>
                                 <if condition = "$i.id eq 1" >
                                     <li>
-                                        <a class="menu-link" href="{:U(GROUP_NAME.'/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
+                                        <a class="menu-link" href="{:U(__GROUP__.'/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
                                             &nbsp;&nbsp;<if condition = "$lang eq 1" >classical project<else/>经典项目</if> 
                                         </a>
                                     </li>
                                 </if> 
                                 <foreach name="i.cat" item="ii">
                                     <li>
-                                        <a class="menu-link" href="{:U(GROUP_NAME.'/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
+                                        <a class="menu-link" href="{:U(__GROUP__.'/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
                                             &nbsp;&nbsp;<if condition = "$lang eq 1" >{$ii.name_en}<else/>{$ii.name}</if> 
                                         </a>
                                     </li>

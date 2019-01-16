@@ -160,6 +160,31 @@ class CompanyAction extends CommonAction {
     }
 
     //编辑产品信息
+    public function photo() {
+        $model_name = $this->get_model();
+
+        $type = I('type');
+
+        $row = M('photo')->where('type = '.$type)->find();
+
+        $row_image = $row['many_image'];
+        $arr = explode(',', $row_image);
+        //在每个前面加上__ROOT__,用在编辑时本机显示图片
+        array_walk(
+            $arr,
+            function (&$s, $k, $prefix = '__ROOT__') {
+                $s = str_pad($s, strlen($prefix) + strlen($s), $prefix, STR_PAD_LEFT);
+            }
+        );
+        $row_arr=implode(',',$arr);
+        $this->arr = $row_arr;
+
+        $this->type = $type;
+        $this->row = $row;
+        $this->display();
+    }
+
+    //编辑产品信息
     public function introduct_edit() {
         $model_name = $this->get_model();
 
@@ -234,6 +259,66 @@ class CompanyAction extends CommonAction {
             }else{
                 $this->success("操作成功",__URL__.'/'.'company');
             }
+        }
+    }
+
+    public function update_photo() {
+        $model_name = M('photo');
+        
+        // $id = I('post.id');
+        $type = I('type');
+        
+        $id_info= $model_name->where(array('type' => $type))->find();
+        $old_image=$id_info['image'];
+        $image=I('image');
+        if(strcmp($old_image,$image)==0){
+            $image=$image;
+
+        }else{
+            $url = $_SERVER['DOCUMENT_ROOT'].__ROOT__ . $id_info['image'];
+            @unlink($url);
+            $image = $image;
+        }
+
+        $name = I('post.name');
+        $name_en = I('post.name_en');
+
+        $image=I('post.image');
+       
+        $many_image=I('many_image');
+        $many_images = implode(',',$many_image);
+
+        if($type == 1){
+            if(empty($image) || empty($many_image)){
+                $this->error('红色带星项目必须填写，请检查后重新提交');
+                exit();
+            }
+        }
+        if($type == 2){
+            if(empty($name) || empty($name_en) || empty($image)){
+                $this->error('红色带星项目必须填写，请检查后重新提交');
+                exit();
+            }
+        }
+
+       
+        $data = array(
+            'image' => $image,
+            'name' => $name,
+            'name_en' => $name_en,
+            'many_image' => $many_images,
+            'type' => $type,
+            'time' => time(),
+        );
+
+        
+        $res = $model_name->where(array('type' => $type))->save($data);
+        if ($res === false) {
+            $this->error("操作失败");
+        } else {
+            $name = $this->get_name();
+            $this->add_active_log('编辑'.$name.'信息');
+            $this->success("操作成功",__URL__.'/'.'photo?type='.$type);
         }
     }
     //删除产品信息

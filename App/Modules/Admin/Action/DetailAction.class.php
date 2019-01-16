@@ -112,9 +112,6 @@ class DetailAction extends CommonAction {
     public function projectlist() {
         $cat_id = $this->cat_id;
         $lang = $this->lang;
-
-        var_dump($cat_id);
-        var_dump($lang);
         if(empty($cat_id)){
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
@@ -135,7 +132,6 @@ class DetailAction extends CommonAction {
         $info = $model->where('isopen = 1 and cat2 = '.$cat_id)->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
 
         if(empty($info)){
-            echo "3333333";exit();
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
         $list = array();
@@ -156,11 +152,6 @@ class DetailAction extends CommonAction {
             $tmp['address'] = $detail[0];
             $list[] = $tmp;
         }
-        echo "<hr />";
-        var_dump($list);
-        echo "<hr />";
-        var_dump($res);
-        exit();
         $this->res = $res;
         $this->list = $list;
         $this->lang = $lang;

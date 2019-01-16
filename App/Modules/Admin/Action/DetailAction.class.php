@@ -30,8 +30,7 @@ class DetailAction extends CommonAction {
         $cat_id = $this->cat_id;
         $a_id = $this->a_id;
         $lang = $this->lang;
-        if(empty($cat_id)){;
-            exit();
+        if(empty($cat_id)){
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
         $cat_id = intval($cat_id);
@@ -113,7 +112,11 @@ class DetailAction extends CommonAction {
     public function projectlist() {
         $cat_id = $this->cat_id;
         $lang = $this->lang;
-        if(empty($cat_id)){;
+
+        var_dump($cat_id);
+        var_dump($lang);
+        if(empty($cat_id)){
+            echo "11111111111";
             exit();
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
@@ -123,6 +126,7 @@ class DetailAction extends CommonAction {
         $keys = array_keys($this->cat_table);
         //目前只有项目有详情页
         if(empty($cat_info)||(!in_array($pid,$keys))){
+            echo "222222";exit();
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
 
@@ -140,7 +144,10 @@ class DetailAction extends CommonAction {
         $field = array('image,title,title_en,detail,detail_en');
         $info = $model->where('isopen = 1 and cat2 = '.$cat_id)->field('id,cat2,image,title,title_en,detail,detail_en')->order('sequence desc,time desc')->limit($this->limit)->select();
 
-        if(empty($info)) $this->redirect('Index/index',array('lang'=>$this->lang));
+        if(empty($info)){
+            echo "3333333";exit();
+            $this->redirect('Index/index',array('lang'=>$this->lang));
+        }
         $list = array();
         foreach ($info as $key => $val) {
             $tmp = array();
@@ -159,6 +166,11 @@ class DetailAction extends CommonAction {
             $tmp['address'] = $detail[0];
             $list[] = $tmp;
         }
+        echo "<hr />";
+        var_dump($list);
+        echo "<hr />";
+        var_dump($res);
+        exit();
         $this->res = $res;
         $this->list = $list;
         $this->lang = $lang;

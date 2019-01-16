@@ -65,11 +65,10 @@
                 <div class="form-right">
                     <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
                     <if condition="$row.image neq ''">
-                        <include file="Public/" image_name="image" is_show="1" img_url="{$row.image}" />
+                        <include file="Public/image" image_name="image" is_show="1" img_url="{$row.image}"/>
                         <else/>
-                        <include file="Public/" image_name="image" is_show="0" img_url="{$row.image}" />
+                        <include file="Public/image" image_name="image" is_show="0" img_url="{$row.image}"/>
                     </if>
-                    <!-- <small class="orange-text">（*请上传正方形的图片 图片大小为：188*188）</small> -->
                 </div>
             </div>
 

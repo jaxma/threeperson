@@ -12,7 +12,7 @@ class DetailAction extends CommonAction {
     public $cat_table = array(
         '1'=>'item',
         '2'=>'news',
-        '3'=>'recruitment',
+        '3'=>'recruitment'
     );
     private $detail_des = array('地点','用地面积','建成时间','发布时间');
     private $detail_des_en = array('Location','Site Area','Completion','Release time');
@@ -23,7 +23,7 @@ class DetailAction extends CommonAction {
         $this->company_model = M('company');
         $this->cat_model = M('cat');
         $this->lang = I('lang')=='1'?1:0;
-        $this->cat_id = I('cat_id',0);
+        $this->cat_id = I('cat_id',"0");
         $this->a_id = I('a_id',0);
     }
     public function project() {
@@ -115,10 +115,16 @@ class DetailAction extends CommonAction {
         if(empty($cat_id)){
             $this->redirect('Index/index',array('lang'=>$this->lang));
         }
-        $cat_id = intval($cat_id);
-        $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid,name_en,image')->find();
-        $pid = $cat_info['pid'];
-        $keys = array_keys($this->cat_table);
+        if($cat_id=='classical'){
+            $photo_model = M('photo');
+            $cat_info = $photo_model->where('type=2 and isopen =1')->field('name,name_en,image')->find();
+            $pid = 1;
+        }else{
+            $cat_id = intval($cat_id);
+            $cat_info = $this->cat_model->where('status = 1 and id = '.$cat_id)->field('name,pid,name_en,image')->find();
+            $pid = $cat_info['pid'];
+            $keys = array_keys($this->cat_table);
+        }
         //目前只有项目有详情页
         if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
             $this->redirect('Index/index',array('lang'=>$this->lang));

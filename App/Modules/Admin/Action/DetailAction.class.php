@@ -14,6 +14,8 @@ class DetailAction extends CommonAction {
         '2'=>'news',
         '3'=>'recruitment',
     );
+    private $detail_des = array('地点','用地面积','建成时间','发布时间');
+    private $detail_des_en = array('Location','Site Area','Completion','Release time');
     public function _initialize()
     {
         parent::_initialize();
@@ -52,8 +54,8 @@ class DetailAction extends CommonAction {
             $p_info['name'] = "项目";
             $p_info['name_en'] = "Item";
         }
-        $detail_des = array('地点','用地面积','建成时间','发布时间');
-        $detail_des_en = array('Location','Site Area','Completion','Release time');
+        $detail_des = $this->detail_des;
+        $detail_des_en = $this->detail_des_en;
         $res = array();
         if(empty($lang)){
             $res['head'] = $p_info['name'];

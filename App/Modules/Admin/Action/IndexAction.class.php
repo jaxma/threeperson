@@ -11,6 +11,7 @@ class IndexAction extends CommonAction {
     {
         parent::_initialize();
         $this->company_model = M('company');
+        $this->photo_model = M('photo');
         $this->cat_model = M('cat');
         $this->item_model = M('item');
         $this->news_model = M('news');
@@ -26,6 +27,11 @@ class IndexAction extends CommonAction {
 
         //首页介绍
         $this->introduct = $this->company_model->where('id = 3 and status = 1')->find();
+        //首页图片
+        $index_photo  = $this->photo_model->where('type = 1')->find();
+        //首页移动端图片
+        $mobile_photo = $index_photo['many_image'];
+        $mobile_photo = explode(',', $mobile_photo);
 
         //分类
         $cats = $this->cat_model->where('pid  = 0')->select();
@@ -89,7 +95,9 @@ class IndexAction extends CommonAction {
         //项目
         $this->items = $this->item_model->where(1)->select();
 
-       $this->display();
+        $this->index_photo = $index_photo;
+        $this->mobile_photo = $mobile_photo;
+        $this->display();
     }
     public function project() {
         

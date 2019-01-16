@@ -91,8 +91,8 @@ class DetailAction extends CommonAction {
         $res['publish_time'] = date('Y-m-d',$info['publish_time']);
         $res['image'] = $info['image'];
         $res['image2'] = $info['image2'];
-        if(!empty($res['many_image'])){
-            $images = explode(",",$res['many_image']);
+        if(!empty($info['many_image'])){
+            $images = explode(",",$info['many_image']);
             if(count($images)<=1){
                 $images = array();
             }else{

@@ -108,6 +108,12 @@ function classicProjectSwiper(){
                 spaceBetween: 15,
             },
             //当宽度小于等于1980
+            1600: {
+                slidesPerView: 4,//一行显示3个
+                slidesPerColumn: 3,//显示2行
+                spaceBetween: 15,
+            },
+            //当宽度小于等于1980
             1980: {
                 slidesPerView: 6,//一行显示3个
                 slidesPerColumn: 2,//显示2行

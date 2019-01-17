@@ -6842,7 +6842,9 @@ span.clear-all-filters {
 }
 
 .slider .tile a {
-	text-decoration: none
+	text-decoration: none;
+	display: block;
+	padding-bottom: 70%;
 }
 
 .slider .tile .tile-inner-wrap {

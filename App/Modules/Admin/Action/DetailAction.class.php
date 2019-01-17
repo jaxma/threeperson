@@ -103,9 +103,8 @@ class DetailAction extends CommonAction {
         }
         $res['many_image_open'] = count($images)>=1?true:false;
         $res['many_image'] = $images;
-        $this->lang_url = U('Detail/project',array('lang'=>$this->lang,'cat_id'=>$cat_id,'a_id'=>$a_id));
-        var_dump(U('project',array('lang'=>$this->lang,'cat_id'=>$cat_id,'a_id'=>$a_id)));
-        var_dump($this->lang_url);exit();
+        $lang_change = $this->lang==1?0:1;
+        $this->lang_url = U('Detail/project',array('lang'=>$lang_change,'cat_id'=>$cat_id,'a_id'=>$a_id));
         $this->res = $res;
         $this->lang = $lang;
         $this->display();

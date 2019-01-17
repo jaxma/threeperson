@@ -84,7 +84,7 @@
                                         <!-- 项目中的列子 item -->
                                     <foreach name = "cats.0.classical" key='k' item = "i">
                                         <div class="tile type-project swiper-slide">
-                                            <a  style="background-image: url(__APP__{$i.image})" href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$i['cat2'],'a_id'=>$i['id'],'lang'=>$lang))}" class="history-link "
+                                            <a style="background-image: url(__APP__{$i.image})" href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$i['cat2'],'a_id'=>$i['id'],'lang'=>$lang))}" class="history-link "
                                              data-collection-id="">
                                                 <div class="tile-inner-wrap preload-image">
                                                     <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
@@ -124,11 +124,11 @@
                                         <!-- 项目中的列子 item -->
                                         <foreach name = "i.items" key='kk' item = "ii">
                                         <div class="tile type-project swiper-slide">
-                                            <a href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$ii['cat2'],'a_id'=>$ii['id'],'lang'=>$lang))}" class="history-link "
+                                            <a style="background-image: url(__APP__{$ii.image})" href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$ii['cat2'],'a_id'=>$ii['id'],'lang'=>$lang))}" class="history-link "
                                              data-collection-id="">
                                                 <div class="tile-inner-wrap preload-image">
                                                     <div class="accent-colour" style="background-color: rgb(102, 10, 10);"></div>
-                                                    <img src="__APP__{$ii.image}">
+                                                    
                                                     <div class="type-icon">
                                                         <div class="icon-wrap"></div>
                                                     </div>

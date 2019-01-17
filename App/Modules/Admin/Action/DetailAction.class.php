@@ -168,6 +168,8 @@ class DetailAction extends CommonAction {
             $tmp['address'] = $detail[0];
             $list[] = $tmp;
         }
+        $lang_change = $this->lang==1?0:1;
+        $this->lang_url = U('Detail/projectlist',array('lang'=>$lang_change,'cat_id'=>$cat_id,'a_id'=>$a_id));
         $this->res = $res;
         $this->list = $list;
         $this->lang = $lang;

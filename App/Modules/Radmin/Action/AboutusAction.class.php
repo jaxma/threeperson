@@ -100,7 +100,7 @@ class AboutusAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||empty($content)||empty($content_en)||$category_id1=='a'||$category_id2=='a'){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
@@ -189,7 +189,7 @@ class AboutusAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||empty($content)||empty($content_en)||$category_id1=='a'||$category_id2=='a'){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($isopen)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }

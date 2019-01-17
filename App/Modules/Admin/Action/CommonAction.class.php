@@ -8,61 +8,88 @@ header("Content-type:text/html;charset=utf-8");
 class CommonAction extends Action {
 
     public function _initialize() {
-        // $the_module_name = strtolower(MODULE_NAME);
-        // $the_action_name = strtolower(ACTION_NAME);
-        
-        
-        // if( $the_module_name == 'index' &&  empty($_SESSION['oid']) ){
-        //     //$this->redirect(C('YM_DOMAIN').__GROUP__.'/Login/index');
-        // }
-        // if( empty($_SESSION['oid'])) {
-        //     $cur_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-        //     $redirect_url = base64_encode($cur_url);
-        //     $return_url = C('YM_DOMAIN').__GROUP__.'/index/index?redirect_url='.$redirect_url;
-        //     checkAuth('index','','',$return_url);
-        // }
-        
-        // import('Lib.Action.Newredis', 'App');
-        // $this->Newredis = new Newredis();
-        
-        // $key = 'get_admin_Common_manager';
-        // $key_suffix = $_SESSION['oid'];
-        
-        // $redis = $this->Newredis->get($key.$key_suffix);
-        
-        // if( empty($redis) ){
-        //     $condition = [
-        //         'openid' => $_SESSION['oid'],
-        //         'disable'   =>  0,
-        //     ];
+        $this->company_model = M('company');
+        $this->photo_model = M('photo');
+        $this->cat_model = M('cat');
+        $this->item_model = M('item');
+        $this->news_model = M('news');
+        $this->recruitment_model = M('recruitment');
+        $this->lang = I('lang')?I('lang'):0;
 
-        //     $manager = M('distributor')->where($condition)->find();
-            
-        //     $manager['start_time'] = $manager['time'];
-        //     $manager['end_time'] = $manager['time']+3600*24*365;
-            
-        //     $redis = serialize($manager);
-        //     $expire_time = 360;
-        //     $this->Newredis->set($key, $redis,$expire_time,$key_suffix);
-        // }
-        // else{
-        //     $manager = unserialize($redis);
-        // }
-        
-        
+        $this->title = C('SYSTEM_NAME');
 
+        //首页介绍
+        $this->introduct = $this->company_model->where('id = 3 and status = 1')->find();
+        //首页图片
+        $index_photo  = $this->photo_model->where('type = 1')->find();
+        //首页移动端图片
+        $mobile_photo = $index_photo['many_image'];
+        $mobile_photo = explode(',', $mobile_photo);
+
+        //分类
+        $cats = $this->cat_model->where('status = 1 and pid  = 0')->select();
+
+        foreach ($cats as $k => $v) {
+            $second_cats = $this->cat_model->where('status = 1 and pid = '.$v['id'])->order('sequence desc')->select();
+            if($v['id'] == 1){
+                $classical = $this->item_model->where('isopen = 1 and classical = 1')->order('sequence desc')->limit(12)->select();
+                foreach ($classical as $kk => $vv) {
+                    if(!empty($vv['detail'])){
+                       $detail = $this->detail_arr($vv['detail']);
+                    }
+                    if(!empty($vv['detail_en'])){
+                       $detail_en = $this->detail_arr($vv['detail_en']);
+                    }
+                    $classical[$kk]['position'] = $detail[0];
+                    $classical[$kk]['position_en'] = $detail_en[0];
+                }
+                $cats[$k]['classical'] = $classical;
+            }
+            foreach ($second_cats as $kk => $vv) {
+                if($vv['pid'] == 1){
+                    //项目 
+                    $model = $this->item_model;
+                }elseif($vv['pid'] == 2){
+                    //事务所
+                    $model = $this->news_model;
+                }elseif($vv['pid'] == 3){
+                    //招聘
+                    $model = $this->recruitment_model;
+                }
+                $second_cats_item = $model->where('isopen = 1 and cat2 = '.$vv['id'])->order('sequence desc')->select();
+                foreach ($second_cats_item as $kkk => $vvv) {
+                    if(!empty($vvv['detail'])){
+                       $detail = $this->detail_arr($vvv['detail']);
+                    }
+                    if(!empty($vvv['detail_en'])){
+                       $detail_en = $this->detail_arr($vvv['detail_en']);
+                    }
+                    $second_cats_item[$kkk]['position'] = $detail[0];
+                    $second_cats_item[$kkk]['position_en'] = $detail_en[0];
+                    $second_cats_item[$kkk]['publish_time'] = date('Y-m-d',$vvv['publish_time']);
+                }
+                $second_cats[$kk]['items'] = $second_cats_item;
+            }
+            $cats[$k]['cat'] = $second_cats;
+        }
         
-        // //必须要审核后才能进系统，或者禁用状态的不能直接登录
-        // if( empty($manager) || $manager['audited'] != 1 || $manager['disable'] == 1 ){
-        //     $this->redirect(C('YM_DOMAIN').__GROUP__.'/Login/index');
-        // }
-        
-        // $this->uid = $manager['id'];
-        
-        // session('managerid', $this->uid);
-        // $this->manager = $manager;
-        // $this->user_count   = $this->get_user_count();
-        // $this->level_name = C('LEVEL_NAME');
+        //公司信息 
+        $this->position =  $lang?C('TE_POSITION'):C('T_POSITION');
+        $this->address =  $lang?C('TE_ADDRESS'):C('T_ADDRESS');
+        $this->tel =  $lang?C('TE_TEL'):C('T_TEL');
+        $this->email =  $lang?C('TE_EMAIL'):C('T_EMAIL');
+        $this->en_position =  $lang?C('TE_EN_POSITION'):C('T_EN_POSITION');
+        $this->en_address =  $lang?C('TE_EN_ADDRESS'):C('T_EN_ADDRESS');
+        $this->en_tel =  $lang?C('TE_TEL'):C('T_EN_TEL');
+        $this->en_email =  $lang?C('TE_EMAIL'):C('T_EN_EMAIL');
+
+        $this->cats = $cats;
+
+        //项目
+        $this->items = $this->item_model->where('isopen = 1')->order('sequence desc')->select();
+
+        $this->index_photo = $index_photo;
+        $this->mobile_photo = $mobile_photo;
     }
 
     //获取当前登录经销商信息

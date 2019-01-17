@@ -62,17 +62,22 @@
                         <div class="slider-wrap collection-">
                             <div class="slider-title-wrap">
                                 <ul id="portfolio-filter">
-                                    <li  class="active">
+                                    <notempty name="cats.0.classical">
+                                    <li  <notempty name="cats.0.classical">class="active"</notempty>>
                                         <a href="javascript:void(0);" class="filter" data-type="0" data-filter=""><if condition = "$lang eq 1" >classical project<else/>经典项目</if></a>
                                     </li> 
+                                    </notempty>
                                     <foreach name = "cats.0.cat" key='k' item = "i">
-                                        <li class="">
+                                        <notempty name="i.items">
+                                        <li>
                                             <a href="javascript:void(0);" class="filter" data-type="{$k+1}" data-filter=""><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a>
                                         </li> 
+                                        </notempty>
                                     </foreach>
                                 </ul>
                             </div>
                             <!-- 经典项目 -->
+                            <notempty name="cats.0.classical">
                             <div class="project-content-left classicProject" data-type="classicProject">
                                 <div class="slider collection- swiper-container project-collections-warp pageContent-ui">
                                     <div class="swiper-wrapper swiper-wrapper-project">
@@ -108,9 +113,11 @@
                                     </div> -->
                                 </div>
                             </div>
+                            </notempty>
                             <!-- 经典项目 -->
 
                             <foreach name = "cats.0.cat" key='k' item = "i">
+                            <notempty name="i.items">
                             <!-- 其他类别项目 for item star-->
                             <div class="project-content-left otherProject" data-type="otherProject">
                                 <div class="slider collection- swiper-container project-collections-warp2 pageContent-ui">
@@ -148,12 +155,14 @@
                                     </div>
                                 </div>
                             </div>
+                            </notempty>
                             <!-- 其他类别项目 for item end -->
                             </foreach>
                         </div>
                     </div>
                     <!-- 项目 -->
                     <foreach name = "cats.1.cat" item = "i">
+                    <notempty name="i.items">
                     <!-- 新闻 -->
                     <div class="news" id="featured-new">
                         <h2><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></h2>
@@ -187,7 +196,10 @@
                         </div>
                     </div>
                      <!-- 新闻 end-->
+                    </notempty>
                      </foreach>
+
+                    <notempty name="cats.2.cat.1.items">
                     <div class="instagram">
                         <h2><if condition = "$lang eq 1" >RECRUIT<else/>招聘</if></h2>
                         <!-- 招聘 -->
@@ -210,6 +222,8 @@
                             <div class="slider-less-arrow"></div>
                         </div>
                     </div>
+                    </notempty>
+
                     <div class="footer">
                         <div class="col one">
                             <ul>
@@ -325,6 +339,8 @@
                         <nav class="menu-section">
                             <h1><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></h1>
                             <ul>
+
+                            <notempty name="cats.0.classical">
                                 <if condition = "$i.id eq 1" >
                                     <li>
                                         <a class="menu-link" href="{:U(__GROUP__.'/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
@@ -332,12 +348,15 @@
                                         </a>
                                     </li>
                                 </if> 
+                            </notempty>
                                 <foreach name="i.cat" item="ii">
+                                    <notempty name="ii.items">
                                     <li>
                                         <a class="menu-link" href="{:U(__GROUP__.'/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
                                             &nbsp;&nbsp;<if condition = "$lang eq 1" >{$ii.name_en}<else/>{$ii.name}</if> 
                                         </a>
                                     </li>
+                                    </notempty>
                                 </foreach>
                             </ul>
                         </nav>

@@ -39,7 +39,7 @@ class IndexAction extends CommonAction {
         foreach ($cats as $k => $v) {
             $second_cats = $this->cat_model->where('status = 1 and pid = '.$v['id'])->order('sequence desc')->select();
             if($v['id'] == 1){
-                $classical = $this->item_model->where('status = 1 and classical = 1')->order('sequence desc')->select();
+                $classical = $this->item_model->where('isopen = 1 and classical = 1')->order('sequence desc')->select();
                 foreach ($classical as $kk => $vv) {
                     if(!empty($vv['detail'])){
                        $detail = $this->detail_arr($vv['detail']);
@@ -63,7 +63,7 @@ class IndexAction extends CommonAction {
                     //招聘
                     $model = $this->recruitment_model;
                 }
-                $second_cats_item = $model->where('status = 1 and cat2 = '.$vv['id'])->order('sequence desc')->select();
+                $second_cats_item = $model->where('isopen = 1 and cat2 = '.$vv['id'])->order('sequence desc')->select();
                 foreach ($second_cats_item as $kkk => $vvv) {
                     if(!empty($vvv['detail'])){
                        $detail = $this->detail_arr($vvv['detail']);

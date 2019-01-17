@@ -159,13 +159,14 @@ function otherProjectSwiper(){
             768: {
                 slidesPerView: 3,//一行显示3个
             },
-            //当宽度小于等于1366
-            1366: {
-                slidesPerView: 4,//一行显示3个
-            },
             //当宽度小于等于1980
             1980: {
-                slidesPerView: 6,//一行显示3个
+                slidesPerView: 4,//一行显示3个
+            }
+            ,
+            //当宽度小于等于1980
+            2000: {
+                slidesPerView: 5,//一行显示3个
             }
         }
     });

@@ -246,6 +246,14 @@ class CommonAction extends Action {
         echo $this->ajaxReturn($return_result);
     }//end func get_wechat_info_ajax
      
+
+    public function detail_arr($detail){
+        if(!empty($detail)){
+            $detail = str_replace("；",";",$detail);
+            $detail = explode(";",$detail);
+        }
+        return $detail;
+    }
 }
 
 ?>

@@ -90,142 +90,98 @@
 				</select>
 			</div>
 		</div>
-		<!-- 侧边栏 -->
-		<div class="darken-shim" id="darken-shim"></div>
-		<!-- 阴影缩放的时候 -->
-		<div class="god-mode-bg" id="god-mode-bg" onclick="resetView()" style="background: rgb(76, 53, 53); opacity: 0;"></div>
-		<div class="left-context">
-			<div class="cant-touch-this"></div>
-			<div class="open-menu-button" id="open-menu-button"></div>
-			<!---->
-			<div class="open2-menu2-button2" onclick="window.open('http://www.toposla.com/index_en.php','_self')"></div>
-			<div class="go-back-button"></div>
-			<div class="god-mode-button" onclick="singleProject();"></div>
-			<div class="clippings-here-instruction">
-				View, edit and share your clippings here
-			</div>
-			<div class="clippings-context-toggle hidden">
-				<div class="outline"></div>
-				<span class="clippings-count current">0</span>
-			</div>
-			<div class="main-menu" id="main-menu">
-				<div class="top">
-					<a href="http://www.toposla.com/">
-						<img class="oka-wordmark" src="http://www.toposla.com/rsc/images/toposla_black.svg">
-					</a>
-					<div class="show-search-button">
-					</div>
-				</div>
-				<div class="right">
+		
+        <!-- 侧边栏菜单 可共用-->
+        <div class="left-context site-loaded" style="display:block;">
+            <div class="cant-touch-this"></div>
+            <div id="open-menu-button" class="open-menu-button"></div>
+            <!-- 切换英文按钮 -->
+            <div class="open2-menu2-button2" onclick="window.open('__GROUP__/Index/index?lang=1','_self')"></div>
+            <!-- 切换英文按钮 -->
+            <div class="go-back-button"></div>
+            <div class="god-mode-button" style="display: none;"></div>
+    
+            <div class="clippings-here-instruction">
+                View, edit and share your clippings here
+            </div>
+            <div class="clippings-context-toggle hidden">
+                <div class="outline"></div>
+    
+                <span class="clippings-count current">0</span>
+            </div>
+            <div class="main-menu" id="main-menu" style="transform: translate3d(0px, 0px, 0px);">
+                <div class="top">
+                    <!-- 改成首页的链接 -->
+                    <a href="http://www.toposla.com/">
+                        <img class="oka-wordmark" src="__PUBLIC__/Admin_v3/image/toposla_black.png">
+                    </a>
+                    <div class="show-search-button">
+                    </div>
+                </div>
+                <div class="right">
+                    <!-- 地址 -->
+                    <div class="menu-section">
+                        <div class="contact-section address">
+                            <p>{$en_position}</p>
+                            <p>
+                                {$en_address}<br> </p>
+                            <p>
+                                tel: {$en_tel}<br> </p>
+                            <p>
+                                {$en_email}<br> </p>
+                        </div>
+    
+                        <div class="contact-section address">
+                            <p>{$position}</p>
+                            <p>
+                                {$address}<br> </p>
+                            <p>
+                                tel:{$tel}<br> </p>
+                            <p>
+                                {$email}<br> </p>
+                        </div>
+    
+                        <nav class="contact-section">
+                            <ul class="social-links">
+                                <li class="facebook"><a href="https://www.facebook.com/Topos-Landscape-Architects-144788566223632/?modal=admin_todo_tour" target="blank"></a></li>
+                                <li class="instagram"><a href="https://www.instagram.com/toposlandscapearchitects/" target="blank"></a></li>
+                            </ul>
+                        </nav>
+                        <a href="http://www.toposla.com/#" class="toggle-contact"><span class="see-more">More Contact Details</span><span class="see-less">Hide</span></a>
+                    </div>
+                </div>
+                <div class="left">
+                    <foreach name="cats" item="i">
+                        <nav class="menu-section">
+                            <h1><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></h1>
+                            <ul>
 
-					<div class="menu-section">
-						<div class="contact-section address">
-							<p>圣迭戈</p>
-							<p>
-								美国加利福尼亚州圣迭戈格莱尼特山道9655<br> </p>
-							<p>
-								tel: +1 619 272 9669<br> </p>
-							<p>
-								info@toposla.com<br> </p>
-						</div>
-
-						<div class="contact-section address">
-							<p>深圳</p>
-							<p>
-								中国深圳市福田中心区皇达东方雅苑写字楼1A<br> </p>
-							<p>
-								tel:+86 755 8616 9093<br> </p>
-							<p>
-								info@toposla.com<br> </p>
-						</div>
-						<nav class="contact-section">
-							<ul class="social-links">
-								<li class="facebook"><a href="https://www.facebook.com/Topos-Landscape-Architects-144788566223632/?modal=admin_todo_tour"
-									 target="blank"></a></li>
-								<li class="instagram"><a href="https://www.instagram.com/toposlandscapearchitects/" target="blank"></a></li>
-							</ul>
-						</nav>
-						<a href="#" class="toggle-contact"><span class="see-more">More Contact Details</span><span class="see-less">Hide</span></a>
-					</div>
-				</div>
-				<div class="left">
-					<nav class="menu-section">
-						<h1>项目</h1>
-						<ul>
-                            <!-- 项目分类列表 对应调到项目列表 -->
-							<li>
-								<a class="menu-link" href="http://www.toposla.com/zh-hans/collection/hotels-and-holidays/index.php">
-									&nbsp;&nbsp;酒店及度假休闲 </a>
-								<ul></ul>
-							</li>
-							<li>
-								<a class="menu-link" href="http://www.toposla.com/zh-hans/collection/publicspace-and-parks/index.php">
-									&nbsp;&nbsp;公共空间及园区 </a>
-								<ul></ul>
-							</li>
-							<li>
-								<a class="menu-link" href="http://www.toposla.com/zh-hans/collection/villa-and-highhouses/index.php">
-									&nbsp;&nbsp;别墅及高端居住 </a>
-								<ul>
-								</ul>
-							</li>
-							<li>
-								<a class="menu-link" href="http://www.toposla.com/zh-hans/collection/holiday-and-travel/index.php">
-									&nbsp;&nbsp;度假旅游规划 </a>
-								<ul>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-					<nav class="menu-section">
-						<h1>事务所介绍</h1>
-						<ul>
-							<li>
-								<a class="menu-link" href="#">
-									&nbsp;&nbsp;新闻 </a>
-								<ul>
-								</ul>
-							</li>
-							<li>
-								<a class="menu-link" href="#">
-									&nbsp;&nbsp;设计师 </a>
-								<ul>
-								</ul>
-							</li>
-							<li>
-								<a class="menu-link" href="#">
-									&nbsp;&nbsp;出版书 </a>
-								<ul>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-					<nav class="menu-section">
-						<h1>联系</h1>
-						<ul>
-							<li>
-								<a class="menu-link" href="#">
-									&nbsp;&nbsp;邮箱 </a>
-								<ul>
-								</ul>
-							</li>
-							<li>
-								<a class="menu-link" href="#">
-									&nbsp;&nbsp;招聘 </a>
-								<ul>
-								</ul>
-							</li>
-							<li>
-								<a class="menu-link" href="#">
-									&nbsp;&nbsp;地图 </a>
-								<ul>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
+                            <notempty name="cats.0.classical">
+                                <if condition = "$i.id eq 1" >
+                                    <li>
+                                        <a class="menu-link" href="{:U(__GROUP__.'/Detail/projectlist',array('cat_id'=>'classical','lang'=>$lang))}">
+                                            &nbsp;&nbsp;<if condition = "$lang eq 1" >classical project<else/>经典项目</if> 
+                                        </a>
+                                    </li>
+                                </if> 
+                            </notempty>
+                                <foreach name="i.cat" item="ii">
+                                    <notempty name="ii.items">
+                                    <li>
+                                        <a class="menu-link" href="{:U(__GROUP__.'/Detail/projectlist',array('cat_id'=>$ii['id'],'lang'=>$lang))}">
+                                            &nbsp;&nbsp;<if condition = "$lang eq 1" >{$ii.name_en}<else/>{$ii.name}</if> 
+                                        </a>
+                                    </li>
+                                    </notempty>
+                                </foreach>
+                            </ul>
+                        </nav>
+                    </foreach>
+                </div>
+    
+            </div>
+    
+        </div>
 		<script type='text/javascript' src='__PUBLIC__/Admin_v3/js/jquery-2.1.1.min.js' charset='utf-8'></script>
         <script src="__PUBLIC__/Admin_v3/js/static/swiper.min.4.6.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/baguetteBox.js"></script>

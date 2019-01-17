@@ -90,6 +90,7 @@ class CommonAction extends Action {
 
         $this->index_photo = $index_photo;
         $this->mobile_photo = $mobile_photo;
+        $this->index_url = C('YM_DOMAIN');
     }
 
     //获取当前登录经销商信息

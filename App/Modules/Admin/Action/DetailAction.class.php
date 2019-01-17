@@ -44,10 +44,10 @@ class DetailAction extends CommonAction {
         $model = M($model_name);
         $info = $model->where('isopen = 1 and id = '.$a_id)->find();
 
-        // if(empty($info)||$info['cat2']!=$cat_id){
-        //     $this->redirect('Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
-        //     exit();
-        // }
+        if(empty($info)||$info['cat2']!=$cat_id){
+            $this->redirect('Detail/projectlist',array('lang'=>$this->lang,'cat_id'=>$pid));
+            exit();
+        }
         $res = array();
         $p_info = $this->cat_model->where('status = 1 and id = '.$pid)->field('name,name_en')->find();
         if(empty($p_info)){
@@ -132,9 +132,9 @@ class DetailAction extends CommonAction {
 
 
         //目前只有项目有详情页
-        // if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
-        //     $this->redirect('Index/index',array('lang'=>$this->lang));
-        // }
+        if(empty($cat_info)||(!in_array($pid,$keys)||empty($cat_info['image']))){
+            $this->redirect('Index/index',array('lang'=>$this->lang));
+        }
         $res = array();
         $res['head'] = $lang?$cat_info['name_en']:$cat_info['name'];
         $res['image'] = $cat_info['image'];

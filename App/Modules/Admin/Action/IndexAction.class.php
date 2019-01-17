@@ -25,13 +25,5 @@ class IndexAction extends CommonAction {
         
         $this->display();
     }
-
-    public function detail_arr($detail){
-        if(!empty($detail)){
-            $detail = str_replace("；",";",$detail);
-            $detail = explode(";",$detail);
-        }
-        return $detail;
-    }
 }
 ?>

@@ -1287,7 +1287,7 @@ class CommonAction extends Action {
         $upload_dir_name = I('post.upload_dir_name');
         import('ORG.Net.UploadFile');
         $upload = new UploadFile();// 实例化上传类
-        $upload->maxSize = 3145728; // 设置附件上传大小 3M
+        $upload->maxSize = 314572800; // 设置附件上传大小 300M
         $upload->allowExts = array('jpg', 'png', 'jpeg', 'bmp', 'pic'); // 设置附件上传类型
 
         $upload->savePath = './upload/'.$upload_dir_name.'/';// 设置附件上传目录
@@ -1347,7 +1347,7 @@ class CommonAction extends Action {
         }
         import('ORG.Net.UploadFile');
         $upload = new UploadFile();// 实例化上传类
-        $upload->maxSize = 131072001; // 设置附件上传大小 单位字节 25m
+        $upload->maxSize = 1310720010; // 设置附件上传大小 单位字节 250m
         $upload->allowExts = array('mp4','3gp','mpeg','avi','mov','wmv','flv','rmvb','mpg'); // 设置附件上传类型
 
         $upload->savePath = './upload/'.$upload_dir_name.'/';// 设置附件上传目录

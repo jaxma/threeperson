@@ -10,7 +10,7 @@ layui.use(['upload'], function () {
         elem: '.imgbtn_upload',
         url: URL + '/upload/',
         method: 'post',
-        size: 3072,
+        size: 307200,
         accept: 'images',
         data: {
             upload_dir_name: upload_dir_name

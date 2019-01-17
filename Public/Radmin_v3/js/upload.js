@@ -16,7 +16,7 @@ layui.use(['upload', 'form', 'layedit'], function() {
     auto: true,
     url: 'upload/',
     method: 'post',
-    size: 3072,
+    size: 307200, //300
     accept: 'images',
     data: {upload_dir_name:upload_dir_name},
 

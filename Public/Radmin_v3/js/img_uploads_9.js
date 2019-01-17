@@ -24,7 +24,7 @@
     url: URL + '/upload/',
 //  multiple: true,
     method: 'post',
-    size: 3072,
+    size: 307200,
     accept: 'images',
     xhr:xhrOnProgress,
     progress:function(value){//上传进度回调 value进度值

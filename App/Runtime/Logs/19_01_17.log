@@ -1,0 +1,1496 @@
+[ 2019-01-17T20:50:56+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:50:56+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:50:56+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:50:56+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:50:56+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:50:56+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:19+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:19+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:19+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:19+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:19+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:19+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:51:44+08:00 ] 127.0.0.1 /Radmin/Login/index?spm=
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `website_set` [ RunTime:0.004000s ]
+SQL: SELECT `value` FROM `website_set` WHERE ( `name` = 'radmin_login' ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T20:51:44+08:00 ] 127.0.0.1 /Radmin/login/login_code
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `admin` LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin_active_log` [ RunTime:0.006000s ]
+SQL: INSERT INTO `admin_active_log` (`aid`,`log`,`active_url`,`created`) VALUES (1,'登录后台，IP：127.0.0.1','/Radmin/login/login_code',1547729504) [ RunTime:0.010000s ]
+
+[ 2019-01-17T20:51:45+08:00 ] 127.0.0.1 /radmin/analysis/index?spm=m-0-0
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `order` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.order' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order`
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_recharge_log` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.money_recharge_log' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_recharge_log`
+SQL: SHOW COLUMNS FROM `templet` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.templet' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `templet`
+SQL: SELECT id,audited,time,level FROM `distributor`  [ RunTime:0.001000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SELECT id,audited,time,level FROM `distributor` 
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\AnalysisAction.class.php 第 41 行.
+SQL: SELECT id,status,time,total_price FROM `order` GROUP BY order_num  [ RunTime:0.000000s ]
+ERR: 1146:Table 'threeperson.order' doesn't exist
+ [ SQL语句 ] : SELECT id,status,time,total_price FROM `order` GROUP BY order_num 
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\AnalysisAction.class.php 第 62 行.
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: sysInfo E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\5c9ccd463d2b510f15ab2a66fc01bcd7.php 第 153 行.
+NOTIC: [8] Undefined variable: session_start E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\5c9ccd463d2b510f15ab2a66fc01bcd7.php 第 183 行.
+NOTIC: [8] Use of undefined constant PHP_SELF - assumed 'PHP_SELF' E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\5c9ccd463d2b510f15ab2a66fc01bcd7.php 第 194 行.
+NOTIC: [8] Use of undefined constant PHP_SELF - assumed 'PHP_SELF' E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\5c9ccd463d2b510f15ab2a66fc01bcd7.php 第 194 行.
+NOTIC: [8192] Function eregi() is deprecated E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\5c9ccd463d2b510f15ab2a66fc01bcd7.php 第 195 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.030000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T20:58:00+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:58:00+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:58:00+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:58:00+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:58:00+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T20:58:00+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:00:49+08:00 ] 127.0.0.1 /radmin/company/introduct_edit?id=3&spm=m-2-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `company` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:00:54+08:00 ] 127.0.0.1 /radmin/photo/cat?spm=m-2-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SELECT COUNT(id) AS tp_count FROM `cat` LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:00:54+08:00 ] 127.0.0.1 /radmin/Photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:00:54+08:00 ] 127.0.0.1 /Public/Radmin_v3/js/test.js?_=1547729505527
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:radmin_v3
+
+[ 2019-01-17T21:01:38+08:00 ] 127.0.0.1 /radmin/photo/cat?spm=m-3-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.009000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SELECT COUNT(id) AS tp_count FROM `cat` LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.002000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:01:38+08:00 ] 127.0.0.1 /Public/Radmin_v3/js/test.js?_=1547730098613
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 非法操作:radmin_v3
+
+[ 2019-01-17T21:01:39+08:00 ] 127.0.0.1 /radmin/Photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:01:41+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:41+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:41+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:41+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:41+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:41+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:50+08:00 ] 127.0.0.1 /radmin/photo/category_add?p_id=1&c_id=0&spm=m-3-1&open_type=modal
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SHOW COLUMNS FROM `templet_category` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.templet_category' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `templet_category`
+SQL: SELECT * FROM `templet_category`  [ RunTime:0.001000s ]
+ERR: 1146:Table 'threeperson.templet_category' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `templet_category` 
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Lib\Action\Team.class.php 第 403 行.
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:01:50+08:00 ] 127.0.0.1 /radmin/photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:01:50+08:00 ] 127.0.0.1 /radmin/photo/get_category_ajax
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 0 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: info_two E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 509 行.
+NOTIC: [8] Undefined variable: info_three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 509 行.
+NOTIC: [8] Undefined variable: info_two E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 513 行.
+NOTIC: [8] Undefined variable: info_three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 514 行.
+
+[ 2019-01-17T21:01:53+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 1 ) [ RunTime:0.037000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 4 ) [ RunTime:0.021000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 4 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 7 ) [ RunTime:0.030000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 8 ) [ RunTime:0.027000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 8 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 10 ) [ RunTime:0.030000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 10 )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 379 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 382 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\Db.class.php 第 498 行.
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` IN () ) [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1
+ [ SQL语句 ] : UPDATE `cat` SET `status`=0 WHERE ( `id` IN () )
+
+[ 2019-01-17T21:01:55+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:55+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:55+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:55+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:55+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:55+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:01:59+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 1 ) [ RunTime:0.035000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 4 ) [ RunTime:0.031000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 4 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 7 ) [ RunTime:0.026000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 8 ) [ RunTime:0.030000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 8 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 10 ) [ RunTime:0.026000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 10 )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 379 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 382 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\Db.class.php 第 498 行.
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` IN () ) [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1
+ [ SQL语句 ] : UPDATE `cat` SET `status`=0 WHERE ( `id` IN () )
+
+[ 2019-01-17T21:02:01+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:02:04+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 1 ) [ RunTime:0.041000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 4 ) [ RunTime:0.030000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 4 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 7 ) [ RunTime:0.030000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 8 ) [ RunTime:0.025000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 8 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 10 ) [ RunTime:0.036000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 10 )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 379 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 382 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\Db.class.php 第 498 行.
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` IN () ) [ RunTime:0.000000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1
+ [ SQL语句 ] : UPDATE `cat` SET `status`=0 WHERE ( `id` IN () )
+
+[ 2019-01-17T21:02:05+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 1 ) [ RunTime:0.043000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 4 ) [ RunTime:0.028000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 4 )  [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 7 ) [ RunTime:0.030000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 8 ) [ RunTime:0.026000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 8 )  [ RunTime:0.001000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 10 ) [ RunTime:0.036000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 10 )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 374 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 379 行.
+NOTIC: [8] Undefined variable: idss E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 382 行.
+NOTIC: [2] implode(): Invalid arguments passed E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Core\Db.class.php 第 498 行.
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` IN () ) [ RunTime:0.001000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') )' at line 1
+ [ SQL语句 ] : UPDATE `cat` SET `status`=1 WHERE ( `id` IN () )
+
+[ 2019-01-17T21:02:07+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 4 ) [ RunTime:0.025000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 4 )  [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:02:08+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 7 ) [ RunTime:0.041000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:02:10+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:02:10+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:02:10+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:02:10+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:02:10+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:02:10+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:03:28+08:00 ] 127.0.0.1 /radmin/item/index?spm=m-2-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `item` [ RunTime:0.004000s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `item` LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `item` WHERE ( cat1 = 1  ) ORDER BY time desc LIMIT 0,20   [ RunTime:0.001000s ]
+SQL: SELECT `name`,`pid` FROM `cat` WHERE ( status = 1 and id = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `name` FROM `cat` WHERE ( status = 1 and id = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT `name`,`pid` FROM `cat` WHERE ( status = 1 and id = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `name` FROM `cat` WHERE ( status = 1 and id = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `name`,`pid` FROM `cat` WHERE ( status = 1 and id = 4 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT `name` FROM `cat` WHERE ( status = 1 and id = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: news E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\f452e245094a259164d774a39dcede98.php 第 73 行.
+NOTIC: [8] Undefined index: name E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\f452e245094a259164d774a39dcede98.php 第 77 行.
+NOTIC: [8] Undefined index: news E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\f452e245094a259164d774a39dcede98.php 第 73 行.
+NOTIC: [8] Undefined index: name E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\f452e245094a259164d774a39dcede98.php 第 77 行.
+NOTIC: [8] Undefined index: news E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\f452e245094a259164d774a39dcede98.php 第 73 行.
+NOTIC: [8] Undefined index: name E:\PROGRAM\phpStudy\WWW\threeperson\App\Runtime\Cache\Radmin\f452e245094a259164d774a39dcede98.php 第 77 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:03:29+08:00 ] 127.0.0.1 /radmin/photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.003000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:04:08+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:08+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:08+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:08+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:08+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:08+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:16+08:00 ] 127.0.0.1 /radmin/photo/cat?spm=m-2-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SELECT COUNT(id) AS tp_count FROM `cat` LIMIT 1   [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.002000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2019-01-17T21:04:17+08:00 ] 127.0.0.1 /radmin/Photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:04:17+08:00 ] 127.0.0.1 /Public/Radmin_v3/js/test.js?_=1547730098617
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 非法操作:radmin_v3
+
+[ 2019-01-17T21:04:18+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:04:20+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 7 ) [ RunTime:0.039000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:04:22+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:22+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:22+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:22+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:22+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:22+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:35+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 7 ) [ RunTime:0.033000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:04:35+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.004000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.004000s ]
+SQL: UPDATE `cat` SET `status`=0 WHERE ( `id` = 7 ) [ RunTime:0.037000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:04:43+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:43+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:43+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:43+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:43+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:04:43+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:30+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:30+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:30+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:30+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:30+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:30+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:05:35+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:05:38+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.001000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:05:50+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.001000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:05:59+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:06:01+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:06:05+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:05+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:05+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:05+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:05+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:05+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:07+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:07+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:07+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:07+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:07+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:07+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:18+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:06:21+08:00 ] 127.0.0.1 /radmin/photo/category_edit?id=7&spm=m-3-1&open_type=modal
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SELECT * FROM `cat` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat`  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.002000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2019-01-17T21:06:21+08:00 ] 127.0.0.1 /radmin/photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:06:21+08:00 ] 127.0.0.1 /radmin/photo/get_category_ajax
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 7 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: info_three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 517 行.
+NOTIC: [8] Undefined variable: info_three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 522 行.
+
+[ 2019-01-17T21:06:21+08:00 ] 127.0.0.1 /radmin/photo/get_son_templet_category?pid=1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:06:25+08:00 ] 127.0.0.1 /radmin/photo/category_edit?id=8&spm=m-3-1&open_type=modal
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SELECT * FROM `cat` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat`  [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.002000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2019-01-17T21:06:26+08:00 ] 127.0.0.1 /radmin/photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:06:26+08:00 ] 127.0.0.1 /radmin/photo/get_category_ajax
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: info_three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 517 行.
+NOTIC: [8] Undefined variable: info_three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 522 行.
+
+[ 2019-01-17T21:06:26+08:00 ] 127.0.0.1 /radmin/photo/get_son_templet_category?pid=1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:06:29+08:00 ] 127.0.0.1 /radmin/photo/category_update?spm=m-3-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `cat` WHERE ( `id` = 8 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `cat` WHERE ( `pid` = 8 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `cat` SET `name`='别墅及高端居住',`name_en`='HIGH-END RESIDENTIAL',`image`='',`pid`=1,`sequence`=111,`add_time`=1547730389 WHERE ( `id` = 8 ) [ RunTime:0.037000s ]
+SQL: SHOW COLUMNS FROM `admin_active_log` [ RunTime:0.006000s ]
+SQL: INSERT INTO `admin_active_log` (`aid`,`log`,`active_url`,`created`) VALUES (1,'编辑摄影分类信息','/radmin/photo/category_update?spm=m-3-1',1547730389) [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:06:33+08:00 ] 127.0.0.1 /radmin/photo/cat?spm=m-2-1
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.008000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.009000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.009000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `order_count` [ RunTime:0.009000s ]
+ERR: 1146:Table 'threeperson.order_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `order_count`
+SQL: SHOW COLUMNS FROM `money_month_count` [ RunTime:0.008000s ]
+ERR: 1146:Table 'threeperson.money_month_count' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `money_month_count`
+SQL: SELECT COUNT(id) AS tp_count FROM `cat` LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001000s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001000s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.002000s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2019-01-17T21:06:33+08:00 ] 127.0.0.1 /radmin/Photo/templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.008000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.009000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.008000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `cat` ORDER BY id asc  [ RunTime:0.000000s ]
+
+[ 2019-01-17T21:06:33+08:00 ] 127.0.0.1 /Public/Radmin_v3/js/test.js?_=1547730098620
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+ERR: 非法操作:radmin_v3
+
+[ 2019-01-17T21:06:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/instagram.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-500-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-400-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/rsc/images/facebook.svg
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/fontawesome/fontello.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:06:38+08:00 ] 127.0.0.1 /Public/Admin_v3/css/static/fonts/mueller/mueller-300-b1.woff
+ERR: 非法操作:admin_v3
+
+[ 2019-01-17T21:07:04+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.010000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.006000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.007000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:07:06+08:00 ] 127.0.0.1 /radmin/Photo/set_status
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.006000s ]
+SQL: UPDATE `cat` SET `status`=1 WHERE ( `id` = 7 ) [ RunTime:0.038000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 7 )  [ RunTime:0.001000s ]
+
+[ 2019-01-17T21:07:12+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `admin` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `distributor` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor`
+SQL: SHOW COLUMNS FROM `distributor_bind` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_bind' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_bind`
+SQL: SHOW COLUMNS FROM `distributor_upgrade_apply` [ RunTime:0.005000s ]
+ERR: 1146:Table 'threeperson.distributor_upgrade_apply' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `distributor_upgrade_apply`
+SQL: SHOW COLUMNS FROM `cat` [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `company` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` = 1 ) ORDER BY id asc  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cat` WHERE ( `pid` IN ('4','7','8','10') ) ORDER BY id asc  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 307 行.
+NOTIC: [8] Undefined variable: three E:\PROGRAM\phpStudy\WWW\threeperson\App\Modules\Radmin\Action\PhotoAction.class.php 第 320 行.
+
+[ 2019-01-17T21:09:32+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] mysql_connect(): Access denied for user 'threeperson'@'localhost' (using password: YES) E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+ERR: Access denied for user 'threeperson'@'localhost' (using password: YES)
+
+[ 2019-01-17T21:09:33+08:00 ] 127.0.0.1 /radmin/Photo/get_son_templet_category
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] mysql_connect(): Access denied for user 'threeperson'@'localhost' (using password: YES) E:\PROGRAM\phpStudy\WWW\threeperson\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+ERR: Access denied for user 'threeperson'@'localhost' (using password: YES)
+

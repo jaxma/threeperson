@@ -7,12 +7,11 @@ $(function(){
         speed: 1000,
         autoplay : true,
     });
-    
+    classicProjectSwiper();
+    otherProjectSwiper();
     setTimeout(function(){
         isScrollY();
     },200)
-    classicProjectSwiper();
-    otherProjectSwiper();
     //初始化-放大图片
     baguetteBox.run('#lightbox-context', {
         // Custom options

@@ -118,7 +118,7 @@
                             <foreach name = "cats.0.cat" key='k' item = "i">
                             <notempty name="i.items">
                             <!-- 其他类别项目 for item star-->
-                            <div class="project-content-left otherProject" data-type="otherProject">
+                            <div class='project-content-left otherProject <if condition = "$lang eq 1" >project-content-left-en</if>' data-type="otherProject">
                                 <div class="slider collection- swiper-container project-collections-warp2 pageContent-ui">
                                     <div class="swiper-wrapper swiper-wrapper-project">
                                         <!-- 项目中的列子 item -->

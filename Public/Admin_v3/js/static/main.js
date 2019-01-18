@@ -20,6 +20,15 @@ $(function(){
         effect: "fadeIn",
         threshold: 180
     });
+
+    if(navigator.userAgent.match(/Trident\/7\./)) {
+        document.body.addEventListener && document.body.addEventListener("mousewheel", function() {
+            event.preventDefault();
+            var wd = event.wheelDelta;
+            var csp = window.pageYOffset;
+            window.scrollTo(0, csp - wd);
+        });
+    } 
 })
 
 //点击打开侧边栏

@@ -8,7 +8,9 @@ $(function(){
         autoplay : true,
     });
     
-    isScrollY();
+    setTimeout(function(){
+        isScrollY();
+    },200)
     classicProjectSwiper();
     otherProjectSwiper();
     //初始化-放大图片

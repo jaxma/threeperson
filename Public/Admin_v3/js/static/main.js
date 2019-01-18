@@ -234,13 +234,3 @@ function resetView(){
         godModeBg.css("opacity",0).css("display","none");   
     });
 }
-
-//背景跟随滚动条滚动
-// $(window).on('scroll',function(){
-//     var width = $(window).width();
-//     if(width > 1280){
-//         var winTop = $(window).scrollTop();//滚动条滚动高度
-//         var handleClickIndexImage = $("#handleClickIndexImage .landscape");
-//         handleClickIndexImage.animate({top:0 - winTop},20);
-//     }
-// })

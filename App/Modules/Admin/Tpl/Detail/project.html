@@ -106,6 +106,17 @@
         <script src="__PUBLIC__/Admin_v3/js/static/swiper.min.4.6.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/baguetteBox.js"></script>
         <script src="__PUBLIC__/Admin_v3/js/static/jquery.lazyload.min.js"></script>
-        <script src="__PUBLIC__/Admin_v3/js/static/main.js"></script>
+		<script src="__PUBLIC__/Admin_v3/js/static/main.js"></script>
+		<script>
+			//背景跟随滚动条滚动
+			$(window).on('scroll',function(){
+				var width = $(window).width();
+				if(width > 1280){
+					var winTop = $(window).scrollTop();//滚动条滚动高度
+					var handleClickIndexImage = $("#handleClickIndexImage .landscape");
+					handleClickIndexImage.animate({top:0 - winTop},20);
+				}
+			})
+		</script>
 	</body>
 </html>

@@ -15,32 +15,7 @@
 	<meta name="msapplication-TileColor">
     <meta name="theme-color">
     <script> 
-        var getExplorer = (function () {
-            var explorer = window.navigator.userAgent,
-                compare = function (s) { return (explorer.indexOf(s) >= 0); },
-                ie11 = (function () { return ("ActiveXObject" in window) })();
-            if (compare("MSIE") || ie11) { return 'ie'; }
-            else if (compare("Firefox") && !ie11) { return 'Firefox'; }
-            else if (compare("Chrome") && !ie11) {
-                if (explorer.indexOf("Edge") > -1) {
-                    return 'Edge';
-                } else {
-                    return 'Chrome';
-                }
-            }
-            else if (compare("Opera") && !ie11) { return 'Opera'; }
-            else if (compare("Safari") && !ie11) { return 'Safari'; }
-
-        })()
-        if (getExplorer == 'ie') {
-            alert('当前浏览器内核为IE内核，请使用非IE内核浏览器！');
-            isIE();
-        }
-        if (getExplorer == 'Edge') {
-            alert('当前浏览器为Edge，请使用非IE内核浏览器！');
-            isIE();
-        }
-
+        isIE();
         function isIE(){
             if (!!window.ActiveXObject || "ActiveXObject" in window){
                 document.body.addEventListener && document.body.addEventListener("mousewheel", function() {

@@ -171,7 +171,7 @@
                                     <!-- 新闻文章 -->
                                     <foreach name = "i.items" item = "ii">
                                     <li class="homepage-news__tile homepage-news__tile--internal swiper-slide homepage-news__tile--portrait">
-                                        <a href="">
+                                        <a href="{:U(__GROUP__.'/Detail/project',array('cat_id'=>$i['cat2'],'a_id'=>$i['id'],'lang'=>$lang))}">
                                             <img class="homepage-news__image" src="__APP__{$ii.image}" ?="">
                                             <div class="homepage-news__text-wrap">
                                                 <span class="homepage-news__date"><if condition = "$lang eq 1" >{$ii.publish_time}<else/>{$ii.publish_time}</if></span>

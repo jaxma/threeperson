@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="__PUBLIC__/Admin_v3/css/static/style.css">
 	<meta name="msapplication-TileColor">
     <meta name="theme-color">
+    <script> 
+        if(navigator.userAgent.match(/Trident\/7\./)) {
+            debugger
+            document.body.addEventListener && document.body.addEventListener("mousewheel", function() {
+                event.preventDefault();
+                var wd = event.wheelDelta;
+                var csp = window.pageYOffset;
+                window.scrollTo(0, csp - wd);
+            });
+        }
+    </script>
 </head>
     <body class="near-bottom clippings-mobile-no-edit site-loaded clippings-instruction-on-hover" id="warp">
         <div class="warp">

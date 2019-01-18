@@ -16,12 +16,12 @@
     <meta name="theme-color">
     <script> 
         if(navigator.userAgent.match(/Trident\/7\./)) {
-            debugger
-            document.body.addEventListener && document.body.addEventListener("mousewheel", function() {
+            document.body.addEventListener && document.body.addEventListener("mousewheel", function(event) {
                 event.preventDefault();
                 var wd = event.wheelDelta;
                 var csp = window.pageYOffset;
                 window.scrollTo(0, csp - wd);
+                console.log('滚动了')
             });
         }
     </script>

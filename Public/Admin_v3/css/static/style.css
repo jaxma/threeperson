@@ -7051,6 +7051,9 @@ span.clear-all-filters {
 .project-content-left{
 	padding-left: 300px;
 }
+.project-content-left-en{
+	padding-left: 400px;
+}
 .featured-collections .slider-title-wrap{
 	padding-right: 0 !important;
 	width: auto !important;

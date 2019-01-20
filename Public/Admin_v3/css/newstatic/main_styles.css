@@ -313,7 +313,7 @@ section
 	width: 100px;
 	height: 40px;
 	display: block;
-	background: url('../../image/white-logo.png') no-repeat center/ 100%;
+	background: url('../../image/black-logo.png') no-repeat center/ 100%;
 }
 .header.scrolled .logo a
 {
@@ -341,7 +341,6 @@ section
 .main_nav > ul > li > a
 {
 	font-size: 16px;
-	font-weight: 600;
 	color: #767676;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;

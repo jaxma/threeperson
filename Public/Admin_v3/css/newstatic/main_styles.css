@@ -1456,10 +1456,12 @@ section
 }
 .warp .handle-a .title{
 	position: absolute;
-	left: 10px;
+	left: 30px;
 	z-index: 1;
 	bottom: 10px;
 	color: #fff;
+	height: 21px;
+	line-height: 21px;
 }
 /* 项目分类 */
 .catrage{

@@ -32,7 +32,7 @@ $(document).ready(function(){
 				header_.removeClass('header_container_backgroundnone');	
 				$(".search_icon").removeClass('search_ff');
 				if(typeof(flagSwitch) != 'undefined'){
-					$('.logo a').addClass('logoBlack');
+					$('#logo_').addClass('logoBlack');
 				}
 			}
 		}
@@ -41,7 +41,7 @@ $(document).ready(function(){
 			header.removeClass('scrolled');
 			$(".search_icon").addClass('search_ff');
 			if(typeof(flagSwitch) != 'undefined'){
-				$('.logo a').removeClass('logoBlack');
+				$('#logo_').removeClass('logoBlack');
 			}
 		}
 		else

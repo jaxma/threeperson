@@ -316,6 +316,15 @@ section
 	display: block;
 	background: url('../../image/black-logo.png') no-repeat center/ 100%;
 }
+.logo{
+	position: absolute;
+	width: 130px;
+	height: 40px;
+	left: 15%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
 .header.scrolled .logo a
 {
 	font-size: 24px;

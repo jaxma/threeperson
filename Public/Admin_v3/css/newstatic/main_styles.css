@@ -312,7 +312,8 @@ section
 	padding-left: 20px; */
 	width: 100px;
 	height: 40px;
-	background: url('../image/white-logo.png') no-repeat center/ 100%;
+	display: block;
+	background: url('../../image/white-logo.png') no-repeat center/ 100%;
 }
 .header.scrolled .logo a
 {

@@ -317,11 +317,8 @@ section
 }
 .main_nav
 {
-	position: absolute;
-	right: 20px;
-	top: 0;
-	bottom: 0;
-	margin: auto;
+	/* position: absolute; */
+	/* right: 20px; */
 }
 .main_nav > ul > li
 {

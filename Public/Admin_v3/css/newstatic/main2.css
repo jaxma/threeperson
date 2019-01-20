@@ -4476,7 +4476,7 @@ body {
     position: relative;
     z-index: 2;
     height: 0;
-    padding-bottom: calc(47% - 212px);
+    padding-bottom: calc(47% - 135px);
     margin-bottom: 50px
 }
 

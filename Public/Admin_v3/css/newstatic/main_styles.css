@@ -1479,6 +1479,13 @@ section
 	margin-right: 0;
 	display: -webkit-flex;
 }
+.align-items-center{
+	-webkit-align-items: center !important;
+	box-align: center !important;
+	-moz-box-align: center !important;
+	-webkit-box-align: center !important;
+}
+
 .contact-content p{
 	margin-top: 10px;
 	margin-bottom: 0;

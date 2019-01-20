@@ -310,7 +310,8 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 	padding-left: 20px; */
-	width: 100px;
+	color: transparent;
+	width: 130px;
 	height: 40px;
 	display: block;
 	background: url('../../image/black-logo.png') no-repeat center/ 100%;

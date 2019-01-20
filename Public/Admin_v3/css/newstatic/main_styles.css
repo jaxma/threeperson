@@ -319,6 +319,9 @@ section
 {
 	position: absolute;
 	right: 20px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 .main_nav > ul > li
 {

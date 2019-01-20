@@ -1452,8 +1452,15 @@ section
 .warp .handle-a{
 	height: 100%;
 	display: block;
+	position: relative;
 }
-
+.warp .handle-a .title{
+	position: absolute;
+	left: 10px;
+	z-index: 1;
+	bottom: 10px;
+	color: #fff;
+}
 /* 项目分类 */
 .catrage{
 	overflow: hidden;

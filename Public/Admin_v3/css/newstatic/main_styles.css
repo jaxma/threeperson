@@ -1421,10 +1421,10 @@ section
 /* 对应首页 */
 .warp{
 	position: relative;
-	top: 15px;
+	/* top: 15px;
 	bottom: 50px;
 	left: 15px;
-	right: 15px;
+	right: 15px; */
 	/* background-color: red; */
 }
 .warp .swiper-container{

@@ -1425,12 +1425,11 @@ section
 
 /* 对应首页 */
 .warp{
-	position: relative;
-	/* top: 15px;
+	position: fixed;
+	top: 15px;
 	bottom: 50px;
 	left: 15px;
-	right: 15px; */
-	/* background-color: red; */
+	right: 15px; 
 }
 .warp .swiper-container{
 	height: 100%;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ABOUT</title>
+    <!-- 头部css -->
+    <include file="Public/header" />
+    <link rel="stylesheet" href="__PUBLIC__/Admin_v3/css/AboutUs/index.css">
+  </head>
+  <script>
+    var companyList = '__APP__/Api/photo/company';
+  </script>
+  <body>
+
+    <div class="page" id="san-content">
+      <header class="bar bar-nav">
+        <span class="icon icon-menu pull-left" id="san"></span>
+        <h1 class="title titleh2">ABOUT</h1>
+      </header>
+
+      <div class="content AboutUs-contnet">
+      <div class="buttons-tab">
+        <a href="#tab1" class="tab-link active button">STUDIO515</a>
+        <a href="#tab2" class="tab-link button" id="tab2-title">YUKI HE</a>
+        <!-- <a href="#tab3" class="tab-link button">ABOUT US</a> -->
+      </div>
+      <div class="content-block">
+        <div class="tabs">
+          <div id="tab1" class="tab active">
+            <div class="content-block classifyTitle_photoSet-img">
+            
+            </div>
+          </div>
+
+          <div id="tab2" class="tab">
+            <div class="content-block classifyTitle_photoSet-img">
+            
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    </div>
+
+   <!-- 引入脚部js -->
+    <include file="Public/footer" />
+    <script type="text/javascript" src="__PUBLIC__/Admin_v3/js/aboutUs/index.js" charset='utf-8'></script>
+  </body>
+</html>

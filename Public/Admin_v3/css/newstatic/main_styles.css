@@ -1560,3 +1560,15 @@ section
 		left: 0;
 	}
 }
+@media (max-width: 1100px) {
+	.logo{
+		left: 0;
+	}
+	.header_container{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.logo a{
+		width: 100px;
+	}
+}

@@ -31,12 +31,18 @@ $(document).ready(function(){
 			if(header_.hasClass('header_container_backgroundnone')){
 				header_.removeClass('header_container_backgroundnone');	
 				$(".search_icon").removeClass('search_ff');
+				if(typeof(flagSwitch) != 'undefined'){
+					$('.logo a').css('background',"url('__PUBLIC__/Admin_v3/image/black-logo.png') no-repeat center/ 100%')");
+				}
 			}
 		}
 		else if($(window).scrollTop() == 0  && flagswitch && typeof(flagSwitch) != 'undefined'){
 			header_.addClass('header_container_backgroundnone');	
 			header.removeClass('scrolled');
 			$(".search_icon").addClass('search_ff');
+			if(typeof(flagSwitch) != 'undefined'){
+				$('.logo a').css('background',"url('__PUBLIC__/Admin_v3/image/white-logo.png') no-repeat center/ 100%')");
+			}
 		}
 		else
 		{

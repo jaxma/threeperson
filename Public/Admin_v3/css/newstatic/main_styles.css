@@ -1432,7 +1432,7 @@ section
 	right: 15px; 
 }
 .warp .swiper-container{
-	height: calc(100% -51px);
+	height: calc(100%);
 }
 .warp .img,.slideshow .img{
 	width: 100%;

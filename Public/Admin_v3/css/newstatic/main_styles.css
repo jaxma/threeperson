@@ -317,8 +317,13 @@ section
 }
 .main_nav
 {
-	/* position: absolute; */
-	/* right: 20px; */
+	position: absolute;
+	right: 20px;
+	height: 30px;
+	line-height: 30px;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 .main_nav > ul > li
 {

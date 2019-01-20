@@ -1432,8 +1432,7 @@ section
 	right: 15px; 
 }
 .warp .swiper-container{
-	/* height: 100%; */
-	padding-bottom: 51px;
+	height: calc(100% -51px);
 }
 .warp .img,.slideshow .img{
 	width: 100%;

@@ -1477,7 +1477,18 @@ section
 .row{
 	margin-left: 0;
 	margin-right: 0;
-	display: -webkit-flex;
+	display:-webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.d-flex{
+	display:-webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
 }
 .align-items-center{
 	-webkit-align-items: center !important;
@@ -1485,7 +1496,21 @@ section
 	-moz-box-align: center !important;
 	-webkit-box-align: center !important;
 }
-
+.justify-content-start{
+	-webkit-justify-content:flex-start!important;
+	justify-content:flex-start!important;
+	-moz-box-pack:flex-start!important;
+	-webkit--moz-box-pack:flex-start!important;
+	box-pack:flex-start!important;
+}
+.flex-row{
+	-webkit-box-orient: row!important;
+    -webkit-box-direction: row!important;
+    -moz-box-orient: row!important;
+    -moz-box-direction:	row!important;
+    flex-direction:	row!important;
+	-webkit-flex-direction:	row!important;		
+}
 .contact-content p{
 	margin-top: 10px;
 	margin-bottom: 0;

@@ -32,7 +32,7 @@ $(document).ready(function(){
 				header_.removeClass('header_container_backgroundnone');	
 				$(".search_icon").removeClass('search_ff');
 				if(typeof(flagSwitch) != 'undefined'){
-					$('.logo a').css('background','url("../../image/black-logo.png") no-repeat center/ 100%)');
+					$('.logo a').addClass('logoBlack');
 				}
 			}
 		}
@@ -41,7 +41,7 @@ $(document).ready(function(){
 			header.removeClass('scrolled');
 			$(".search_icon").addClass('search_ff');
 			if(typeof(flagSwitch) != 'undefined'){
-				$('.logo a').css('background','url("../../image/white-logo.png") no-repeat center/ 100%');
+				$('.logo a').removeClass('logoBlack');
 			}
 		}
 		else

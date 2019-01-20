@@ -316,6 +316,10 @@ section
 	display: block;
 	background: url('../../image/black-logo.png') no-repeat center/ 100%;
 }
+.logoBlack a
+{
+	background: url('../../image/black-logo.png') no-repeat center/ 100% !important;
+}
 .logo{
 	position: absolute;
 	width: 130px;

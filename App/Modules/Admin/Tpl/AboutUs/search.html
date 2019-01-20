@@ -1,37 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>TOPOS-项目详情</title>
+	<title>TOPOS-项目</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
+	<meta name="description" content="TOPOS project">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin_v3/css/newstatic/bootstrap.min.css">
-	<link href="__PUBLIC__/Admin_v3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="__PUBLIC__/Admin_v3/css/newstatic/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin_v3/css/newstatic/main_styles.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin_v3/css/newstatic/responsive.css">
-	<style>
-		body{
-			margin: 8px;
-		}
-		.header_container_backgroundnone{
-			background: none;
-		}
-		.header_container_backgroundnone .logo a,
-		.header_container_backgroundnone .main_nav > ul > li.active > a,
-		.header_container_backgroundnone .main_nav > ul > li > a,
-		.header_container_backgroundnone .main_nav ul li.hassubs::after,
-		.header_container_backgroundnone .hamburger i{
-			color: #fff;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="swiper/swiper.min.css">
+    <link rel="stylesheet" href="styles/new_file.css">
+	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
 <body>
 <div class="super_container">
 	<!-- Header -->
 	<header class="header">
-		<div class="header_container header_container_backgroundnone" id="header">
+		<div class="header_container" id="header">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col">
@@ -39,11 +25,11 @@
 							<h1 style="margin: 0;" class="logo"><a href="#">TOPOS</a></h1>
 							<nav class="main_nav">
 								<ul>
-									<!-- <li class="active">
+									<!-- <li>
 										<a href="">首页/HOME</a>
 									</li> -->
-									<li>
-										<a href="project.html">项目/PROJECT</a>
+									<li class="active">
+										<a href="">项目/PROJECT</a>
 										<!-- <ul>
 											<li><a href="categories.html">经典项目</a></li>
 											<li><a href="categories.html">经典项目</a></li>
@@ -52,13 +38,13 @@
 											<li><a href="categories.html">经典项目</a></li>
 										</ul> -->
 									</li>
-									<li><a href="about.html">关于TOPOS/ABOUT</a></li>
-									<li><a href="news.html">新闻/NEWS</a></li>
-									<li><a href="contact.html">联系我们/CONTACT</a></li>
+									<li><a href="#">关于TOPOS/ABOUT</a></li>
+									<li><a href="#">新闻/NEWS</a></li>
+									<li><a href="">联系我们/CONTACT</a></li>
 									<li style="margin-right: 0;"><a href="">English</a></li>
 									<li>
 										<a href="javascript:void(0)" class="search">
-											<div class="search_icon search_ff">
+											<div class="search_icon">
 													<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 													viewBox="0 0 475.084 475.084" style="enable-background:new 0 0 475.084 475.084;"
 														xml:space="preserve">
@@ -151,81 +137,64 @@
 		</div>
 	</div>
 
-	<!-- home -->
-	<div class="warp">
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<a class="handle-a" href="#">
-						<img class="img" src="__PUBLIC__/Admin_v3/image/test/1.jpg" alt="">
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a class="handle-a" href="#">
-						<img class="img" src="__PUBLIC__/Admin_v3/image/test/2.jpg" alt="">
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a class="handle-a" href="#">
-						<img class="img" src="__PUBLIC__/Admin_v3/image/test/3.jpg" alt="">
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a class="handle-a" href="#">
-						<img class="img" src="__PUBLIC__/Admin_v3/image/test/4.jpg" alt="">
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a class="handle-a" href="#">
-						<img class="img" src="__PUBLIC__/Admin_v3/image/test/5.jpg" alt="">
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a class="handle-a" href="#">
-						<img class="img" src="__PUBLIC__/Admin_v3/image/test/6.jpg" alt="">
-					</a>
-				</div>
-			</div>
-			<!-- 如果需要分页器 -->
-			<div class="swiper-pagination"></div>
-			
-			<!-- 如果需要导航按钮 -->
-			<div class="swiper-button-prev swiper-button-white"></div>
-			<div class="swiper-button-next swiper-button-white"></div>
-		</div>
-	</div>
+    <!-- home -->
+    <div id="container">
+            <div class="content-bound standard-layout grid" id="search">
+        		<div class="lead-in-text">
+                    <p>搜索关键词‘中国’</p>
+                </div>
+                <!-- 没有返回就不显示 -->
+                <div class="search-section">
+                    <h3>项目(100)</h3>
+                    <div class="grid-items grid4">
+                        <!-- search item item star -->
+                        <div class="grid-item">
+                            <a href="#" class="project-partial-related small">
+                                <div class="image">
+                                    <div class="image-srcset a1x1"> 
+                                        <!-- 图片 -->
+                                        <img src="images/3.jpg" >
+                                    </div>
+                                </div>
+                                <h5 class="title">title</h5>
+                            </a>
+                        </div>
+                        <!-- search item item end -->
+                    </div>
+                </div>
+                <!-- 没有返回就不显示 -->
+                <div class="search-section">
+                    <h3> 新闻 (100)</h3>
+                    <div class="grid-items grid2">
+                        <!-- news item for star -->
+                        <div class="grid-item">
+                            <a href=""
+                             class="universal-partial">
+                                <div class="image">
+                                    <div class="image-srcset a1x1">
+                                        <img src="images/3.jpg" >
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <h4>title</h4>
+                                    <div class="excerpt">des</div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- news item for end -->
+                    </div>
+                </div>
+            </div>
+        </div>        
+    <!--home-->
 
 	<!-- Footer -->
-	
-	<!-- <div class="footer_overlay"></div> -->
-	<footer class="footer">
-		<div class="footer_social ml-lg-auto">
-			<ul>
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-				<li><a href="https://www.facebook.com/Topos-Landscape-Architects-144788566223632/?modal=admin_todo_tour"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="https://www.instagram.com/toposlandscapearchitects/"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-			</ul>
-		</div>
-	</footer>
 </div>
 
-<script src="__PUBLIC__/Admin_v3/js/jquery-1.11.2.min.js"></script>
-<script src="__PUBLIC__/Admin_v3/js/swiper.min.js"></script>
-<script src="__PUBLIC__/Admin_v3/js/static/popper.js"></script>
-<script src="__PUBLIC__/Admin_v3/js/static/bootstrap.min.js"></script>
-<script src="__PUBLIC__/Admin_v3/js/static/custom.js"></script>
-<script>
-	var mySwiper = new Swiper ('.swiper-container', {
-		pagination: '.swiper-pagination',
-		speed: 500,
-		autoplay : 5000,
-		loop: true,
-		effect: 'fade',
-		height : window.innerHeight,
-		nextButton: '.swiper-button-next',
-		prevButton: '.swiper-button-prev',
-	})
-</script>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="swiper/swiper.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
 </body>
 </html>

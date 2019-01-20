@@ -1477,6 +1477,7 @@ section
 .row{
 	margin-left: 0;
 	margin-right: 0;
+	display: -webkit-flex;
 }
 .contact-content p{
 	margin-top: 10px;

@@ -33,7 +33,7 @@ $(document).ready(function(){
 				$(".search_icon").removeClass('search_ff');
 			}
 		}
-		else if($(window).scrollTop() == 0  && flagswitch){
+		else if($(window).scrollTop() == 0  && flagswitch && typeof(flagSwitch) != 'undefined'){
 			header_.addClass('header_container_backgroundnone');	
 			header.removeClass('scrolled');
 			$(".search_icon").addClass('search_ff');

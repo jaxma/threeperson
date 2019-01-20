@@ -301,7 +301,7 @@ section
 }
 .logo a
 {
-	font-size: 30px;
+	/* font-size: 30px;
 	font-weight: 700;
 	color: #1b1b1b;
 	-webkit-transition: all 200ms ease;
@@ -309,7 +309,10 @@ section
 	-ms-transition: all 200ms ease;
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
-	padding-left: 20px;
+	padding-left: 20px; */
+	width: 100px;
+	height: 40px;
+	background: url('../image/white-logo.png') no-repeat center/ 100%;
 }
 .header.scrolled .logo a
 {

@@ -1541,4 +1541,7 @@ section
 	.warp .swiper-container{
 		height: auto;
 	}
+	.swiper-container-horizontal>.swiper-pagination-bullets{
+		display: none;
+	}
 }

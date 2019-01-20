@@ -320,7 +320,7 @@ section
 	position: absolute;
 	width: 130px;
 	height: 40px;
-	left: 15%;
+	left: 20%;
 	top: 0;
 	bottom: 0;
 	margin: auto;
@@ -1555,5 +1555,8 @@ section
 	}
 	.swiper-container-horizontal>.swiper-pagination-bullets{
 		display: none;
+	}
+	.logo{
+		left: 0;
 	}
 }

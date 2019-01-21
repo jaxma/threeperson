@@ -1545,6 +1545,12 @@ section
 	margin-bottom: 0;
 	color: #333;
 }
+
+/* 关于我们 */
+.image-srcset .left_a1s{
+	width: 30%;
+}
+
 @media (max-width: 1280px) {
 	body{
 		margin: 0;

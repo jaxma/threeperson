@@ -1562,6 +1562,10 @@ section
 	width: 60%;
 	float: right;
 }
+.image-srcset .right_a1s{
+	width: 60%;
+	padding-top: 30px;
+}
 @media (max-width: 1280px) {
 	body{
 		margin: 0;

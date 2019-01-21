@@ -1549,6 +1549,7 @@ section
 /* 关于我们 */
 .image-srcset .left_a1s{
 	width: 30%;
+	margin-bottom: 30px;
 }
 
 @media (max-width: 1280px) {

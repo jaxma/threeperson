@@ -1551,6 +1551,9 @@ section
 	width: 45%;
 	margin-bottom: 30px;
 }
+.padding20{
+	padding-top: 20%;
+}
 @media (max-width: 1280px) {
 	body{
 		margin: 0;

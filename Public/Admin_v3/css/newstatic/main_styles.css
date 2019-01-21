@@ -1443,10 +1443,10 @@ section
 /* 对应首页 */
 .warp{
 	position: fixed;
-	top: 15px;
+	top: 0;
 	bottom: 0;
-	left: 15px;
-	right: 15px; 
+	left: 0;
+	right: 0; 
 }
 .warp .swiper-container{
 	height: calc(100%);

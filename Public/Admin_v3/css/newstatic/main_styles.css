@@ -1444,7 +1444,7 @@ section
 .warp{
 	position: fixed;
 	top: 15px;
-	bottom: 50px;
+	bottom: 0;
 	left: 15px;
 	right: 15px; 
 }

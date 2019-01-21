@@ -1597,3 +1597,11 @@ section
 		width: 100px;
 	}
 }
+
+@media (max-width: 920px) {
+	.image-srcset .left_a1s,
+	.part_bodyText .body-copy img.left50,
+	.image-srcset .right_a1s{
+		width: 100%;
+	}
+}

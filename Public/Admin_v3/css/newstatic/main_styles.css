@@ -1555,7 +1555,8 @@ section
 	padding-top: 20%;
 }
 .text45{
-	width: 45%;
+	width: 55%;
+	padding-top: 15%;
 }
 @media (max-width: 1280px) {
 	body{

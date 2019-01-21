@@ -1554,6 +1554,9 @@ section
 .padding20{
 	padding-top: 20%;
 }
+.text45{
+	width: 45%;
+}
 @media (max-width: 1280px) {
 	body{
 		margin: 0;

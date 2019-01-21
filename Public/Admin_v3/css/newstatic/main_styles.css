@@ -1605,7 +1605,8 @@ section
 	.image-srcset .right_a1s{
 		width: 100%;
 	}
-	.text45{
+	.text45,
+	.padding20{
 		padding-top: 30px;
 		width: 100%;
 	}

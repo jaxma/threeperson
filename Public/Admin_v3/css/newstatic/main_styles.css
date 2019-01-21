@@ -1558,6 +1558,10 @@ section
 	width: 55%;
 	padding-top: 10%;
 }
+.part_bodyText .body-copy img.left50{
+	width: 50%;
+	float: right;
+}
 @media (max-width: 1280px) {
 	body{
 		margin: 0;

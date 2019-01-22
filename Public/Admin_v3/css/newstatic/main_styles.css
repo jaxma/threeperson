@@ -311,8 +311,8 @@ section
 	transition: all 200ms ease;
 	padding-left: 20px; */
 	color: transparent;
-	width: 165px;
-	height: 40px;
+	width: 200px;
+	height: 60px;
 	display: block;
 	background: url('../../image/black-logo.png') no-repeat center/ 100%;
 }

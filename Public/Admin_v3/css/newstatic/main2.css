@@ -1940,7 +1940,8 @@ body {
 #container {
     z-index: 1;
     position: relative;
-    padding: 0 15px
+    padding: 0 15px;
+    background: #fff;
 }
 
 #master-bound {

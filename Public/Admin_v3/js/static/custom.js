@@ -28,7 +28,7 @@ $(document).ready(function(){
 		if($(window).scrollTop() > 100)
 		{
 			header.addClass('scrolled');
-			if(header_.hasClass('header_container_backgroundnone')){
+			if(header_.hasClass('header_container_backgroundnone') && typeof(flagSwitch) != 'undefined'){
 				header_.removeClass('header_container_backgroundnone');	
 				$(".search_icon").removeClass('search_ff');
 				if(typeof(flagSwitch) != 'undefined'){

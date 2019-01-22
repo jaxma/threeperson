@@ -3,7 +3,7 @@
 /**
  * 	topos经销商后台
  */
-class IndexAction extends CommonAction {
+class SearchAction extends CommonAction {
 
     public function _initialize()
     {

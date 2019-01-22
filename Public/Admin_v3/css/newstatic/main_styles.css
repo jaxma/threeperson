@@ -1400,7 +1400,6 @@ section
 }
 .footer_logo a
 {
-	font-size: 30px;
 	line-height: 0.75;
 	color: #1b1b1b;
 	font-weight: 700;
@@ -1440,7 +1439,10 @@ section
 {
 	color: #FFFFFF;
 }
-
+.footer_logo ul{
+	padding-left: 0;
+	margin-left: 0;
+}
 /* 对应首页 */
 .warp{
 	position: fixed;

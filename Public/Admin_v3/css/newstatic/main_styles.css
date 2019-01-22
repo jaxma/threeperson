@@ -1375,7 +1375,7 @@ section
 	bottom: 0;
 	width: 100%;
 	/* z-index: 1; */
-	padding: 15px 0;
+	/* padding: 15px 0; */
 	background-color: #fff;
 }
 .footer_background

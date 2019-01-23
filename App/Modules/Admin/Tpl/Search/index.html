@@ -20,46 +20,50 @@
     <div id="container">
             <div class="content-bound standard-layout grid" id="search">
         		<div class="lead-in-text">
-                    <p>搜索关键词‘中国’</p>
+                    <p>搜索关键词‘{$keyword}’</p>
                 </div>
                 <!-- 没有返回就不显示 -->
                 <div class="search-section">
-                    <h3>项目(100)</h3>
+                    <h3>{$type.project}({$pcount})</h3>
                     <div class="grid-items grid4">
                         <!-- search item item star -->
+                        <foreach name="plist" item="vo" key="k">
                         <div class="grid-item">
-                            <a href="#" class="project-partial-related small">
+                            <a href="{:U(__GROUP__.'/Project/detail',array('cat_id'=>$vo['cat2'],'id'=>$vo['id'],'lang'=>$lang))}" class="project-partial-related small">
                                 <div class="image">
                                     <div class="image-srcset a1x1"> 
                                         <!-- 图片 -->
-                                        <img src="__PUBLIC__/Admin_v3/image/test/3.jpg" >
+                                        <img src="__PUBLIC__{$vo.image}" >
                                     </div>
                                 </div>
-                                <h5 class="title">title</h5>
+                                <h5 class="title">{$vo.title}</h5>
                             </a>
                         </div>
+                        </foreach>
                         <!-- search item item end -->
                     </div>
                 </div>
                 <!-- 没有返回就不显示 -->
                 <div class="search-section">
-                    <h3> 新闻 (100)</h3>
+                    <h3> {$type.news}({$ncount})</h3>
                     <div class="grid-items grid2">
                         <!-- news item for star -->
+                        <foreach name="nlist" item="vn" key="k">
                         <div class="grid-item">
-                            <a href=""
+                            <a href="{:U(__GROUP__.'/News/detail',array('cat_id'=>$vo['cat2'],'id'=>$vo['id'],'lang'=>$lang))}"
                              class="universal-partial">
                                 <div class="image">
                                     <div class="image-srcset a1x1">
-                                        <img src="__PUBLIC__/Admin_v3/image/test/3.jpg" >
+                                        <img src="__PUBLIC__{$vn.image}" >
                                     </div>
                                 </div>
                                 <div class="text">
                                     <h4>title</h4>
-                                    <div class="excerpt">des</div>
+                                    <div class="excerpt">{$vn.title}</div>
                                 </div>
                             </a>
                         </div>
+                        </foreach>
                         <!-- news item for end -->
                     </div>
                 </div>

@@ -32,9 +32,10 @@ class AboutAction extends CommonAction {
     		$tmp['images'] = explode(",",$val['many_image']);
     		$res[] = $tmp;
     	}
-    	var_dump($res);exit();
+
         $lang_change = $this->lang==1?0:1;
         $this->lang_url = U('About/index',array('lang'=>$lang_change));
+        $this->res = $res;
         $this->display();
     }
 

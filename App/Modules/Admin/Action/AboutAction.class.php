@@ -19,13 +19,13 @@ class AboutAction extends CommonAction {
     		$tmp = array();
     		//英文
     		if($this->lang){
-    			$tmp['title'] = $val['title_en'];
-    			$tmp['title_des'] = $val['title_des_en'];
+    			$tmp['title'] = htmlspecialchars_decode($val['title_en']);
+    			$tmp['title_des'] = htmlspecialchars_decode($val['title_des_en']);
     			$tmp_content = explode("------",$val['content_en']);
     		//中文
     		}else{
-    			$tmp['title'] = $val['title'];
-    			$tmp['title_des'] = $val['title_des'];
+    			$tmp['title'] = htmlspecialchars_decode($val['title']);
+    			$tmp['title_des'] = htmlspecialchars_decode($val['title_des']);
     			$tmp_content = explode("------",$val['content']);
     		}
     		$tmp['content'] = $tmp_content;

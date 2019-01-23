@@ -29,9 +29,6 @@ class AboutAction extends CommonAction {
     			$tmp['title_des'] = $val['title_des'];
     			$tmp_content = explode("------",$val['content']);
     		}
-    		foreach ($tmp_content as $kc => $vc) {
-    			$tmp_content = $this->formateStr($vc);
-    		}
     		$tmp['content'] = $tmp_content;
     		$tmp['images'] = explode(",",$val['many_image']);
     		if($key>1) $isopen[$isopen_index[$val['id']]] = $val['isopen'];
@@ -45,14 +42,6 @@ class AboutAction extends CommonAction {
         $this->display();
     }
 
-    private function formateStr($content){
-        $content = stripslashes($content);
-        $content = preg_replace("/&amp;/", "&", $content);
-        $content = preg_replace("/&quot;/", "\"", $content);
-        $content = preg_replace("/&lt;/", "<", $content);
-        $content = preg_replace("/&gt;/", ">", $content);
-        return $content;
-    }
 
 }
 ?>

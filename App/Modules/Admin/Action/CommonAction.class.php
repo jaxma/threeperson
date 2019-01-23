@@ -21,14 +21,16 @@ class CommonAction extends Action {
 			'project' => '项目', 
 			'news' => '新闻', 
 			'about' => '关于TOPOS', 
-			'contact' => '联系我们', 
+            'contact' => '联系我们', 
+			'search' => '搜索', 
 		);
 		$title_en_arr = array(
 			'index' => 'TOPOS', 
 			'project' => 'Project', 
 			'news' => 'News', 
 			'about' => 'About TOPOS', 
-			'contact' => 'Contact', 
+            'contact' => 'Contact', 
+			'search' => 'Search', 
 		);
 
     	$action_name = strtolower(ACTION_NAME);

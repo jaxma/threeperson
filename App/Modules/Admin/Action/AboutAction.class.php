@@ -10,7 +10,6 @@ class AboutAction extends CommonAction {
         parent::_initialize();
     }
 
-   
     public function index() {
     	$model = $this->about_model;
     	$list = $model->order('id asc')->limit(5)->select();
@@ -31,7 +30,7 @@ class AboutAction extends CommonAction {
     		}
     		$tmp['content'] = $tmp_content;
     		$tmp['images'] = explode(",",$val['many_image']);
-    		if($key>1) $isopen[$isopen_index[$val['id']]] = $val['isopen'];
+    		if($val['id']>1) $isopen[$isopen_index[$val['id']]] = $val['isopen'];
     		$res[] = $tmp;
     	}
 

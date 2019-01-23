@@ -24,7 +24,7 @@ class SearchAction extends CommonAction {
     	}else{
     		$where['title'] = array('like',$like_word);
     		$where['content'] = array('like',$like_word);
-    		$type = array('project'=>"项目",'new'=>'新闻');
+    		$type = array('project'=>"项目",'news'=>'新闻');
     	}
     	$whre['_logic'] = 'or';
 		$map['_complex'] = $where;

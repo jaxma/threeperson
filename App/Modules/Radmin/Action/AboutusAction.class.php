@@ -29,7 +29,7 @@ class AboutusAction extends CommonAction {
         return '新闻';
     }
     public function article(){
-        $model_name = M('about');
+        $model_name = 'about';
         $id = $_GET['id'];
         $row = D($model_name)->find($id);
         $row_image = $row['many_image'];

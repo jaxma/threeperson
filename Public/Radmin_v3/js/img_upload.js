@@ -44,6 +44,7 @@ layui.use(['upload'], function () {
         size: 307200,
         accept: 'images',
         // xhr:xhrOnProgress,
+        multiple: true,
         progress:function(value){//上传进度回调 value进度值
             element.progress('demo', value+'%');//设置页面进度条
         },
@@ -52,6 +53,7 @@ layui.use(['upload'], function () {
         },
         before: function (obj) {
             //预读本地文件示例，不支持ie8
+            debugger
             var item = this.item;
             obj.preview(function (index, file, result) {
                 $(item).siblings('.layui-upload').find('.layui-upload-list').fadeIn().find('.layui-upload-img').attr('src', result); //图片链接（base64)
@@ -61,6 +63,7 @@ layui.use(['upload'], function () {
         done: function (res, index, upload) {
             //获取当前触发上传的元素，一般用于 elem 绑定 class 的情况，注意：此乃 layui 2.1.0 新增
             //如果上传失败
+            debugger
             console.info(res);
             if (res.code > 0) {
                 return layer.msg('上传失败');

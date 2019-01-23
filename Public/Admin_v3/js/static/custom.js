@@ -189,3 +189,14 @@ $(document).ready(function(){
 		}
 	}
 });
+
+
+//搜索事件
+$('.search_input').bind('keyup', function(event) {
+	var word = $(this).val();
+	if(word){
+		if (event.keyCode == "13") {
+			location.href = '/search/index.html?word='+ word
+		}
+	}
+});

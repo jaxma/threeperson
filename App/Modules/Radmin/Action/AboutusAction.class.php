@@ -51,12 +51,9 @@ class AboutusAction extends CommonAction {
         $this->display();
     }
     public function aupdate(){
-        $model_name = M('about');
-        
+        $model_name = 'about';
         $id = I('post.id');
         $id_info=M($model_name)->where(array('id' => $id))->find();
-        
-
         $title = trim(I('post.title',''));
         $title_en = trim(I('post.title_en',''));
         $isopen=I('post.isopen');
@@ -64,7 +61,6 @@ class AboutusAction extends CommonAction {
         $title_des = trim(I('post.title_des',''));
         $title_des_en = trim(I('post.title_des_en',''));
         $many_image=I('many_image');
-        $image2 = $many_image[0];
         $many_images = implode(',',$many_image);
         $content = trim(I('post.content',''));
         $content = $this->formateStr($content);
@@ -92,7 +88,7 @@ class AboutusAction extends CommonAction {
         } else {
             $name = $this->header_arr[$id];
             $this->add_active_log('编辑'.$name.'信息');
-            $this->success("操作成功",__URL__.'/'.'index');
+            $this->success("操作成功",__URL__.'/'.'article?id='.$id);
         }
     }
 

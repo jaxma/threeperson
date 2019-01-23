@@ -13,8 +13,7 @@ class CommonAction extends Action {
 		$this->project_model = M('item');
 		$this->company_model = M('company');
 		$this->cat_model = M('cat');
-		$this->news_model = M('news');
-		$this->news_model = M('about');
+		$this->about_model = M('about');
 		$this->recruitment_model = M('recruitment');
 
 		$title_arr = array(

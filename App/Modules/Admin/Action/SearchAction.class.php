@@ -26,14 +26,14 @@ class SearchAction extends CommonAction {
     		$where['content'] = array('like',$like_word);
     		$type = array('project'=>"项目",'news'=>'新闻');
     	}
-    	$whre['_logic'] = 'or';
+    	$where['_logic'] = 'or';
 		$map['_complex'] = $where;
 		$map['isopen'] = 1;
 		$tmp_plist = $Project_model->where($map)->field('id,cat2,cat1,image,title,title_en')->select();
-		echo $Project_model->getLastSql();
-		echo "<BR>";
+		// echo $Project_model->getLastSql();
+		// echo "<BR>";
 		$tmp_nlist = $News_model->where($map)->field('id,cat2,cat1,image,title,title_en')->select();
-		echo $News_model->getLastSql();exit();
+		// echo $News_model->getLastSql();exit();
 		$plist = $nlist = array();
 		$pcount = $ncount = 0;
 		if(!empty($tmp_plist)){

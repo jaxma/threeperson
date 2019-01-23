@@ -13,6 +13,7 @@ class SearchAction extends CommonAction {
     public function index() {
 
     	$keyword = I('word','');
+    	$keyword = urldecode($keyword);
     	if(empty($keyword)) $this->redirect('Index/index',array('lang'=>$this->lang));
     	$Project_model = $this->project_model;
     	$News_model = $this->news_model;

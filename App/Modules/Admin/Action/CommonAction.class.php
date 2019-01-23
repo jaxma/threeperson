@@ -52,6 +52,14 @@ class CommonAction extends Action {
     	}
     	$this->domain = C('YM_DOMAIN');
     }
+    
+    public function detail_arr($detail){
+        if(!empty($detail)){
+            $detail = str_replace("；",";",$detail);
+            $detail = explode(";",$detail);
+        }
+        return $detail;
+    }
 
 }
 

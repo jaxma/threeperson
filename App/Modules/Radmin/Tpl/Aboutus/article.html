@@ -50,27 +50,27 @@
           <div class="layui-form-item items">
             <label class="form-text">标题名称：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
+              <input class="input-inf2" required="" type="text" name="title" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.title}">
             </div>
             <input type="hidden" name="id" value="{$id}">
           </div>
           <div class="layui-form-item items">
             <label class="form-text">标题（英文）：</label>
             <div class="form-right">
-              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
+              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称" value="{$row.title_en}">
             </div>
           </div>
 
         <div class="layui-form-item items">
             <label class="form-text">标题描述：</label>
             <div class="form-right">
-              <input class="input-inf2" type="text" name="title_des" lay-verify="title_des" autocomplete="off" title="请输入标题描述" placeholder="">
+              <input class="input-inf2" type="text" name="title_des" lay-verify="title_des" autocomplete="off" title="请输入标题描述" placeholder="" value="{$row.title_des}">
             </div>
           </div>
         <div class="layui-form-item items">
           <label class="form-text">标题描述（英文）：</label>
           <div class="form-right">
-            <input class="input-inf2" type="text" name="title_des_en" lay-verify="title_des_en" autocomplete="off" title="请输入标题描述" placeholder="">
+            <input class="input-inf2" type="text" name="title_des_en" lay-verify="title_des_en" autocomplete="off" title="请输入标题描述" placeholder="" value="{$row.title_des_en}">
           </div>
         </div>
 
@@ -92,14 +92,14 @@
         <div class="layui-form-item  items">
           <label class="form-text">是否开启</label>
           <div class="form-right">
-                  <input type="radio" name="isopen" value="1" title="开启" checked>
-                  <input type="radio" name="isopen" value="0" title="关闭" >
+                  <input type="radio" name="isopen" value="1" title="开启" <?php echo $row['isopen']==1?'checked':'';?>>
+                  <input type="radio" name="isopen" value="0" title="关闭" <?php echo $row['isopen']==1?'checked':'';?>>
           </div>
         </div>
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>
             <div class="form-right">
-                <input class="input-inf2" style="max-width: 225px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="">
+                <input class="input-inf2" style="max-width: 225px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="{$row.sequence}">
                 <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
             </div>
         </div>
@@ -108,20 +108,27 @@
                 <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
                 <div class="form-right" required="">
                     <!--引入图片页面-->
-                    <include file="Public/images" data-name="many_image[]"/>
+                    <!--引入图片页面-->
+                    <div class="imgs-wrapper">
+                        <if condition="$row.many_image neq ''">
+                            <include file="Public/images" data-name="many_image[]" is_show="1" row_image="{$row.many_image}" row_arr="{$arr}"/>
+                            <else/>
+                            <include file="Public/images" data-name="many_image[]" is_show="0" row_image="{$row.many_image}" row_arr="{$arr}"/>
+                        </if>
+                    </div>
                 </div>
             </div>
           <div class="layui-form-item  items">
             <label class="form-text label-required">文章正文内容：</label>
             <div class="form-right">
-              <textarea id="editor" class="ueditors" name="content"></textarea>
+              <textarea id="editor" class="ueditors" name="content">{$row.content}</textarea>
               <include file="Public/ueditor" />
             </div>
           </div>
           <div class="layui-form-item  items">
             <label class="form-text label-required">文章正文内容（英文）：</label>
             <div class="form-right">
-              <textarea id="editor_en" class="ueditors" name="content_en"></textarea>
+              <textarea id="editor_en" class="ueditors" name="content_en">{$row.content_en}</textarea>
             </div>
           </div>
           <div class="layui-form-item  items">

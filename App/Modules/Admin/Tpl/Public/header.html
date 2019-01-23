@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>TOPOS | Landscape Architecture & Planning</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin_v3/css/newstatic/bootstrap.min.css">
-	<link href="__PUBLIC__/Admin_v3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="__PUBLIC__/Admin_v3/css/newstatic/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin_v3/css/newstatic/main_styles.css?v=4.0.0">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin_v3/css/newstatic/responsive.css">
-	<style>
-		.header_container_backgroundnone{
-			background: none;
-		}
-		.header_container_backgroundnone .logo a,
-		.header_container_backgroundnone .main_nav > ul > li.active > a,
-		.header_container_backgroundnone .main_nav > ul > li > a,
-		.header_container_backgroundnone .main_nav ul li.hassubs::after,
-		.header_container_backgroundnone .hamburger i{
-			color: #fff;
-		}
-		.logo a{
-			background: url('__PUBLIC__/Admin_v3/image/white-logo.png') no-repeat center/ 100%;
-		}
-	</style>
-</head>
-<!-- index/index  -->
+
 <body>
 <div class="super_container">
 	<!-- Header -->
@@ -38,7 +9,7 @@
 					<div class="col">
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<h1 class="logo">
-								<a href="#"></a>
+								<a href="/"></a>
 							</h1>
 							<nav class="main_nav">
 								<ul>
@@ -46,7 +17,7 @@
 										<a href="">首页/HOME</a>
 									</li> -->
 									<li>
-										<a href="project.html"><if condition="lang eq 1">PROJECT<else/>项目</if></a>
+										<a href="{:U(__GROUP__.'/Project/index',array('lang'=>$lang))}"><if condition="$lang eq 1">PROJECT<else/>项目</if></a>
 										<!-- <ul>
 											<li><a href="categories.html">经典项目</a></li>
 											<li><a href="categories.html">经典项目</a></li>
@@ -55,10 +26,10 @@
 											<li><a href="categories.html">经典项目</a></li>
 										</ul> -->
 									</li>
-									<li><a href="about.html"><if condition="lang eq 1">ABOUT TOPOS<else/>关于TOPOS</if></a></li>
-									<li><a href="news.html"><if condition="lang eq 1">NEWS<else/>新闻</if></a></li>
-									<li><a href="contact.html"><if condition="lang eq 1">CONTACT<else/>联系我们</if></a></li>
-									<li style="margin-right: 0;"><a href=""><if condition="lang eq 1">中文<else/>English</if></a></li>
+									<li><a href="{:U(__GROUP__.'/About/index',array('lang'=>$lang))}"><if condition="$lang eq 1">ABOUT TOPOS<else/>关于TOPOS</if></a></li>
+									<li><a href="{:U(__GROUP__.'/News/index',array('lang'=>$lang))}"><if condition="$lang eq 1">NEWS<else/>新闻</if></a></li>
+									<li><a href="{:U(__GROUP__.'/Contact/index',array('lang'=>$lang))}"><if condition="$lang eq 1">CONTACT<else/>联系我们</if></a></li>
+									<li style="margin-right: 0;"><a href="{$lang_url}"><if condition="$lang eq 1">中文<else/>English</if></a></li>
 									<li>
 										<a href="javascript:void(0)" class="search">
 											<div class="search_icon search_ff">
@@ -123,10 +94,10 @@
 				</div>
 				<ul class="page_menu_nav menu_mm">
 					<li class="page_menu_item has-children menu_mm">
-						<a href="index.html"><if condition="lang eq 1">HOME<else/>首页</if><i class="fa"></i></a>
+						<a href="{:U(__GROUP__/index,array('lang'=>$lang))}"><if condition="$lang eq 1">HOME<else/>首页</if><i class="fa"></i></a>
 					</li>
 					<li class="page_menu_item has-children menu_mm">
-						<a href="categories.html"><if condition="lang eq 1">PROJECT<else/>项目</if><i class="fa"></i></a>
+						<a href="{:U(__GROUP__.'/Project/index',array('lang'=>$lang))}"><if condition="$lang eq 1">PROJECT<else/>项目</if><i class="fa"></i></a>
 						<!-- <ul class="page_menu_selection menu_mm">
 							<li class="page_menu_item menu_mm"><a href="categories.html">经典项目<i class="fa fa-angle-down"></i></a></li>
 							<li class="page_menu_item menu_mm"><a href="categories.html">经典项目<i class="fa fa-angle-down"></i></a></li>
@@ -134,10 +105,10 @@
 							<li class="page_menu_item menu_mm"><a href="categories.html">经典项目<i class="fa fa-angle-down"></i></a></li>
 						</ul> -->
 					</li>
-					<li class="page_menu_item menu_mm"><a href="index.html">关于TOPOS/ABOUT<i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="#"><if condition="lang eq 1">NEWS<else/>新闻</if><i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="contact.html"><if condition="lang eq 1">CONTACT<else/>联系我们</if><i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="contact.html"><if condition="lang eq 1">中文<else/>English</if><i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="{:U(__GROUP__.'/About/index',array('lang'=>$lang))}"><if condition="$lang eq 1">ABOUT<else/>关于TOPOS</if><i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="{:U(__GROUP__.'/News/index',array('lang'=>$lang))}"><if condition="$lang eq 1">NEWS<else/>新闻</if><i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="{:U(__GROUP__.'/Contact/index',array('lang'=>$lang))}"><if condition="$lang eq 1">CONTACT<else/>联系我们</if><i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="{$lang_url}"><if condition="$lang eq 1">中文<else/>English</if><i class="fa fa-angle-down"></i></a></li>
 				</ul>
 			</div>
 		</div>

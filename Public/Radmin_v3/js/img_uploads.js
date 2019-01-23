@@ -22,7 +22,7 @@
   upload.render({
     elem: '#uploads_btn',
     url: URL + '/upload/',
-//  multiple: true,
+    multiple: true,
     method: 'post',
     size: 307200,
     accept: 'images',

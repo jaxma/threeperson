@@ -18,8 +18,9 @@ layui.use(['upload', 'form', 'layedit'], function() {
     method: 'post',
     size: 307200, //300
     accept: 'images',
+    multiple: true,
     data: {upload_dir_name:upload_dir_name},
-
+    
     before: function(obj) {
         //预读本地文件示例，不支持ie8
         obj.preview(function(index, file, result) {

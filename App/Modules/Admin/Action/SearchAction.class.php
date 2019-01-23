@@ -18,12 +18,16 @@ class SearchAction extends CommonAction {
     	$News_model = $this->news_model;
     	$like_word = "%".$keyword."%";
     	if($this->lang){
+    		$where['title'] = array('like',$like_word);
+    		$where['content'] = array('like',$like_word);
     		$where['title_en'] = array('like',$like_word);
     		$where['content_en'] = array('like',$like_word);
     		$type = array('project'=>"Project",'news'=>'News');
     	}else{
     		$where['title'] = array('like',$like_word);
     		$where['content'] = array('like',$like_word);
+    		$where['title_en'] = array('like',$like_word);
+    		$where['content_en'] = array('like',$like_word);
     		$type = array('project'=>"项目",'news'=>'新闻');
     	}
     	$where['_logic'] = 'or';
@@ -58,7 +62,7 @@ class SearchAction extends CommonAction {
 			$ncount = count($nlist);
 		}
         $lang_change = $this->lang==1?0:1;
-        $this->lang_url = U('Search/index',array('lang'=>$lang_change));
+        $this->lang_url = U('Search/index',array('lang'=>$lang_change,'word'=>$keyword));
         $this->pcount = $pcount;
         $this->ncount = $ncount;
         $this->plist = $plist;

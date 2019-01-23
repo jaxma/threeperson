@@ -78,10 +78,12 @@
             <div id="story" class="parts">
 				<!-- center -->
 				<!-- 第一欄目標題 -->
+				<if condition="$res.1.isopen" >
 				<div class="part part_titleBreak content-bound center">
 					<h2 class="center">{$res.1.title}</h2>
 					<h4 class="des-">{$res.1.title_des}</h4>
 				</div>
+
 				<!-- 第一栏目 star-->
                 <div class="part part_bodyText part_bodyTextImage content-bound">
 					<!-- left change right -->
@@ -111,8 +113,9 @@
 					</div>
 				</div>
 				<!-- 第一栏目 end-->
-				
+				</if>
 				<!-- 第二栏目标题 -->
+				<if condition="$res.2.isopen" >
 				<div class="part part_titleBreak content-bound center">
 					<h2>{$res.2.title}</h2>
 					<h4>{$res.2.title_des}</h4>
@@ -151,8 +154,10 @@
 						<!-- 内容 -->
 					</div>
 				</div>
+				</if>
 				<!-- 第二栏目 end-->
 				<!-- 第二栏目标题 -->
+				<if condition="$res.3.isopen" >
 				<div class="part part_titleBreak content-bound center">
 					<h2>{$res.3.title}</h2>
 					<h4>{$res.3.title_des}</h4>
@@ -184,8 +189,10 @@
 						<!-- 右下图 -->
 					</div>
 				</div>
+				</if>
 				<!-- 第三栏目 end-->
 				<!-- 第四栏目标题 -->
+				<if condition="$res.3.isopen" >
 				<div class="part part_titleBreak content-bound center">
 					<h2>{$res.4.title}</h2>
 					<h4>{$res.4.title_des}</h4>
@@ -226,7 +233,7 @@
 					</div>
 				</div>
 				<!-- 第四栏目 end-->
-
+				</if>
             </div>
         </div>
     </div>

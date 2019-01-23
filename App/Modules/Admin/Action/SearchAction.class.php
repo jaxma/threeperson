@@ -13,20 +13,25 @@ class SearchAction extends CommonAction {
     public function index() {
 
     	$keyword = I('word','');
+    	$keyword = urldecode($keyword);
     	if(empty($keyword)) $this->redirect('Index/index',array('lang'=>$this->lang));
     	$Project_model = $this->project_model;
     	$News_model = $this->news_model;
     	$like_word = "%".$keyword."%";
     	if($this->lang){
+    		$where['title'] = array('like',$like_word);
+    		$where['content'] = array('like',$like_word);
     		$where['title_en'] = array('like',$like_word);
     		$where['content_en'] = array('like',$like_word);
     		$type = array('project'=>"Project",'news'=>'News');
     	}else{
     		$where['title'] = array('like',$like_word);
     		$where['content'] = array('like',$like_word);
+    		$where['title_en'] = array('like',$like_word);
+    		$where['content_en'] = array('like',$like_word);
     		$type = array('project'=>"项目",'news'=>'新闻');
     	}
-    	$whre['_logic'] = 'or';
+    	$where['_logic'] = 'or';
 		$map['_complex'] = $where;
 		$map['isopen'] = 1;
 		$tmp_plist = $Project_model->where($map)->field('id,cat2,cat1,image,title,title_en')->select();
@@ -58,7 +63,7 @@ class SearchAction extends CommonAction {
 			$ncount = count($nlist);
 		}
         $lang_change = $this->lang==1?0:1;
-        $this->lang_url = U('Search/index',array('lang'=>$lang_change));
+        $this->lang_url = U('Search/index',array('lang'=>$lang_change,'word'=>$keyword));
         $this->pcount = $pcount;
         $this->ncount = $ncount;
         $this->plist = $plist;

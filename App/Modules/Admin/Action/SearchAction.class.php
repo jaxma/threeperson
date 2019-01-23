@@ -16,13 +16,19 @@ class SearchAction extends CommonAction {
     	if(empty($keyword)) $this->redirect('Index/index',array('lang'=>$this->lang));
     	$Project_model = $this->project_model;
     	$News_model = $this->news_model;
-    	$title = $title_en = $content_en = $content_en = $keyword;
+    	$like_word = "%".$keyword."%";
     	if($this->lang){
-    		$plist = $Project_model->where("isopen=1 and (  title_en like '%%d%' or content_en like '%%f%')",array($title_en,$content_en))->select();
+    		$where['title_en'] = array('like',$like_word);
+    		$where['content_en'] = array('like',$like_word);
     	}else{
-    		$plist = $Project_model->where("isopen=1 and ( title like '%%d%' or content like '%%f%')",array($title,$content))->select();
+    		$where['title'] = array('like',$like_word);
+    		$where['content'] = array('like',$like_word);
     	}
-    	
+    	$whre['_logic'] = 'or';
+		$map['_complex'] = $where;
+		$map['isopen'] = 1;
+		$plist = $Project_model->where($map)->select();
+		$nlist = $News_model->where($map)->select();
     	var_dump($plist);
     	exit();
         $lang_change = $this->lang==1?0:1;

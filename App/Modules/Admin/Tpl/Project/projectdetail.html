@@ -30,17 +30,17 @@
             <div class="content-bound grid" id="project">
                 <div class="breadcrumbs">
                     项目 › 类型 ›
-                    <a href="">酒店及度假</a>
+                    <a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$project_detail['cat2'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$cat.name_en}<else/>{$cat.name}</if></a>
                 </div>
         
                 <div class="page-content-title">
-                    <h1>千岛湖铂瑞酒店</h1>
+                    <h1><if condition = "$lang eq 1" >{$project_detail.title_en}<else/>{$project_detail.title}</if></h1>
                 </div>
                 <div class="row">
                     <div class="col9 project-copy">
                         <!-- 项目介绍 -->
                         <div class="lead-in-text">
-                            <p style="text-indent: 2em;">
+                           <!--  <p style="text-indent: 2em;">
                                 依托千岛湖之大美，强化依山傍水的地理环境，从山林的自然幽静节奏过度到湖景的豁然开朗，其间隐藏一百六十个丰富而精致内涵的庭院。设计着力于运营价值，创造非日常的度假体验和能带走的情感记忆，提升冬季淡季的回归型度假模式。
                             </p>
                             <p style="text-indent: 2em;">
@@ -51,7 +51,8 @@
                             </p>
                             <p style="text-indent: 2em;">
                                 酒店客房区景观：【传统中式精致生活】营造私密氛围下的情感交流，自然宁静的深庭小院，在临帖、对画、焚香、莳花、候月等传统意境中寻找与体验中国人充满禅意雅致的生活。
-                            </p>
+                            </p> -->
+                            <if condition = "$lang eq 1" >{$project_detail.content_en}<else/>{$project_detail.content}</if>
                         </div>
                     </div>
                     <div class="col3">
@@ -59,25 +60,25 @@
                             <div class="stat">
                                 <!-- 位置信息 -->
                                 <h4>位置</h4>
-                                中国杭州
+                                <if condition = "$lang eq 1" >{$project_detail.position_en}<else/>{$project_detail.position}</if>
                                 <!-- 位置信息 -->
                             </div>
         
                             <div class="stat">
                                 <h4>规模</h4>
-                                11.8HA
+                                <if condition = "$lang eq 1" >{$project_detail.size_en}<else/>{$project_detail.size}</if>
                             </div>
         
                             <div class="stat">
                                 <!-- 建成时间 -->
                                 <h4>建成时间</h4>
-                                2016年景观建成
+                                <if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if>
                             </div>
         
                             <div class="stat">
                                 <!-- 所属分类 -->
                                 <h4>类型</h4>
-                                酒店及度假
+                                <if condition = "$lang eq 1" >{$cat.name_en}<else/>{$cat.name}</if>
                             </div>
         
                             <!-- <div class="stat">
@@ -92,41 +93,15 @@
             <div class="richText project-grid">
                 <!-- 项目详情图片 -->
                 <div class="part part_imageRow">
+                <foreach name="many_image" item="i">
                     <div class="image-row-dynamic">
                         <div class="image-dynamic" style="width: 100%;">
                             <div class="image-srcset image-srcset_1 a2x1_1 aauto">
-                                <img src="__PUBLIC__/Admin_v3/image/test/2d.jpg" />
+                                <img src="__APP__{$i}" />
                             </div>
                         </div>
                     </div>
-                    <div class="image-row-dynamic">
-                        <div class="image-dynamic" style="width: 100%;">
-                            <div class="image-srcset image-srcset_1 a2x1_1 aauto">
-                                <img src="__PUBLIC__/Admin_v3/image/test/3d.jpg" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image-row-dynamic">
-                        <div class="image-dynamic" style="width: 100%;">
-                            <div class="image-srcset image-srcset_1 a2x1_1 aauto">
-                                <img src="__PUBLIC__/Admin_v3/image/test/4d.jpg" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image-row-dynamic">
-                        <div class="image-dynamic" style="width: 100%;">
-                            <div class="image-srcset image-srcset_1 a2x1_1 aauto">
-                                <img src="__PUBLIC__/Admin_v3/image/test/5d.jpg" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image-row-dynamic">
-                        <div class="image-dynamic" style="width: 100%;">
-                            <div class="image-srcset image-srcset_1 a2x1_1 aauto">
-                                <img src="__PUBLIC__/Admin_v3/image/test/6d.jpg" />
-                            </div>
-                        </div>
-                    </div>
+                </foreach>
                 </div>
                 <!-- 项目详情图片 -->
             </div>
@@ -134,56 +109,24 @@
             <div class="related-projects">
                 <div class="content-bound">
                     <div class="border"></div>
-                    <h3>相关项目/Related Projects</h3>
+                    <h3><if condition = "$lang eq 1" >Related Projects<else/>相关项目</if></h3>
                 </div>
                 <div class="grid-items grid4">
                     <!-- 相关项目for star-->
-                    <div class="grid-item">
-                        <a href="" class="project-partial-related small">
-                            <div class="image">
-                                <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-                                    <img src="__PUBLIC__/Admin_v3/image/test/1p.jpg" />
+                    <foreach name = "other_project" item="i">
+                        <div class="grid-item">
+                            <a href="{:U(__GROUP__.'/Project/detail',array('id'=>$i['id'],'lang'=>$lang))}" class="project-partial-related small">
+                                <div class="image">
+                                    <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
+                                        <img src="__APP__{$i.image}" />
+                                    </div>
                                 </div>
-                            </div>
-                            <h5 class="title">title</h5>
-                            <h6 class="location">des</h6>
-                        </a>
-                    </div>
+                                <h5 class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></h5>
+                                <h6 class="location"><if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></h6>
+                            </a>
+                        </div>
+                    </foreach>
                     <!-- 相关项目for end-->
-                    <div class="grid-item">
-                        <a href="" class="project-partial-related small">
-                            <div class="image">
-                                <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-                                    <img src="__PUBLIC__/Admin_v3/image/test/2p.jpg" />
-                                </div>
-                            </div>
-                            <h5 class="title">title</h5>
-                            <h6 class="location">des</h6>
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" class="project-partial-related small">
-                            <div class="image">
-                                <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-                                    <img src="__PUBLIC__/Admin_v3/image/test/3p.jpg" />
-                                </div>
-                            </div>
-                            <h5 class="title">title</h5>
-                            <h6 class="location">des</h6>
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" class="project-partial-related small">
-                            <div class="image">
-                                <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-                                    <img src="__PUBLIC__/Admin_v3/image/test/4p.jpg" />
-                                </div>
-                            </div>
-                            <h5 class="title">title</h5>
-                            <h6 class="location">des</h6>
-                        </a>
-                    </div>
-                    </div>
                 </div>
             </div>
             <!-- <div class="more-projects">

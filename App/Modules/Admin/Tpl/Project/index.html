@@ -30,9 +30,12 @@
                 <div class="catrage">
 					<!-- 不需要显示经典分类 -->
                     <ul>
-                        <li><a href="javascript:void(0);">酒店及度假休闲</a></li>
+                        <!-- <li><a href="javascript:void(0);">酒店及度假休闲</a></li>
                         <li><a href="javascript:void(0);">公共空间及园区</a></li>
-                        <li><a href="javascript:void(0);">别墅及高端居住</a></li>
+                        <li><a href="javascript:void(0);">别墅及高端居住</a></li> -->
+                        <foreach name="cats" item="i">
+                        	<li><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if>/</a></li>
+                        </foreach>
 					</ul>
 					<!-- 不需要显示经典分类 -->
                 </div>
@@ -57,176 +60,23 @@
             </div>
         </div>
 		<!-- 当项目分类为经典分类的时候显示动态加载class grid3 否则不加-->
-        <div class="grid-items grid2 grid3">
+        <div class="grid-items grid2 <notempty name = 'cat_id'>grid3</notempty>">
+        <foreach name = "project" item = "i">
 			<div class="grid-item">
-				<a href="" class="project-partial-related large">
+				<a href="{:U(__GROUP__.'/Project/detail',array('cat_id'=>$i['cat2'],'id'=>$i['id'],'lang'=>$lang))}" class="project-partial-related large">
 					<div class="image">
 						<div class="image-srcset image-srcset_1 a2x1_1 a1x1">
 							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/1p.jpg" >
+							<img src="__APP__{$i.image}" >
 						</div>
 					</div>
 					<!-- title -->
-					<h5 class="title">title</h5>
+					<h5 class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></h5>
 					<!-- des -->
-					<h6 class="location">des</h6>
+					<h6 class="location"><if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></h6>
 				</a>
 			</div>
-            <div class="grid-item">
-                <a href="" class="project-partial-related large">
-                    <div class="image">
-                        <div class="image-srcset image-srcset_1 a2x1_1 a1x1">
-                            <!-- 项目图 -->
-                            <img src="__PUBLIC__/Admin_v3/image/test/2p.jpg" >
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <h5 class="title">title</h5>
-                    <!-- des -->
-                    <h6 class="location">des</h6>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="" class="project-partial-related large">
-                    <div class="image">
-                        <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-                            <!-- 项目图 -->
-                            <img src="__PUBLIC__/Admin_v3/image/test/3p.jpg" >
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <h5 class="title">title</h5>
-                    <!-- des -->
-                    <h6 class="location">des</h6>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="" class="project-partial-related large">
-                    <div class="image">
-                        <div class="image-srcset image-srcset_1 a2x1_1 a1x1">
-                            <!-- 项目图 -->
-                            <img src="__PUBLIC__/Admin_v3/image/test/4p.jpg" >
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <h5 class="title">title</h5>
-                    <!-- des -->
-                    <h6 class="location">des</h6>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a href="" class="project-partial-related large">
-                    <div class="image">
-                        <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-                            <!-- 项目图 -->
-                            <img src="__PUBLIC__/Admin_v3/image/test/5p.jpg" >
-                        </div>
-                    </div>
-                    <!-- title -->
-                    <h5 class="title">title</h5>
-                    <!-- des -->
-                    <h6 class="location">des</h6>
-                </a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1">
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/6p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1">
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/7p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/8p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1">
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/9p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/10p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1">
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/11p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-			<div class="grid-item">
-				<a href="" class="project-partial-related large">
-					<div class="image">
-						<div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
-							<!-- 项目图 -->
-							<img src="__PUBLIC__/Admin_v3/image/test/12p.jpg" >
-						</div>
-					</div>
-					<!-- title -->
-					<h5 class="title">title</h5>
-					<!-- des -->
-					<h6 class="location">des</h6>
-				</a>
-			</div>
-		</div>
+        </foreach>
 		<!-- 非经典项目 -->
         <!-- <div class="archived-projects-toggle">
             <a class="buttonmore"><span>更多</span></a>

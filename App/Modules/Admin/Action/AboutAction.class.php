@@ -14,7 +14,8 @@ class AboutAction extends CommonAction {
     public function index() {
     	$model = $this->about_model;
     	$list = $model->order('id asc')->limit(5)->select();
-    	$res = array();
+    	$res = $isopen = array();
+    	$isopen_index = array('2'=>'first','3'=>'second','4'=>'third','5'=>'fourth');
     	foreach ($list as $key => $val) {
     		$tmp = array();
     		//英文
@@ -33,12 +34,14 @@ class AboutAction extends CommonAction {
     		}
     		$tmp['content'] = $tmp_content;
     		$tmp['images'] = explode(",",$val['many_image']);
+    		if($key>1) $isopen[$isopen_index[$val['id']]] = $val['isopen'];
     		$res[] = $tmp;
     	}
 
         $lang_change = $this->lang==1?0:1;
         $this->lang_url = U('About/index',array('lang'=>$lang_change));
         $this->res = $res;
+        $this->isopen = $isopen;
         $this->display();
     }
 

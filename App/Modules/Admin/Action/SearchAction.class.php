@@ -30,7 +30,10 @@ class SearchAction extends CommonAction {
 		$map['_complex'] = $where;
 		$map['isopen'] = 1;
 		$tmp_plist = $Project_model->where($map)->field('id,cat2,cat1,image,title,title_en')->select();
+		echo $Project_model->getLastSql();
+		echo "<BR>";
 		$tmp_nlist = $News_model->where($map)->field('id,cat2,cat1,image,title,title_en')->select();
+		echo $News_model->getLastSql();exit();
 		$plist = $nlist = array();
 		$pcount = $ncount = 0;
 		if(!empty($tmp_plist)){

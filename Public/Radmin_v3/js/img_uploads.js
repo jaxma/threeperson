@@ -24,7 +24,7 @@
     url: URL + '/upload/',
     multiple: true,
     method: 'post',
-    size: 307200,
+    size: 3072000,
     accept: 'images',
     xhr:xhrOnProgress,
     progress:function(value){//上传进度回调 value进度值
@@ -35,6 +35,7 @@
       upload_dir_name: upload_dir_name
     },
     before: function(obj) {
+      debugger
       //预读本地文件示例，不支持ie8
       obj.preview(function(index, file, result) {
         $('.layui-upload-lists').append('<li class="img-item"><img src="' + result + '" alt="' + file.name + '" class="layui-upload-img"><i class="layui-icon delete">&#xe640;</i><input type="hidden" name="'+image_name+'" class="imgUrl"></li>')
@@ -42,6 +43,7 @@
       });
     },
     done: function(res) {
+      debugger
       //上传完毕
       if(res.code > 0) {
         

@@ -38,7 +38,7 @@
 				<foreach name = "project" item="i">
 					1
 					<div class="swiper-slide">
-						<a class="handle-a" href="#">
+						<a class="handle-a" href="{:U(__GROUP__.'/Project/detail',array('cat_id'=>$i['cat2'],'id'=>$i['id'],'lang'=>$lang))}">
 							<img class="img" src="__APP__{$i.image}" alt="">
 							<!-- 项目名称和地点 -->
 							<p class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if>/<if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></p>

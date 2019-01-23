@@ -66,6 +66,8 @@ class AboutusAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
+
+        var_dump($_POST);exit();
         if(empty($title)||empty($title_en)||empty($isopen)||empty($many_image)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();

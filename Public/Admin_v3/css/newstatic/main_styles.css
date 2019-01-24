@@ -1603,6 +1603,10 @@ section
 	.logo a{
 		width: 100px;
 	}
+	.header_content .col{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 @media (max-width: 920px) {

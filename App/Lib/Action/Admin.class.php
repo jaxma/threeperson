@@ -13,7 +13,6 @@ class Admin {
         '5'  => '新闻',
         '6'  => '关于TOPOS',
     ];
-
     //权限相关对应的module
     public $admin_auth_module = [
         '1' =>  'admin',
@@ -34,7 +33,6 @@ class Admin {
      */
     public function __construct() {
         $FUNCTION_MODULE = C('FUNCTION_MODULE');
-        
         if( $FUNCTION_MODULE['MONEY'] != 1 ){
             unset($this->admin_auth[5]);
         }

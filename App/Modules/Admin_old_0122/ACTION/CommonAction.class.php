@@ -80,8 +80,8 @@ class CommonAction extends Action {
         $this->email =  $lang?C('TE_EMAIL'):C('T_EMAIL');
         $this->en_position =  $lang?C('TE_EN_POSITION'):C('T_EN_POSITION');
         $this->en_address =  $lang?C('TE_EN_ADDRESS'):C('T_EN_ADDRESS');
-        $this->en_tel =  $lang?C('TE_TEL'):C('T_EN_TEL');
-        $this->en_email =  $lang?C('TE_EMAIL'):C('T_EN_EMAIL');
+        $this->en_tel =  $lang?C('TE_EN_TEL'):C('T_EN_TEL');
+        $this->en_email =  $lang?C('TE_EN_EMAIL'):C('T_EN_EMAIL');
 
         $this->cats = $cats;
 

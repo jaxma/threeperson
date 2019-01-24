@@ -213,7 +213,7 @@ class AdminAction extends CommonAction {
         ];
         $list = $this->model->where($condition)->find();
         $list['auth_mat'] = explode(',', $list['auth']);
-        print_r($Admin->admin_auth);
+        // print_r($Admin->admin_auth);
         $this->list = $list;
         $this->admin_auth = $Admin->admin_auth;
         $this->display();

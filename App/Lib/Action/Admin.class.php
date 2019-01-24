@@ -12,7 +12,6 @@ class Admin {
         '4'  => '项目',
         '5'  => '新闻',
         '6'  => '关于TOPOS',
-        '7'  => '关于TOPOS',
     ];
     //权限相关对应的module
     public $admin_auth_module = [
@@ -22,7 +21,6 @@ class Admin {
         '4'  => 'item',
         '5'  => 'news',
         '6'  => 'aboutus',
-        '7'  => 'aboutus',
     ];
     //例外的权限
     //首页、用户手册、发展链接
@@ -35,27 +33,27 @@ class Admin {
      */
     public function __construct() {
         $FUNCTION_MODULE = C('FUNCTION_MODULE');
-        if( $FUNCTION_MODULE['MONEY'] != 1 ){
-            unset($this->admin_auth[5]);
-        }
-        elseif( $FUNCTION_MODULE['INTEGRAL_SHOP'] != 1 ){
-            unset($this->admin_auth[4]);
-        }
-        elseif( $FUNCTION_MODULE['MALL_SHOP'] != 1 ){
-            unset($this->admin_auth[10]);
-        }
-        elseif( $FUNCTION_MODULE['STOCK'] != 1 ){
-            unset($this->admin_auth[6]);
-        }
-        elseif( $FUNCTION_MODULE['MARKET'] != 1 ){
-            unset($this->admin_auth[7]);
-        }
-        elseif( $FUNCTION_MODULE['GW'] != 1 ){
-            unset($this->admin_auth[8]);
-        }
-        elseif( $FUNCTION_MODULE['STOCK_ORDER'] != 1 ){
-            unset($this->admin_auth[13]);
-        }
+        // if( $FUNCTION_MODULE['MONEY'] != 1 ){
+        //     unset($this->admin_auth[5]);
+        // }
+        // elseif( $FUNCTION_MODULE['INTEGRAL_SHOP'] != 1 ){
+        //     unset($this->admin_auth[4]);
+        // }
+        // elseif( $FUNCTION_MODULE['MALL_SHOP'] != 1 ){
+        //     unset($this->admin_auth[10]);
+        // }
+        // elseif( $FUNCTION_MODULE['STOCK'] != 1 ){
+        //     unset($this->admin_auth[6]);
+        // }
+        // elseif( $FUNCTION_MODULE['MARKET'] != 1 ){
+        //     unset($this->admin_auth[7]);
+        // }
+        // elseif( $FUNCTION_MODULE['GW'] != 1 ){
+        //     unset($this->admin_auth[8]);
+        // }
+        // elseif( $FUNCTION_MODULE['STOCK_ORDER'] != 1 ){
+        //     unset($this->admin_auth[13]);
+        // }
     }
 
     //添加后台操作日志

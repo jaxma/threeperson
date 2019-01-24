@@ -4005,6 +4005,10 @@ body {
         font-size: 19px;
         line-height: 1.4
     }
+    .header_content .col{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 @media (max-width:1000px) {

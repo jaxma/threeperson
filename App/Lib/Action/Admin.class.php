@@ -56,11 +56,8 @@ class Admin {
         elseif( $FUNCTION_MODULE['STOCK_ORDER'] != 1 ){
             unset($this->admin_auth[13]);
         }
-        
     }
-    
-    
-    
+
     //添加后台操作日志
     public function add_active_log($aid,$log){
 
@@ -68,8 +65,6 @@ class Admin {
         if( !$this->is_add_log ){
             return TRUE;
         }
-        
-        
         $cur_url = __SELF__;//当前的URL地址
 
         if( $aid == NULL || empty($log) ){
@@ -77,8 +72,7 @@ class Admin {
         }
 
         $active_log_obj = M('admin_active_log');
-        
-        
+
         $add_info = array(
             'aid'           =>  $aid,
             'log'           =>  $log,
@@ -87,18 +81,16 @@ class Admin {
         );
 
         $result = $active_log_obj->add($add_info);
-        
 //        if( $result ){
 //            return 1;
 //        }
 //        else{
 //            return $active_log_obj->getDbError();
 //        }
-        
-        
+
         return $result;
     }//end func add_active_log
-    
+
     //新项目登陆toposxitong账号初始化一些数据
     public function init_data() {
         //产品属性
@@ -111,7 +103,6 @@ class Admin {
             ],
         ];
         M('templet_property')->addAll($data);
-        
         //升级说明
         $level_name = C('LEVEL_NAME');
         foreach ($level_name as $k => $v) {
@@ -124,7 +115,4 @@ class Admin {
         }
         M('distributor_upgrade_desc')->addAll($option);
     }
-    
-    
-    
 }

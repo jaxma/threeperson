@@ -207,19 +207,13 @@ class AdminAction extends CommonAction {
     public function auth(){
         import('Lib.Action.Admin','App');
         $Admin = new Admin();
-        
         $this->id = I('id');
-        
         $condition = [
             'id'    =>  $this->id,
         ];
-        
         $list = $this->model->where($condition)->find();
-        
         $list['auth_mat'] = explode(',', $list['auth']);
-        
         print_r($Admin->admin_auth);
-        
         $this->list = $list;
         $this->admin_auth = $Admin->admin_auth;
         $this->display();

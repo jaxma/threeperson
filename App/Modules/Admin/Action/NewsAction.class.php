@@ -56,7 +56,7 @@ class NewsAction extends CommonAction {
 
         $this->title = $this->lang?"NEWS":"新闻";
         $lang_change = $this->lang==1?0:1;
-        $this->lang_url = U('News/index',array('lang'=>$lang_change));
+        $this->lang_url = U('News/detail',array('lang'=>$lang_change));
         $this->list = $list;
         $this->display('newsdetail');
     }

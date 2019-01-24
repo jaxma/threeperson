@@ -7,7 +7,7 @@ class CommonAction extends Action {
     public function _initialize() {
 		$this->cat_id = I('cat_id');
 		$this->id = I('id');
-		$this->lang = empty(I('lang'))?0:1;
+		$this->lang = I('lang')==1?1:0;
 
 		$this->news_model = M('news');
 		$this->project_model = M('item');

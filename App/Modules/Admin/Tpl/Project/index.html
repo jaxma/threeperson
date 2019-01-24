@@ -60,7 +60,7 @@
             </div>
         </div>
 		<!-- 当项目分类为经典分类的时候显示动态加载class grid3 否则不加-->
-        <div class="grid-items grid2 <notempty name = 'cat_id'>grid3</notempty>">
+        <div class="grid-items grid2 <empty name = 'cat_id'>grid3</empty>">
         <foreach name = "project" item = "i">
 			<div class="grid-item">
 				<a href="{:U(__GROUP__.'/Project/detail',array('cat_id'=>$i['cat2'],'id'=>$i['id'],'lang'=>$lang))}" class="project-partial-related large">

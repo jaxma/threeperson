@@ -55,6 +55,18 @@ class CommonAction extends Action {
     		}
     		$this->lang == 1?$this->title = $res['title_en'].$title_fix:$this->title = $res['title'].$title_fix;
     	}
+
+        //公司信息 
+        $this->desc =  $this->lang?C('TE_DESC'):C('T_DESC');
+        $this->position =  $this->lang?C('TE_POSITION'):C('T_POSITION');
+        $this->address =  $this->lang?C('TE_ADDRESS'):C('T_ADDRESS');
+        $this->tel =  $this->lang?C('TE_TEL'):C('T_TEL');
+        $this->email =  $this->lang?C('TE_EMAIL'):C('T_EMAIL');
+        $this->en_desc =  $this->lang?C('TE_EN_DESC'):C('T_EN_DESC');
+        $this->en_position =  $this->lang?C('TE_EN_POSITION'):C('T_EN_POSITION');
+        $this->en_address =  $this->lang?C('TE_EN_ADDRESS'):C('T_EN_ADDRESS');
+        $this->en_tel =  $this->lang?C('TE_TEL'):C('T_EN_TEL');
+        $this->en_email =  $this->lang?C('TE_EMAIL'):C('T_EN_EMAIL');
     	$this->domain = C('YM_DOMAIN');
     }
     

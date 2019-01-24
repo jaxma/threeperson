@@ -28,9 +28,14 @@ class WebsetAction extends CommonAction {
 //      if(!file_exists($img_path)){
 //          $img_path = '/Public/Radmin_v3/images/logo/system_logo.png?'.rand(5,99999);
 //      }
+        //status字段最多到127
         //联系我们图片
         $this->row = M('company')->where('status = 100')->find();
         $this->row_abroad = M('company')->where('status = 101')->find();
+        //联系我们招聘
+        $this->re_content = M('company')->where('status = 102')->find();
+        //二维码
+        $this->row_qrcode = M('company')->where('status = 103')->find();
 
         $kdn_code = kdn_code();
         $aid = $_SESSION['aid'];
@@ -94,19 +99,23 @@ class WebsetAction extends CommonAction {
             'SYSTEM_NAME' => C('SYSTEM_NAME'), //系统名称
             'LOGO_URL' => C('LOGO_URL'), //系统名称
             //公司信息
+            'T_DESC' => C('T_DESC'), 
             'T_POSITION' => C('T_POSITION'), 
             'T_ADDRESS' => C('T_ADDRESS'), 
             'T_TEL' => C('T_TEL'), 
             'T_EMAIL' => C('T_EMAIL'), 
+            'T_EN_DESC' => C('T_EN_DESC'), 
             'T_EN_POSITION' => C('T_EN_POSITION'), 
             'T_EN_ADDRESS' => C('T_EN_ADDRESS'), 
             'T_EN_TEL' => C('T_EN_TEL'), 
             'T_EN_EMAIL' => C('T_EN_EMAIL'), 
 
+            'TE_DESC' => C('TE_DESC'), 
             'TE_POSITION' => C('TE_POSITION'), 
             'TE_ADDRESS' => C('TE_ADDRESS'), 
             'TE_TEL' => C('TE_TEL'), 
             'TE_EMAIL' => C('TE_EMAIL'), 
+            'TE_EN_DESC' => C('TE_EN_DESC'), 
             'TE_EN_POSITION' => C('TE_EN_POSITION'), 
             'TE_EN_ADDRESS' => C('TE_EN_ADDRESS'), 
             'TE_EN_TEL' => C('TE_EN_TEL'), 
@@ -288,9 +297,12 @@ class WebsetAction extends CommonAction {
         //处理图片上传
         $image=I('image');
         $image_abroad=I('image_abroad');
+        $re_content=I('re_content');
+        $re_content_en=I('re_content_en');
+        $image_qrcode=I('image_qrcode');
         if($image){
             $contact_img=M('company')->where('status=100')->find();
-            $contact_image = $id_info['content'];
+            $contact_image = $contact_img['content'];
             if(strcmp($contact_image,$image)==0){
                 $image=$image;
             }else{
@@ -307,9 +319,10 @@ class WebsetAction extends CommonAction {
             }else{
                 $contact_img = M('company')->add($data);
             }
-        }elseif($image_abroad){
+        }
+        if($image_abroad){
             $contact_img=M('company')->where('status=101')->find();
-            $contact_image=$id_info['content'];
+            $contact_image=$contact_img['content'];
             if(strcmp($contact_image,$image_abroad)==0){
                 $image_abroad=$image_abroad;
             }else{
@@ -327,6 +340,39 @@ class WebsetAction extends CommonAction {
                 $contact_img = M('company')->add($data);
             }
         }
+        if($re_content || $re_content_en){
+            $content_res=M('company')->where('status=102')->find();
+            $data = array(
+                'content' => $re_content, 
+                'content_en' => $re_content_en, 
+                'status' => 102, 
+            );
+            if($content_res){
+                $content_res = M('company')->where('status = 102')->save($data);
+            }else{
+                $content_res = M('company')->add($data);
+            }
+        }
+        if($image_qrcode){
+            $contact_img=M('company')->where('status=103')->find();
+            $contact_image=$contact_img['content'];
+            if(strcmp($contact_image,$image_qrcode)==0){
+                $image_qrcode=$image_qrcode;
+            }else{
+                $url = $_SERVER['DOCUMENT_ROOT'].__ROOT__ . $contact_img['content'];
+                @unlink($url);
+                $image_qrcode = $image_qrcode;
+            }
+            $data = array(
+                'content' => $image_qrcode, 
+                'status' => 103, 
+            );
+            if($contact_img){
+                $contact_img = M('company')->where('status = 103')->save($data);
+            }else{
+                $contact_img = M('company')->add($data);
+            }
+        }
 
         import('Lib.Action.User', 'App');
         $User = new User();
@@ -339,9 +385,13 @@ class WebsetAction extends CommonAction {
 
         //公司信息
         $T_POSITION = trim(I('T_POSITION'));
+        $T_DESC = trim(I('T_DESC'));
         $T_ADDRESS = trim(I('T_ADDRESS'));
         $T_TEL = trim(I('T_TEL'));
         $T_EMAIL = trim(I('T_EMAIL'));
+        if ($T_DESC != NULL) {
+            $new_config['T_DESC'] = $T_DESC;
+        }
         if ($T_POSITION != NULL) {
             $new_config['T_POSITION'] = $T_POSITION;
         }
@@ -354,10 +404,14 @@ class WebsetAction extends CommonAction {
         if ($T_EMAIL != NULL) {
             $new_config['T_EMAIL'] = $T_EMAIL;
         }
+        $T_EN_DESC = trim(I('T_EN_DESC'));
         $T_EN_POSITION = trim(I('T_EN_POSITION'));
         $T_EN_ADDRESS = trim(I('T_EN_ADDRESS'));
         $T_EN_TEL = trim(I('T_EN_TEL'));
         $T_EN_EMAIL = trim(I('T_EN_EMAIL'));
+        if ($T_EN_DESC != NULL) {
+            $new_config['T_EN_DESC'] = $T_EN_DESC;
+        }
         if ($T_EN_POSITION != NULL) {
             $new_config['T_EN_POSITION'] = $T_EN_POSITION;
         }
@@ -371,10 +425,14 @@ class WebsetAction extends CommonAction {
             $new_config['T_EN_EMAIL'] = $T_EN_EMAIL;
         }
 
+        $TE_DESC = trim(I('TE_DESC'));
         $TE_POSITION = trim(I('TE_POSITION'));
         $TE_ADDRESS = trim(I('TE_ADDRESS'));
         $TE_TEL = trim(I('TE_TEL'));
         $TE_EMAIL = trim(I('TE_EMAIL'));
+        if ($TE_DESC != NULL) {
+            $new_config['TE_DESC'] = $TE_DESC;
+        }
         if ($TE_POSITION != NULL) {
             $new_config['TE_POSITION'] = $TE_POSITION;
         }
@@ -387,10 +445,14 @@ class WebsetAction extends CommonAction {
         if ($TE_EMAIL != NULL) {
             $new_config['TE_EMAIL'] = $TE_EMAIL;
         }
+        $TE_EN_DESC = trim(I('TE_EN_DESC'));
         $TE_EN_POSITION = trim(I('TE_EN_POSITION'));
         $TE_EN_ADDRESS = trim(I('TE_EN_ADDRESS'));
         $TE_EN_TEL = trim(I('TE_EN_TEL'));
         $TE_EN_EMAIL = trim(I('TE_EN_EMAIL'));
+        if ($TE_EN_DESC != NULL) {
+            $new_config['TE_EN_DESC'] = $TE_EN_DESC;
+        }
         if ($TE_EN_POSITION != NULL) {
             $new_config['TE_EN_POSITION'] = $TE_EN_POSITION;
         }

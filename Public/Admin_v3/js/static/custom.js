@@ -115,13 +115,13 @@ $(document).ready(function(){
 						    if(subItem.hasClass('active'))
 						    {
 						    	subItem.toggleClass('active');
-								TweenMax.to(subItem, 0.3, {height:0});
+								//TweenMax.to(subItem, 0.3, {height:0});
 						    }
 						    else
 						    {
 						    	subItem.toggleClass('active');
-						    	TweenMax.set(subItem, {height:"auto"});
-								TweenMax.from(subItem, 0.3, {height:0});
+						    	//TweenMax.set(subItem, {height:"auto"});
+								//TweenMax.from(subItem, 0.3, {height:0});
 						    }
 						}
 						else

@@ -19,60 +19,38 @@
     <!-- home -->
     <div id="container">
         <div class="content-bound standard-layout grid" id="news">
-            <!-- <div class="page-title">
-                <div class="breadcrumbs">
-                    <a>
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">目前</font>
-                        </font>
-                    </a>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;"> &gt;
-                        </font>
-                    </font>
-                </div>
-                <h1>
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">新闻/news</font>
-                    </font>
-                </h1>
-            </div> -->
+            
             <div class="row">
                 <div class="news-listing" style="width: 100%;">
                     <!-- news item for star -->
+                    <foreach name="list" item="vo" key="k">
                     <div class="news-partial">
                         <a href="newsdetail.html">
                             <div class="image-srcset image-srcset_1 a2x1_1 a3x2">
-                                <img src="__PUBLIC__/Admin_v3/image/test/1n.jpg" >
+                                <img src="__ROOT__{$vo.image}" >
                             </div>
                         </a>
                         <br>
                         <div class="news-meta">
                             <time>
                                <!-- 时间 -->
-                               <font style="vertical-align: inherit;">2017-11-02</font>
+                               <font style="vertical-align: inherit;">{$vo.publish_time}</font>
                             </time>
                         </div>
                         <h3>
                             <!-- title 标题-->
                             <a href="newsdetail.html">
                                 <font style="vertical-align: inherit;">
-									光谷希尔顿酒店荣获第七届TTG中国旅游大奖之【中国中南地区最佳酒店】称号
+									{$vo.title}
                                 </font>
                             </a>
 						</h3>
-						<!-- 描述 display:none-->
-                        <!-- <div class="body-copy">
-                            <p>
-                                <font style="vertical-align: inherit;">
-                                    武汉光谷希尔顿酒店坐落于花山生态新城，毗邻风景秀丽的严西湖畔，整个酒店临湖而建，地理位置优越，自然条件得天独厚。荣获第七届TTG中国旅游大奖之【中国中南地区最佳酒店】的称号
-                                </font>
-                            </p>
-                        </div> -->
-                        <a href="newsdetail.html" class="buttonmore">
+						
+                        <a href="{:U(__GROUP__.'/News/detail',array('cat_id'=>$vo['cat2'],'id'=>$vo['id'],'lang'=>$lang))}" class="buttonmore">
                             <font style="vertical-align: inherit;">阅读更多/Read More</font>
                         </a>
                     </div>
+                    </foreach>
                     <!-- news item for end -->
                     
                     <!-- <a class="dynamic-load-more button" href="#" data-no-instant="">

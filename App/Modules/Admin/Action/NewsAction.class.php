@@ -14,10 +14,10 @@ class NewsAction extends CommonAction {
         $model = $this->news_model;
         $con = array('isopen'=>1);
 
-        $tmp_list = $model->where($con)->field('id,cat1,cat2,title,title_en,image,publish_time')->order('sequence')->select();
+        $tmp_list = $model->where($con)->field('id,cat1,cat2,title,title_en,image,publish_time')->order('sequence desc')->select();
         $list = array();
         if(!empty($tmp_list)){
-            foreach ($list as $k => $val) {
+            foreach ($tmp_list as $k => $val) {
                 $tmp = array();
                 $tmp['title'] = $this->lang?htmlspecialchars_decode($val['title_en']):htmlspecialchars_decode($val['title']);
                 $tmp['image'] = $val['image'];

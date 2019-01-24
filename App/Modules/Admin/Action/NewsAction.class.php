@@ -36,6 +36,30 @@ class NewsAction extends CommonAction {
     }
 
     public function detail() {
+        $news_id = I('id',0);
+        if(empty($news_id)) $this->redirect('News/index',array('lang'=>$this->lang));
+        $model = $this->news_model;
+        $tmp_list = $list = array();
+        $tmp_list = $model->where(array('id'=>$news_id,'isopen'=>1))->find();
+        if(empty($tmp_list)) $this->redirect('News/index',array('lang'=>$this->lang));
+
+        
+        if($this->lang){
+            $list['title'] = htmlspecialchars_decode($tmp_list['title_en']);
+            $list['content'] = $tmp_list['content_en'];
+
+        }else{
+            $list['title'] = htmlspecialchars_decode($tmp_list['title']);
+            $list['content'] = $tmp_list['content'];
+        }
+        $list['publish_time'] = date("Y-m-d",$tmp_list['publish_time']);
+
+        if(!empty($tmp_list['many_image'])) $list['images'] = explode(",",$tmp_list['many_image']);
+
+        $this->title = $this->lang?"NEWS":"新闻";
+        $lang_change = $this->lang==1?0:1;
+        $this->lang_url = U('News/index',array('lang'=>$lang_change));
+        $this->list = $list;
         $this->display('newsdetail');
     }
 }

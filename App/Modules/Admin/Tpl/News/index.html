@@ -25,7 +25,7 @@
                     <!-- news item for star -->
                     <foreach name="list" item="vo" key="k">
                     <div class="news-partial">
-                        <a href="newsdetail.html">
+                        <a href="{:U(__GROUP__.'/News/detail',array('id'=>$vo['id'],'lang'=>$lang))}">
                             <div class="image-srcset image-srcset_1 a2x1_1 a3x2">
                                 <img src="__ROOT__{$vo.image}" >
                             </div>
@@ -39,7 +39,7 @@
                         </div>
                         <h3>
                             <!-- title 标题-->
-                            <a href="newsdetail.html">
+                            <a href="{:U(__GROUP__.'/News/detail',array('id'=>$vo['id'],'lang'=>$lang))}">
                                 <font style="vertical-align: inherit;">
 									{$vo.title}
                                 </font>

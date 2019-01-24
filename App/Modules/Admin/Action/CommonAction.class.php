@@ -41,10 +41,10 @@ class CommonAction extends Action {
     	}else{
     		switch($module_name) {
     			case 'project':
-    				$res = $this->project_model->where('id = '.$id)->find();
+    				$res = $this->project_model->where('id = '.$this->id)->find();
     				break;
     			case 'news':
-    				$res = $this->news_model->where('id = '.$id)->find();
+    				$res = $this->news_model->where('id = '.$this->id)->find();
     				break;
     			default:
     				break;
@@ -53,7 +53,7 @@ class CommonAction extends Action {
     			$res['title'] = 'TOPOS'.$title_fix;
     			$res['title_en'] = 'TOPOS'.$title_fix;
     		}
-    		$this->lang == 1?$this->title = $res['title_en']:$this->title = $res['title'];
+    		$this->lang == 1?$this->title = $res['title_en'].$title_fix:$this->title = $res['title'].$title_fix;
     	}
     	$this->domain = C('YM_DOMAIN');
     }

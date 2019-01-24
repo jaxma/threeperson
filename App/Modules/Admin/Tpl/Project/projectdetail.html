@@ -22,14 +22,14 @@
             <div class="project-masthead">
                 <div class="image-srcset image-srcset_1 a2x1_1 aProject">
                     <!-- 项目首图 -->
-                    <img src="__PUBLIC__/Admin_v3/image/test/1d.jpg" />
+                    <img src="__APP__{$project_detail.image}" />
                     <!-- 项目首图 -->
                 </div>
             </div>
         
             <div class="content-bound grid" id="project">
                 <div class="breadcrumbs">
-                    项目 › 类型 ›
+                    <if condition = "$lang eq 1" >PROJECT<else/>项目</if> › <if condition = "$lang eq 1" >TYPE<else/>类型</if> ›
                     <a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$project_detail['cat2'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$cat.name_en}<else/>{$cat.name}</if></a>
                 </div>
         
@@ -59,25 +59,25 @@
                         <div class="project-sidebar">
                             <div class="stat">
                                 <!-- 位置信息 -->
-                                <h4>位置</h4>
+                                <h4><if condition = "$lang eq 1" >LOCATION<else/>位置</if></h4>
                                 <if condition = "$lang eq 1" >{$project_detail.position_en}<else/>{$project_detail.position}</if>
                                 <!-- 位置信息 -->
                             </div>
         
                             <div class="stat">
-                                <h4>规模</h4>
+                                <h4><if condition = "$lang eq 1" >AREA<else/>规模</if></h4>
                                 <if condition = "$lang eq 1" >{$project_detail.size_en}<else/>{$project_detail.size}</if>
                             </div>
         
                             <div class="stat">
                                 <!-- 建成时间 -->
-                                <h4>建成时间</h4>
+                                <h4><if condition = "$lang eq 1" >COMPLETED YEAR<else/>建成时间</if></h4>
                                 <if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if>
                             </div>
         
                             <div class="stat">
                                 <!-- 所属分类 -->
-                                <h4>类型</h4>
+                                <h4><if condition = "$lang eq 1" >TYPE<else/>类型</if></h4>
                                 <if condition = "$lang eq 1" >{$cat.name_en}<else/>{$cat.name}</if>
                             </div>
         

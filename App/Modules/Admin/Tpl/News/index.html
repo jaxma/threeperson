@@ -46,7 +46,7 @@
                             </a>
 						</h3>
                         <a href="{:U(__GROUP__.'/News/detail',array('id'=>$vo['id'],'lang'=>$lang))}" class="buttonmore">
-                            <font style="vertical-align: inherit;">阅读更多/Read More</font>
+                            <font style="vertical-align: inherit;"><if condition = "$lang eq 1" >Read More<else/>阅读更多</if></font>
                         </a>
                     </div>
                     </foreach>

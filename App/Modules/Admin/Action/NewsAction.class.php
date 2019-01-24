@@ -42,8 +42,6 @@ class NewsAction extends CommonAction {
         $tmp_list = $list = array();
         $tmp_list = $model->where(array('id'=>$news_id,'isopen'=>1))->find();
         if(empty($tmp_list)) $this->redirect('News/index',array('lang'=>$this->lang));
-
-        
         if($this->lang){
             $list['title'] = htmlspecialchars_decode($tmp_list['title_en']);
             $list['content'] = $tmp_list['content_en'];

@@ -1603,7 +1603,7 @@ section
 	.logo a{
 		width: 100px;
 	}
-	.header_content .col{
+	.header_container .col{
 		padding-left: 0;
 		padding-right: 0;
 	}

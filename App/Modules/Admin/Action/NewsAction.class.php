@@ -51,12 +51,12 @@ class NewsAction extends CommonAction {
             $list['content'] = $tmp_list['content'];
         }
         $list['publish_time'] = date("Y-m-d",$tmp_list['publish_time']);
-
+        $list['id'] = $tmp_list['id'];
         if(!empty($tmp_list['many_image'])) $list['images'] = explode(",",$tmp_list['many_image']);
 
         $this->title = $this->lang?"NEWS":"新闻";
         $lang_change = $this->lang==1?0:1;
-        $this->lang_url = U('News/detail',array('lang'=>$lang_change));
+        $this->lang_url = U('News/detail',array('id'=>$list['id'],'lang'=>$lang_change));
         $this->list = $list;
         $this->display('newsdetail');
     }

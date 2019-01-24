@@ -44,23 +44,24 @@
 							<!-- title 标题-->
 							<a href="#">
 								<font style="vertical-align: inherit;">
-									中国深圳
+									{$position}
 								</font>
 							</a>
 						</h3>
 						<a href="javascript:void(0);">
 							<div class="image-srcset a3x2">
-								<img src="__PUBLIC__/Admin_v3/image/test/1c.jpg" >
+								<img src="{$contact_pic.content}" >
 							</div>
 						</a>
 						<div class="contact-content">
 							<!-- 描述 des -->
-							<p>TOPOS位于深圳市中心，离深圳地标平安金融中心步行10分钟</p>
+							<!-- <p>TOPOS位于深圳市中心，离深圳地标平安金融中心步行10分钟</p> -->
+							<p>{$desc}</p>
 							<!-- address 地址 -->
-							<p>地址 中国深圳市福田中心区皇达东方雅苑写字楼1A</p>
-							<p>电话 +86 755 8616 9093</p>
-							<p>所有事务联系邮箱 info@toposla.com</p>
-							<p>微信公众号 TOPOS拓柏景观</p>
+							<p><if condition = "$lang eq 1" >ADDRESS<else/>地址</if> {$address}</p>
+							<p><if condition = "$lang eq 1" >TEL<else/>电话</if> {$tel}</p>
+							<p><if condition = "$lang eq 1" >EMAIL<else/>所有事务联系邮箱</if> {$email}</p>
+							<p><if condition = "$lang eq 1" > WECHAT PUBLIC ACCOUNT<else/>微信公众号</if> TOPOS拓柏景观</p>
 							<p>Instagram Account TOPOSLA</p>
 						</div>
 					</div>
@@ -70,23 +71,24 @@
 							<!-- title 标题-->
 							<a href="#">
 								<font style="vertical-align: inherit;">
-									加州圣迭戈
+									{$en_position}
 								</font>
 							</a>
 						</h3>
 						<a href="javascript:void(0);">
 							<div class="image-srcset a3x2">
-								<img src="__PUBLIC__/Admin_v3/image/test/2c.jpg" >
+								<img src="{$contact_pic_abord.content}" >
 							</div>
 						</a>
 						<div class="contact-content">
 							<!-- 描述 des -->
-							<p>TOPOS位于海滨度假胜地圣迭戈市中心，离圣迭戈地标Horton Plaza步行10分钟</p>
+							<!-- <p>TOPOS位于海滨度假胜地圣迭戈市中心，离圣迭戈地标Horton Plaza步行10分钟</p> -->
+							<p>{$en_desc}</p>
 							<!-- address 地址 -->
-							<p>地址 美国加利福尼亚州圣迭戈格莱尼特山道9655</p>
-							<p>电话 +1 619 788 9550</p>
-							<p>所有事务联系邮箱 info@toposla.com</p>
-							<p>微信公众号 TOPOS拓柏景观</p>
+							<p><if condition = "$lang eq 1" >ADDRESS<else/>地址</if> {$en_address}</p>
+							<p><if condition = "$lang eq 1" >TEL<else/>电话</if> {$en_tel}</p>
+							<p><if condition = "$lang eq 1" >EMAIL<else/>所有事务联系邮箱</if> {$en_email}</p>
+							<p><if condition = "$lang eq 1" > WECHAT PUBLIC ACCOUNT<else/>微信公众号</if> TOPOS拓柏景观</p>
 							<p>Instagram Account TOPOSLA</p>
 						</div>
 					</div>
@@ -101,15 +103,16 @@
 						</h3> -->
 						<div class="contact-content">
 							<!-- 描述 des -->
-							<p>想了解更多关于我们的信息，欢迎扫描下面的二维码</p>
 							<!-- address 地址 -->
+							<!-- <p>想了解更多关于我们的信息，欢迎扫描下面的二维码</p>
 							<p>我们会不定期在公众号里面发布招聘计划、相关信息。</p>
 							<p>如有简历及作品集，欢迎将材料发送至邮箱： info@toposla.com</p>
-							<p>微信公众号 TOPOS拓柏景观</p>
+							<p>微信公众号 TOPOS拓柏景观</p> -->
+							<if condition = "$lang eq 1" >{$contact_recruitment_en}<else/>{$contact_recruitment}</if>
 						</div>
 						<a href="javascript:void(0);">
 							<div class="image-srcset image-srcset_1 a2x1_1 a3x2">
-								<img style="width: 150px;height: 150px;" src="__PUBLIC__/Admin_v3/image/test/wxcode.jpg" >
+								<img style="width: 150px;height: 150px;" src="{$contact_pic_qrcode.content}" >
 							</div>
 						</a>
 					</div>

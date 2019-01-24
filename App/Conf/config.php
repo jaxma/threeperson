@@ -211,9 +211,13 @@
    'TE_ADDRESS'=>'2',
    'TE_TEL'=>'3',
    'TE_EMAIL'=>'4',
-   'TE_EN_POSITION'=>'5',
-   'TE_EN_ADDRESS'=>'6',
-   'TE_EN_TEL'=>'7',
-   'TE_EN_EMAIL'=>'8',
+   'TE_EN_POSITION'=>'55',
+   'TE_EN_ADDRESS'=>'66',
+   'TE_EN_TEL'=>'77',
+   'TE_EN_EMAIL'=>'88',
+   'T_DESC'=>'a',
+   'TE_DESC'=>'aa',
+   'T_EN_DESC'=>'b',
+   'TE_EN_DESC'=>'bb',
 
 ); ?>

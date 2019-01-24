@@ -19,9 +19,9 @@ class ProjectAction extends CommonAction {
         $this->cats = $this->cat_model->where('status = 1 and pid = 1')->select();
 
         if($this->cat_id){
-            $project = $this->project_model->where('cat2 = '.$this->cat_id)->order('sequence desc')->limit(100)->select();
+            $project = $this->project_model->where('isopen = 1 and cat2 = '.$this->cat_id)->order('sequence desc')->limit(100)->select();
         }else{
-            $project = $this->project_model->where('classical = 1')->order('sequence desc')->limit(100)->select();
+            $project = $this->project_model->where('classical = 1 and isopen = 1')->order('sequence desc')->limit(100)->select();
         }
 
         foreach ($project as $k => $v) {

@@ -28,6 +28,10 @@ class WebsetAction extends CommonAction {
 //      if(!file_exists($img_path)){
 //          $img_path = '/Public/Radmin_v3/images/logo/system_logo.png?'.rand(5,99999);
 //      }
+        //联系我们图片
+        $this->row = M('company')->where('status = 100')->find();
+        $this->row_abroad = M('company')->where('status = 101')->find();
+
         $kdn_code = kdn_code();
         $aid = $_SESSION['aid'];
         $this->kdn_code = kdn_code();
@@ -281,6 +285,48 @@ class WebsetAction extends CommonAction {
 
     //修改网站配置
     public function update_webset() {
+        //处理图片上传
+        $image=I('image');
+        $image_abroad=I('image_abroad');
+        if($image){
+            $contact_img=M('company')->where('status=100')->find();
+            $contact_image = $id_info['content'];
+            if(strcmp($contact_image,$image)==0){
+                $image=$image;
+            }else{
+                $url = $_SERVER['DOCUMENT_ROOT'].__ROOT__ . $contact_img['content'];
+                @unlink($url);
+                $image = $image;
+            }
+            $data = array(
+                'content' => $image, 
+                'status' => 100, 
+            );
+            if($contact_img){
+                $contact_img = M('company')->where('status = 100')->save($data);
+            }else{
+                $contact_img = M('company')->add($data);
+            }
+        }elseif($image_abroad){
+            $contact_img=M('company')->where('status=101')->find();
+            $contact_image=$id_info['content'];
+            if(strcmp($contact_image,$image_abroad)==0){
+                $image_abroad=$image_abroad;
+            }else{
+                $url = $_SERVER['DOCUMENT_ROOT'].__ROOT__ . $contact_img['content'];
+                @unlink($url);
+                $image_abroad = $image_abroad;
+            }
+            $data = array(
+                'content' => $image_abroad, 
+                'status' => 101, 
+            );
+            if($contact_img){
+                $contact_img = M('company')->where('status = 101')->save($data);
+            }else{
+                $contact_img = M('company')->add($data);
+            }
+        }
 
         import('Lib.Action.User', 'App');
         $User = new User();
@@ -1069,6 +1115,39 @@ class WebsetAction extends CommonAction {
         $upload->saveRule = 'system_logo';
 
         $upload->uploadReplace = true; //存在同名文件是否是覆盖
+        $upload->thumbRemoveOrigin = "true";//生成缩略图后是否删除原图
+        $upload->autoSub = true;    //是否以子目录方式保存
+        $upload->subType = 'custom';  //可以设置为hash或date
+//      $upload->subDir = 'system_logo/';
+        $upload->dateFormat = 'Ymd';
+        $upload->upload();
+        $info = $upload->getUploadFileInfo();
+        $image = substr($info[0]['savepath'], 1) . $info[0]['savename'];
+        $result_msg = "";
+        if(empty($info)){
+            $result_msg = "上传格式不正确,上传失败";
+        }else{
+            $result_msg = "上传成功";
+        }
+        $result = [
+          'code' => 0,
+          'msg' => $result_msg,
+          'src' => $image,
+        ];
+        $this->ajaxReturn($result);
+    }
+    //上传logo
+    public function upload_contact(){
+      
+        import('ORG.Net.UploadFile');
+        $upload = new UploadFile();// 实例化上传类
+        $upload->maxSize = 314572800; // 设置附件上传大小 300M
+        $upload->allowExts = array( 'png','jpg','jpeg','gif'); // 设置附件上传类型
+
+        $upload->savePath = './upload/contact/';// 设置附件上传目录
+        $upload->saveRule = 'contact_'.time();
+
+        $upload->uploadReplace = false; //存在同名文件是否是覆盖
         $upload->thumbRemoveOrigin = "true";//生成缩略图后是否删除原图
         $upload->autoSub = true;    //是否以子目录方式保存
         $upload->subType = 'custom';  //可以设置为hash或date

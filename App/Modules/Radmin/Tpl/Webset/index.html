@@ -261,6 +261,19 @@
 
                 <div class="layui-tab-item">
                     <form class="layui-form layui-box" data-auto="false" method="post" action="__GROUP__/Webset/update_webset">
+                        <script>var upload_dir_name = 'contact';var logo_upload_url = '__GROUP__/Webset/upload_contact';</script>
+                        <div class="layui-form-item items">
+                            <label class="form-text layui-col-xs12">图片</label>
+                            <div class="form-right">
+                                <!-- <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script> -->
+                                <if condition="$row.content neq ''">
+                                    <include file="Public/image" image_name="image" is_show="1" img_url="{$row.content}"/>
+                                    <else/>
+                                    <include file="Public/image" image_name="image" is_show="0" img_url="{$row.content}"/>
+                                </if>
+                            </div>
+                        </div>
+
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">位置：</label>
                             <div class="form-right layui-col-xs12">
@@ -353,6 +366,18 @@
 
                 <div class="layui-tab-item">
                     <form class="layui-form layui-box" data-auto="false" method="post" action="__GROUP__/Webset/update_webset">
+                        <script>var upload_dir_name = 'contact';var logo_upload_url = '__GROUP__/Webset/upload_contact';</script>
+                        <div class="layui-form-item items">
+                            <label class="form-text layui-col-xs12">图片</label>
+                            <div class="form-right">
+                                <!-- <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script> -->
+                                <if condition="$row_abroad.content neq ''">
+                                    <include file="Public/image" image_name="image_abroad" is_show="1" img_url="{$row_abroad.content}"/>
+                                    <else/>
+                                    <include file="Public/image" image_name="image_abroad" is_show="0" img_url="{$row_abroad.content}"/>
+                                </if>
+                            </div>
+                        </div>
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">位置：</label>
                             <div class="form-right layui-col-xs12">

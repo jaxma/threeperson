@@ -218,7 +218,7 @@ class AdminAction extends CommonAction {
         
         $list['auth_mat'] = explode(',', $list['auth']);
         
-        //print_r($list);
+        print_r($Admin->admin_auth);
         
         $this->list = $list;
         $this->admin_auth = $Admin->admin_auth;

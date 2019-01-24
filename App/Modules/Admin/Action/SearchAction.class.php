@@ -64,6 +64,7 @@ class SearchAction extends CommonAction {
 		}
         $lang_change = $this->lang==1?0:1;
         $this->lang_url = U('Search/index',array('lang'=>$lang_change,'word'=>$keyword));
+        $this->search_word = $this->lang==1?'Search keyword':'搜索关键词';
         $this->pcount = $pcount;
         $this->ncount = $ncount;
         $this->plist = $plist;

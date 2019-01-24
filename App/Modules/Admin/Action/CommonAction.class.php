@@ -67,6 +67,8 @@ class CommonAction extends Action {
         $this->en_address =  $this->lang?C('TE_EN_ADDRESS'):C('T_EN_ADDRESS');
         $this->en_tel =  $this->lang?C('TE_EN_TEL'):C('T_EN_TEL');
         $this->en_email =  $this->lang?C('TE_EN_EMAIL'):C('T_EN_EMAIL');
+        $this->action_name = $action_name;
+        $this->module_name = $module_name;
     	$this->domain = C('YM_DOMAIN');
     }
     

@@ -16,7 +16,7 @@
 									<!-- <li class="active">
 										<a href="">首页/HOME</a>
 									</li> -->
-									<li>
+									<li <if condition="$module_name eq project">class="active"</if>>
 										<a href="{:U(__GROUP__.'/Project/index',array('lang'=>$lang))}"><if condition="$lang eq 1">PROJECT<else/>项目</if></a>
 										<!-- <ul>
 											<li><a href="categories.html">经典项目</a></li>
@@ -26,9 +26,9 @@
 											<li><a href="categories.html">经典项目</a></li>
 										</ul> -->
 									</li>
-									<li><a href="{:U(__GROUP__.'/About/index',array('lang'=>$lang))}"><if condition="$lang eq 1">ABOUT TOPOS<else/>关于TOPOS</if></a></li>
-									<li><a href="{:U(__GROUP__.'/News/index',array('lang'=>$lang))}"><if condition="$lang eq 1">NEWS<else/>新闻</if></a></li>
-									<li><a href="{:U(__GROUP__.'/Contact/index',array('lang'=>$lang))}"><if condition="$lang eq 1">CONTACT<else/>联系我们</if></a></li>
+									<li <if condition="$module_name eq about">class="active"</if>><a href="{:U(__GROUP__.'/About/index',array('lang'=>$lang))}"><if condition="$lang eq 1">ABOUT TOPOS<else/>关于TOPOS</if></a></li>
+									<li <if condition="$module_name eq news">class="active"</if>><a href="{:U(__GROUP__.'/News/index',array('lang'=>$lang))}"><if condition="$lang eq 1">NEWS<else/>新闻</if></a></li>
+									<li <if condition="$module_name eq contact">class="active"</if>><a href="{:U(__GROUP__.'/Contact/index',array('lang'=>$lang))}"><if condition="$lang eq 1">CONTACT<else/>联系我们</if></a></li>
 									<li style="margin-right: 0;"><a href="{$lang_url}"><if condition="$lang eq 1">中文<else/>English</if></a></li>
 									<li>
 										<a href="javascript:void(0)" class="search">

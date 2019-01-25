@@ -31,9 +31,14 @@
 <script src="__PUBLIC__/Admin_v3/js/swiper.min.js"></script>
 <script src="__PUBLIC__/Admin_v3/js/static/popper.js"></script>
 <script src="__PUBLIC__/Admin_v3/js/static/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Admin_v3/js/static/jquery.lazyload.min.js"></script>
 <script>
 	var flagSwitch = true;
 	$('h1.logo').attr("id",'logo_');
+	$(".image-srcset img").lazyload({
+        effect: "fadeIn",
+        threshold: 300
+    });
 </script>
 <script src="__PUBLIC__/Admin_v3/js/static/custom.js"></script>
 </body>

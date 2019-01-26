@@ -32,29 +32,56 @@
         <form class="layui-form layui-box" action="__URL__/update_wechat" data-auto="false" method="post">
             
             <div class="layui-form-item items">
-                <label class="form-text">微信公众号名称：</label>
+                <label class="form-text">微信公众号名称（国内）：</label>
                 <div class="form-right">
                     <input class="input-inf2" required="" type="text" name="we_account" lay-verify="we_account" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row1.name}">
                 </div>
             </div>
             <div class="layui-form-item items">
-                <label class="form-text">微信公众号名称（英文）：</label>
+                <label class="form-text">Instagram账号名称（国内）：</label>
                 <div class="form-right">
-                    <input class="input-inf2" required="" type="text" name="we_account_en" lay-verify="we_account_en" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row1.name_en}">
+                    <input class="input-inf2" required="" type="text" name="ins" lay-verify="ins" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row1.name_en}">
                 </div>
             </div>
             <div class="layui-form-item items">
-                <label class="form-text">Instagram账号名称：</label>
+                <label class="form-text">微信公众号名称（国外）：</label>
                 <div class="form-right">
-                    <input class="input-inf2" required="" type="text" name="ins" lay-verify="ins" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row2.name}">
+                    <input class="input-inf2" required="" type="text" name="we_account_en" lay-verify="we_account_en" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row1.content}">
                 </div>
             </div>
             <div class="layui-form-item items">
-                <label class="form-text">Instagram账号名称（英文）：</label>
+                <label class="form-text">Instagram账号名称（国外）：</label>
                 <div class="form-right">
-                    <input class="input-inf2" required="" type="text" name="ins_en" lay-verify="ins_en" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row2.name_en}">
+                    <input class="input-inf2" required="" type="text" name="ins_en" lay-verify="ins_en" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row1.content_en}">
                 </div>
             </div>
+
+
+            <div class="layui-form-item items">
+                <label class="form-text">微信公众号名称（国内）（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="we_account2" lay-verify="we_account2" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row2.name}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">Instagram账号名称（国外）（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="ins2" lay-verify="ins2" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row2.name_en}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">微信公众号名称（国内）（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="we_account2_en" lay-verify="we_account2_en" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row2.content}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">Instagram账号名称（国外）（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="ins2_en" lay-verify="ins2_en" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row2.content_en}">
+                </div>
+            </div>
+
             <div class="layui-form-item  items">
                 <label class="form-text"></label>
                 <div class="form-right">
@@ -62,6 +89,8 @@
                     <button class="layui-btn" type='submit'>确定</button>
                 </div>
             </div>
+
+
         </form>
     </div>
 </div>

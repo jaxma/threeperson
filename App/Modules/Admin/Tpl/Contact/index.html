@@ -61,8 +61,8 @@
 							<p>{$address}</p>
 							<p>{$tel}</p>
 							<p>{$email}</p>
-							<p>{$row1.name}</p>
-							<p>{$row1.name_en}</p>
+							<p><if condition = "$lang eq 1">{$row2.name}<else/>{$row1.name}</if></p>
+							<p><if condition = "$lang eq 1">{$row2.name_en}<else/>{$row1.name_en}</if></p>
 						</div>
 					</div>
 
@@ -91,8 +91,8 @@
 							<p>{$en_address}</p>
 							<p>{$en_tel}</p>
 							<p>{$en_email}</p>
-							<p>{$row2.name}</p>
-							<p>{$row2.name_en}</p>
+							<p><if condition = "$lang eq 1">{$row2.content}<else/>{$row1.content}</if></p>
+							<p><if condition = "$lang eq 1">{$row2.content_en}<else/>{$row1.content_en}</if></p>
 						</div>
 					</div>
 

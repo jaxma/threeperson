@@ -106,14 +106,26 @@ class CompanyAction extends CommonAction {
         $ins = I('post.ins');
         $ins_en = I('post.ins_en');
 
+        $we_account2 = I('post.we_account2');
+        $we_account2_en = I('post.we_account2_en');
+
+        $ins2 = I('post.ins2');
+        $ins2_en = I('post.ins2_en');
+
         if(empty($we_account)||empty($we_account_en)||empty($ins)||empty($ins_en)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        if(empty($we_account2)||empty($we_account2_en)||empty($ins2)||empty($ins2_en)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
         $content_res=M('company')->where('status=104')->find();
         $data = array(
             'name' => $we_account,
-            'name_en' => $we_account_en,
+            'name_en' => $ins,
+            'content' => $we_account_en,
+            'content_en' => $ins_en,
             'status' => 104,
         );
         if($content_res){
@@ -125,8 +137,10 @@ class CompanyAction extends CommonAction {
         $content_res=M('company')->where('status=105')->find();
         
         $data = array(
-            'name' => $ins,
-            'name_en' => $ins_en,
+            'name' => $we_account2,
+            'name_en' => $ins2,
+            'content' => $we_account2_en,
+            'content_en' => $ins2_en,
             'status' => 105,
         );
         if($content_res){

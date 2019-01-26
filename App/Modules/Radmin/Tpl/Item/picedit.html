@@ -138,10 +138,7 @@
                 var aim = $('#level_one');
                 $.each(value, function(k, val) {
                   var html = '';
-                  console.log(val.id);
-                  console.log('and');
-                  console.log({$row.cat1});
-                  if(val.id == {$row.cat1}){
+                  if(val.id == '2'){
                   	html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
                   }else{
                   	html = '<option value="' + val.id + '">' + val.name + '</option>';
@@ -150,9 +147,6 @@
                 });
                 if(aim != '') {
                   aim.append(temp)
-                }
-                if({$row.cat1} && {$row.cat1} != 0){
-            		getTwo({$row.cat1});
                 }
                 form.render();
               });
@@ -191,7 +185,7 @@
                 }
                 $.each(value, function(k, val) {
                   var html = '';
-                  if(val.id == {$row.cat2}){
+                  if(val.id == '5'){
                   	html = '<option selected="selected" value="' + val.id + '">' + val.name + '</option>';
                   }else{
                   	html = '<option value="' + val.id + '">' + val.name + '</option>';

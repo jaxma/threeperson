@@ -9,6 +9,7 @@
    'DB_PORT'=>'3306',
    'DB_HOST'=>'127.0.0.1',
    'DB_NAME'=>'threeperson',
+   'APP_DEBUG'=>false,
    // 'DB_USER'=>'threeperson',
    // 'DB_PWD'=>'sSbw5mkRXbzn4wr5',
    'DB_USER'=>'root',

@@ -92,6 +92,56 @@ class CompanyAction extends CommonAction {
         $this->display();
     }
 
+    public function wechat() {
+        $this->row1 = M('company')->where('status = 104')->find();
+        $this->row2 = M('company')->where('status = 105')->find();
+        $this->display();
+    }
+
+    public function update_wechat() {
+
+        $we_account = I('post.we_account');
+        $we_account_en = I('post.we_account_en');
+
+        $ins = I('post.ins');
+        $ins_en = I('post.ins_en');
+
+        if(empty($we_account)||empty($we_account_en)||empty($ins)||empty($ins_en)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $content_res=M('company')->where('status=104')->find();
+        $data = array(
+            'name' => $we_account,
+            'name_en' => $we_account_en,
+            'status' => 104,
+        );
+        if($content_res){
+            $content_res = M('company')->where('status = 104')->save($data);
+        }else{
+            $content_res = M('company')->add($data);
+        }
+
+        $content_res=M('company')->where('status=105')->find();
+        
+        $data = array(
+            'name' => $ins,
+            'name_en' => $ins_en,
+            'status' => 105,
+        );
+        if($content_res){
+            $content_res = M('company')->where('status = 105')->save($data);
+        }else{
+            $content_res = M('company')->add($data);
+        }
+
+        if ($content_res === false) {
+            $this->error("操作失败");
+        } else {
+            $this->success("操作成功",__URL__.'/'.'wechat');
+        }
+    }
+
     public function insert() {
         $model_name = $this->get_model();
         $name = trim(I('post.name',''));

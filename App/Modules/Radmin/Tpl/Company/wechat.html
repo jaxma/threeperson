@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <script>
+        /**
+         * 使用图片上传接口需满足以下条件
+         * 1.容器选择器id=upload
+         * 2.设置name=image的input标签隐藏域
+         * 3.指定上传目录名称
+         */
+            //上传目录
+        var upload_dir_name = 'photo';
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form .items .desc {
+                position: static;
+            }
+        } 
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid edit-wrapper">
+    <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+            <span class="title">公司信息</span>
+        </blockquote>
+    </header>
+    <div class="layui-content">
+        <form class="layui-form layui-box" action="__URL__/update_wechat" data-auto="false" method="post">
+            
+            <div class="layui-form-item items">
+                <label class="form-text">微信公众号名称：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="we_account" lay-verify="we_account" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row1.name}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">微信公众号名称（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="we_account_en" lay-verify="we_account_en" autocomplete="off" title="请输入微信公众号名称：" placeholder="请输入微信公众号名称：" value="{$row1.name_en}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">Instagram账号名称：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="ins" lay-verify="ins" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row2.name}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">Instagram账号名称（英文）：</label>
+                <div class="form-right">
+                    <input class="input-inf2" required="" type="text" name="ins_en" lay-verify="ins_en" autocomplete="off" title="请输入名称" placeholder="请输入Instagram账号名称" value="{$row2.name_en}">
+                </div>
+            </div>
+            <div class="layui-form-item  items">
+                <label class="form-text"></label>
+                <div class="form-right">
+                    <!-- <input type="hidden" name="id" value="{$id}"> -->
+                    <button class="layui-btn" type='submit'>确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

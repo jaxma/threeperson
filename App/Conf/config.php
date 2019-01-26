@@ -68,7 +68,7 @@
            'OPEN_WXPAY'=>'',
    ),
    'IS_TEST'=>'1',
-   'SHOW_PAGE_TRACE'=>false,
+   'SHOW_PAGE_TRACE'=>'0',
    'REBATE'=> array(
            'OPEN'=>'1',
            'ORDER'=>'1',

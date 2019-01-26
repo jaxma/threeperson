@@ -39,7 +39,7 @@ defined('THINK_PATH') or exit();
 class FireShowPageTraceBehavior extends Behavior {
     // 行为参数定义
     protected $options   =  array(
-        'FIRE_SHOW_PAGE_TRACE'=> true,   // 显示页面Trace信息
+        'FIRE_SHOW_PAGE_TRACE'=> false,   // 显示页面Trace信息
         'TRACE_PAGE_TABS'=> array('BASE'=>'基本','FILE'=>'文件','INFO'=>'流程','ERR|NOTIC'=>'错误','SQL'=>'SQL','DEBUG'=>'调试')
     );
 

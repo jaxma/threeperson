@@ -21,6 +21,8 @@ class ContactAction extends CommonAction {
         $this->contact_recruitment = html_entity_decode($contact_recruitment['content']);
         $this->contact_recruitment_en = html_entity_decode($contact_recruitment['content_en']);
         $this->contact_pic_qrcode = M('company')->where('status = 103')->find();
+        $this->row1 = M('company')->where('status = 104')->find();
+        $this->row2 = M('company')->where('status = 105')->find();
         $this->display();
     }
 }

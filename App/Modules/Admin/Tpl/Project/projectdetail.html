@@ -29,7 +29,7 @@
         
             <div class="content-bound grid" id="project">
                 <div class="breadcrumbs">
-                    <if condition = "$lang eq 1" >PROJECT<else/>项目</if> › <if condition = "$lang eq 1" >TYPE<else/>类型</if> ›
+                    <if condition = "$lang eq 1" >PROJECTS<else/>项目</if> › <if condition = "$lang eq 1" >TYPE<else/>类型</if> ›
                     <a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$project_detail['cat2'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$cat.name_en}<else/>{$cat.name}</if></a>
                 </div>
         

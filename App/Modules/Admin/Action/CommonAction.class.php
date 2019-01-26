@@ -26,7 +26,7 @@ class CommonAction extends Action {
 		);
 		$title_en_arr = array(
 			'index' => 'TOPOS', 
-			'project' => 'Project', 
+			'project' => 'Projects', 
 			'news' => 'News', 
 			'about' => 'About TOPOS', 
             'contact' => 'Contact', 

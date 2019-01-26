@@ -4749,7 +4749,9 @@ body {
     font-size: 34px;
     font-size: 26px
 }
-
+.project-partial-related.large .title{
+    padding-bottom: 15px;
+}
 .project-copy {
     padding-right: 65px;
     margin-bottom: 50px

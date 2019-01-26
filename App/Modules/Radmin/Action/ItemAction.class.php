@@ -350,9 +350,8 @@ class ItemAction extends CommonAction {
         }
     }
 
-    public function update() {
+    public function picupdate() {
         $model_name = 'overpicture';
-        
         $id = I('post.id');
         $id_info=M($model_name)->where(array('id' => $id))->find();
         $old_image=$id_info['image'];

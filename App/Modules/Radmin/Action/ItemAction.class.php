@@ -62,14 +62,7 @@ class ItemAction extends CommonAction {
         $this->display();
     }
 
-    public function books(){
 
-    }
-    public function designer(){
-
-    }
-
-  
 
     //摄影图片
     //添加产品信息
@@ -275,6 +268,121 @@ class ItemAction extends CommonAction {
         $content = preg_replace("/&lt;/", "<", $content);
         $content = preg_replace("/&gt;/", ">", $content);
         return $content;
+    }
+
+
+    //封面图信息列表
+    public function picindex() {
+        $model_name = 'overpicture';
+        $count = D($model_name)->count('id');
+        $page_num=20;
+        if ($count > 0) {
+            import('ORG.Util.Page');
+            $p = new Page($count, $page_num);
+            $limit = $p->firstRow . "," . $p->listRows;
+            $list = D($model_name)->order('time desc')->limit($limit)->select();
+            //分页显示
+            $page = $p->show();
+            //模板赋值显示
+            $this->assign('list', $list);
+            $this->assign("page", $page);
+            $this->count=$count;
+        }
+        $this->p=I('p');
+        $this->limit=$page_num;
+        $this->display();
+    }
+    public function picadd() {
+        $this->display();
+    }
+    public function picedit() {
+        $model_name = 'overpicture';
+        $id = $_GET['id'];
+        $row = D($model_name)->find($id);
+        $this->row = $row;
+        $this->arr = $row_arr;
+        $this->id = $id;
+        $this->display();
+
+    }
+    public function picdelete() {
+        $model_name = 'overpicture';
+        $id = I('id');
+        $res = D($model_name)->where(array('id' => $id))->delete();
+        if ($res) {
+            $name = '封面图片';
+            $this->add_active_log('删除'.$name.'信息');
+            $this->success('删除成功');
+        } else {
+            $this->error('删除失败');
+        }
+    }
+
+    public function picinsert() {
+        $model_name = 'overpicture';
+        $title = trim(I('post.title',''));
+        $title_en = trim(I('post.title_en',''));
+        $isopen=I('post.isopen');
+        $image=I('post.image');
+        $sequence = I('post.sequence');
+        $href = trim(I('post.href',''));
+        if(empty($title)||empty($title_en)||empty($image)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $data = array(
+            'title' => $title,
+            'title_en' => $title_en,
+            'image' => $image,
+            'href' => $href,
+            'detail' => $detail,
+            'isopen' => $isopen,
+            'sequence' => $sequence,
+            'time' => time()
+        );
+        $res = D($model_name)->add($data);
+        if ($res) {
+            $name = "封面图";
+            $this->add_active_log('添加'.$name.'信息');
+            $this->success('添加成功',__URL__.'/'.'picindex');
+        } else {
+            $this->error('添加失败');
+        }
+    }
+
+    public function picupdate() {
+        $model_name = 'overpicture';
+        $id = I('post.id');
+        $id_info=M($model_name)->where(array('id' => $id))->find();
+        $old_image=$id_info['image'];
+        $title = trim(I('post.title',''));
+        $title_en = trim(I('post.title_en',''));
+        $isopen=I('post.isopen');
+        $image=I('post.image');
+        $sequence = I('post.sequence');
+       $href = trim(I('post.href',''));
+        if(empty($title)||empty($title_en)||empty($image)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $data = array(
+            'title' => $title,
+            'title_en' => $title_en,
+            'image' => $image,
+            'href' => $href,
+            'detail' => $detail,
+            'isopen' => $isopen,
+            'sequence' => $sequence
+        );
+
+        $res = D($model_name)->where(array('id' => $id))->save($data);
+        if ($res === false) {
+            $this->error("操作失败");
+        } else {
+            $name = "封面图";
+            $this->add_active_log('编辑'.$name.'信息');
+            $this->success("操作成功",__URL__.'/'.'picindex');
+        }
     }
 
 }

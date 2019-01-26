@@ -1,0 +1,206 @@
+<html>
+
+  <head>
+    <script>
+      /**
+       * 使用图片上传接口需满足以下条件
+       * 1.容器选择器id=upload
+       * 2.设置name=image的input标签隐藏域
+       * 3.指定上传目录名称
+       */
+      //上传目录
+      var upload_dir_name = 'photo';
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form .items .desc {
+                position: static;
+            }
+        } 
+        .edit-wrapper .layui-content .layui-form .layui-upload-lists{
+          min-width: 610px;
+          max-width: 350px;
+          max-height: 226px;
+        } 
+        .edit-wrapper .layui-content .layui-form .items .form-right {
+          min-width: 610px;
+          max-width: 350px;
+        }
+/*        .layui-form-item .form-right input{
+            margin-left: 15px;
+            display: inline-block;
+        }
+        .layui-form-item .form-right label{
+            margin-bottom: -8px;
+            margin-left: 6px;
+        }*/
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container-fluid edit-wrapper">
+      <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+          <span class="title">添加列表</span>
+        </blockquote>
+      </header>
+      <div class="layui-content">
+        <form class="layui-form layui-box" action="__URL__/picinsert" data-auto="false" method="post">
+          <div class="layui-form-item items">
+            <label class="form-text">标题名称：</label>
+            <div class="form-right">
+              <input class="input-inf2" required="" type="text" name="title" lay-verify="title" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
+            </div>
+          </div>
+          <div class="layui-form-item items">
+            <label class="form-text">标题（英文）：</label>
+            <div class="form-right">
+              <input class="input-inf2" required="" type="text" name="title_en" lay-verify="title_en" autocomplete="off" title="请输入名称" placeholder="请输入标题名称">
+            </div>
+          </div>
+
+
+        <div class="layui-form-item  items" style="display: none;">
+          <label class="form-text label-required">分类：</label>
+          <div class="form-right">
+            <div class="layui-input-inline three-select">
+              <select  name="category_id1" id="level_one" lay-verify="required" lay-filter="level_one" autocomplete="off" required="">
+                <option value="a">请选择</option>
+              </select>
+            </div>
+            <div class="layui-input-inline three-select">
+              <select name="category_id2" id="level_two" lay-verify="required" lay-filter="level_two" autocomplete="off">
+                <option value="a">请选择</option>
+              </select>
+            </div>
+          <!-- <span style="color:red">备注：一级分类不能添加摄影封面喔！</span> -->
+          </div>
+        </div>
+        <div class="layui-form-item  items">
+          <label class="form-text">是否开启</label>
+          <div class="form-right">
+                  <input type="radio" name="isopen" value="1" title="开启" checked>
+                  <input type="radio" name="isopen" value="0" title="关闭" >
+          </div>
+        </div>
+          <!--引入图片页面-->
+          <div class="layui-form-item items">
+            <label class="form-text label-required">首页封面图片：</label>
+            <div class="form-right">
+              <script src="__PUBLIC__/Radmin_v3/js/img_upload.js"></script>
+              <include required="" file="Public/image" image_name="image" is_show="0" img_url=""/>
+              <!-- <br/> -->
+              <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
+            </div>
+          </div>
+        <div class="layui-form-item items">
+            <label class="form-text">跳转链接：</label>
+            <div class="form-right">
+              <input class="input-inf2" required="" type="text" name="href" lay-verify="href" autocomplete="off" title="请输入跳转链接" placeholder="请输入跳转链接">
+            </div>
+          </div>
+        <div class="layui-form-item  items">
+            <label class="form-text">优先级</label>
+            <div class="form-right">
+                <input class="input-inf2" style="max-width: 225px;" type="number" name="sequence" lay-verify="sequence" autocomplete="off" placeholder="请输入优先级" class="layui-input" required="" title="请输入优先级" value="">
+                <i class="fa fa-question-circle-o question" data-tips-text="默认为0，数字越大，优先级越高"></i>
+            </div>
+        </div>
+
+          <div class="layui-form-item  items">
+            <label class="form-text"></label>
+            <div class="form-right">
+              <button class="layui-btn" type='submit'>立即提交</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+<script>
+      var get_level = '__GROUP__/photo/templet_category'
+      var get_son = '__GROUP__/photo/get_son_templet_category';
+      $(function() {
+        $.ajax({
+          url: get_level,
+          async: false,
+          type: 'GET',
+          success: function(data) {
+            if(data.code == 1) {
+              $.each(data.info, function(key, value) {
+                var temp = new Array();
+                if(key != 'one'||value==null) {
+                  return
+                }
+                var aim = $('#level_one');
+                $.each(value, function(k, val) {
+                  var html = '';
+                  html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  temp.push(html)
+                });
+                if(aim != '') {
+                  aim.append(temp)
+                }
+                form.render();
+              });
+              }else {
+              layer.msg(data.msg);
+            }
+            form.render('select');
+          }
+        });
+        form.on('select(level_one)', function(data) {
+          var p_id = data.value;
+          if(p_id != 'a') {
+            getTwo(p_id)
+          } else {
+            $('#level_two').empty().append('<option value="a">请选择</option>')
+          }
+        });
+      });
+
+      function getTwo(p_id) {
+        $.ajax({
+          url: get_son,
+          data: {
+            pid: p_id
+          },
+          async: false,
+          success: function(data) {
+            if(data.code == 1) {
+              var aim = $('#level_two')
+              var temp = []
+              aim.empty().append('<option value="a">请选择</option>')
+              $('#level_three').empty().append('<option value="a">请选择</option>')
+              $.each(data.info, function(key, value) {
+                if(key != 'two'||value == null) {
+                  return
+                }
+                $.each(value, function(k, val) {
+                  var html = '';
+                  html = '<option value="' + val.id + '">' + val.name + '</option>';
+                  temp.push(html)
+                });
+                if(aim != '') {
+                  aim.append(temp)
+                }
+              });
+            } else {
+              layer.msg(data.msg)
+            }
+            form.render('select')
+          }
+        });
+      }
+
+
+      layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+        elem: '#publish_time' //指定元素
+        });
+      });
+  </script>
+  </body>
+</html>

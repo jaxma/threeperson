@@ -63,7 +63,7 @@ $(function() {
 if(!!imgList&&img_show==1){
 
       $.each(imgList2,function(key,value){
-        $('.layui-upload-lists').append('<li><img src="' + value + '" class="layui-upload-img"><i class="layui-icon delete">&#xe640;</i><input type="hidden" class="imgUrl" name="'+image_name+'" value="'+imgList[key]+'"></li>')
+        $('.layui-upload-lists').append('<li ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)"><img src="' + value + '" class="layui-upload-img"><i class="layui-icon delete">&#xe640;</i><input type="hidden" class="imgUrl" name="'+image_name+'" value="'+imgList[key]+'"></li>')
     });
 
 }
@@ -73,3 +73,23 @@ $(document).on('click', '.delete', function() {
 });
 
 });
+
+//拖拽代码
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+var srcdiv = null;
+
+function drag(ev, divdom) {
+  srcdiv = divdom;
+  ev.dataTransfer.setData("text/html", divdom.innerHTML);
+}
+
+function drop(ev, divdom) {
+  ev.preventDefault();
+  if (srcdiv != divdom) {
+    srcdiv.innerHTML = divdom.innerHTML;
+    divdom.innerHTML = ev.dataTransfer.getData("text/html");
+  }
+}

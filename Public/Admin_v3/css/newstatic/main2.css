@@ -2486,7 +2486,6 @@ body {
 }
 
 .pager a span {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -2967,7 +2966,6 @@ body {
 }
 
 .stat h4 {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -3273,7 +3271,6 @@ body {
 }
 
 #contact .postings .posting time {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -3794,7 +3791,6 @@ body {
 }
 
 .news-meta {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -4206,7 +4202,6 @@ body {
 }
 
 .person-partial h6 {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -4231,7 +4226,6 @@ body {
 }
 
 .person-text-partial span {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -4344,7 +4338,6 @@ body {
 #person .person-title h1 .postnom {
     display: inline-block;
     margin-left: 10px;
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -4767,7 +4760,6 @@ body {
 }
 
 .lead-in-text {
-    font-family: Chronicle, serif;
     font-size: 24px;
     line-height: 1.7;
     text-rendering: optimizeLegibility;
@@ -4775,7 +4767,6 @@ body {
 }
 
 .body-copy {
-    font-family: Chronicle, serif;
     font-size: 20px;
     color: #637380;
     color: #627482
@@ -4830,7 +4821,6 @@ body {
 }
 
 .more-projects .type span {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -5591,7 +5581,6 @@ body {
 
 .studio-partial .text time {
     display: block;
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -7008,7 +6997,6 @@ div.pnlm-tooltip:hover span:after {
 }
 
 .part_note h4 {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -7640,7 +7628,6 @@ div.pnlm-tooltip:hover span:after {
 }
 
 .part_titleBreak h4 {
-    font-family: Chronicle, serif;
     /* font-size: 22px */
     font-size: 12px;
 }

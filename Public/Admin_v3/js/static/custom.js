@@ -25,6 +25,12 @@ $(document).ready(function(){
 	function setHeader()
 	{
 		var header_ = $("#header");
+		var windowsWidth =  $(window).width();
+		if(windowsWidth < 668){
+			$('#logo_').addClass('logoBlack');
+			header_.addClass('header_container_backgroundnone');
+			return false;
+		}
 		if($(window).scrollTop() > 100)
 		{
 			header.addClass('scrolled');

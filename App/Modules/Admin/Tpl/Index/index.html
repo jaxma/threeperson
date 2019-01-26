@@ -40,7 +40,7 @@
 						<a class="handle-a" href="{:U(__GROUP__.'/Project/detail',array('cat_id'=>$i['cat2'],'id'=>$i['id'],'lang'=>$lang))}">
 							<img class="img" src="__APP__{$i.image}" alt="">
 							<!-- 项目名称和地点 -->
-							<p class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if>/<span style="font-size: 12px;"><if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></span></p>
+							<p class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if> / <span><if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></span></p>
 						</a>
 					</div>
 				</foreach>

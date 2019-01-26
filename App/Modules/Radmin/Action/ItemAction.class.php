@@ -326,7 +326,7 @@ class ItemAction extends CommonAction {
         $image=I('post.image');
         $sequence = I('post.sequence');
         $href = trim(I('post.href',''));
-        if(empty($title)||empty($title_en)||empty($image)){
+        if(empty($image)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
@@ -361,7 +361,7 @@ class ItemAction extends CommonAction {
         $image=I('post.image');
         $sequence = I('post.sequence');
        $href = trim(I('post.href',''));
-        if(empty($title)||empty($title_en)||empty($image)){
+        if(empty($image)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }

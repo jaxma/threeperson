@@ -22,6 +22,8 @@ class IndexAction extends CommonAction {
         	$project[$k]['position_en'] = $detail_en[0];
         }
         $this->project = $project;
+        //封面图
+        $this->list = M('overpicture')->where('isopen = 1')->order('sequence desc')->limit(100)->select();
         $this->display();
     }
 }

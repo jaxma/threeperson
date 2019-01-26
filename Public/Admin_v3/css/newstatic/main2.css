@@ -67,7 +67,6 @@
 }
 
 html {
-    font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
@@ -712,7 +711,8 @@ html {
 
 body,
 html {
-    font-family: 'Poppins', sans-serif,'microsoft yahei' !important;
+    /* font-family: 'Poppins', sans-serif,'microsoft yahei' !important; */
+    font-family: 'microsoft yahei' !important;
     color: #2f4455;
     font-size: 15px;
     font-weight: 300;
@@ -3215,7 +3215,6 @@ body {
 
 #contact .inquiry .person {
     display: block;
-    font-family: Graphik, sans-serif
 }
 
 #contact .inquiry .email {
@@ -3240,7 +3239,6 @@ body {
 #contact .office p {
     color: #a4afc2;
     font-size: 15px;
-    font-family: Graphik, sans-serif
 }
 
 #contact .office p .street-address {
@@ -3955,7 +3953,6 @@ body {
     background: #a4afc2;
     line-height: 20px;
     padding: 10px 20px;
-    font-family: Graphik, sans-serif
 }
 
 .news-body {
@@ -4360,7 +4357,6 @@ body {
 }
 
 #person .stat h4 {
-    font-family: Chronicle, serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -4753,7 +4749,9 @@ body {
     font-size: 34px;
     font-size: 26px
 }
-
+.project-partial-related.large .title{
+    padding-bottom: 15px;
+}
 .project-copy {
     padding-right: 65px;
     margin-bottom: 50px
@@ -6061,7 +6059,6 @@ body.coloredBg #footer .icon-round svg {
     display: flex;
     justify-content: space-between;
     font-weight: 400;
-    font-family: Graphik, sans-serif
 }
 
 .blog-wrap .blog-roll .filter .filter-title {
@@ -6397,7 +6394,6 @@ body.coloredBg #footer .icon-round svg {
     content: "";
     width: 20px;
     height: 20px;
-    font-family: slick;
     font-size: 6px;
     line-height: 20px;
     text-align: center;
@@ -6419,7 +6415,6 @@ body.coloredBg #footer .icon-round svg {
     cursor: default;
     width: 100%;
     height: 100%;
-    font-family: Helvetica, "Nimbus Sans L", "Liberation Sans", Arial, sans-serif;
     background-color: #f4f4f4;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NyIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCA2NyAxMDAiPjxwYXRoIHN0cm9rZT0iI2NjYyIgZmlsbD0ibm9uZSIgZD0iTTMzLjUsNTAsMCw2MywzMy41LDc1LDY3LDYzLDMzLjUsNTBtLTMzLjUtNTAsNjcsMjVtLTAuNSwwLDAsNzVtLTY2LjUtNzUsNjctMjVtLTMzLjUsNzUsMCwyNW0wLTEwMCwwLDUwIi8+PC9zdmc+);
     background-repeat: repeat;

@@ -38,7 +38,8 @@
 				<foreach name = "list" item="i">
 					<div class="swiper-slide">
 						<a class="handle-a" href="{$i.href}?lang={$lang}">
-							<img class="img" src="__APP__{$i.image}" alt="">
+							<img class="img swiper-lazy" data-src="__APP__{$i.image}" alt="">
+							<div class="swiper-lazy-preloader"></div>
 							<!-- 项目名称和地点 -->
 							<p class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></span></p>
 						</a>

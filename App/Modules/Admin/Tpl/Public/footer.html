@@ -43,13 +43,17 @@
 	var mySwiper = new Swiper ('.swiper-container', {
 		pagination: '.swiper-pagination',
 		speed: 500,
-		autoplay : 5000,
+		autoplay : 6000,
 		loop: true,
 		effect: 'fade',
 		paginationClickable: true,
+		keyboardControl : true,
 		height : window.innerHeight,
 		nextButton: '.swiper-button-next',
 		prevButton: '.swiper-button-prev',
+		lazyLoading : true,
+		lazyLoadingInPrevNext : true,
+		lazyLoadingInPrevNextAmount : 3,
 	})
 
 	$(".image-srcset img").lazyload({

@@ -12,6 +12,7 @@ class Admin {
         '4'  => '项目',
         '5'  => '新闻',
         '6'  => '关于TOPOS',
+        '7'  => '公司信息',
     ];
     //权限相关对应的module
     public $admin_auth_module = [
@@ -21,6 +22,7 @@ class Admin {
         '4'  => 'item',
         '5'  => 'news',
         '6'  => 'aboutus',
+        '7'  => 'company',
     ];
     //例外的权限
     //首页、用户手册、发展链接

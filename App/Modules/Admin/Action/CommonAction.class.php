@@ -67,9 +67,83 @@ class CommonAction extends Action {
         $this->en_address =  $this->lang?C('TE_EN_ADDRESS'):C('T_EN_ADDRESS');
         $this->en_tel =  $this->lang?C('TE_EN_TEL'):C('T_EN_TEL');
         $this->en_email =  $this->lang?C('TE_EN_EMAIL'):C('T_EN_EMAIL');
+
+        //脚步icon
+        $footer_icon = M('company')->where('status = 106')->find();
+        $html = '';
+        for ($i=0; $i < 6; $i++) { 
+            switch ($i) {
+                case 0:
+                if($footer_icon['name']){
+                    $html .= '<li>';
+                    $html .= '<a href="'.$footer_icon['name_en'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['name'].'" aria-hidden="true">';
+                    $html .= '</i>';
+                    $html .= '</a>';
+                    $html .= '</li>';
+                    break;
+                }
+                case 1:
+                if($footer_icon['city_cn']){
+                    $html .= '<li>';
+                    $html .= '<a href="'.$footer_icon['city_cn_en'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['city_cn'].'" aria-hidden="true">';
+                    $html .= '</i>';
+                    $html .= '</a>';
+                    $html .= '</li>';
+                    break;
+                }
+                case 2:
+                if($footer_icon['city_usa']){
+                    $html .= '<li>';
+                    $html .= '<a href="'.$footer_icon['city_usa_en'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['city_usa'].'" aria-hidden="true">';
+                    $html .= '</i>';
+                    $html .= '</a>';
+                    $html .= '</li>';
+                    break;
+                }
+                case 3:
+                if($footer_icon['address_cn']){
+                    $html .= '<li>';
+                    $html .= '<a href="'.$footer_icon['address_cn'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['address_cn'].'" aria-hidden="true">';
+                    $html .= '</i>';
+                    $html .= '</a>';
+                    $html .= '</li>';
+                    break;
+                }
+                case 4:
+                if($footer_icon['address_usa']){
+                    $html .= '<li>';
+                    $html .= '<a href="'.$footer_icon['address_usa_en'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['address_usa'].'" aria-hidden="true">';
+                    $html .= '</i>';
+                    $html .= '</a>';
+                    $html .= '</li>';
+                    break;
+                }
+                case 5:
+                if($footer_icon['content']){
+                    $html .= '<li>';
+                    $html .= '<a href="'.$footer_icon['content_en'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['content'].'" aria-hidden="true">';
+                    $html .= '</i>';
+                    $html .= '</a>';
+                    $html .= '</li>';
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+
+       // <li><a href="https://weibo.com/6329623101/manage"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+
         $this->action_name = $action_name;
         $this->module_name = $module_name;
     	$this->domain = C('YM_DOMAIN');
+        $this->html = $html;
     }
     
     public function detail_arr($detail){

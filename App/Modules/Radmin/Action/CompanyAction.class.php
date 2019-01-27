@@ -156,6 +156,63 @@ class CompanyAction extends CommonAction {
         }
     }
 
+    public function icon() {
+        $this->row = M('company')->where('status = 106')->find();
+        $this->display();
+    }
+
+    public function update_icon() {
+
+        $icon1 = I('post.icon1');
+        $url1 = I('post.url1');
+        $icon2 = I('post.icon2');
+        $url2 = I('post.url2');
+        $icon3 = I('post.icon3');
+        $url3 = I('post.url3');
+        $icon4 = I('post.icon4');
+        $url4 = I('post.url4');
+        $icon5 = I('post.icon5');
+        $url5 = I('post.url5');
+        $icon6 = I('post.icon6');
+        $url6 = I('post.url6');
+
+        $content_res=M('company')->where('status=106')->find();
+
+        $data = array(
+            'name' => $icon1,
+            'name_en' => $url1,
+
+            'city_cn' => $icon2,
+            'city_cn_en' => $url2,
+
+            'city_usa' => $icon3,
+            'city_usa_en' => $url3,
+
+            'address_cn' => $icon4,
+            'address_cn_en' => $url4,
+
+            'address_usa' => $icon5,
+            'address_usa_en' => $url5,
+
+            'content' => $icon6,
+            'content_en' => $url6,
+
+            'status' => 106,
+        );
+        if($content_res){
+            $content_res = M('company')->where('status = 106')->save($data);
+        }else{
+            $content_res = M('company')->add($data);
+        }
+
+        if ($content_res === false) {
+            $this->error("操作失败");
+        } else {
+            $this->success("操作成功",__URL__.'/'.'icon');
+        }
+    }
+
+
     public function insert() {
         $model_name = $this->get_model();
         $name = trim(I('post.name',''));

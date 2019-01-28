@@ -94,7 +94,7 @@
 				</div>
 				<ul class="page_menu_nav menu_mm">
 					<li class="page_menu_item menu_mm">
-						<a href="http://www.toposla.com"><if condition="$lang eq 1">HOME<else/>主页</if><i class="fa"></i></a>
+						<a href="{:U(__GROUP__/Index/index,array('lang'=>$lang))}"><if condition="$lang eq 1">HOME<else/>主页</if><i class="fa"></i></a>
 					</li>
 					<li class="page_menu_item menu_mm">
 						<a href="{:U(__GROUP__.'/Project/index',array('lang'=>$lang))}"><if condition="$lang eq 1">PROJECTS<else/>项目</if><i class="fa"></i></a>

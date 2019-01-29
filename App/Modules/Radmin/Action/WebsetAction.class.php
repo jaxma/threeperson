@@ -852,24 +852,24 @@ class WebsetAction extends CommonAction {
         foreach ($res as $key => $value) {
             // '\'' 单引号转义
             if (is_array($value)) {
-                $new_str = '   \'' . $key . '\'' . '=> array(' . "\n";
+                $new_str = '   " ' . $key . ' " ' . '=> array(' . "\n";
 
                 foreach ($value as $k => $v) {
                     if (is_array($v)) {
-                        $new_str2 = '       \'' . $k . '\'' . '=> array(' . "\n";
+                        $new_str2 = '   " ' . $k . ' " ' . '=> array(' . "\n";
                         foreach ($v as $kk => $vv) {
-                            $new_str2 .= '          \'' . $kk . '\'' . '=>' . '\'' . $vv . '\'' . ',' . "\n";
+                            $new_str2 .= '     " ' . $kk . '"' . '=>' . '"' . $vv . '"' . ',' . "\n";
                         }
                         $new_str2 .= '              ),' . "\n";
                         $new_str .= $new_str2;
                     } else {
-                        $new_str .= '           \'' . $k . '\'' . '=>' . '\'' . $v . '\'' . ',' . "\n";
+                        $new_str .= '           "' . $k . '"' . '=>' . '"' . $v . '"' . ',' . "\n";
                     }
                 }
                 $new_str .= '   ),' . "\n";
                 $str .= $new_str;
             } else {
-                $str .= '   \'' . $key . '\'' . '=>' . '\'' . $value . '\'' . ',' . "\n";
+                $str .= '   "' . $key . '"' . '=>' . '"' . $value . '"' . ',' . "\n";
             }
 //            print_r($str);
         };

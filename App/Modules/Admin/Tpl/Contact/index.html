@@ -44,7 +44,7 @@
 							<!-- title 标题-->
 							<a href="#">
 								<font style="vertical-align: inherit;">
-									{$position}
+								<if condition = "$lang eq 1">{$row4.name}<else/>{$row3.name}</if>
 								</font>
 							</a>
 						</h3>
@@ -54,15 +54,13 @@
 							</div>
 						</a>
 						<div class="contact-content">
-							<!-- 描述 des -->
-							<!-- <p>TOPOS位于深圳市中心，离深圳地标平安金融中心步行10分钟</p> -->
-							<p>{$desc}</p>
-							<!-- address 地址 -->
+							<!-- <p>{$desc}</p>
 							<p>{$address}</p>
 							<p>{$tel}</p>
 							<p>{$email}</p>
 							<p><if condition = "$lang eq 1">{$row2.name}<else/>{$row1.name}</if></p>
-							<p><if condition = "$lang eq 1">{$row2.name_en}<else/>{$row1.name_en}</if></p>
+							<p><if condition = "$lang eq 1">{$row2.name_en}<else/>{$row1.name_en}</if></p> -->
+							<if condition = "$lang eq 1">{$contact_en1}<else/>{$contact_cn1}</if>
 						</div>
 					</div>
 
@@ -71,7 +69,7 @@
 							<!-- title 标题-->
 							<a href="#">
 								<font style="vertical-align: inherit;">
-									{$en_position}
+								<if condition = "$lang eq 1">{$row4.name_en}<else/>{$row3.name_en}</if>
 								</font>
 							</a>
 						</h3>
@@ -81,18 +79,13 @@
 							</div>
 						</a>
 						<div class="contact-content">
-							<!-- 描述 des -->
-							<!-- <p>TOPOS位于海滨度假胜地圣迭戈市中心，离圣迭戈地标Horton Plaza步行10分钟</p> -->
-							<p>{$en_desc}</p>
-							<!-- address 地址 -->
-							<!-- <p><if condition = "$lang eq 1" >ADDRESS<else/>地址</if> {$en_address}</p>
-							<p><if condition = "$lang eq 1" >TEL<else/>电话</if> {$en_tel}</p>
-							<p><if condition = "$lang eq 1" >EMAIL<else/>所有事务联系邮箱</if> {$en_email}</p> -->
+							<!-- <p>{$en_desc}</p>
 							<p>{$en_address}</p>
 							<p>{$en_tel}</p>
 							<p>{$en_email}</p>
 							<p><if condition = "$lang eq 1">{$row2.content}<else/>{$row1.content}</if></p>
-							<p><if condition = "$lang eq 1">{$row2.content_en}<else/>{$row1.content_en}</if></p>
+							<p><if condition = "$lang eq 1">{$row2.content_en}<else/>{$row1.content_en}</if></p> -->
+							<if condition = "$lang eq 1">{$contact_en2}<else/>{$contact_cn2}</if>
 						</div>
 					</div>
 

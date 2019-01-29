@@ -37,6 +37,11 @@ class WebsetAction extends CommonAction {
         //二维码
         $this->row_qrcode = M('company')->where('status = 103')->find();
 
+
+        $this->contact_cn = M('company')->where('status = 107')->find();
+
+        $this->contact_en = M('company')->where('status = 108')->find();
+
         $kdn_code = kdn_code();
         $aid = $_SESSION['aid'];
         $this->kdn_code = kdn_code();
@@ -99,27 +104,27 @@ class WebsetAction extends CommonAction {
             'SYSTEM_NAME' => C('SYSTEM_NAME'), //系统名称
             'LOGO_URL' => C('LOGO_URL'), //系统名称
             //公司信息
-            'T_DESC' => C('T_DESC'), 
-            'T_POSITION' => C('T_POSITION'), 
-            'T_ADDRESS' => C('T_ADDRESS'), 
-            'T_TEL' => C('T_TEL'), 
-            'T_EMAIL' => C('T_EMAIL'), 
-            'T_EN_DESC' => C('T_EN_DESC'), 
-            'T_EN_POSITION' => C('T_EN_POSITION'), 
-            'T_EN_ADDRESS' => C('T_EN_ADDRESS'), 
-            'T_EN_TEL' => C('T_EN_TEL'), 
-            'T_EN_EMAIL' => C('T_EN_EMAIL'), 
+            // 'T_DESC' => C('T_DESC'), 
+            // 'T_POSITION' => C('T_POSITION'), 
+            // 'T_ADDRESS' => C('T_ADDRESS'), 
+            // 'T_TEL' => C('T_TEL'), 
+            // 'T_EMAIL' => C('T_EMAIL'), 
+            // 'T_EN_DESC' => C('T_EN_DESC'), 
+            // 'T_EN_POSITION' => C('T_EN_POSITION'), 
+            // 'T_EN_ADDRESS' => C('T_EN_ADDRESS'), 
+            // 'T_EN_TEL' => C('T_EN_TEL'), 
+            // 'T_EN_EMAIL' => C('T_EN_EMAIL'), 
 
-            'TE_DESC' => C('TE_DESC'), 
-            'TE_POSITION' => C('TE_POSITION'), 
-            'TE_ADDRESS' => C('TE_ADDRESS'), 
-            'TE_TEL' => C('TE_TEL'), 
-            'TE_EMAIL' => C('TE_EMAIL'), 
-            'TE_EN_DESC' => C('TE_EN_DESC'), 
-            'TE_EN_POSITION' => C('TE_EN_POSITION'), 
-            'TE_EN_ADDRESS' => C('TE_EN_ADDRESS'), 
-            'TE_EN_TEL' => C('TE_EN_TEL'), 
-            'TE_EN_EMAIL' => C('TE_EN_EMAIL'), 
+            // 'TE_DESC' => C('TE_DESC'), 
+            // 'TE_POSITION' => C('TE_POSITION'), 
+            // 'TE_ADDRESS' => C('TE_ADDRESS'), 
+            // 'TE_TEL' => C('TE_TEL'), 
+            // 'TE_EMAIL' => C('TE_EMAIL'), 
+            // 'TE_EN_DESC' => C('TE_EN_DESC'), 
+            // 'TE_EN_POSITION' => C('TE_EN_POSITION'), 
+            // 'TE_EN_ADDRESS' => C('TE_EN_ADDRESS'), 
+            // 'TE_EN_TEL' => C('TE_EN_TEL'), 
+            // 'TE_EN_EMAIL' => C('TE_EN_EMAIL'), 
 
             //级别配置
             'LEVEL_NUM' => C('LEVEL_NUM'), //经销商级别数
@@ -300,6 +305,14 @@ class WebsetAction extends CommonAction {
         $re_content=I('re_content');
         $re_content_en=I('re_content_en');
         $image_qrcode=I('image_qrcode');
+        $contact_cn1=I('contact_cn1');
+        $contact_cn2=I('contact_cn2');
+        $contact_en1=I('contact_en1');
+        $contact_en2=I('contact_en2');
+        $contact_name1=I('contact_name1');
+        $contact_name2=I('contact_name2');
+        $contact_name_en1=I('contact_name_en1');
+        $contact_name_en2=I('contact_name_en2');
         if($image){
             $contact_img=M('company')->where('status=100')->find();
             $contact_image = $contact_img['content'];
@@ -373,6 +386,36 @@ class WebsetAction extends CommonAction {
                 $contact_img = M('company')->add($data);
             }
         }
+        if($contact_cn1 || $contact_cn2 || $contact_name1  || $contact_name_en1){
+            $content_res=M('company')->where('status=107')->find();
+            $data = array(
+                'content' => $contact_cn1, 
+                'content_en' => $contact_cn2, 
+                'name' => $contact_name1, 
+                'name_en' => $contact_name_en1, 
+                'status' => 107, 
+            );
+            if($content_res){
+                $content_res = M('company')->where('status = 107')->save($data);
+            }else{
+                $content_res = M('company')->add($data);
+            }
+        }
+        if($contact_en1 || $contact_en2 || $contact_name2 || $contact_name_en2){
+            $content_res=M('company')->where('status=108')->find();
+            $data = array(
+                'content' => $contact_en1, 
+                'content_en' => $contact_en2, 
+                'name' => $contact_name2, 
+                'name_en' => $contact_name_en2, 
+                'status' => 108, 
+            );
+            if($content_res){
+                $content_res = M('company')->where('status = 108')->save($data);
+            }else{
+                $content_res = M('company')->add($data);
+            }
+        }
 
         import('Lib.Action.User', 'App');
         $User = new User();
@@ -383,88 +426,88 @@ class WebsetAction extends CommonAction {
         $SYSTEM_NAME = trim(I('SYSTEM_NAME'));
         $LOGO_URL = trim(I('LOGO_URL'));
 
-        //公司信息
-        $T_POSITION = trim(I('T_POSITION'));
-        $T_DESC = trim(I('T_DESC'));
-        $T_ADDRESS = trim(I('T_ADDRESS'));
-        $T_TEL = trim(I('T_TEL'));
-        $T_EMAIL = trim(I('T_EMAIL'));
-        if ($T_DESC != NULL) {
-            $new_config['T_DESC'] = $T_DESC;
-        }
-        if ($T_POSITION != NULL) {
-            $new_config['T_POSITION'] = $T_POSITION;
-        }
-        if ($T_ADDRESS != NULL) {
-            $new_config['T_ADDRESS'] = $T_ADDRESS;
-        }
-        if ($T_TEL != NULL) {
-            $new_config['T_TEL'] = $T_TEL;
-        }
-        if ($T_EMAIL != NULL) {
-            $new_config['T_EMAIL'] = $T_EMAIL;
-        }
-        $T_EN_DESC = trim(I('T_EN_DESC'));
-        $T_EN_POSITION = trim(I('T_EN_POSITION'));
-        $T_EN_ADDRESS = trim(I('T_EN_ADDRESS'));
-        $T_EN_TEL = trim(I('T_EN_TEL'));
-        $T_EN_EMAIL = trim(I('T_EN_EMAIL'));
-        if ($T_EN_DESC != NULL) {
-            $new_config['T_EN_DESC'] = $T_EN_DESC;
-        }
-        if ($T_EN_POSITION != NULL) {
-            $new_config['T_EN_POSITION'] = $T_EN_POSITION;
-        }
-        if ($T_EN_ADDRESS != NULL) {
-            $new_config['T_EN_ADDRESS'] = $T_EN_ADDRESS;
-        }
-        if ($T_EN_TEL != NULL) {
-            $new_config['T_EN_TEL'] = $T_EN_TEL;
-        }
-        if ($T_EN_EMAIL != NULL) {
-            $new_config['T_EN_EMAIL'] = $T_EN_EMAIL;
-        }
+        // //公司信息
+        // $T_POSITION = trim(I('T_POSITION'));
+        // $T_DESC = trim(I('T_DESC'));
+        // $T_ADDRESS = trim(I('T_ADDRESS'));
+        // $T_TEL = trim(I('T_TEL'));
+        // $T_EMAIL = trim(I('T_EMAIL'));
+        // if ($T_DESC != NULL) {
+        //     $new_config['T_DESC'] = $T_DESC;
+        // }
+        // if ($T_POSITION != NULL) {
+        //     $new_config['T_POSITION'] = $T_POSITION;
+        // }
+        // if ($T_ADDRESS != NULL) {
+        //     $new_config['T_ADDRESS'] = $T_ADDRESS;
+        // }
+        // if ($T_TEL != NULL) {
+        //     $new_config['T_TEL'] = $T_TEL;
+        // }
+        // if ($T_EMAIL != NULL) {
+        //     $new_config['T_EMAIL'] = $T_EMAIL;
+        // }
+        // $T_EN_DESC = trim(I('T_EN_DESC'));
+        // $T_EN_POSITION = trim(I('T_EN_POSITION'));
+        // $T_EN_ADDRESS = trim(I('T_EN_ADDRESS'));
+        // $T_EN_TEL = trim(I('T_EN_TEL'));
+        // $T_EN_EMAIL = trim(I('T_EN_EMAIL'));
+        // if ($T_EN_DESC != NULL) {
+        //     $new_config['T_EN_DESC'] = $T_EN_DESC;
+        // }
+        // if ($T_EN_POSITION != NULL) {
+        //     $new_config['T_EN_POSITION'] = $T_EN_POSITION;
+        // }
+        // if ($T_EN_ADDRESS != NULL) {
+        //     $new_config['T_EN_ADDRESS'] = $T_EN_ADDRESS;
+        // }
+        // if ($T_EN_TEL != NULL) {
+        //     $new_config['T_EN_TEL'] = $T_EN_TEL;
+        // }
+        // if ($T_EN_EMAIL != NULL) {
+        //     $new_config['T_EN_EMAIL'] = $T_EN_EMAIL;
+        // }
 
-        $TE_DESC = trim(I('TE_DESC'));
-        $TE_POSITION = trim(I('TE_POSITION'));
-        $TE_ADDRESS = trim(I('TE_ADDRESS'));
-        $TE_TEL = trim(I('TE_TEL'));
-        $TE_EMAIL = trim(I('TE_EMAIL'));
-        if ($TE_DESC != NULL) {
-            $new_config['TE_DESC'] = $TE_DESC;
-        }
-        if ($TE_POSITION != NULL) {
-            $new_config['TE_POSITION'] = $TE_POSITION;
-        }
-        if ($TE_ADDRESS != NULL) {
-            $new_config['TE_ADDRESS'] = $TE_ADDRESS;
-        }
-        if ($TE_TEL != NULL) {
-            $new_config['TE_TEL'] = $TE_TEL;
-        }
-        if ($TE_EMAIL != NULL) {
-            $new_config['TE_EMAIL'] = $TE_EMAIL;
-        }
-        $TE_EN_DESC = trim(I('TE_EN_DESC'));
-        $TE_EN_POSITION = trim(I('TE_EN_POSITION'));
-        $TE_EN_ADDRESS = trim(I('TE_EN_ADDRESS'));
-        $TE_EN_TEL = trim(I('TE_EN_TEL'));
-        $TE_EN_EMAIL = trim(I('TE_EN_EMAIL'));
-        if ($TE_EN_DESC != NULL) {
-            $new_config['TE_EN_DESC'] = $TE_EN_DESC;
-        }
-        if ($TE_EN_POSITION != NULL) {
-            $new_config['TE_EN_POSITION'] = $TE_EN_POSITION;
-        }
-        if ($TE_EN_ADDRESS != NULL) {
-            $new_config['TE_EN_ADDRESS'] = $TE_EN_ADDRESS;
-        }
-        if ($TE_EN_TEL != NULL) {
-            $new_config['TE_EN_TEL'] = $TE_EN_TEL;
-        }
-        if ($TE_EN_EMAIL != NULL) {
-            $new_config['TE_EN_EMAIL'] = $TE_EN_EMAIL;
-        }
+        // $TE_DESC = trim(I('TE_DESC'));
+        // $TE_POSITION = trim(I('TE_POSITION'));
+        // $TE_ADDRESS = trim(I('TE_ADDRESS'));
+        // $TE_TEL = trim(I('TE_TEL'));
+        // $TE_EMAIL = trim(I('TE_EMAIL'));
+        // if ($TE_DESC != NULL) {
+        //     $new_config['TE_DESC'] = $TE_DESC;
+        // }
+        // if ($TE_POSITION != NULL) {
+        //     $new_config['TE_POSITION'] = $TE_POSITION;
+        // }
+        // if ($TE_ADDRESS != NULL) {
+        //     $new_config['TE_ADDRESS'] = $TE_ADDRESS;
+        // }
+        // if ($TE_TEL != NULL) {
+        //     $new_config['TE_TEL'] = $TE_TEL;
+        // }
+        // if ($TE_EMAIL != NULL) {
+        //     $new_config['TE_EMAIL'] = $TE_EMAIL;
+        // }
+        // $TE_EN_DESC = trim(I('TE_EN_DESC'));
+        // $TE_EN_POSITION = trim(I('TE_EN_POSITION'));
+        // $TE_EN_ADDRESS = trim(I('TE_EN_ADDRESS'));
+        // $TE_EN_TEL = trim(I('TE_EN_TEL'));
+        // $TE_EN_EMAIL = trim(I('TE_EN_EMAIL'));
+        // if ($TE_EN_DESC != NULL) {
+        //     $new_config['TE_EN_DESC'] = $TE_EN_DESC;
+        // }
+        // if ($TE_EN_POSITION != NULL) {
+        //     $new_config['TE_EN_POSITION'] = $TE_EN_POSITION;
+        // }
+        // if ($TE_EN_ADDRESS != NULL) {
+        //     $new_config['TE_EN_ADDRESS'] = $TE_EN_ADDRESS;
+        // }
+        // if ($TE_EN_TEL != NULL) {
+        //     $new_config['TE_EN_TEL'] = $TE_EN_TEL;
+        // }
+        // if ($TE_EN_EMAIL != NULL) {
+        //     $new_config['TE_EN_EMAIL'] = $TE_EN_EMAIL;
+        // }
         
         //$LEVEL_NUM = trim(I('LEVEL_NUM'));
         $LEVEL_NAME = I('LEVEL_NAME');

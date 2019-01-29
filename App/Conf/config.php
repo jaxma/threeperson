@@ -18,10 +18,10 @@
    "LOAD_EXT_CONFIG"=>"verify",
    "URL_CASE_INSENSITIVE"=>"1",
    "URL_ROUTER_ON"=>"1",
-   "   URL_ROUTE_RULES   " => array(
+   "               URL_ROUTE_RULES               " => array(
            "/^p_(\d+)_o_(\d+)$/"=>"Admin/Manage/apply?pid==>1&oid=:2",
    ),
-   "   TMPL_PARSE_STRING   " => array(
+   "               TMPL_PARSE_STRING               " => array(
            "__SIGN__"=>"/topos/signatures",
    ),
    "APP_TOKEN"=>"",
@@ -35,20 +35,20 @@
    "TAG_LEN"=>"50",
    "SYSTEM_NAME"=>"topos",
    "LEVEL_NUM"=>"4",
-   "   LEVEL_NAME   " => array(
+   "               LEVEL_NAME               " => array(
            "1"=>"联合创始人",
            "2"=>"董事",
            "3"=>"代理会员",
            "4"=>"消费会员",
    ),
    "GROW_MODEL"=>"2",
-   "   GROW_MODEL_LEVEL   " => array(
+   "               GROW_MODEL_LEVEL               " => array(
            "0"=>"",
            "1"=>"",
            "2"=>"",
            "3"=>"",
    ),
-   "   AUDIT_WAY_LEVEL   " => array(
+   "               AUDIT_WAY_LEVEL               " => array(
            "0"=>"",
            "1"=>"",
            "2"=>"",
@@ -56,19 +56,19 @@
    ),
    "IS_SUBMIT_ID_CARD_IMG"=>"0",
    "AUDIT_WAY"=>"4",
-   "   ACTIVITY   " => array(
+   "               ACTIVITY               " => array(
            "OPEN"=>"1",
            "WAY"=>"1",
            "OPEN_WXPAY"=>"",
    ),
-   "   INTEGRAL   " => array(
+   "               INTEGRAL               " => array(
            "OPEN"=>"1",
            "WAY"=>"1",
            "OPEN_WXPAY"=>"",
    ),
    "IS_TEST"=>"1",
    "SHOW_PAGE_TRACE"=>"1",
-   "   REBATE   " => array(
+   "               REBATE               " => array(
            "OPEN"=>"1",
            "ORDER"=>"1",
            "MONEY"=>"1",
@@ -81,7 +81,7 @@
    ),
    "ORDER_SHIPPING"=>"1",
    "SYSTEM_UPDATE"=>"git pull",
-   "   FUNCTION_MODULE   " => array(
+   "               FUNCTION_MODULE               " => array(
            "MONEY"=>"1",
            "MONEY_APPLY_PAY_TYPE"=>"0",
            "INTEGRAL_SHOP"=>"1",
@@ -97,61 +97,61 @@
            "DEPOT"=>"0",
            "LOAD_EXT_CONFIG"=>"extra",
    ),
-   "   TEAM_REBATE_RATIO   " => array(
-   "   MONEY   " => array(
-     "   0"=>"100000",
-     "   1"=>"200000",
-     "   2"=>"300000",
-     "   3"=>"400000",
-     "   4"=>"500000",
-     "   5"=>"600000",
-     "   6"=>"700000",
-     "   7"=>"800000",
-     "   8"=>"900000",
-     "   9"=>"1000000",
-     "   10"=>"1200000",
-     "   11"=>"1500000",
-     "   12"=>"2000000",
-     "   13"=>"3000000",
-     "   14"=>"5000000",
+   "               TEAM_REBATE_RATIO               " => array(
+   "               MONEY               " => array(
+     "               0"=>"100000",
+     "               1"=>"200000",
+     "               2"=>"300000",
+     "               3"=>"400000",
+     "               4"=>"500000",
+     "               5"=>"600000",
+     "               6"=>"700000",
+     "               7"=>"800000",
+     "               8"=>"900000",
+     "               9"=>"1000000",
+     "               10"=>"1200000",
+     "               11"=>"1500000",
+     "               12"=>"2000000",
+     "               13"=>"3000000",
+     "               14"=>"5000000",
               ),
-   "   RATIO   " => array(
-     "   0"=>"0.01",
-     "   1"=>"0.02",
-     "   2"=>"0.03",
-     "   3"=>"0.04",
-     "   4"=>"0.05",
-     "   5"=>"0.06",
-     "   6"=>"0.07",
-     "   7"=>"0.08",
-     "   8"=>"0.09",
-     "   9"=>"0.1",
-     "   10"=>"0.11",
-     "   11"=>"0.12",
-     "   12"=>"0.13",
-     "   13"=>"0.14",
-     "   14"=>"0.15",
+   "               RATIO               " => array(
+     "               0"=>"0.01",
+     "               1"=>"0.02",
+     "               2"=>"0.03",
+     "               3"=>"0.04",
+     "               4"=>"0.05",
+     "               5"=>"0.06",
+     "               6"=>"0.07",
+     "               7"=>"0.08",
+     "               8"=>"0.09",
+     "               9"=>"0.1",
+     "               10"=>"0.11",
+     "               11"=>"0.12",
+     "               12"=>"0.13",
+     "               13"=>"0.14",
+     "               14"=>"0.15",
               ),
    ),
-   "   MALL_REBATE   " => array(
+   "               MALL_REBATE               " => array(
            "OPEN"=>"1",
            "ORDER"=>"1",
    ),
-   "   MALL_REFUND   " => array(
+   "               MALL_REFUND               " => array(
            "IS_OPEN"=>"1",
            "MALL_REFUND_PAY_TYPE"=>"1",
    ),
-   "   SHOP_REBATE   " => array(
+   "               SHOP_REBATE               " => array(
            "OPEN"=>"1",
            "ORDER"=>"1",
    ),
-   "   SHOP_REFUND   " => array(
+   "               SHOP_REFUND               " => array(
            "IS_OPEN"=>"1",
            "SHOP_REFUND_PAY_TYPE"=>"1",
    ),
    "IS_AUDITED"=>"1",
    "SHIPPING_REDUCE_WAY"=>"1",
-   "   kdnapi   " => array(
+   "               kdnapi               " => array(
            "EBusinessID"=>"",
            "AppKey"=>"",
    ),
@@ -164,7 +164,7 @@
    "SHOP_IN_SHOP_NUM"=>"3",
    "UPGRADE_MB"=>"true",
    "UPGRADE_APPLY"=>"true",
-   "   BOSS   " => array(
+   "               BOSS               " => array(
            "PROVINCE"=>"",
            "CITY"=>"",
            "COUNTY"=>"",
@@ -173,7 +173,7 @@
            "PHONE"=>"",
    ),
    "SHIPPER_PAYTYPE"=>"3",
-   "   SHIPPER_CODE   " => array(
+   "               SHIPPER_CODE               " => array(
            "SF"=>"123",
            "HTKY"=>"213qe421",
            "ZTO"=>"21",
@@ -181,7 +181,7 @@
            "XFEX"=>"wedfsscvawdf",
    ),
    "KDORDER_PRICE"=>"1",
-   "   MESSAGE_MODULE   " => array(
+   "               MESSAGE_MODULE               " => array(
            "OPEN"=>"1",
            "SYSTEM"=>"1",
            "DISTRIBUTOR"=>"",
@@ -189,7 +189,7 @@
    "SMS_SEND"=>"1",
    "CANCEL_ORDER"=>"1",
    "CAN_CHANGE_REBATE"=>"1",
-   "   test   " => array(
+   "               test               " => array(
            "OPEN"=>"1",
            "SYSTEM"=>"1",
            "DISTRIBUTOR"=>"",

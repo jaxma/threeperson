@@ -259,7 +259,7 @@
                                 </if>
                             </div>
                         </div>
-                        <div class="layui-form-item items layui-row">
+                        <!-- <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">标题：</label>
                             <div class="form-right layui-col-xs12">
                                 <div class="layui-input-inline">
@@ -350,6 +350,37 @@
                                         placeholder="请输入邮箱">
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">标题：</label>
+                            <div class="form-right layui-col-xs12">
+                                <div class="layui-input-inline">
+                                    <input class="input-inf2 layui-input" type="text" value="{$contact_cn.name}" autocomplete="off" title="请输入标题" name="contact_name1"
+                                        placeholder="请输入标题">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">标题（国外）：</label>
+                            <div class="form-right layui-col-xs12">
+                                <div class="layui-input-inline">
+                                    <input class="input-inf2 layui-input" type="text" value="{$contact_cn.name_en}" autocomplete="off" title="请输入标题" name="contact_name_en1"
+                                        placeholder="请输入标题">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">联系内容：</label>
+                            <div class="form-right">
+                              <textarea id="editor" class="ueditors" name="contact_cn1">{$contact_cn.content}</textarea>
+                              <include file="Public/ueditor" />
+                            </div>
+                        </div>
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">联系内容（国外）：</label>
+                            <div class="form-right">
+                              <textarea id="editor_en" class="ueditors" name="contact_cn2">{$contact_cn.content_en}</textarea>
+                            </div>
                         </div>
 
 
@@ -383,7 +414,7 @@
                                 </if>
                             </div>
                         </div>
-                        <div class="layui-form-item items layui-row">
+                        <!-- <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">标题：</label>
                             <div class="form-right layui-col-xs12">
                                 <div class="layui-input-inline">
@@ -474,6 +505,36 @@
                                         placeholder="请输入邮箱">
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">标题：</label>
+                            <div class="form-right layui-col-xs12">
+                                <div class="layui-input-inline">
+                                    <input class="input-inf2 layui-input" type="text" value="{$contact_en.name}" autocomplete="off" title="请输入标题" name="contact_name2"
+                                        placeholder="请输入标题">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">标题（国外）：</label>
+                            <div class="form-right layui-col-xs12">
+                                <div class="layui-input-inline">
+                                    <input class="input-inf2 layui-input"  type="text" value="{$contact_en.name_en}" autocomplete="off" title="请输入标题" name="contact_name_en2"
+                                        placeholder="请输入标题">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">联系内容：</label>
+                            <div class="form-right">
+                              <textarea id="editor2" class="ueditors" name="contact_en1">{$contact_en.content}</textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item items layui-row">
+                            <label class="form-text layui-col-xs12">联系内容（国外）：</label>
+                            <div class="form-right">
+                              <textarea id="editor2_en" class="ueditors" name="contact_en2">{$contact_en.content_en}</textarea>
+                            </div>
                         </div>
 
 
@@ -509,14 +570,13 @@
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">招聘内容：</label>
                             <div class="form-right">
-                              <textarea id="editor" class="ueditors" name="re_content">{$re_content.content}</textarea>
-                              <include file="Public/ueditor" />
+                              <textarea id="editor3" class="ueditors" name="re_content">{$re_content.content}</textarea>
                             </div>
                         </div>
                         <div class="layui-form-item items layui-row">
                             <label class="form-text layui-col-xs12">招聘内容（英文）：</label>
                             <div class="form-right">
-                              <textarea id="editor_en" class="ueditors" name="re_content_en">{$re_content.content_en}</textarea>
+                              <textarea id="editor3_en" class="ueditors" name="re_content_en">{$re_content.content_en}</textarea>
                             </div>
                         </div>
                         <div class="layui-form-item items">

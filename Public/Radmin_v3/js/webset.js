@@ -250,27 +250,27 @@ $(document).ready(function() {
                 /************************公司信息**********************/
 
                 //域名
-                $('#t_desc-name').val(data.config.T_DESC);
-                $('#t_position-name').val(data.config.T_POSITION);
-                $('#t_address-name').val(data.config.T_ADDRESS);
-                $('#t_tel-name').val(data.config.T_TEL);
-                $('#t_email-name').val(data.config.T_EMAIL);
-                $('#t_en_desc-name').val(data.config.T_EN_DESC);
-                $('#t_en_position-name').val(data.config.T_EN_POSITION);
-                $('#t_en_address-name').val(data.config.T_EN_ADDRESS);
-                $('#t_en_tel-name').val(data.config.T_EN_TEL);
-                $('#t_en_email-name').val(data.config.T_EN_EMAIL);
+                // $('#t_desc-name').val(data.config.T_DESC);
+                // $('#t_position-name').val(data.config.T_POSITION);
+                // $('#t_address-name').val(data.config.T_ADDRESS);
+                // $('#t_tel-name').val(data.config.T_TEL);
+                // $('#t_email-name').val(data.config.T_EMAIL);
+                // $('#t_en_desc-name').val(data.config.T_EN_DESC);
+                // $('#t_en_position-name').val(data.config.T_EN_POSITION);
+                // $('#t_en_address-name').val(data.config.T_EN_ADDRESS);
+                // $('#t_en_tel-name').val(data.config.T_EN_TEL);
+                // $('#t_en_email-name').val(data.config.T_EN_EMAIL);
 
-                $('#te_desc-name').val(data.config.TE_DESC);
-                $('#te_position-name').val(data.config.TE_POSITION);
-                $('#te_address-name').val(data.config.TE_ADDRESS);
-                $('#te_tel-name').val(data.config.TE_TEL);
-                $('#te_email-name').val(data.config.TE_EMAIL);
-                $('#te_en_desc-name').val(data.config.TE_EN_DESC);
-                $('#te_en_position-name').val(data.config.TE_EN_POSITION);
-                $('#te_en_address-name').val(data.config.TE_EN_ADDRESS);
-                $('#te_en_tel-name').val(data.config.TE_EN_TEL);
-                $('#te_en_email-name').val(data.config.TE_EN_EMAIL);
+                // $('#te_desc-name').val(data.config.TE_DESC);
+                // $('#te_position-name').val(data.config.TE_POSITION);
+                // $('#te_address-name').val(data.config.TE_ADDRESS);
+                // $('#te_tel-name').val(data.config.TE_TEL);
+                // $('#te_email-name').val(data.config.TE_EMAIL);
+                // $('#te_en_desc-name').val(data.config.TE_EN_DESC);
+                // $('#te_en_position-name').val(data.config.TE_EN_POSITION);
+                // $('#te_en_address-name').val(data.config.TE_EN_ADDRESS);
+                // $('#te_en_tel-name').val(data.config.TE_EN_TEL);
+                // $('#te_en_email-name').val(data.config.TE_EN_EMAIL);
                 /************************级别配置**********************/
 
                 //经销商级别数

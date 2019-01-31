@@ -35,7 +35,7 @@
                         <li><a href="javascript:void(0);">别墅及高端居住</a></li> -->
                         <foreach name="cats" item="i">
                             <if condition = "$lang eq 1" >
-                                <li style="margin-left: 25px;"><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a></li>
+                                <li style="margin-right: 25px;"><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a></li>
                             <else/>
                                 <li><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a></li>
                             </if>

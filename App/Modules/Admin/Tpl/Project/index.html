@@ -34,7 +34,12 @@
                         <li><a href="javascript:void(0);">公共空间及园区</a></li>
                         <li><a href="javascript:void(0);">别墅及高端居住</a></li> -->
                         <foreach name="cats" item="i">
-                        	<li style='margin-left: <if condition = "$lang eq 1" >25px<else/>15px<if/>;'><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a></li>
+                            <if condition = "$lang eq 1" >
+                                <li style="margin-left: 25px;"><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a></li>
+                            <else/>
+                                <li><a href="{:U(__GROUP__.'/Project/index',array('cat_id'=>$i['id'],'lang'=>$lang))}"><if condition = "$lang eq 1" >{$i.name_en}<else/>{$i.name}</if></a></li>
+                            </if>
+                        	
                         </foreach>
 					</ul>
 					<!-- 不需要显示经典分类 -->

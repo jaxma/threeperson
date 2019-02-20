@@ -68,16 +68,16 @@
                                 <if condition = "$lang eq 1" >{$project_detail.position_en}<else/>{$project_detail.position}</if>
                                 <!-- 位置信息 -->
                             </div>
-        
+
                             <div class="stat">
-                                <h4><if condition = "$lang eq 1" >AREA<else/>规模</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.size_en}<else/>{$project_detail.size}</if>
+                                <!-- 建成时间 -->
+                                <h4><if condition = "$lang eq 1" >SCOPE<else/>设计内容</if></h4>
+                                <if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if>
                             </div>
         
                             <div class="stat">
-                                <!-- 建成时间 -->
-                                <h4><if condition = "$lang eq 1" >COMPLETED YEAR<else/>建成时间</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if>
+                                <h4><if condition = "$lang eq 1" >SIZE<else/>规模</if></h4>
+                                <if condition = "$lang eq 1" >{$project_detail.size_en}<else/>{$project_detail.size}</if>
                             </div>
         
                             <div class="stat">

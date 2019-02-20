@@ -4984,7 +4984,7 @@ body {
     }
 
     #project .project-sidebar {
-        max-height: 0;
+        /* max-height: 0; */
         overflow: hidden;
         padding: 0;
         margin-bottom: 25px

@@ -120,7 +120,7 @@
                     <!-- 相关项目for star-->
                     <foreach name = "other_project" item="i">
                         <div class="grid-item">
-                            <a href="{:U(__GROUP__.'/Project/detail',array('id'=>$i['id'],'lang'=>$lang))}" class="project-partial-related small">
+                            <a href="{:U(__GROUP__.'/Project/detail',array('id'=>$i['id'],'cat_id'=>$i['cat2'],'lang'=>$lang))}" class="project-partial-related small">
                                 <div class="image">
                                     <div class="image-srcset image-srcset_1 a2x1_1 a1x1"> 
                                         <img src="__APP__{$i.image}" />

@@ -113,8 +113,8 @@
         
             <div class="related-projects">
                 <div class="content-bound">
-                    <div class="border"></div>
-                    <h3><if condition = "$lang eq 1" >Related Projects<else/>相关项目</if></h3>
+                    <div style="border-top: 1px solid #000000;" class="border"></div>
+                    <h3 style="color:#000000;"><if condition = "$lang eq 1" >Related Projects<else/>相关项目</if></h3>
                 </div>
                 <div class="grid-items grid4">
                     <!-- 相关项目for star-->
@@ -126,7 +126,7 @@
                                         <img src="__APP__{$i.image}" />
                                     </div>
                                 </div>
-                                <h5 class="title"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></h5>
+                                <h5 class="title" style="padding-bottom: 8px;"><if condition = "$lang eq 1" >{$i.title_en}<else/>{$i.title}</if></h5>
                                 <h6 class="location"><if condition = "$lang eq 1" >{$i.position_en}<else/>{$i.position}</if></h6>
                             </a>
                         </div>

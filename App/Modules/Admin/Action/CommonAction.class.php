@@ -76,7 +76,7 @@ class CommonAction extends Action {
                 case 0:
                 if($footer_icon['name']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['name_en'].'" >';
+                    $html .= '<a target="_blank" href="'.$footer_icon['name_en'].'" >';
                     $html .= '<i class="fa fa-'.$footer_icon['name'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';
@@ -86,7 +86,7 @@ class CommonAction extends Action {
                 case 1:
                 if($footer_icon['city_cn']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['city_cn_en'].'" >';
+                    $html .= '<a target="_blank" href="'.$footer_icon['city_cn_en'].'" >';
                     $html .= '<i class="fa fa-'.$footer_icon['city_cn'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';
@@ -96,7 +96,7 @@ class CommonAction extends Action {
                 case 2:
                 if($footer_icon['city_usa']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['city_usa_en'].'" >';
+                    $html .= '<a target="_blank" target="_blank" href="'.$footer_icon['city_usa_en'].'" >';
                     $html .= '<i class="fa fa-'.$footer_icon['city_usa'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';
@@ -106,7 +106,7 @@ class CommonAction extends Action {
                 case 3:
                 if($footer_icon['address_cn']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['address_cn_en'].'" >';
+                    $html .= '<a target="_blank" href="'.$footer_icon['address_cn_en'].'" >';
                     $html .= '<i class="fa fa-'.$footer_icon['address_cn'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';
@@ -116,7 +116,7 @@ class CommonAction extends Action {
                 case 4:
                 if($footer_icon['address_usa']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['address_usa_en'].'" >';
+                    $html .= '<a target="_blank" href="'.$footer_icon['address_usa_en'].'" >';
                     $html .= '<i class="fa fa-'.$footer_icon['address_usa'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';
@@ -126,7 +126,7 @@ class CommonAction extends Action {
                 case 5:
                 if($footer_icon['content']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['content_en'].'" >';
+                    $html .= '<a target="_blank" href="'.$footer_icon['content_en'].'" >';
                     $html .= '<i class="fa fa-'.$footer_icon['content'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';

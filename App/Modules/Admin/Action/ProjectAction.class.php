@@ -54,7 +54,9 @@ class ProjectAction extends CommonAction {
         $many_image = $project_detail['many_image'];
         $this->many_image = explode(',', $many_image);
         //其他项目
-        $other_project = $this->project_model->where('isopen = 1 and id != '.$this->id)->order('sequence desc')->limit(4)->select();
+        $where = 'isopen = 1 and id != '.$this->id;
+        if(!empty($this->cat_id)) $where .= " and cat2 = ".$this->cat_id;
+        $other_project = $this->project_model->where($where)->order('sequence desc')->limit(4)->select();
         foreach ($other_project as $k => $v) {
             $detail = $this->detail_arr($v['detail']);
             $detail_en = $this->detail_arr($v['detail_en']);

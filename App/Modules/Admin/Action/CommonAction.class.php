@@ -53,6 +53,7 @@ class CommonAction extends Action {
     			$res['title'] = 'TOPOS'.$title_fix;
     			$res['title_en'] = 'TOPOS'.$title_fix;
     		}
+
     		$this->lang == 1?$this->title = $res['title_en'].$title_fix:$this->title = $res['title'].$title_fix;
     	}
 
@@ -139,13 +140,14 @@ class CommonAction extends Action {
         }
 
        // <li><a href="https://weibo.com/6329623101/manage"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-
+        $loaction_url =  $_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+        $this->loaction_url = $loaction_url;
         $this->action_name = $action_name;
         $this->module_name = $module_name;
     	$this->domain = C('YM_DOMAIN');
         $this->html = $html;
     }
-    
+
     public function detail_arr($detail){
         if(!empty($detail)){
             $detail = str_replace("；",";",$detail);

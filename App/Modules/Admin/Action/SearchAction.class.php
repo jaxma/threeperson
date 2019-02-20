@@ -20,15 +20,23 @@ class SearchAction extends CommonAction {
     	$like_word = "%".$keyword."%";
     	if($this->lang){
     		$where['title'] = array('like',$like_word);
-    		$where['content'] = array('like',$like_word);
+			$where['content'] = array('like',$like_word);
+			$where['detial_title'] = array('like',$like_word);
+			$where['detail'] = array('like',$like_word);
     		$where['title_en'] = array('like',$like_word);
-    		$where['content_en'] = array('like',$like_word);
+			$where['content_en'] = array('like',$like_word);
+			$where['detial_title_en'] = array('like',$like_word);
+			$where['detail_en'] = array('like',$like_word);
     		$type = array('project'=>"Project",'news'=>'News');
     	}else{
     		$where['title'] = array('like',$like_word);
-    		$where['content'] = array('like',$like_word);
+			$where['content'] = array('like',$like_word);
+			$where['detial_title'] = array('like',$like_word);
+			$where['detail'] = array('like',$like_word);
     		$where['title_en'] = array('like',$like_word);
-    		$where['content_en'] = array('like',$like_word);
+			$where['content_en'] = array('like',$like_word);
+			$where['detial_title_en'] = array('like',$like_word);
+			$where['detail_en'] = array('like',$like_word);
     		$type = array('project'=>"项目",'news'=>'新闻');
     	}
     	$where['_logic'] = 'or';

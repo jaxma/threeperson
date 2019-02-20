@@ -16,6 +16,16 @@
         .search_ff svg{
             fill: #a4afc2;
         }
+        .stat h4{
+            font-size: 14px;
+            color: #a4afc2;
+        }
+        .stat span{
+            color: #000;
+        }
+        .lead-in-text{
+            color: #a4afc2;
+        }
     </style>
 </head>
 
@@ -65,25 +75,25 @@
                             <div class="stat">
                                 <!-- 位置信息 -->
                                 <h4><if condition = "$lang eq 1" >LOCATION<else/>位置</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.position_en}<else/>{$project_detail.position}</if>
+                                <span><if condition = "$lang eq 1" >{$project_detail.position_en}<else/>{$project_detail.position}</if></span>
                                 <!-- 位置信息 -->
                             </div>
 
                             <div class="stat">
                                 <!-- 建成时间 -->
                                 <h4><if condition = "$lang eq 1" >SCOPE<else/>设计内容</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.title_news_en}<else/>{$project_detail.title_news}</if>
+                                <span><if condition = "$lang eq 1" >{$project_detail.title_news_en}<else/>{$project_detail.title_news}</if></span>
                             </div>
         
                             <div class="stat">
-                                <h4><if condition = "$lang eq 1" >SIZE<else/>规模</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.size_en}<else/>{$project_detail.size}</if>
+                                <h4><if condition = "$lang eq 1" >SIZE<else/>用地面积</if></h4>
+                                <span><if condition = "$lang eq 1" >{$project_detail.size_en}<else/>{$project_detail.size}</if></span>
                             </div>
         
                             <div class="stat">
                                 <!-- 所属分类 -->
                                 <h4><if condition = "$lang eq 1" >TYPE<else/>类型</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if>
+                                <span><if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if></span>
                             </div>
         
                             <!-- <div class="stat">

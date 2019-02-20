@@ -72,7 +72,7 @@
                             <div class="stat">
                                 <!-- 建成时间 -->
                                 <h4><if condition = "$lang eq 1" >SCOPE<else/>设计内容</if></h4>
-                                <if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>{$project_detail.completedyear}</if>
+                                <if condition = "$lang eq 1" >{$project_detail.title_news_en}<else/>{$project_detail.title_news}</if>
                             </div>
         
                             <div class="stat">
@@ -113,7 +113,7 @@
         
             <div class="related-projects">
                 <div class="content-bound">
-                    <div style="border-top: 1px solid #000000;"></div>
+                    <div style="border-top: 1px solid #000000 !important;" class="border"></div>
                     <h3 style="color:#000000;"><if condition = "$lang eq 1" >Related Projects<else/>相关项目</if></h3>
                 </div>
                 <div class="grid-items grid4">

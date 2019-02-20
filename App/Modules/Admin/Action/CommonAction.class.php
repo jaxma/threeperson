@@ -106,8 +106,8 @@ class CommonAction extends Action {
                 case 3:
                 if($footer_icon['address_cn']){
                     $html .= '<li>';
-                    $html .= '<a href="'.$footer_icon['address_cn'].'" >';
-                    $html .= '<i class="fa fa-'.$footer_icon['address_cn_en'].'" aria-hidden="true">';
+                    $html .= '<a href="'.$footer_icon['address_cn_en'].'" >';
+                    $html .= '<i class="fa fa-'.$footer_icon['address_cn'].'" aria-hidden="true">';
                     $html .= '</i>';
                     $html .= '</a>';
                     $html .= '</li>';

@@ -30,7 +30,9 @@
 .icon-round i {
     color: #fff;
 }
-
+.footer_social ul li a.icon-round i {
+    color: #fff;
+}
 .icon-round svg {
     position: absolute;
     left: 0;

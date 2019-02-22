@@ -83,6 +83,13 @@ class CompanyAction extends CommonAction {
         }
     }
 
+    //权限分配
+    public function foot_icon(){
+        $list = M('icon')->select();
+        $this->list = $list;
+        $this->display();
+    }
+    
 
 
     //摄影图片

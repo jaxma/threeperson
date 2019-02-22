@@ -16,7 +16,7 @@
                 <thead>
                 <tr>
                     <th>序号<button value='123' onclick="sc('me','index')"></button></th>
-                    <th>图标class</th>
+                    <th>图标</th>
                     <!-- <th>封面图片</th> -->
                     <th>是否开启</th>
                     <!-- <th>优先级</th> -->
@@ -34,7 +34,7 @@
                     <volist name="list" id="m">
                         <tr>
                             <td>{$m.id}</td>
-                            <td><i class="fa {$m.title}" aria-hidden="true"></i></td>
+                            <td><i class="fa {$m.title}" style="font-size:18px;" aria-hidden="true"></i></td>
                             <!-- <td>
                                 <if condition="$m.image neq ''">
                                     <img src="__ROOT__{$m.image}" alt="" style="width:80px;">

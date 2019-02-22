@@ -7,7 +7,7 @@
 <section class="layui-container">
     <div class="content">
         <header class="header">
-            <h3>封面图列表</h3>
+            <h3>图标列表</h3>
             <input type="button"    class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/icon_add" value="添加"/>
         </header>
            
@@ -16,7 +16,7 @@
                 <thead>
                 <tr>
                     <th>序号<button value='123' onclick="sc('me','index')"></button></th>
-                    <th>标题</th>
+                    <th>图标class</th>
                     <!-- <th>封面图片</th> -->
                     <th>是否开启</th>
                     <!-- <th>优先级</th> -->
@@ -34,7 +34,7 @@
                     <volist name="list" id="m">
                         <tr>
                             <td>{$m.id}</td>
-                            <td>{$m.title}</td>
+                            <td><i class="fa {$m.title}" aria-hidden="true"></i></td>
                             <!-- <td>
                                 <if condition="$m.image neq ''">
                                     <img src="__ROOT__{$m.image}" alt="" style="width:80px;">

@@ -162,6 +162,75 @@ class CompanyAction extends CommonAction {
         $this->display();
     }
 
+    public function icon_edit() {
+        $id = $_GET['id'];
+        $row = M('icon')->find($id);
+        $this->row = $row;
+        $this->arr = $row_arr;
+        $this->id = $id;
+        $this->display();
+
+    }
+    public function icon_update() {
+        $id = I('post.id');
+        $id_info=M('icon')->where(array('id' => $id))->find();
+        $title = trim(I('post.title',''));
+        $isopen=I('post.isopen');
+       $href = trim(I('post.href',''));
+        if(empty($title) || empty($href)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $data = array(
+            'title' => $title,
+            'href' => $href,
+            'isopen' => $isopen,
+        );
+
+        $res = M('icon')->where(array('id' => $id))->save($data);
+        if ($res === false) {
+            $this->error("操作失败");
+        } else {
+            $name = "icon";
+            $this->add_active_log('编辑'.$name.'信息');
+            $this->success("操作成功",__URL__.'/'.'icon');
+        }
+    }
+    public function icon_insert() {
+        $title = trim(I('post.title',''));
+        $isopen=I('post.isopen');
+        $href = trim(I('post.href',''));
+        if(empty($title) || empty($href)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $data = array(
+            'title' => $title,
+            'href' => $href,
+            'isopen' => $isopen,
+            'time' => time()
+        );
+        $res = M('icon')->add($data);
+        if ($res) {
+            $name = "icon";
+            $this->add_active_log('添加'.$name.'信息');
+            $this->success('添加成功',__URL__.'/'.'icon');
+        } else {
+            $this->error('添加失败');
+        }
+    }
+    public function icon_delete() {
+        $id = I('id');
+        $res = M('icon')->where(array('id' => $id))->delete();
+        if ($res) {
+            $name = 'icon';
+            $this->add_active_log('删除'.$id.$name.'信息');
+            $this->success('删除成功');
+        } else {
+            $this->error('删除失败');
+        }
+    }
+
     public function update_icon() {
 
         $icon1 = I('post.icon1');

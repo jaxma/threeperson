@@ -8,7 +8,7 @@
     <div class="content">
         <header class="header">
             <h3>封面图列表</h3>
-            <input type="button"    class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/picadd" value="添加"/>
+            <input type="button"    class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/icon_add" value="添加"/>
         </header>
            
         <div class="table-wrapper">
@@ -46,8 +46,8 @@
                             <td>{$m.href}</td>
                             <td>{$m.sequence}</td>
                             <td>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/picedit?id={$m.id}"/>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/picdelete?id={$m.id}' data-confirm="您确定要删除'{$m.name}'吗？"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/icon_edit?id={$m.id}"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/icon_delete?id={$m.id}' data-confirm="您确定要删除'{$m.name}'吗？"/>
                             </td>
                         </tr>
                     </volist>

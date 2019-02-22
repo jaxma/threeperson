@@ -5,9 +5,6 @@ header("Content-type:text/html;charset=utf-8");
 class CommonAction extends Action {
 
     public function _initialize() {
-
-        echo 123456;
-        
 		$this->cat_id = I('cat_id');
 		$this->id = I('id');
 		$this->lang = I('lang')==1?1:0;

@@ -34,7 +34,7 @@
                     <volist name="list" id="m">
                         <tr>
                             <td>{$m.id}</td>
-                            <td>{$m.title}<br>{$m.title_en}</td>
+                            <td>{$m.title}</td>
                             <!-- <td>
                                 <if condition="$m.image neq ''">
                                     <img src="__ROOT__{$m.image}" alt="" style="width:80px;">
@@ -44,7 +44,6 @@
                             <if condition="$m.isopen eq 1">开启<else/>关闭</if>
                             </td>
                             <td>{$m.href}</td>
-                            <td>{$m.sequence}</td>
                             <td>
                                 <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/icon_edit?id={$m.id}"/>
                                 <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/icon_delete?id={$m.id}' data-confirm="您确定要删除'{$m.name}'吗？"/>

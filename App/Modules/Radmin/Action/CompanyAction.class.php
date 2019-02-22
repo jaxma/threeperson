@@ -157,7 +157,8 @@ class CompanyAction extends CommonAction {
     }
 
     public function icon() {
-        $this->row = M('company')->where('status = 106')->find();
+        // $this->row = M('company')->where('status = 106')->find();
+        $this->list = M('icon')->select();
         $this->display();
     }
 

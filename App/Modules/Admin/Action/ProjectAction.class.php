@@ -67,7 +67,7 @@ class ProjectAction extends CommonAction {
         $this_url =  $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         foreach ($icons as $k => $v) {
             $url = M('item_icon')->where('type = 1 and iconid = '.$v['id'].' and itemid = '.$this->id)->getField('url');
-            $icons[$k]['loaction_url'] = $v['href'].'?url='.$this_url.$url;
+            $icons[$k]['loaction_url'] = $v['href'].$this_url.$url;
         }
         $this->other_project  = $other_project;
         $this->project_detail = $project_detail;

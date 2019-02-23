@@ -105,12 +105,12 @@
 
       <!--引入图片页面-->
       <div class="layui-form-item items">
-        <label class="form-text label-required">分享图片：</label>
+        <label class="form-text">分享图片：</label>
         <div class="form-right">
           <if condition="$row.image_icon neq ''">
-            <include file="Public/image_icon" image_name="image_icon" is_show="1" img_url="{$row.image_icon}"/>
+            <include file="Public/image_icon" image_name="image_icon" is_show="1" img_url="{$row.image_icon}" ym="{$ym_domain}"/>
             <else/>
-            <include file="Public/image_icon" image_name="image_icon" is_show="0" img_url="{$row.image_icon}"/>
+            <include file="Public/image_icon" image_name="image_icon" is_show="0" img_url="{$row.image_icon}" ym="{$ym_domain}"/>
           </if>
           <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
         </div>
@@ -129,7 +129,7 @@
      -->
                   <div class="form-right">
                     <label class="form-text">{$i.title_en}&nbsp;&nbsp;</label>
-                    <textarea  name="item_icon[]"  required="" placeholder="平台链接">{$i.url}</textarea>
+                    <textarea  name="item_icon[]" placeholder="平台链接">{$i.url}</textarea>
                     <input type="hidden" class="layui-input input-inf2"  name="item_icon_id[]" lay-verify="" autocomplete="off" placeholder="平台链接" value="{$i.id}">
                     <div class="layui-form-item  items">
                       <div class="form-right">

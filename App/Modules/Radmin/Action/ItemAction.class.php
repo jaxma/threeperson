@@ -11,6 +11,7 @@ class ItemAction extends CommonAction {
     {
         parent::_initialize();
         $this->cat_model = M('cat');
+        $this->ym_domain = C('YM_DOMAIN');
     }
     
     //获取表名
@@ -100,7 +101,7 @@ class ItemAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($image_icon)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
@@ -132,12 +133,12 @@ class ItemAction extends CommonAction {
 
             $item_icon_arr = I('post.item_icon');
             $item_icon_id_arr = I('post.item_icon_id');
-            foreach ($item_icon_arr as $k => $v) {
-                if(empty($v)){
-                    $this->error('红色带星项目必须填写，请检查后重新提交');
-                    exit();
-                }
-            }
+            // foreach ($item_icon_arr as $k => $v) {
+            //     if(empty($v)){
+            //         $this->error('红色带星项目必须填写，请检查后重新提交');
+            //         exit();
+            //     }
+            // }
             foreach ($item_icon_id_arr as $k => $v) {
                 $icon_data = array(
                     'type' => 1,
@@ -218,12 +219,12 @@ class ItemAction extends CommonAction {
 
         $item_icon_arr = I('post.item_icon');
         $item_icon_id_arr = I('post.item_icon_id');
-        foreach ($item_icon_arr as $k => $v) {
-            if(empty($v)){
-                $this->error('红色带星项目必须填写，请检查后重新提交');
-                exit();
-            }
-        }
+        // foreach ($item_icon_arr as $k => $v) {
+        //     if(empty($v)){
+        //         $this->error('红色带星项目必须填写，请检查后重新提交');
+        //         exit();
+        //     }
+        // }
         foreach ($item_icon_id_arr as $k => $v) {
             $icon_data = array(
                 'type' => 1,
@@ -261,7 +262,7 @@ class ItemAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($image_icon)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }

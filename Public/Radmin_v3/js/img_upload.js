@@ -73,11 +73,13 @@ layui.use(['upload'], function () {
             layer.msg(res.msg);
             var item = this.item;
             $(item).siblings('.layui-upload').find('.image-name').val(res.src)
+            $(item).siblings('.layui-upload').find('.image-name2').html(res.src)
             //网站配置的额外配置方法
             try{
             	if(upload_done&&typeof(upload_done)=="function"){
             	  console.log(res.src)
-            	  $(item).siblings('.layui-upload').find('.image-name').val(res.src)
+                  $(item).siblings('.layui-upload').find('.image-name').val(res.src)
+            	  $(item).siblings('.layui-upload').find('.image-name2').html(res.src)
             	  upload_done(res.src);
             	}else{
             	  console.log(1)

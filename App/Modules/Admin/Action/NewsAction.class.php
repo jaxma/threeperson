@@ -58,6 +58,12 @@ class NewsAction extends CommonAction {
         $lang_change = $this->lang==1?0:1;
         $this->lang_url = U('News/detail',array('id'=>$list['id'],'lang'=>$lang_change));
         $this->list = $list;
+        $icons = M('icon')->where('isopen=1')->order('sequence desc')->select();
+        foreach ($icons as $k => $v) {
+            $url = M('item_icon')->where('type = 2 and iconid = '.$v['id'].' and itemid = '.$news_id)->getField('url');
+            $icons[$k]['loaction_url'] = $v['href'].$url.$tmp_list['image_icon'];
+        }
+        $this->icons = $icons;
         $this->display('newsdetail');
     }
 }

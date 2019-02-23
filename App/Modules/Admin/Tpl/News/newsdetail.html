@@ -105,30 +105,30 @@
                                     <font style="vertical-align: inherit;">分享/share</font>
                                 </font>
                             </h4>
-                            <!-- 邮箱 -->
-                            <a href="mailto:?http{$loaction_url}" class="icon-round" target="_blank">
+                            <!-- <a href="mailto:?http{$loaction_url}" class="icon-round" target="_blank">
                                 <i class="fa fa-envelope"></i>
                             </a>
-                             <!-- 微博 新浪 -->
                             <a href="http://service.weibo.com/share/share.php?url=http{$loaction_url}" class="icon-round" target="_blank">
                                 <i class="fa fa-weibo"></i>
                             </a>
-                            <!-- facebook -->
                             <a href="https://www.facebook.com/sharer.php?u=http{$loaction_url}" class="icon-round" target="_blank">
                                 <i class="fa fa-facebook"></i>
                             </a>
-                            <!-- twitter -->
                             <a href="https://twitter.com/intent/tweet?text=&url=http{$loaction_url}" class="icon-round" target="_blank">
                                 <i class="fa fa-twitter"></i>
                             </a>
-                            <!-- pinterest -->
                             <a href="http://pinterest.com/pin/create/button/?url=http{$loaction_url}" class="icon-round" target="_blank">
                                 <i class="fa fa-pinterest"></i>
                             </a>
-                            <!-- tumblr -->
                             <a href="https://www.tumblr.com/share/link?url=http{$loaction_url}" class="icon-round" target="_blank">
                                 <i class="fa fa-tumblr-square"></i>
-                            </a>
+                            </a> -->
+                            
+                                <foreach name="icons" item="i">
+                                    <a href="{$i.loaction_url}" class="icon-round" target="_blank">
+                                        <i class="fa {$i.title}"></i>
+                                    </a>
+                                </foreach>
                         </div>
                     </div>
                 </div>

@@ -62,7 +62,7 @@ class NewsAction extends CommonAction {
         $this_url =  $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         foreach ($icons as $k => $v) {
             $url = M('item_icon')->where('type = 2 and iconid = '.$v['id'].' and itemid = '.$news_id)->getField('url');
-            $icons[$k]['loaction_url'] = $v['href'].$this_url.$url;
+            $icons[$k]['loaction_url'] = $v['href'].'http://'.$this_url.$url;
         }
         $this->icons = $icons;
         $this->display('newsdetail');

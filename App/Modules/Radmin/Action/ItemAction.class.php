@@ -69,8 +69,11 @@ class ItemAction extends CommonAction {
     public function add() {
         $c_id = 1;
         $p_id = 4;
+        //共享
+        $icons = M('icon')->where('isopen=1')->order('sequence desc')->select();
         $this->assign('c_id',$c_id);
         $this->assign('p_id',$p_id);
+        $this->icons = $icons;
         $this->display();
     }
 
@@ -82,6 +85,7 @@ class ItemAction extends CommonAction {
         $category_id2 = I('post.category_id2',0);
         $isopen=I('post.isopen');
         $image=I('post.image');
+        $image_icon=I('post.image_icon');
         $publish_time = I('post.publish_time',date('Y-m-d',time()));
         $sequence = I('post.sequence');
         $detial_title = trim(I('post.detial_title',''));
@@ -96,7 +100,7 @@ class ItemAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($image_icon)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
@@ -106,6 +110,7 @@ class ItemAction extends CommonAction {
             'title_news' => $detial_title,
             'title_news_en' => $detial_title_en,
             'image' => $image,
+            'image_icon' => $image_icon,
             'image2' => $image2,
             'content' => $content,
             'content_en' => $content_en,
@@ -122,7 +127,28 @@ class ItemAction extends CommonAction {
         );
 
         $res = D($model_name)->add($data);
+
         if ($res) {
+
+            $item_icon_arr = I('post.item_icon');
+            $item_icon_id_arr = I('post.item_icon_id');
+            foreach ($item_icon_arr as $k => $v) {
+                if(empty($v)){
+                    $this->error('红色带星项目必须填写，请检查后重新提交');
+                    exit();
+                }
+            }
+            foreach ($item_icon_id_arr as $k => $v) {
+                $icon_data = array(
+                    'type' => 1,
+                    'iconid' => $v,
+                    'itemid' => $res,
+                    'url' => $item_icon_arr[$k],
+                    'time' => time(),
+                );
+                M('item_icon')->add($icon_data);
+            }
+
             $name = $this->get_name();
             $this->add_active_log('添加'.$name.'信息');
             $this->success('添加成功',__URL__.'/'.'index');
@@ -149,9 +175,16 @@ class ItemAction extends CommonAction {
         $row_arr=implode(',',$arr);
         $cat1 = $this->cat_model->where('id='.$row['cat1'])->find();
         $cat2 = $this->cat_model->where('id='.$row['cat2'])->find();
+        //共享
+        $icons = M('icon')->where('isopen=1')->order('sequence desc')->select();
+        foreach ($icons as $k => $v) {
+            $icons[$k]['url'] = M('item_icon')->where('type=1 and itemid = '.$id.' and iconid = '.$v['id'])->getField('url');
+        }
+
         $this->row = $row;
         $this->arr = $row_arr;
         $this->id = $id;
+        $this->icons = $icons;
         $this->display();
     }
 
@@ -171,12 +204,49 @@ class ItemAction extends CommonAction {
             $image = $image;
         }
 
+        //分享图片
+        $old_image_icon=$id_info['image_icon'];
+        $image_icon=I('image_icon');
+        if(strcmp($old_image_icon,$image_icon)==0){
+            $image_icon=$image_icon;
+
+        }else{
+            $url = $_SERVER['DOCUMENT_ROOT'].__ROOT__ . $id_info['image_icon'];
+            @unlink($url);
+            $image_icon = $image_icon;
+        }
+
+        $item_icon_arr = I('post.item_icon');
+        $item_icon_id_arr = I('post.item_icon_id');
+        foreach ($item_icon_arr as $k => $v) {
+            if(empty($v)){
+                $this->error('红色带星项目必须填写，请检查后重新提交');
+                exit();
+            }
+        }
+        foreach ($item_icon_id_arr as $k => $v) {
+            $icon_data = array(
+                'type' => 1,
+                'iconid' => $v,
+                'itemid' => $id,
+                'url' => $item_icon_arr[$k],
+                'time' => time(),
+            );
+            $icon_res = M('item_icon')->where(array('type' => 1,'iconid' => $v,'itemid' => $id))->find();
+            if($icon_res){
+                $res = M('item_icon')->where(array('type' => 1,'iconid' => $v,'itemid' => $id))->save($icon_data);
+            }else{
+                $res = M('item_icon')->add($icon_data);
+            }
+        }
+
         $title = trim(I('post.title',''));
         $title_en = trim(I('post.title_en',''));
         $category_id1 = I('post.category_id1',0);
         $category_id2 = I('post.category_id2',0);
         $isopen=I('post.isopen');
         $image=I('post.image');
+        $image_icon=I('post.image_icon');
         $publish_time = I('post.publish_time',date('Y-m-d',time()));
         $sequence = I('post.sequence');
         $detial_title = trim(I('post.detial_title',''));
@@ -191,7 +261,7 @@ class ItemAction extends CommonAction {
         $content = $this->formateStr($content);
         $content_en = trim(I('post.content_en',''));
         $content_en = $this->formateStr($content_en);
-        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
+        if(empty($title)||empty($title_en)||empty($category_id1)||empty($category_id2)||empty($image)||empty($image_icon)||empty($detial_title)||empty($detial_title_en)||empty($image2)||$category_id1=='a'||$category_id2=='a'){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
@@ -201,6 +271,7 @@ class ItemAction extends CommonAction {
             'title_news' => $detial_title,
             'title_news_en' => $detial_title_en,
             'image' => $image,
+            'image_icon' => $image_icon,
             'image2' => $image2,
             'content' => $content,
             'content_en' => $content_en,
@@ -383,6 +454,11 @@ class ItemAction extends CommonAction {
             $this->add_active_log('编辑'.$name.'信息');
             $this->success("操作成功",__URL__.'/'.'picindex');
         }
+    }
+
+    public function edit_icon(){
+        $this->list = M('icon')->order('sequence desc')->select();
+        $this->display();
     }
 
 }

@@ -1,0 +1,128 @@
+<style type="text/css">
+    .layui-layer-content {
+        overflow: visible!important;
+    }
+    .layui-form-checkbox[lay-skin=primary] i {
+        margin-top: 10px;
+    }
+    /*小屏幕样式*/
+    .tarea{
+        width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+        .modal-body .reset {
+            margin-left: 0 !important;
+        }
+        .modal-body .reset .layui-btn-small {
+            margin: 5px 0 0 15px;
+        }
+        .modal-body .layui-form .layui-form-label {
+            width: 50px;
+        }
+        .modal-body .layui-form .layui-input-block {
+            float: left;
+            margin-left: 15px;
+        }
+        .special-item {
+            padding: 15px;
+        }
+        .special-item .layui-input-block {
+            margin-left: 15px;
+        }
+        .special-item .special-flex {
+            margin-left: 15px;
+        }
+    }
+</style>
+<div class="modal-body">
+    <form class="layui-form layui-box" action="__GROUP__/admin/auth_update" data-auto="false" method="post">
+        
+        <div class="layui-form-item">
+            <input type="checkbox" lay-skin="primary"  id="c_all" lay-filter="c_all" title="全部">
+            <input type="checkbox" lay-skin="primary"  id="f_all" lay-filter="f_all" title="反选">
+             <br/>
+            <?php 
+                foreach( $list as $k => $v ):
+                    if( in_array($k,$list['auth_mat']) ):
+            ?>
+                <input type="checkbox" value="{$v.title_en}" name="item_icon[]" class="item_icon" title="{$v.title_en}" lay-skin="primary" checked >
+                <br/>
+                <textarea class="tarea"></textarea>
+                <br/>
+            <?php else:?>
+                <input type="checkbox" value="{$v.title_en}" name="item_icon[]" class="item_icon" title="{$v.title_en}" lay-skin="primary" >
+                <br/>
+                <textarea class="tarea"></textarea>
+                <br/>
+            <?php 
+                endif;
+                endforeach;
+            ?>
+        </div>
+        
+        <div class="layui-form-item special-item">
+            
+
+            <div class="layui-form-item text-center">
+                <input type="hidden" name="id" value="{$id}" />
+                <button class="layui-btn" type='submit'>确认修改</button>
+                <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+            </div>
+        </div>
+    </form></div>
+
+<script type="text/javascript">
+  layui.use('form', function () {
+        var form = layui.form;
+        //全选
+        form.on('checkbox(c_all)', function (data) {
+            var a = data.elem.checked;
+            if (a == true) {
+                $(".item_icon").prop("checked", true);
+                form.render('checkbox');
+            } else {
+                $(".item_icon").prop("checked", false);
+                form.render('checkbox');
+            }
+ 
+        });
+        //反选
+        form.on('checkbox(f_all)', function (data) {
+            var item = $(".item_icon");
+            item.each(function () {
+                if ($(this).prop("checked")) {
+                    $(this).prop("checked", false);
+                } else {
+                    $(this).prop("checked", true);
+                }
+            })
+            form.render('checkbox');
+ 
+ 
+        });
+        //有一个未选中全选取消选中
+        form.on('checkbox(c_one)', function (data) {
+            var item = $(".item_icon");
+            for (var i = 0; i < item.length; i++) {
+                if (item[i].checked == false) {
+                    $("#c_all").prop("checked", false);
+                    form.render('checkbox');
+                    break;
+                }
+            }
+            //如果都勾选了  勾上全选
+            var  all=item.length;
+            for (var i = 0; i < item.length; i++) {
+                if (item[i].checked == true) {
+                    all--;
+                }
+            }
+            if(all==0){
+            $("#c_all").prop("checked", true);
+            form.render('checkbox');}
+        });
+ 
+ 
+    });
+    form.render();
+</script>

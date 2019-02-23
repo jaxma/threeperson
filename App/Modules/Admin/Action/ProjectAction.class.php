@@ -63,8 +63,14 @@ class ProjectAction extends CommonAction {
             $other_project[$k]['position'] = $detail[0];
             $other_project[$k]['position_en'] = $detail_en[0];
         }
+        $icons = M('icon')->where('isopen=1')->order('sequence desc')->select();
+        foreach ($icons as $k => $v) {
+            $url = M('item_icon')->where('type = 1 and iconid = '.$v['id'].' and itemid = '.$this->id)->getField('url');
+            $icons[$k]['loaction_url'] = $v['href'].$url.$project_detail['image_icon'];
+        }
         $this->other_project  = $other_project;
         $this->project_detail = $project_detail;
+        $this->icons = $icons;
         $this->display('projectdetail');
     }
 }

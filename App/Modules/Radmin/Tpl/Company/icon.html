@@ -7,7 +7,7 @@
 <section class="layui-container">
     <div class="content">
         <header class="header">
-            <h3>图标列表</h3>
+            <h3>分享管理</h3>
             <input type="button"    class="layui-btn layui-btn-radius layui-btn-normal" data-open="__URL__/icon_add" value="添加"/>
         </header>
            
@@ -16,10 +16,11 @@
                 <thead>
                 <tr>
                     <th>序号<button value='123' onclick="sc('me','index')"></button></th>
+                    <th>名称</th>
                     <th>图标</th>
                     <!-- <th>封面图片</th> -->
                     <th>是否开启</th>
-                    <!-- <th>优先级</th> -->
+                    <th>优先级</th>
                     <th>跳转链接</th>
                     <th>操作</th>
                 </tr>
@@ -34,6 +35,7 @@
                     <volist name="list" id="m">
                         <tr>
                             <td>{$m.id}</td>
+                            <td>{$m.title_en}</td>
                             <td><i class="fa {$m.title}" style="font-size:18px;" aria-hidden="true"></i></td>
                             <!-- <td>
                                 <if condition="$m.image neq ''">
@@ -43,10 +45,11 @@
                             <td>
                             <if condition="$m.isopen eq 1">开启<else/>关闭</if>
                             </td>
+                            <td>{$m.sequence}</td>
                             <td>{$m.href}</td>
                             <td>
                                 <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/icon_edit?id={$m.id}"/>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/icon_delete?id={$m.id}' data-confirm="您确定要删除'{$m.name}'吗？"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/icon_delete?id={$m.id}' data-confirm="您确定要删除'{$m.title_en}'吗？"/>
                             </td>
                         </tr>
                     </volist>

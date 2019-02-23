@@ -92,6 +92,13 @@
               <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
             </div>
           </div>
+        <div class="layui-form-item items">
+          <label class="form-text label-required">分享图片：</label>
+          <div class="form-right">
+              <include file="Public/image_icon" image_name="image_icon" is_show="0" img_url="{$row.image_icon}"/>
+            <!-- <small class="orange-text desc">(请上传正方型的图片 图片大小为：80*80-150*150 最合适80*80)</small> -->
+          </div>
+        </div>
           <div class="layui-form-item  items">
             <label class="form-text">发布时间</label>
             <div class="form-right">
@@ -99,6 +106,31 @@
               <input required="" type="text" class="layui-input input-inf2" id="publish_time" name="publish_time" lay-verify="" autocomplete="off" placeholder="发布时间">
             </div>
           </div>
+        <foreach name="icons" key="k" item="i">
+          <div class="layui-form-item  items">
+                <if condition = "$k eq 0">
+                <label class="form-text">分享平台</label>
+                <else/>
+                <label class="form-text"></label>
+                </if>
+                <!-- <div class="form-right">
+                  <span class="layui-btn" data-modal="__GROUP__/item/edit_icon">编辑分享平台</span>
+                </div>
+     -->
+                  <div class="form-right">
+                    <label class="form-text">{$i.title_en}&nbsp;&nbsp;</label>
+                    <input required="" type="text" class="layui-input input-inf2"  name="item_icon[]" lay-verify="" autocomplete="off" placeholder="平台链接" value="{$i.url}">
+                    <input type="hidden" class="layui-input input-inf2"  name="item_icon_id[]" lay-verify="" autocomplete="off" placeholder="平台链接" value="{$i.id}">
+                    <div class="layui-form-item  items">
+                      <div class="form-right">
+                        <label class="form-text">说明：&nbsp;&nbsp;</label>
+                        <textarea>{$i.content}</textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+          </div>
+        </foreach>
         
         <div class="layui-form-item  items">
             <label class="form-text">优先级</label>

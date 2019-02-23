@@ -85,11 +85,87 @@ class CompanyAction extends CommonAction {
 
     //权限分配
     public function foot_icon(){
-        $list = M('icon')->select();
+        $list = M('foot_icon')->select();
         $this->list = $list;
         $this->display();
     }
     
+    public function foot_icon_edit() {
+        $id = $_GET['id'];
+        $row = M('foot_icon')->find($id);
+        $this->row = $row;
+        $this->arr = $row_arr;
+        $this->id = $id;
+        $this->display();
+
+    }
+    public function foot_icon_update() {
+        $id = I('post.id');
+        $id_info=M('foot_icon')->where(array('id' => $id))->find();
+        $title = trim(I('post.title',''));
+        $title_en = trim(I('post.title_en',''));
+        $isopen=I('post.isopen');
+        $href = trim(I('post.href',''));
+        $sequence = trim(I('post.sequence',''));
+        if(empty($title) || empty($title_en) || empty($href)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $data = array(
+            'title' => $title,
+            'title_en' => $title_en,
+            'href' => $href,
+            'sequence' => $sequence,
+            'isopen' => $isopen,
+        );
+
+        $res = M('foot_icon')->where(array('id' => $id))->save($data);
+        if ($res === false) {
+            $this->error("操作失败");
+        } else {
+            $name = "foot_icon";
+            $this->add_active_log('编辑'.$name.'信息');
+            $this->success("操作成功",__URL__.'/'.'foot_icon');
+        }
+    }
+    public function foot_icon_insert() {
+        $title = trim(I('post.title',''));
+        $title_en = trim(I('post.title_en',''));
+        $isopen=I('post.isopen');
+        $href = trim(I('post.href',''));
+        $sequence = trim(I('post.sequence',''));
+        if(empty($title) || empty($title_en) || empty($href)){
+            $this->error('红色带星项目必须填写，请检查后重新提交');
+            exit();
+        }
+        $data = array(
+            'title' => $title,
+            'title_en' => $title_en,
+            'href' => $href,
+            'isopen' => $isopen,
+            'sequence' => $sequence,
+            'time' => time()
+        );
+        $res = M('foot_icon')->add($data);
+        if ($res) {
+            $name = "foot_icon";
+            $this->add_active_log('添加'.$name.'信息');
+            $this->success('添加成功',__URL__.'/'.'foot_icon');
+        } else {
+            $this->error('添加失败');
+        }
+    }
+    public function foot_icon_delete() {
+        $id = I('id');
+        $res = M('foot_icon')->where(array('id' => $id))->delete();
+        if ($res) {
+            $name = 'foot_icon';
+            $this->add_active_log('删除'.$id.$name.'信息');
+            $this->success('删除成功');
+        } else {
+            $this->error('删除失败');
+        }
+    }
 
 
     //摄影图片
@@ -182,15 +258,21 @@ class CompanyAction extends CommonAction {
         $id = I('post.id');
         $id_info=M('icon')->where(array('id' => $id))->find();
         $title = trim(I('post.title',''));
+        $title_en = trim(I('post.title_en',''));
         $isopen=I('post.isopen');
-       $href = trim(I('post.href',''));
-        if(empty($title) || empty($href)){
+        $href = trim(I('post.href',''));
+        $content = trim(I('post.content',''));
+        $sequence = trim(I('post.sequence',''));
+        if(empty($title) || empty($title_en) || empty($href)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
         $data = array(
             'title' => $title,
+            'title_en' => $title_en,
             'href' => $href,
+            'content' => $content,
+            'sequence' => $sequence,
             'isopen' => $isopen,
         );
 
@@ -205,16 +287,22 @@ class CompanyAction extends CommonAction {
     }
     public function icon_insert() {
         $title = trim(I('post.title',''));
+        $title_en = trim(I('post.title_en',''));
         $isopen=I('post.isopen');
         $href = trim(I('post.href',''));
-        if(empty($title) || empty($href)){
+        $content = trim(I('post.content',''));
+        $sequence = trim(I('post.sequence',''));
+        if(empty($title) || empty($title_en) || empty($href)){
             $this->error('红色带星项目必须填写，请检查后重新提交');
             exit();
         }
         $data = array(
             'title' => $title,
+            'title_en' => $title_en,
             'href' => $href,
             'isopen' => $isopen,
+            'content' => $content,
+            'sequence' => $sequence,
             'time' => time()
         );
         $res = M('icon')->add($data);

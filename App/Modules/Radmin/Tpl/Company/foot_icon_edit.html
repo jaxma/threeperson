@@ -46,7 +46,7 @@
 		</blockquote>
 	</header>
 	<div class="layui-content">
-		<form class="layui-form layui-box" action="__URL__/icon_update" data-auto="false" method="post">
+		<form class="layui-form layui-box" action="__URL__/foot_icon_update" data-auto="false" method="post">
       <div class="layui-form-item items">
         <label class="form-text">名称：</label>
         <div class="form-right">
@@ -78,12 +78,6 @@
         <label class="form-text">跳转链接：</label>
         <div class="form-right">
           <input class="input-inf2" required=""  type="text" name="href" lay-verify="href" autocomplete="off" title="请输入跳转链接" placeholder="请输入跳转链接" value="{$row.href}">
-        </div>
-      </div>
-      <div class="layui-form-item items">
-        <label class="form-text">说明：</label>
-        <div class="form-right">
-            <textarea class="textarea" placeholder="输入说明" name="content" id="">{$row.content}</textarea>
         </div>
       </div>
 			<div class="layui-form-item  items">

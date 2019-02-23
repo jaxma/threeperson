@@ -99,30 +99,32 @@
                             <!-- 分享 -->
                             <div class="stat social">
                                 <h4><if condition = "$lang eq 1" >{$project_detail.completedyear_en}<else/>共享</if></h4>
-                                <!-- 邮箱 -->
+                                <!--
                                 <a href="{$loaction_url}" class="icon-round" target="_blank">
                                     <i class="fa fa-envelope"></i>
                                 </a>
-                                 <!-- 微博 新浪 -->
                                 <a href="{$loaction_url}" class="icon-round" target="_blank">
                                     <i class="fa fa-weibo"></i>
                                 </a>
-                                <!-- facebook -->
                                 <a href="{$loaction_url}" class="icon-round" target="_blank">
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <!-- twitter -->
                                 <a href="{$loaction_url}" class="icon-round" target="_blank">
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <!-- pinterest -->
                                 <a href="{$loaction_url}" class="icon-round" target="_blank">
                                     <i class="fa fa-pinterest"></i>
                                 </a>
-                                <!-- tumblr -->
                                 <a href="{$loaction_url}" class="icon-round" target="_blank">
                                     <i class="fa fa-tumblr-square"></i>
                                 </a>
+                                -->
+
+                                <foreach name="icons" item="i">
+                                    <a href="{$i.loaction_url}" class="icon-round" target="_blank">
+                                        <i class="fa {$i.title}"></i>
+                                    </a>
+                                </foreach>
                             </div>
                         </div>
                     </div>

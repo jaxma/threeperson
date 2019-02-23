@@ -69,6 +69,8 @@ class CommonAction extends Action {
         $this->en_tel =  $this->lang?C('TE_EN_TEL'):C('T_EN_TEL');
         $this->en_email =  $this->lang?C('TE_EN_EMAIL'):C('T_EN_EMAIL');
 
+        $foot_icons = M('foot_icon')->where('isopen = 1')->order('sequence desc')->select();
+
         //脚步icon
         $footer_icon = M('company')->where('status = 106')->find();
         $html = '';
@@ -146,6 +148,7 @@ class CommonAction extends Action {
         $this->module_name = $module_name;
     	$this->domain = C('YM_DOMAIN');
         $this->html = $html;
+        $this->foot_icons = $foot_icons;
     }
 
     public function detail_arr($detail){

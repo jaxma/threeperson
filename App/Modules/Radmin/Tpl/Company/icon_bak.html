@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <script>
+        /**
+         * 使用图片上传接口需满足以下条件
+         * 1.容器选择器id=upload
+         * 2.设置name=image的input标签隐藏域
+         * 3.指定上传目录名称
+         */
+            //上传目录
+        var upload_dir_name = 'icon';
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form .items .desc {
+                position: static;
+            }
+        } 
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid edit-wrapper">
+    <header class="edit-title">
+        <blockquote class="layui-elem-quote">
+            <span class="title">底部图标 && 链接</span>
+        </blockquote>
+    </header>
+    <div class="layui-content">
+        <form class="layui-form layui-box" action="__URL__/update_icon" data-auto="false" method="post">
+            <div class="layui-form-item items">
+                <label class="form-text">图标1</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="icon1" lay-verify="icon1" autocomplete="off" title="请输入图标class" placeholder="请输入图标class" value="{$row.name}">
+                    <i class="fa fa-question-circle-o question" data-tips-text="请输入class，如pinterest"></i>
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">链接</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="url1" lay-verify="url1" autocomplete="off" title="请输入链接" placeholder="请输入链接" value="{$row.name_en}">
+                </div>
+            </div>
+            <br/>
+            <div class="layui-form-item items">
+                <label class="form-text">图标2</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="icon2" lay-verify="icon2" autocomplete="off" title="请输入图标class" placeholder="请输入图标class" value="{$row.city_cn}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">链接</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="url2" lay-verify="url2" autocomplete="off" title="请输入链接" placeholder="请输入链接" value="{$row.city_cn_en}">
+                </div>
+            </div>
+            <br/>
+            <div class="layui-form-item items">
+                <label class="form-text">图标3</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="icon3" lay-verify="icon3" autocomplete="off" title="请输入图标class" placeholder="请输入图标class" value="{$row.city_usa}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">链接</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="url3" lay-verify="url3" autocomplete="off" title="请输入链接" placeholder="请输入链接" value="{$row.city_usa_en}">
+                </div>
+            </div>
+            <br/>
+            <div class="layui-form-item items">
+                <label class="form-text">图标4</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="icon4" lay-verify="icon4" autocomplete="off" title="请输入图标class" placeholder="请输入图标class" value="{$row.address_cn}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">链接</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="url4" lay-verify="url4" autocomplete="off" title="请输入链接" placeholder="请输入链接" value="{$row.address_cn_en}">
+                </div>
+            </div>
+            <br/>
+            <div class="layui-form-item items">
+                <label class="form-text">图标5</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="icon5" lay-verify="icon5" autocomplete="off" title="请输入图标class" placeholder="请输入图标class" value="{$row.address_usa}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">链接</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="url5" lay-verify="url5" autocomplete="off" title="请输入链接" placeholder="请输入链接" value="{$row.address_usa_en}">
+                </div>
+            </div>
+            <br/>
+            <div class="layui-form-item items">
+                <label class="form-text">图标6</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="icon6" lay-verify="icon6" autocomplete="off" title="请输入图标class" placeholder="请输入图标class" value="{$row.content}">
+                </div>
+            </div>
+            <div class="layui-form-item items">
+                <label class="form-text">链接</label>
+                <div class="form-right">
+                    <input class="input-inf2" type="text" name="url6" lay-verify="url6" autocomplete="off" title="请输入链接" placeholder="请输入链接" value="{$row.content_en}">
+                </div>
+            </div>
+            <small class="orange-text desc" style="padding-left:200px;">(按顺序出现)</small>
+
+            <div class="layui-form-item  items">
+                <label class="form-text"></label>
+                <div class="form-right">
+                    <!-- <input type="hidden" name="id" value="{$id}"> -->
+                    <button class="layui-btn" type='submit'>确定</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

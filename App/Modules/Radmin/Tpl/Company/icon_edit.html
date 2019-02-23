@@ -1,0 +1,83 @@
+<html>
+
+<head>
+	<script>
+        /**
+         * 使用图片上传接口需满足以下条件
+         * 1.容器选择器id=upload
+         * 2.设置name=image的input标签隐藏域
+         * 3.指定上传目录名称
+         */
+            //上传目录
+        var upload_dir_name = 'icon';
+    </script>
+    <style>
+        @media screen and (max-width: 768px) {
+            .edit-wrapper .layui-content .layui-form .items .desc {
+                position: static;
+            }
+        }
+        .edit-wrapper .layui-content .layui-form .layui-upload-lists{
+          min-width: 610px;
+          max-width: 350px;
+          max-height: 226px;
+        } 
+        .edit-wrapper .layui-content .layui-form .items .form-right {
+          min-width: 610px;
+          max-width: 350px;
+        }
+/*        .layui-form-item .form-right input{
+            margin-left: 15px;
+            display: inline-block;
+        }
+        .layui-form-item .form-right label{
+            margin-bottom: -8px;
+            margin-left: 6px;
+        }*/
+    </style>
+</head>
+
+<body>
+
+<div class="container-fluid edit-wrapper">
+	<header class="edit-title">
+		<blockquote class="layui-elem-quote">
+			<span class="title">编辑图标</span>
+		</blockquote>
+	</header>
+	<div class="layui-content">
+		<form class="layui-form layui-box" action="__URL__/icon_update" data-auto="false" method="post">
+			<div class="layui-form-item items">
+				<label class="form-text">图标class：</label>
+				<div class="form-right">
+					<input class="input-inf2" required="" type="text" name="title" lay-verify="title" autocomplete="off" title="请输入图标class：" placeholder="请输入图标class：" value="{$row.title}">
+					<input type="hidden" name="id" value="{$id}">
+				</div>
+			</div>
+      <div class="layui-form-item  items">
+        <label class="form-text">是否开启</label>
+        <div class="form-right">
+                <input type="radio" name="isopen" value="1" title="开启" <?php echo $row['isopen']==1?'checked':'';?> >
+                <input type="radio" name="isopen" value="0" title="关闭" <?php echo $row['isopen']==0?'checked':'';?> >
+        </div>
+      </div>
+      <div class="layui-form-item items">
+        <label class="form-text">跳转链接：</label>
+        <div class="form-right">
+          <input class="input-inf2" required=""  type="text" name="href" lay-verify="href" autocomplete="off" title="请输入跳转链接" placeholder="请输入跳转链接" value="{$row.href}">
+        </div>
+      </div>
+
+			<div class="layui-form-item  items">
+				<label class="form-text"></label>
+				<div class="form-right">
+					<button class="layui-btn" type='submit'>确定</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">form.render();</script>
+</body>
+
+</html>

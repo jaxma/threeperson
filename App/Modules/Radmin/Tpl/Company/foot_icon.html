@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>底部图标</title>
+        <link rel="stylesheet" href="__PUBLIC__/Radmin_v3/css/rebate_setting.css">
+    </head>
+
+    <body>
+        <div class="container-fluid edit-wrapper layui-container">
+            <header class="edit-title">
+                <blockquote class="layui-elem-quote">
+                    <span class="title">底部图标</span>
+                </blockquote>
+            </header>
+
+            <div class="panel panel-default panel-intro">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li>
+                            <a href="#rebate1" data-toggle="tab" aria-expanded="false">底部图标</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="panel-body">  
+                    <form action="__GROUP__/admin/auth_update" data-auto="false" method="post">
+                    
+                    <div class="layui-form-item">
+                        <foreach name="list" item="vo">
+                            <input type="checkbox" value="{$vo.id}" name="icon_sum[]" title="{$vo.title}" lay-skin="primary" checked>
+                            <i class="fa {$vo.title}" style="font-size:18px;" aria-hidden="true"></i>
+                            <br/>
+                        </foreach>                    
+                    </div>
+        
+        
+                    <div class="layui-form-item special-item">
+                        
+
+                        <div class="layui-form-item text-center">
+                            <p>注意修改后要重新登录才能生效！</p>
+                            <input type="hidden" name="id" value="{$id}" />
+                            <button class="layui-btn" type='submit'>确认修改</button>
+                            <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消修改吗？" data-close>取消修改</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        <!--<script src="__PUBLIC__/Radmin_v3/js/upgrade_setting.js"></script>-->
+    </body>
+
+</html>

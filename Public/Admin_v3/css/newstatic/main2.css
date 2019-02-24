@@ -748,7 +748,7 @@ h6 {
 
 h1,
 h2 {
-    color: #2f4455;
+    /* color: #2f4455; */
     font-size: 40px;
     line-height: 1.2
 }

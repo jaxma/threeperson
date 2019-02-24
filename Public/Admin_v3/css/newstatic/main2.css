@@ -4760,7 +4760,8 @@ body {
     font-size: 24px;
     line-height: 1.7;
     text-rendering: optimizeLegibility;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    color:#000;
 }
 
 .body-copy {

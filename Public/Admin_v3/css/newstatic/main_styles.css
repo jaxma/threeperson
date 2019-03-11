@@ -9,7 +9,7 @@
 }
 body
 {
-	font-family: 'microsoft yahei' !important;
+	font-family: '方正黑体,SimHei,Aerial' !important;
 	font-size: 14px;
 	font-weight: 400;
 	background: #FFFFFF;
@@ -313,11 +313,11 @@ section
 	width: 200px;
 	height: 60px;
 	display: block;
-	background: url('../../image/black-logo.png') no-repeat center/ 100%;
+	background: url('../../image/black-logo.jpg') no-repeat center/ 100%;
 }
 .logoBlack a
 {
-	background: url('../../image/black-logo.png') no-repeat center/ 100% !important;
+	background: url('../../image/black-logo.jpg') no-repeat center/ 100% !important;
 }
 .logo{
 	position: absolute;

@@ -80,7 +80,7 @@
                             <td>{$m.publish_time|date="Y-m-d H:i",###}</td>
                             <td>
                                 <input type="button" class="layui-btn layui-btn-radius layui-btn-normal" value="编辑" data-open="__URL__/edit?id={$m.id}"/>
-                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/delete?id={$m.id}' data-confirm="您确定要删除'{$m.name}'吗？"/>
+                                <input type="button" class="layui-btn layui-btn-radius layui-btn-danger" value="删除"  data-load='__URL__/delete?id={$m.id}' data-confirm="您确定要删除'{$m.title}'吗？"/>
                             </td>
                         </tr>
                     </volist>

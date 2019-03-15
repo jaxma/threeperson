@@ -109,7 +109,8 @@ class LoginAction extends Action {
             
             $Admin->add_active_log($admin['id'],'登录后台，IP：'.get_ip());
             
-            $this->success('登录成功！', __APP__.'/radmin/index/index/#' . __APP__.'/radmin/analysis/index?spm=m-0-0');
+            // $this->success('登录成功！', __APP__.'/radmin/index/index/#' . __APP__.'/radmin/analysis/index?spm=m-0-0');
+            $this->success('登录成功！', __APP__.'/radmin/index/index/#');
         }
     }
     

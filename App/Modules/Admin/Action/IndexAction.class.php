@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 	topos经销商后台test
+ * 	topos经销商后台
  */
 class IndexAction extends CommonAction {
 
